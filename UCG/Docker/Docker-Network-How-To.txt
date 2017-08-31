@@ -1,0 +1,65 @@
+
+
+********** This command starts container on local-loop network - 
+run -d  -v /Users/dennisnoto/Documents/NotoData-Dev/UCG-Repo/UCG/Docker/data:/data  -p 1880:1880 nodered/node-red-docker
+Denniss-MBP:Docker dennisnoto$ docker ps
+CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS              PORTS                    NAMES
+bab6429ee57f        nodered/node-red-docker   "npm start -- --us..."   7 seconds ago       Up 6 seconds        0.0.0.0:1880->1880/tcp   angry_tesla
+
+
+
+********** To use the host ip address do the folloing
+
+********* Create a docker network with the host ip
+
+Denniss-MBP:Docker dennisnoto$ Docker network create -o "com.docker.network.bridge.host_binding_ipv4"="192.168.1.131" my-network
+
+********* inspect the network
+Denniss-MBP:Docker dennisnoto$ docker network inspect my-network
+[
+    {
+        "Name": "my-network",
+        "Id": "c91f015fb8597cf9456f44ae365416acdb4dcc632cdfc5fd2f72367532029474",
+        "Created": "2017-08-30T03:19:59.861796518Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.18.0.0/16",
+                    "Gateway": "172.18.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {},
+        "Options": {
+            "com.docker.network.bridge.host_binding_ipv4": "192.168.1.131"
+        },
+        "Labels": {}
+    }
+]
+
+
+*********** Update the run command with the -- network. ********* Notice the ip address in the status
+Denniss-MBP:Docker dennisnoto$ docker run -d  -v /Users/dennisnoto/Documents/NotoData-Dev/UCG-Repo/UCG/Docker/data:/data  --network my-network -p 1880:1880 nodered/node-red-docker 
+
+Denniss-MBP:Docker dennisnoto$ docker ps
+CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS              PORTS                          NAMES
+73f943a2e40b        nodered/node-red-docker   "npm start -- --us..."   20 seconds ago      Up 20 seconds       192.168.1.131:1880->1880/tcp   nervous_heyrovsky
+
+
+
+
+
+
+

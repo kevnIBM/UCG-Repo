@@ -2,7 +2,7 @@
  "nodes": {
   "node-red": {
    "name": "node-red",
-   "version": "0.16.2",
+   "version": "0.17.5",
    "local": false,
    "nodes": {
     "sentiment": {
@@ -354,7 +354,7 @@
   },
   "node-red-node-base64": {
    "name": "node-red-node-base64",
-   "version": "0.0.4",
+   "version": "0.0.6",
    "local": false,
    "nodes": {
     "base64": {
@@ -371,7 +371,7 @@
   },
   "node-red-node-email": {
    "name": "node-red-node-email",
-   "version": "0.1.15",
+   "version": "0.1.24",
    "local": false,
    "nodes": {
     "email": {
@@ -389,7 +389,7 @@
   },
   "node-red-node-feedparser": {
    "name": "node-red-node-feedparser",
-   "version": "0.1.7",
+   "version": "0.1.8",
    "local": false,
    "nodes": {
     "feedparse": {
@@ -440,7 +440,7 @@
   },
   "node-red-node-rbe": {
    "name": "node-red-node-rbe",
-   "version": "0.1.6",
+   "version": "0.1.11",
    "local": false,
    "nodes": {
     "rbe": {
@@ -474,7 +474,7 @@
   },
   "node-red-node-twitter": {
    "name": "node-red-node-twitter",
-   "version": "0.1.9",
+   "version": "0.1.11",
    "local": false,
    "nodes": {
     "twitter": {
