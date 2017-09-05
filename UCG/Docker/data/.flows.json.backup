@@ -367,6 +367,16 @@
         "database": "ucg"
     },
     {
+        "id": "acd2435e.9f2528",
+        "type": "MSSQL-UCG-CN",
+        "z": "",
+        "name": "MSSQL-UCG-CN",
+        "server": "ucg-mssql.database.windows.net",
+        "port": "1433",
+        "encyption": true,
+        "database": "ucg"
+    },
+    {
         "id": "c8620933.bc367",
         "type": "function",
         "z": "e6126968.dddaa",
@@ -416,7 +426,7 @@
         "type": "function",
         "z": "52457267.ef5464",
         "name": "Define Session",
-        "func": "//New Database Seesion Mgt\n// convoUser - Unique user id across channels\n// ConvoTS - Timestamp of actual WCS Call\n// convoSource - Source Channel Name, will be used in Convo\n//             - Examples (Alexa,Google Home, Slack, Phone, WebChat, Mobile)\n//convoPayload - actual return from WCS\n// Database document will be calles session\n// -- Index on convoUser and convoTS\n// -- We will write all WCS turns into the table\n// -- On retrieval  of the user session\n//    -- We will search by index put back last 5 documents sorted by convoTS descending\n//    -- assures first document will be the latest WCS user convo\n//\n// New fields for Reporting\n// convoDialog - <context.system.dialog_stack[0].dialog_node> from WSC\n// convoIntent - Root Vertical node. (Set ROOT-<name> in root vertical dialog node title in WCS that are applicable)\n// convoDialogType - Type of node - for business scoring SUCCESS, FAIL, etc. (Set SUCCESS-<name> or FAIL-<name> in dialog node title in WCS) \n// convoCounter - unique counter after change of Root Vertical\n// convoDialogElement - Intent or Entity name\n// conovDialogConfidence - confidence score\n// convoTransID = <username><convoIntent><date><convoCounter>     example:  dennisnoto-ROOT-ClaimStatus201701010823\n//   Unique ID for convo to summarize statistics\n// convoUtterance - user utterance\n// convoAnswer - Watson answer\n\n// Can chain  ROOT and FAIL  example ROOT-FAIL-<name>  This would signify a ROOT Vertical node with FAIL as the Type\n// Can chain  ROOT and SUCCESS  example ROOT-SUCCESS-<name>  This would signify a ROOT Vertical node with SUCCESS as the Type\n\nvar d = new Date();\n// MST Time Zone - 6 hours off UTC/GMT\nvar milliMST = 6*60*60*1000;\nvar localeDate = new Date(d.getTime()-milliMST);\nvar foundIntent = false;\nvar foundEntity = false;\nmsg.convoDialogIntents = \"\";\nmsg.convoDialogEntities = \"\";\n\n// Set Utterance\nif (typeof msg.payload.input !== \"undefined\") \n {msg.convoUtterance = msg.payload.input.text;}\n\n//Set Answer\nif (typeof msg.payload.output !== \"undefined\") \n { //msg.convoAnswer = msg.payload.output.text[0]\n  msg.convoAnswer = \"\";\n  var texts = msg.payload.output.text;\n  for (i = 0; i < texts.length; i++) \n    {msg.convoAnswer = msg.convoAnswer + \" \" + texts[i]; }\n     msg.convoAnswer = msg.convoAnswer.replace(/\\[(.*?)\\]/g, \"\");\n  }\n// Set DialogIntents and DialogEntities\nif (typeof msg.payload.intents[0] !== \"undefined\")\n { foundIntent = true;\n   for (i = 0; i < msg.payload.intents.length; i++) \n   { msg.convoDialogIntents = msg.convoDialogIntents + msg.payload.intents[i].intent + \",\"; }  \n }\n\nif (typeof msg.payload.entities[0] !== \"undefined\")\n { foundEntity = true;\n   for (i = 0; i < msg.payload.entities.length; i++) \n   { msg.convoDialogEntities = msg.convoDialogEntities + msg.payload.entities[i].entity + \",\"; }\n }\n// Set confidence\nif (foundIntent === true && foundEntity === true) \n    {msg.convoDialogConfidence = (msg.payload.intents[0].confidence + msg.payload.entities[0].confidence)/2; }\nelse if (foundIntent === true)  \n    {msg.convoDialogConfidence = msg.payload.intents[0].confidence;}\nelse if (foundEntity === true)     \n    {msg.convoDialogConfidence = msg.payload.entities[0].confidence;}\nelse \n    {msg.convoDialogConfidence = 0;}\n\n// Set and change convoIntent by identifying Root Vertical Nodes. (Set ROOT-<name> in root vertical dialog node title in WCS that are applicable)\n// Could find if node is ROOT by calling WCS api for dialog-node, but would be an extra api\nif (typeof msg.payload.context.system.dialog_stack[0] !== \"undefined\") \n {msg.convoDialogNode = msg.payload.context.system.dialog_stack[msg.payload.context.system.dialog_stack.length - 1].dialog_node;\n  \n  if (msg.convoDialogNode === \"root\")\n    {msg.convoDialogNode = msg.payload.output.nodes_visited[msg.payload.output.nodes_visited.length - 1];}   \n }\n// Find convoIntent\nif (typeof msg.session == \"undefined\") \n     if (msg.convoDialogNode.match(/ROOT-/g) )\n         {msg.convoIntent = msg.convoDialogNode;\n          msg.convoCounter = 1;}   \n    else \n         {msg.convoIntent = \"\";\n          msg.convoCounter = 0;} \n       \nelse if (msg.convoDialogNode.match(/ROOT-/g) )\n   \n   if (msg.convoDialogNode !== msg.session.convoIntent || msg.session.convoIntent === \"\") \n       {msg.convoIntent = msg.convoDialogNode;\n        msg.convoCounter = msg.session.convoCounter + 1;}\n    else  \n       {msg.convoIntent = msg.session.convoIntent;\n        msg.convoCounter = msg.session.convoCounter;}\nelse\n   {msg.convoIntent = msg.session.convoIntent;\n    msg.convoCounter = msg.session.convoCounter;}\n\n// Set node type for scoring. (Set SUCCESS-<name> or FAIL-<name> in dialog node title in WCS) \nif (msg.convoDialogNode.match(/SUCCESS-/g) )\n    {msg.convoDialogType = \"SUCCESS\";\n     msg.convoContainmentScore = 100;}\nelse if (msg.convoDialogNode.match(/FAIL-/g) )\n         {msg.convoDialogType = \"FAIL\";\n          msg.convoContainmentScore = -100;}\nelse if (msg.convoDialogConfidence >= 0.7 )\n         {msg.convoDialogType = \"High_Confidence\";\n          msg.convoContainmentScore = 10;}\nelse if (msg.convoDialogConfidence >= 0.4 && msg.convoDialogConfidence < 0.7)\n         {msg.convoDialogType = \"Medium_Confidence\";\n          msg.convoContainmentScore = 5;}\nelse if (msg.convoDialogConfidence >= 0.2 && msg.convoDialogConfidence < 0.4)\n         {msg.convoDialogType = \"Low_Confidence\";\n          msg.convoContainmentScore = -5;}\nelse if (msg.convoDialogConfidence > 0 && msg.convoDialogConfidence < 0.2)\n         {msg.convoDialogType = \"No_Confidence\";\n          msg.convoContainmentScore = -10;}\nelse {msg.convoDialogType = \"UNKNOWN\";\n      msg.convoContainmentScore = 0;}\n         \n         \nvar sessionMsg = {\n    payload : {\n    convoUser : msg.user,\n    convoTS : localeDate,\n    convoSource : msg.source,\n    convoIntent : msg.convoIntent,\n    convoDialogNode : msg.convoDialogNode,\n    convoDialogType : msg.convoDialogType,\n    convoDialogIntents : msg.convoDialogIntents,\n    convoDialogEntities : msg.convoDialogEntities,\n    convoDialogConfidence : msg.convoDialogConfidence,\n    convoContainmentScore : msg.convoContainmentScore,\n    convoCounter : msg.convoCounter,\n    convoTransID : msg.user + msg.convoIntent + localeDate.getFullYear()+ localeDate.getMonth()+1 + localeDate.getDate() + localeDate.getHours() + msg.convoCounter.toString(), \n    convoUtterance : msg.convoUtterance,\n    convoAnswer : msg.convoAnswer,\n    convoPayload : msg.payload\n    }\n};\n\nreturn [msg,sessionMsg];",
+        "func": "//New Database Seesion Mgt\n// convoUser - Unique user id across channels\n// ConvoTS - Timestamp of actual WCS Call\n// convoSource - Source Channel Name, will be used in Convo\n//             - Examples (Alexa,Google Home, Slack, Phone, WebChat, Mobile)\n//convoPayload - actual return from WCS\n// Database document will be calles session\n// -- Index on convoUser and convoTS\n// -- We will write all WCS turns into the table\n// -- On retrieval  of the user session\n//    -- We will search by index put back last 5 documents sorted by convoTS descending\n//    -- assures first document will be the latest WCS user convo\n//\n// New fields for Reporting\n// convoDialog - <context.system.dialog_stack[0].dialog_node> from WSC\n// convoIntent - Root Vertical node. (Set ROOT-<name> in root vertical dialog node title in WCS that are applicable)\n// convoDialogType - Type of node - for business scoring SUCCESS, FAIL, etc. (Set SUCCESS-<name> or FAIL-<name> in dialog node title in WCS) \n// convoCounter - unique counter after change of Root Vertical\n// convoDialogElement - Intent or Entity name\n// conovDialogConfidence - confidence score\n// convoTransID = <username><convoIntent><date><convoCounter>     example:  dennisnoto-ROOT-ClaimStatus201701010823\n//   Unique ID for convo to summarize statistics\n// convoUtterance - user utterance\n// convoAnswer - Watson answer\n\n// Can chain  ROOT and FAIL  example ROOT-FAIL-<name>  This would signify a ROOT Vertical node with FAIL as the Type\n// Can chain  ROOT and SUCCESS  example ROOT-SUCCESS-<name>  This would signify a ROOT Vertical node with SUCCESS as the Type\n\nvar d = new Date();\n// MST Time Zone - 6 hours off UTC/GMT\nvar milliMST = 6*60*60*1000;\nvar localeDate = new Date(d.getTime()-milliMST);\nvar foundIntent = false;\nvar foundEntity = false;\nmsg.convoDialogIntents = \"\";\nmsg.convoDialogEntities = \"\";\n\n// Set Utterance\nif (typeof msg.payload.input !== \"undefined\") \n {msg.convoUtterance = msg.payload.input.text;}\n\n//Set Answer\nif (typeof msg.payload.output !== \"undefined\") \n { //msg.convoAnswer = msg.payload.output.text[0]\n  msg.convoAnswer = \"\";\n  var texts = msg.payload.output.text;\n  for (i = 0; i < texts.length; i++) \n    {msg.convoAnswer = msg.convoAnswer + \" \" + texts[i]; }\n     msg.convoAnswer = msg.convoAnswer.replace(/\\[(.*?)\\]/g, \"\");\n  }\n// Set DialogIntents and DialogEntities\nif (typeof msg.payload.intents[0] !== \"undefined\")\n { foundIntent = true;\n   for (i = 0; i < msg.payload.intents.length; i++) \n   { msg.convoDialogIntents = msg.convoDialogIntents + msg.payload.intents[i].intent + \",\"; }  \n }\n\nif (typeof msg.payload.entities[0] !== \"undefined\")\n { foundEntity = true;\n   for (i = 0; i < msg.payload.entities.length; i++) \n   { msg.convoDialogEntities = msg.convoDialogEntities + msg.payload.entities[i].entity + \",\"; }\n }\n// Set confidence\nif (foundIntent === true && foundEntity === true) \n    {msg.convoDialogConfidence = (msg.payload.intents[0].confidence + msg.payload.entities[0].confidence)/2; }\nelse if (foundIntent === true)  \n    {msg.convoDialogConfidence = msg.payload.intents[0].confidence;}\nelse if (foundEntity === true)     \n    {msg.convoDialogConfidence = msg.payload.entities[0].confidence;}\nelse \n    {msg.convoDialogConfidence = 0;}\n\n// Set and change convoIntent by identifying Root Vertical Nodes. (Set ROOT-<name> in root vertical dialog node title in WCS that are applicable)\n// Could find if node is ROOT by calling WCS api for dialog-node, but would be an extra api\nif (typeof msg.payload.context.system.dialog_stack[0] !== \"undefined\") \n {msg.convoDialogNode = msg.payload.context.system.dialog_stack[msg.payload.context.system.dialog_stack.length - 1].dialog_node;\n  \n  if (msg.convoDialogNode === \"root\")\n    {msg.convoDialogNode = msg.payload.output.nodes_visited[msg.payload.output.nodes_visited.length - 1];}   \n }\nelse\n  msg.convoDialogNode = \"\";\n  \n// Find convoIntent\nif (typeof msg.session == \"undefined\") \n     if (msg.convoDialogNode.match(/ROOT-/g) )\n         {msg.convoIntent = msg.convoDialogNode;\n          msg.convoCounter = 1;}   \n    else \n         {msg.convoIntent = \"\";\n          msg.convoCounter = 0;} \n       \nelse if (msg.convoDialogNode.match(/ROOT-/g) )\n   \n   if (msg.convoDialogNode !== msg.session.convoIntent || msg.session.convoIntent === \"\") \n       {msg.convoIntent = msg.convoDialogNode;\n        msg.convoCounter = msg.session.convoCounter + 1;}\n    else  \n       {msg.convoIntent = msg.session.convoIntent;\n        msg.convoCounter = msg.session.convoCounter;}\nelse\n   {msg.convoIntent = msg.session.convoIntent;\n    msg.convoCounter = msg.session.convoCounter;}\n\n// Set node type for scoring. (Set SUCCESS-<name> or FAIL-<name> in dialog node title in WCS) \nif (msg.convoDialogNode.match(/SUCCESS-/g) )\n    {msg.convoDialogType = \"SUCCESS\";\n     msg.convoContainmentScore = 100;}\nelse if (msg.convoDialogNode.match(/FAIL-/g) )\n         {msg.convoDialogType = \"FAIL\";\n          msg.convoContainmentScore = -100;}\nelse if (msg.convoDialogConfidence >= 0.7 )\n         {msg.convoDialogType = \"High_Confidence\";\n          msg.convoContainmentScore = 10;}\nelse if (msg.convoDialogConfidence >= 0.4 && msg.convoDialogConfidence < 0.7)\n         {msg.convoDialogType = \"Medium_Confidence\";\n          msg.convoContainmentScore = 5;}\nelse if (msg.convoDialogConfidence >= 0.2 && msg.convoDialogConfidence < 0.4)\n         {msg.convoDialogType = \"Low_Confidence\";\n          msg.convoContainmentScore = -5;}\nelse if (msg.convoDialogConfidence > 0 && msg.convoDialogConfidence < 0.2)\n         {msg.convoDialogType = \"No_Confidence\";\n          msg.convoContainmentScore = -10;}\nelse {msg.convoDialogType = \"UNKNOWN\";\n      msg.convoContainmentScore = 0;}\n         \n         \nvar sessionMsg = {\n    payload : {\n    convoUser : msg.user,\n    convoTS : localeDate,\n    convoSource : msg.source,\n    convoIntent : msg.convoIntent,\n    convoDialogNode : msg.convoDialogNode,\n    convoDialogType : msg.convoDialogType,\n    convoDialogIntents : msg.convoDialogIntents,\n    convoDialogEntities : msg.convoDialogEntities,\n    convoDialogConfidence : msg.convoDialogConfidence,\n    convoContainmentScore : msg.convoContainmentScore,\n    convoCounter : msg.convoCounter,\n    convoTransID : msg.user + msg.convoIntent + localeDate.getFullYear()+ localeDate.getMonth()+1 + localeDate.getDate() + localeDate.getHours() + msg.convoCounter.toString(), \n    convoUtterance : msg.convoUtterance,\n    convoAnswer : msg.convoAnswer,\n    convoPayload : msg.payload\n    }\n};\n\nreturn [msg,sessionMsg];",
         "outputs": "2",
         "noerr": 0,
         "x": 224.9444580078125,
@@ -3470,6 +3480,53 @@
         "complete": "true",
         "x": 634.5,
         "y": 195,
+        "wires": []
+    },
+    {
+        "id": "52eb1a53.c9614c",
+        "type": "MSSQL-UCG",
+        "z": "cb400db2.feb1d8",
+        "mssqlCN": "acd2435e.9f2528",
+        "name": "Our MSSQL-UCG Node",
+        "query": "SELECT * FROM information_schema.tables;",
+        "outField": "payload",
+        "x": 301.5,
+        "y": 402,
+        "wires": [
+            [
+                "e6903af8.80e948"
+            ]
+        ]
+    },
+    {
+        "id": "93490d5d.b3ca88",
+        "type": "inject",
+        "z": "cb400db2.feb1d8",
+        "name": "List Tables",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 101.5,
+        "y": 404,
+        "wires": [
+            [
+                "52eb1a53.c9614c"
+            ]
+        ]
+    },
+    {
+        "id": "e6903af8.80e948",
+        "type": "debug",
+        "z": "cb400db2.feb1d8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 511.5,
+        "y": 402,
         "wires": []
     }
 ]

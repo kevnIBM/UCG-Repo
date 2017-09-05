@@ -367,6 +367,16 @@
         "database": "ucg"
     },
     {
+        "id": "acd2435e.9f2528",
+        "type": "MSSQL-UCG-CN",
+        "z": "",
+        "name": "MSSQL-UCG-CN",
+        "server": "ucg-mssql.database.windows.net",
+        "port": "1433",
+        "encyption": true,
+        "database": "ucg"
+    },
+    {
         "id": "c8620933.bc367",
         "type": "function",
         "z": "e6126968.dddaa",
@@ -3470,6 +3480,53 @@
         "complete": "true",
         "x": 634.5,
         "y": 195,
+        "wires": []
+    },
+    {
+        "id": "52eb1a53.c9614c",
+        "type": "MSSQL-UCG",
+        "z": "cb400db2.feb1d8",
+        "mssqlCN": "acd2435e.9f2528",
+        "name": "Our MSSQL-UCG Node",
+        "query": "SELECT * FROM information_schema.tables;",
+        "outField": "payload",
+        "x": 301.5,
+        "y": 402,
+        "wires": [
+            [
+                "e6903af8.80e948"
+            ]
+        ]
+    },
+    {
+        "id": "93490d5d.b3ca88",
+        "type": "inject",
+        "z": "cb400db2.feb1d8",
+        "name": "List Tables",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 101.5,
+        "y": 404,
+        "wires": [
+            [
+                "52eb1a53.c9614c"
+            ]
+        ]
+    },
+    {
+        "id": "e6903af8.80e948",
+        "type": "debug",
+        "z": "cb400db2.feb1d8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 511.5,
+        "y": 402,
         "wires": []
     }
 ]

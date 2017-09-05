@@ -903,6 +903,24 @@
      "file": "/data/node_modules/node-red-contrib-redis/redis.js"
     }
    }
+  },
+  "node-red-contrib-UCG-mssql": {
+   "name": "node-red-contrib-UCG-mssql",
+   "version": "0.0.7",
+   "local": true,
+   "nodes": {
+    "mssql": {
+     "name": "mssql",
+     "types": [
+      "MSSQL-UCG-CN",
+      "MSSQL-UCG"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-UCG-mssql",
+     "file": "/data/node_modules/node-red-contrib-UCG-mssql/mssql.js"
+    }
+   }
   }
  }
 }
