@@ -28,9 +28,26 @@
         "node-red-node-msgpack": "*",
         "node-red-node-base64": "*",
         "node-red-node-suncalc": "*",
-        "node-red-node-random": "*"
+        "node-red-node-random": "*",
+        "when": "~3.x",
+        "nano": "6.2.x",
+        "bcrypt": "1.0.2",
+        "cfenv":"~1.0.0",
+        "express":"4.x",
+        "body-parser":"1.x",
+        "http-shutdown":"1.2.0",
+        "node-red-bluemix-nodes":"1.x",
+        "node-red-node-watson":"0.x",
+        "node-red-node-openwhisk":"0.x",
+        "node-red-node-cf-cloudant":"0.x",
+        "node-red-contrib-scx-ibmiotapp":"0.x",
+        "node-red-contrib-redis":"0.x",
+        "node-red-contrib-mssql":"0.x",
+        "node-red-contrib-ucg-mssql":"0.x",
+        "node-red-contrib-http-request":"0.x"
+
     },
     "engines": {
-        "node": "4.*.*"
+        "node": "8.*.*"
     }
 }
