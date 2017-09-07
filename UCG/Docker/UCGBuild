@@ -1,0 +1,1 @@
+docker build -f latest/Dockerfile -t dennisnotojr/node-red-docker-node8-nr-17:latest .

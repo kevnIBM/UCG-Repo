@@ -3334,3 +3334,376 @@ Welcome to Node-RED
 2017-09-05T00:11:42.527Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
 2017-09-05T00:11:42.574Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
 2017-09-05T00:11:42.589Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-07T16:19:57.858Z Level 40 
+
+Welcome to Node-RED
+===================
+
+2017-09-07T16:19:57.868Z Level 40 Node-RED version: v0.17.5
+2017-09-07T16:19:57.870Z Level 40 Node.js  version: v6.11.1
+2017-09-07T16:19:57.871Z Level 40 Linux 4.9.41-moby x64 LE
+2017-09-07T16:19:58.204Z Level 40 Loading palette nodes
+2017-09-07T16:20:07.936Z Level 30 ------------------------------------------------------
+2017-09-07T16:20:07.939Z Level 30 ------------------------------------------------------
+2017-09-07T16:20:07.940Z Level 40 Settings file  : /data/settings.js
+2017-09-07T16:20:07.942Z Level 40 User directory : /data
+2017-09-07T16:20:07.943Z Level 40 Flows file     : /data/flows.json
+2017-09-07T16:20:07.938Z Level 30 [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-09-07T16:20:07.938Z Level 30 [tcp] Error: tcp in already registered (line:181)
+2017-09-07T16:20:07.939Z Level 30 [udp] Error: udp out already registered (line:102)
+2017-09-07T16:20:07.958Z Level 40 Server now running at http://127.0.0.1:1880/
+2017-09-07T16:20:07.965Z Level 50 loaded flow revision: bd7977cd9c9b2bd1ae4a4f7030f2bcd0
+2017-09-07T16:20:07.988Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-07T16:20:07.989Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-07T16:20:07.990Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-07T16:20:07.990Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-07T16:20:07.990Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-07T16:20:07.991Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-07T16:20:07.991Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-07T16:20:07.991Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-07T16:20:07.991Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-07T16:20:07.992Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-07T16:20:07.992Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-07T16:20:07.992Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-07T16:20:12.780Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-07T16:20:07.966Z Level 50 red/runtime/nodes/credentials.load : user provided key
+2017-09-07T16:20:07.987Z Level 40 Starting flows
+2017-09-07T16:20:13.687Z Level 40 Started flows
+2017-09-07T16:22:18.316Z Level 40 Installing module: node-red-contrib-http-request, version: 0.1.8
+2017-09-07T16:22:29.952Z Level 40 Installed module: node-red-contrib-http-request
+2017-09-07T16:22:30.658Z Level 40  - node-red-contrib-http-request:www-request
+2017-09-07T16:22:30.657Z Level 40 Added node types:
+2017-09-07T16:23:12.647Z Level 50 saved flow revision: 3de7630e67e81e7a8bdc5f568b3bd921
+2017-09-07T16:23:12.685Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-07T16:23:12.710Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-07T16:23:12.735Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-07T16:23:12.756Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-07T16:23:12.771Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-07T16:23:12.818Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-07T16:23:12.834Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-07T16:23:12.850Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-07T16:23:12.852Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-07T16:23:12.856Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-07T16:23:12.946Z Level 40 Stopped flows
+2017-09-07T16:23:12.951Z Level 40 Starting flows
+2017-09-07T16:23:12.961Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-07T16:23:12.970Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-07T16:23:12.969Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-07T16:23:12.971Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-07T16:23:12.971Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-07T16:23:12.972Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-07T16:23:12.972Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-07T16:23:12.972Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-07T16:23:12.973Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-07T16:23:12.973Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-07T16:23:12.974Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-07T16:23:12.974Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-07T16:23:12.975Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-07T16:23:23.674Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-07T16:23:25.470Z Level 40 Started flows
+2017-09-07T16:23:12.649Z Level 40 Stopping flows
+2017-09-07T16:23:12.650Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-07T16:23:12.657Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-07T16:33:16.211Z Level 50 saved flow revision: 786a50cd3a995673fbae35fc8422f7e4
+2017-09-07T16:33:16.229Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-07T16:33:16.253Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-07T16:33:16.272Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-07T16:33:16.282Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-07T16:33:16.295Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-07T16:33:16.335Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-07T16:33:16.211Z Level 40 Stopping flows
+2017-09-07T16:33:16.212Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-07T16:33:16.354Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-07T16:33:16.359Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-07T16:33:16.358Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-07T16:33:16.213Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-07T16:33:16.396Z Level 40 Stopped flows
+2017-09-07T16:33:16.343Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-07T16:33:16.351Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-07T16:33:16.399Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-07T16:33:16.398Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-07T16:33:16.399Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-07T16:33:16.397Z Level 40 Starting flows
+2017-09-07T16:33:16.400Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-07T16:33:16.398Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-07T16:33:16.398Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-07T16:33:16.400Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-07T16:33:16.401Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-07T16:33:16.400Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-07T16:33:16.401Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-07T16:33:27.243Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-07T16:33:16.401Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-07T16:33:16.401Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-07T16:33:16.401Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-07T16:33:29.122Z Level 40 Started flows
+2017-09-07T16:33:49.062Z Level 20 ConnectionError: Failed to connect to ucg-mssql.database.windows.net:80 in 15000ms
+2017-09-07T16:34:02.141Z Level 20 ConnectionError: Failed to connect to ucg-mssql.database.windows.net:80 in 15000ms
+2017-09-07T16:34:10.956Z Level 40 Stopping flows
+2017-09-07T16:34:10.986Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-07T16:34:11.003Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-07T16:34:11.025Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-07T16:34:11.086Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-07T16:34:11.168Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-07T16:34:11.200Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-07T16:34:11.206Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-07T16:34:11.230Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-07T16:34:11.252Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-07T16:34:11.255Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-07T16:34:11.261Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-07T16:34:11.312Z Level 40 Stopped flows
+2017-09-07T16:34:11.318Z Level 40 Starting flows
+2017-09-07T16:34:11.319Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-07T16:34:11.328Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-07T16:34:11.333Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-07T16:34:11.335Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-07T16:34:11.336Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-07T16:34:11.336Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-07T16:34:11.339Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-07T16:34:11.337Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-07T16:34:11.339Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-07T16:34:11.340Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-07T16:34:11.340Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-07T16:34:11.340Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-07T16:34:11.341Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-07T16:34:22.308Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-07T16:34:25.459Z Level 40 Started flows
+2017-09-07T16:34:10.955Z Level 50 saved flow revision: 96190749c99afec38b570cf835c9afaa
+2017-09-07T16:34:10.961Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-07T16:34:10.966Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-07T16:34:29.309Z Level 20 ConnectionError: Cannot open server 'ucg-mssql' requested by the login. Client with IP address '174.29.85.209' is not allowed to access the server.  To enable access, use the Windows Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect.
+2017-09-07T16:59:18.079Z Level 50 saved flow revision: 3d5e28c56c7a50f48b06f02c7deabab6
+2017-09-07T16:59:18.082Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-07T16:59:18.083Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-07T16:59:18.114Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-07T16:59:18.134Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-07T16:59:18.142Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-07T16:59:18.148Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-07T16:59:18.155Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-07T16:59:18.157Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-07T16:59:18.162Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-07T16:59:18.165Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-07T16:59:18.166Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-07T16:59:18.167Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-07T16:59:18.207Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-07T16:59:18.205Z Level 40 Starting flows
+2017-09-07T16:59:18.205Z Level 40 Stopped flows
+2017-09-07T16:59:18.208Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-07T16:59:18.211Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-07T16:59:18.212Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-07T16:59:18.215Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-07T16:59:18.215Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-07T16:59:18.216Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-07T16:59:18.218Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-07T16:59:18.216Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-07T16:59:18.219Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-07T16:59:18.220Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-07T16:59:18.221Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-07T16:59:18.221Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-07T16:59:29.392Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-07T16:59:18.081Z Level 40 Stopping flows
+2017-09-07T16:59:18.098Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-07T16:59:32.216Z Level 40 Started flows
+2017-09-07T17:04:47.361Z Level 50 saved flow revision: c39c662d78b7d3477d833b0ba590df6e
+2017-09-07T17:04:47.394Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-07T17:04:47.408Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-07T17:04:47.365Z Level 40 Stopping flows
+2017-09-07T17:04:47.366Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-07T17:04:47.459Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-07T17:04:47.472Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-07T17:04:47.478Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-07T17:04:47.370Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-07T17:04:47.430Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-07T17:04:47.498Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-07T17:04:47.500Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-07T17:04:47.566Z Level 40 Stopped flows
+2017-09-07T17:04:47.568Z Level 40 Starting flows
+2017-09-07T17:04:47.569Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-07T17:04:47.573Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-07T17:04:47.574Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-07T17:04:47.574Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-07T17:04:47.575Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-07T17:04:47.575Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-07T17:04:47.576Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-07T17:04:47.576Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-07T17:04:47.576Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-07T17:04:47.577Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-07T17:04:47.577Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-07T17:04:47.576Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-07T17:04:47.577Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-07T17:05:01.446Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-07T17:05:04.436Z Level 40 Started flows
+2017-09-07T17:04:47.446Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-07T17:04:47.493Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-07T17:04:47.497Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-07T17:27:29.118Z Level 40 
+
+Welcome to Node-RED
+===================
+
+2017-09-07T17:27:29.122Z Level 40 Node-RED version: v0.17.5
+2017-09-07T17:27:29.122Z Level 40 Node.js  version: v8.4.0
+2017-09-07T17:27:29.123Z Level 40 Linux 4.9.41-moby x64 LE
+2017-09-07T17:27:29.464Z Level 40 Loading palette nodes
+2017-09-07T17:27:34.576Z Level 30 ------------------------------------------------------
+2017-09-07T17:27:34.580Z Level 30 ------------------------------------------------------
+2017-09-07T17:27:34.581Z Level 40 Settings file  : /data/settings.js
+2017-09-07T17:27:34.578Z Level 30 [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-09-07T17:27:34.582Z Level 40 Flows file     : /data/flows.json
+2017-09-07T17:27:34.578Z Level 30 [tcp] Error: tcp in already registered (line:181)
+2017-09-07T17:27:34.579Z Level 30 [udp] Error: udp out already registered (line:102)
+2017-09-07T17:27:34.582Z Level 40 User directory : /data
+2017-09-07T17:27:34.593Z Level 40 Server now running at http://127.0.0.1:1880/
+2017-09-07T17:27:34.600Z Level 50 loaded flow revision: c39c662d78b7d3477d833b0ba590df6e
+2017-09-07T17:27:34.611Z Level 40 Starting flows
+2017-09-07T17:27:34.612Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-07T17:27:34.613Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-07T17:27:34.613Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-07T17:27:34.614Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-07T17:27:34.614Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-07T17:27:34.614Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-07T17:27:34.615Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-07T17:27:34.615Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-07T17:27:34.615Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-07T17:27:34.615Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-07T17:27:34.616Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-07T17:27:34.616Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-07T17:27:36.549Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-07T17:27:37.663Z Level 40 Started flows
+2017-09-07T17:27:34.601Z Level 50 red/runtime/nodes/credentials.load : user provided key
+2017-09-07T17:27:34.612Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-07T17:28:19.169Z Level 40 
+
+Welcome to Node-RED
+===================
+
+2017-09-07T17:28:19.173Z Level 40 Node-RED version: v0.17.5
+2017-09-07T17:28:19.173Z Level 40 Node.js  version: v8.4.0
+2017-09-07T17:28:19.174Z Level 40 Linux 4.9.41-moby x64 LE
+2017-09-07T17:28:19.516Z Level 40 Loading palette nodes
+2017-09-07T17:28:24.355Z Level 30 ------------------------------------------------------
+2017-09-07T17:28:24.357Z Level 30 ------------------------------------------------------
+2017-09-07T17:28:24.357Z Level 40 Settings file  : /data/settings.js
+2017-09-07T17:28:24.358Z Level 40 User directory : /data
+2017-09-07T17:28:24.359Z Level 40 Flows file     : /data/flows.json
+2017-09-07T17:28:24.356Z Level 30 [tcp] Error: tcp in already registered (line:181)
+2017-09-07T17:28:24.356Z Level 30 [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-09-07T17:28:24.357Z Level 30 [udp] Error: udp out already registered (line:102)
+2017-09-07T17:28:24.371Z Level 40 Server now running at http://127.0.0.1:1880/
+2017-09-07T17:28:24.377Z Level 50 loaded flow revision: c39c662d78b7d3477d833b0ba590df6e
+2017-09-07T17:28:24.389Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-07T17:28:24.389Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-07T17:28:24.390Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-07T17:28:24.389Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-07T17:28:24.389Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-07T17:28:24.390Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-07T17:28:24.390Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-07T17:28:24.390Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-07T17:28:24.390Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-07T17:28:24.390Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-07T17:28:24.390Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-07T17:28:24.390Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-07T17:28:26.285Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-07T17:28:27.398Z Level 40 Started flows
+2017-09-07T17:28:24.377Z Level 50 red/runtime/nodes/credentials.load : user provided key
+2017-09-07T17:28:24.388Z Level 40 Starting flows
+2017-09-07T17:28:24.388Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-07T17:44:43.486Z Level 40 
+
+Welcome to Node-RED
+===================
+
+2017-09-07T17:44:43.491Z Level 40 Node-RED version: v0.17.5
+2017-09-07T17:44:43.492Z Level 40 Node.js  version: v8.4.0
+2017-09-07T17:44:43.492Z Level 40 Linux 4.9.41-moby x64 LE
+2017-09-07T17:44:43.872Z Level 40 Loading palette nodes
+2017-09-07T17:44:46.028Z Level 30 ------------------------------------------------------
+2017-09-07T17:44:46.030Z Level 30 ------------------------------------------------------
+2017-09-07T17:44:46.030Z Level 40 Settings file  : /data/settings.js
+2017-09-07T17:44:46.031Z Level 40 User directory : /data
+2017-09-07T17:44:46.032Z Level 40 Flows file     : /data/flows.json
+2017-09-07T17:44:46.029Z Level 30 [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-09-07T17:44:46.029Z Level 30 [udp] Error: udp out already registered (line:102)
+2017-09-07T17:44:46.029Z Level 30 [tcp] Error: tcp in already registered (line:181)
+2017-09-07T17:44:46.042Z Level 40 Server now running at http://127.0.0.1:1880/
+2017-09-07T17:44:46.049Z Level 50 loaded flow revision: c39c662d78b7d3477d833b0ba590df6e
+2017-09-07T17:44:46.061Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-07T17:44:46.062Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-07T17:44:46.062Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-07T17:44:46.062Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-07T17:44:46.063Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-07T17:44:46.063Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-07T17:44:46.063Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-07T17:44:46.063Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-07T17:44:46.064Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-07T17:44:46.064Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-07T17:44:46.064Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-07T17:44:46.064Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-07T17:44:46.064Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-07T17:44:46.050Z Level 50 red/runtime/nodes/credentials.load : user provided key
+2017-09-07T17:44:49.094Z Level 40 Started flows
+2017-09-07T17:44:46.061Z Level 40 Starting flows
+2017-09-07T17:44:47.974Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-07T20:37:12.823Z Level 40 
+
+Welcome to Node-RED
+===================
+
+2017-09-07T20:37:12.827Z Level 40 Node-RED version: v0.17.5
+2017-09-07T20:37:12.827Z Level 40 Node.js  version: v8.4.0
+2017-09-07T20:37:12.828Z Level 40 Linux 4.9.41-moby x64 LE
+2017-09-07T20:37:13.172Z Level 40 Loading palette nodes
+2017-09-07T20:37:15.273Z Level 30 [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-09-07T20:37:15.272Z Level 30 ------------------------------------------------------
+2017-09-07T20:37:15.274Z Level 30 ------------------------------------------------------
+2017-09-07T20:37:15.274Z Level 40 Settings file  : /data/settings.js
+2017-09-07T20:37:15.275Z Level 40 User directory : /data
+2017-09-07T20:37:15.275Z Level 40 Flows file     : /data/flows.json
+2017-09-07T20:37:15.273Z Level 30 [tcp] Error: tcp in already registered (line:181)
+2017-09-07T20:37:15.274Z Level 30 [mssql] Error: MSSQL-UCG-CN already registered (line:32)
+2017-09-07T20:37:15.273Z Level 30 [udp] Error: udp out already registered (line:102)
+2017-09-07T20:37:15.285Z Level 40 Server now running at http://127.0.0.1:1880/
+2017-09-07T20:37:15.292Z Level 50 loaded flow revision: c39c662d78b7d3477d833b0ba590df6e
+2017-09-07T20:37:15.303Z Level 40  - MSSQL-UCG-CN
+2017-09-07T20:37:15.292Z Level 50 red/runtime/nodes/credentials.load : user provided key
+2017-09-07T20:37:15.303Z Level 40 Waiting for missing types to be registered:
+2017-09-07T20:37:15.304Z Level 40  - MSSQL-UCG
+2017-09-07T20:39:41.202Z Level 40 
+
+Welcome to Node-RED
+===================
+
+2017-09-07T20:39:41.206Z Level 40 Node-RED version: v0.17.5
+2017-09-07T20:39:41.207Z Level 40 Node.js  version: v8.4.0
+2017-09-07T20:39:41.207Z Level 40 Linux 4.9.41-moby x64 LE
+2017-09-07T20:39:41.561Z Level 40 Loading palette nodes
+2017-09-07T20:39:43.636Z Level 30 ------------------------------------------------------
+2017-09-07T20:39:43.638Z Level 30 [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-09-07T20:39:43.638Z Level 30 [tcp] Error: tcp in already registered (line:181)
+2017-09-07T20:39:43.640Z Level 30  - node-red-contrib-UCG-mssql (0.0.7): MSSQL-UCG-CN, MSSQL-UCG
+2017-09-07T20:39:43.641Z Level 40 Removing modules from config
+2017-09-07T20:39:43.639Z Level 30 [udp] Error: udp out already registered (line:102)
+2017-09-07T20:39:43.639Z Level 30 ------------------------------------------------------
+2017-09-07T20:39:43.651Z Level 40 User directory : /data
+2017-09-07T20:39:43.640Z Level 30 Missing node modules:
+2017-09-07T20:39:43.650Z Level 40 Settings file  : /data/settings.js
+2017-09-07T20:39:43.651Z Level 40 Flows file     : /data/flows.json
+2017-09-07T20:39:43.660Z Level 40 Server now running at http://127.0.0.1:1880/
+2017-09-07T20:39:43.666Z Level 50 loaded flow revision: c39c662d78b7d3477d833b0ba590df6e
+2017-09-07T20:39:43.678Z Level 40 Starting flows
+2017-09-07T20:39:43.667Z Level 50 red/runtime/nodes/credentials.load : user provided key
+2017-09-07T20:39:43.679Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-07T20:39:43.679Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-07T20:39:43.678Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-07T20:39:43.679Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-07T20:39:43.679Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-07T20:39:43.680Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-07T20:39:43.680Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-07T20:39:43.680Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-07T20:39:43.680Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-07T20:39:43.681Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-07T20:39:43.681Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-07T20:39:45.763Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-07T20:39:46.868Z Level 40 Started flows
+2017-09-07T20:39:43.680Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-07T20:39:43.680Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-07T20:40:27.741Z Level 20 ConnectionError: Cannot open server 'ucg-mssql' requested by the login. Client with IP address '174.29.85.209' is not allowed to access the server.  To enable access, use the Windows Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect.

@@ -1,36 +1,60 @@
 This Directory is for Docker Configurations and the creation and maintenence of /data directory for NodeRed configurations
 
-Steps to build /data
-  1) Create a /data directory on the host
+Steps to Implement
+  
+  0) Pull down a copy of UCG-Repo - https://github.com/dennisnotojr/UCG-Repo
+
+  0.1) Optional - building your container
+     - Pull from github new node-red-docker directory - https://github.com/node-red/node-red-docker
+     - Change Dockerfile in latest to have node:8 for latest node.js
+     - Change package.json to node:8
+     - Use the build comand in the UCGBuild file
+     - Push the image to DockerHub
+     - No longer needed to add modules manually for UCG flows
+     - Update the run command with new image location.   
+
+  1) Create a /data directory on the host and move the /data from the repo into that directory.
   
   2) Update the UCGRun-mapped-data-volume with the new path to the host /data 
         - do not put any files in /data. Initial run will be created dir/files under /data
-  3) Run the UCGRun docker command on the host to start the container for the first time
-        - you should see files like settings.json, lib directory, etc.
   
   4) For Flows 
-  Either Create a flows.json file - copy in the json array from flows-UCGx.json file or move the flows-UCGx.jsonfile in place.
+  
+  Automatic way - with the /data from UCG-Repo - skip!!
+
+  Manual way - create files from 
+  - Run the UCGRun docker command on the host to start the container for the first time
+        - you should see files like settings.json, lib directory, etc.
+
+  - Either Create a flows.json file - copy in the json array from flows-UCGx.json file or move the flows-UCGx.jsonfile in place.
         - You can copy from cloudant nodered but only copy the array after "flows" =
   
-  5) For Credentials - ***** Note this only works if the both from and to NodeRed Cred.json use the same secret set in the setting.json.(Do this only if you want the current flows api login and password) 
+  5) Node Red credentials
+ 
+ -Using the /data from UCG-Repo
+ 
+ Zero out the flows_cred.json. Go into flows and set user name/pasword for nodes that require login parameters.
+
+ -For Credentials in bluemix node red starter or other setup - 
+
+ ***** Note this only works if the both from and to NodeRed Cred.json use the same secret set in the setting.json.(Do this only if you want the current flows api login and password) 
 
   Either Create a flows_cred.json file-copy in the json array from flows_cred-UCGx.json file or move the file in place.
       - if you copy from cloudant - create empty file - copy flows_cred-UCGx.js structure and replace the value field
 
-  6) Replace the settings.js file with this one in the repo. It sets
+  6) Node Red config files
+
+  Automatic way - with the /data from UCG-Repo - skip!!
+
+  Manual way -
+  Replace the settings.js file with this one in the repo. It sets
   	  - flows file
   	  - pretty format for flows
   	  - secretkey
   	  - custom logging for a status.log to host
 
-  7) Added nodes to /data
-      - add node-red-node-watson via palette
-      - add node-red-bluemix via palette
-      - add node-red-contrib-redis via palette
-      - add node-red-mssql-redis via palette
-     You will see a new directory called node-modules
+  
 
-  8
 
 
        

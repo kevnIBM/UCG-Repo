@@ -406,7 +406,7 @@
   },
   "node-red-node-msgpack": {
    "name": "node-red-node-msgpack",
-   "version": "0.0.6",
+   "version": "1.0.0",
    "local": false,
    "nodes": {
     "msgpack": {
@@ -493,8 +493,8 @@
   },
   "node-red-node-watson": {
    "name": "node-red-node-watson",
-   "version": "0.5.11",
-   "local": true,
+   "version": "0.5.13",
+   "local": false,
    "nodes": {
     "watson-conversation-v1": {
      "name": "watson-conversation-v1",
@@ -502,9 +502,9 @@
       "watson-conversation-v1"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/conversation/v1.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/conversation/v1.js"
     },
     "watson-conversation-workspace-manager-v1": {
      "name": "watson-conversation-workspace-manager-v1",
@@ -512,9 +512,9 @@
       "watson-conversation-v1-workspace-manager"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/conversation/v1-workspace-manager.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/conversation/v1-workspace-manager.js"
     },
     "watson-discovery-v1": {
      "name": "watson-discovery-v1",
@@ -522,9 +522,9 @@
       "watson-discovery-v1"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/discovery/v1.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/discovery/v1.js"
     },
     "watson-discovery-v1-query-builder": {
      "name": "watson-discovery-v1-query-builder",
@@ -532,9 +532,9 @@
       "watson-discovery-v1-query-builder"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/discovery/v1-query-builder.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/discovery/v1-query-builder.js"
     },
     "watson-document-conversion-v1": {
      "name": "watson-document-conversion-v1",
@@ -542,9 +542,9 @@
       "convert"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/document_conversion/v1.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/document_conversion/v1.js"
     },
     "watson-concept-insights-v2": {
      "name": "watson-concept-insights-v2",
@@ -556,9 +556,9 @@
       "watson-concept-insights-related-concepts"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/concept_insights/v2.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/concept_insights/v2.js"
     },
     "alchemy-date-extraction": {
      "name": "alchemy-date-extraction",
@@ -566,9 +566,9 @@
       "alchemy-date-extraction"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/alchemy_date_extraction/v1.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/alchemy_date_extraction/v1.js"
     },
     "watson-dialog-v1": {
      "name": "watson-dialog-v1",
@@ -576,9 +576,9 @@
       "service-dialog"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/dialog/v1.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/dialog/v1.js"
     },
     "alchemy_language-v1": {
      "name": "alchemy_language-v1",
@@ -586,9 +586,9 @@
       "alchemy-feature-extract"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/alchemy_language/v1.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/alchemy_language/v1.js"
     },
     "watson-language-translator-v2": {
      "name": "watson-language-translator-v2",
@@ -596,9 +596,9 @@
       "watson-translator"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/language_translator/v2.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/language_translator/v2.js"
     },
     "watson-language-translator-identify-v2": {
      "name": "watson-language-translator-identify-v2",
@@ -606,9 +606,9 @@
       "watson-language-translator-identify"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/language_translator_identify/v2.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/language_translator_identify/v2.js"
     },
     "watson-language-translator-util-v2": {
      "name": "watson-language-translator-util-v2",
@@ -616,9 +616,9 @@
       "watson-translator-util"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/language_translator_util/v2.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/language_translator_util/v2.js"
     },
     "watson-natural-language-classifier-v1": {
      "name": "watson-natural-language-classifier-v1",
@@ -626,9 +626,9 @@
       "watson-natural-language-classifier"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/natural_language_classifier/v1.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/natural_language_classifier/v1.js"
     },
     "watson-natural-language-understanding-v1": {
      "name": "watson-natural-language-understanding-v1",
@@ -636,9 +636,9 @@
       "natural-language-understanding"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/natural_language_understanding/v1.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/natural_language_understanding/v1.js"
     },
     "alchemy-news-v1": {
      "name": "alchemy-news-v1",
@@ -646,9 +646,9 @@
       "news"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/alchemy_data_news/v1.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/alchemy_data_news/v1.js"
     },
     "watson-personality-insights-v3": {
      "name": "watson-personality-insights-v3",
@@ -656,9 +656,9 @@
       "watson-personality-insights-v3"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/personality_insights/v3.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/personality_insights/v3.js"
     },
     "watson-retrieve-and-rank-v1": {
      "name": "watson-retrieve-and-rank-v1",
@@ -674,9 +674,9 @@
       "watson-retrieve-rank-search-and-rank"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/retrieve_and_rank/v1.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/retrieve_and_rank/v1.js"
     },
     "watson-speech-to-text-v1": {
      "name": "watson-speech-to-text-v1",
@@ -684,9 +684,9 @@
       "watson-speech-to-text"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/speech_to_text/v1.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/speech_to_text/v1.js"
     },
     "watson-speech-to-text-corpus-builder-v1": {
      "name": "watson-speech-to-text-corpus-builder-v1",
@@ -694,9 +694,9 @@
       "watson-speech-to-text-v1-query-builder"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/speech_to_text/v1-corpus-builder.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/speech_to_text/v1-corpus-builder.js"
     },
     "watson-text-to-speech-v1": {
      "name": "watson-text-to-speech-v1",
@@ -704,9 +704,9 @@
       "watson-text-to-speech"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/text_to_speech/v1.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/text_to_speech/v1.js"
     },
     "watson-text-to-speech-corpus-builder-v1": {
      "name": "watson-text-to-speech-corpus-builder-v1",
@@ -714,9 +714,9 @@
       "watson-text-to-speech-v1-query-builder"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/text_to_speech/v1-corpus-builder.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/text_to_speech/v1-corpus-builder.js"
     },
     "watson-tone-analyzer-v3": {
      "name": "watson-tone-analyzer-v3",
@@ -724,9 +724,9 @@
       "watson-tone-analyzer-v3"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/tone_analyzer/v3.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/tone_analyzer/v3.js"
     },
     "watson-tradeoff-analytics-v1": {
      "name": "watson-tradeoff-analytics-v1",
@@ -734,9 +734,9 @@
       "watson-tradeoff-analytics"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/tradeoff_analytics/v1.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/tradeoff_analytics/v1.js"
     },
     "watson-visual-recognition-v3": {
      "name": "watson-visual-recognition-v3",
@@ -745,9 +745,9 @@
       "visual-recognition-util-v3"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/visual_recognition/v3.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/visual_recognition/v3.js"
     },
     "watson-similarity-search-v3": {
      "name": "watson-similarity-search-v3",
@@ -756,9 +756,9 @@
       "similarity-search-util-v3"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/similarity_search/v3.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/similarity_search/v3.js"
     },
     "alchemy-vision-v1": {
      "name": "alchemy-vision-v1",
@@ -766,16 +766,16 @@
       "alchemy-image-analysis"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-node-watson",
-     "file": "/data/node_modules/node-red-node-watson/services/alchemy_vision/v1.js"
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/alchemy_vision/v1.js"
     }
    }
   },
   "node-red-contrib-mssql": {
    "name": "node-red-contrib-mssql",
    "version": "0.0.7",
-   "local": true,
+   "local": false,
    "nodes": {
     "mssql": {
      "name": "mssql",
@@ -784,16 +784,16 @@
       "MSSQL"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-contrib-mssql",
-     "file": "/data/node_modules/node-red-contrib-mssql/mssql.js"
+     "file": "/usr/src/node-red/node_modules/node-red-contrib-mssql/mssql.js"
     }
    }
   },
   "node-red-bluemix-nodes": {
    "name": "node-red-bluemix-nodes",
    "version": "1.1.10",
-   "local": true,
+   "local": false,
    "nodes": {
     "tcp": {
      "name": "tcp",
@@ -803,9 +803,9 @@
       "tcp request"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-bluemix-nodes",
-     "file": "/data/node_modules/node-red-bluemix-nodes/io/31-tcpin-cf.js"
+     "file": "/usr/src/node-red/node_modules/node-red-bluemix-nodes/io/31-tcpin-cf.js"
     },
     "udp": {
      "name": "udp",
@@ -813,9 +813,9 @@
       "udp out"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-bluemix-nodes",
-     "file": "/data/node_modules/node-red-bluemix-nodes/io/32-udp-cf.js"
+     "file": "/usr/src/node-red/node_modules/node-red-bluemix-nodes/io/32-udp-cf.js"
     },
     "mqlight": {
      "name": "mqlight",
@@ -824,9 +824,9 @@
       "mqlight out"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-bluemix-nodes",
-     "file": "/data/node_modules/node-red-bluemix-nodes/mqlight/mqlight.js"
+     "file": "/usr/src/node-red/node_modules/node-red-bluemix-nodes/mqlight/mqlight.js"
     },
     "mongodb": {
      "name": "mongodb",
@@ -836,9 +836,9 @@
       "mongodb in"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-bluemix-nodes",
-     "file": "/data/node_modules/node-red-bluemix-nodes/mongo/66-mongodb-cf.js"
+     "file": "/usr/src/node-red/node_modules/node-red-bluemix-nodes/mongo/66-mongodb-cf.js"
     },
     "twilio": {
      "name": "twilio",
@@ -847,9 +847,9 @@
       "twilio-api"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-bluemix-nodes",
-     "file": "/data/node_modules/node-red-bluemix-nodes/twilio/56-twilio-cf.js"
+     "file": "/usr/src/node-red/node_modules/node-red-bluemix-nodes/twilio/56-twilio-cf.js"
     },
     "weather": {
      "name": "weather",
@@ -857,9 +857,9 @@
       "weather_insights"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-bluemix-nodes",
-     "file": "/data/node_modules/node-red-bluemix-nodes/weather/weather_insights.js"
+     "file": "/usr/src/node-red/node_modules/node-red-bluemix-nodes/weather/weather_insights.js"
     },
     "businessrules": {
      "name": "businessrules",
@@ -867,9 +867,9 @@
       "business-rules"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-bluemix-nodes",
-     "file": "/data/node_modules/node-red-bluemix-nodes/businessrules/v1.js"
+     "file": "/usr/src/node-red/node_modules/node-red-bluemix-nodes/businessrules/v1.js"
     },
     "spssscoring": {
      "name": "spssscoring",
@@ -877,16 +877,16 @@
       "predictive_analytics"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-bluemix-nodes",
-     "file": "/data/node_modules/node-red-bluemix-nodes/spss/spssscoring.js"
+     "file": "/usr/src/node-red/node_modules/node-red-bluemix-nodes/spss/spssscoring.js"
     }
    }
   },
   "node-red-contrib-redis": {
    "name": "node-red-contrib-redis",
    "version": "1.1.5",
-   "local": true,
+   "local": false,
    "nodes": {
     "redis": {
      "name": "redis",
@@ -898,16 +898,90 @@
       "redis-lua-script"
      ],
      "enabled": true,
-     "local": true,
+     "local": false,
      "module": "node-red-contrib-redis",
-     "file": "/data/node_modules/node-red-contrib-redis/redis.js"
+     "file": "/usr/src/node-red/node_modules/node-red-contrib-redis/redis.js"
     }
    }
   },
-  "node-red-contrib-UCG-mssql": {
-   "name": "node-red-contrib-UCG-mssql",
-   "version": "0.0.7",
+  "node-red-contrib-http-request": {
+   "name": "node-red-contrib-http-request",
+   "version": "0.1.8",
    "local": true,
+   "nodes": {
+    "www-request": {
+     "name": "www-request",
+     "types": [
+      "www-request"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-http-request",
+     "file": "/data/node_modules/node-red-contrib-http-request/www-request.js"
+    }
+   }
+  },
+  "node-red-contrib-scx-ibmiotapp": {
+   "name": "node-red-contrib-scx-ibmiotapp",
+   "version": "0.0.47",
+   "local": false,
+   "nodes": {
+    "ibmiotapp": {
+     "name": "ibmiotapp",
+     "types": [
+      "ibmiot",
+      "ibmiot out",
+      "ibmiot in"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-contrib-scx-ibmiotapp",
+     "file": "/usr/src/node-red/node_modules/node-red-contrib-scx-ibmiotapp/application/97-iotnewapp-cf.js"
+    }
+   }
+  },
+  "node-red-node-cf-cloudant": {
+   "name": "node-red-node-cf-cloudant",
+   "version": "0.2.17",
+   "local": false,
+   "nodes": {
+    "cloudant-cf": {
+     "name": "cloudant-cf",
+     "types": [
+      "cloudant",
+      "cloudant out",
+      "cloudant in"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-node-cf-cloudant",
+     "file": "/usr/src/node-red/node_modules/node-red-node-cf-cloudant/77-cloudant-cf.js"
+    }
+   }
+  },
+  "node-red-node-openwhisk": {
+   "name": "node-red-node-openwhisk",
+   "version": "0.3.2",
+   "local": false,
+   "nodes": {
+    "openwhisk": {
+     "name": "openwhisk",
+     "types": [
+      "openwhisk-service",
+      "openwhisk-trigger",
+      "openwhisk-action"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-node-openwhisk",
+     "file": "/usr/src/node-red/node_modules/node-red-node-openwhisk/openwhisk/openwhisk.js"
+    }
+   }
+  },
+  "node-red-contrib-ucg-mssql": {
+   "name": "node-red-contrib-ucg-mssql",
+   "version": "0.0.7",
+   "local": false,
    "nodes": {
     "mssql": {
      "name": "mssql",
@@ -916,9 +990,9 @@
       "MSSQL-UCG"
      ],
      "enabled": true,
-     "local": true,
-     "module": "node-red-contrib-UCG-mssql",
-     "file": "/data/node_modules/node-red-contrib-UCG-mssql/mssql.js"
+     "local": false,
+     "module": "node-red-contrib-ucg-mssql",
+     "file": "/usr/src/node-red/node_modules/node-red-contrib-ucg-mssql/mssql.js"
     }
    }
   }
