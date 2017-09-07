@@ -28,10 +28,10 @@ module.exports = {
     //uiHost: "127.0.0.1",
 
     // Retry time in milliseconds for MQTT connections
-    mqttReconnectTime: 15000,
+    //mqttReconnectTime: 15000,
 
     // Retry time in milliseconds for Serial port connections
-    serialReconnectTime: 15000,
+    //serialReconnectTime: 15000,
 
     // Retry time in milliseconds for TCP socket connections
     //socketReconnectTime: 10000,
