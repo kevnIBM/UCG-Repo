@@ -41,10 +41,11 @@
         "node-red-node-openwhisk":"0.x",
         "node-red-node-cf-cloudant":"0.x",
         "node-red-contrib-scx-ibmiotapp":"0.x",
-        "node-red-contrib-redis":"0.x",
+        "node-red-contrib-redis":"1.x",
         "node-red-contrib-mssql":"0.x",
         "node-red-contrib-ucg-mssql":"0.x",
-        "node-red-contrib-http-request":"0.x"
+        "node-red-contrib-http-request":"0.x",
+        "node-red-contrib-ucg-redis":"1.1.19"
 
     },
     "engines": {

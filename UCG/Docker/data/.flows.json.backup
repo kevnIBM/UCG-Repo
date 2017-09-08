@@ -2,7 +2,8 @@
     {
         "id": "3fad3621.99e442",
         "type": "tab",
-        "label": "Load"
+        "label": "Load",
+        "disabled": false
     },
     {
         "id": "1b19f8b1.08de9f",
@@ -244,7 +245,7 @@
                 "y": 43.61785888671875,
                 "wires": [
                     {
-                        "id": "abe832fb.671d4"
+                        "id": "1b432e31.ea73ba"
                     }
                 ]
             }
@@ -255,7 +256,7 @@
                 "y": 43.61785888671875,
                 "wires": [
                     {
-                        "id": "abe832fb.671d4",
+                        "id": "1b432e31.ea73ba",
                         "port": 0
                     }
                 ]
@@ -350,15 +351,6 @@
         ]
     },
     {
-        "id": "c4fe3fc7.317438",
-        "type": "redis-config",
-        "z": "",
-        "host": "bluemix-sandbox-dal-9-portal.7.dblayer.com",
-        "port": "27247",
-        "dbase": "bmix-dal-yp-fbea7a11-a02e-4c4b-b70f-ccef2238e301",
-        "pass": "IVKPWZBPOAJYQCRR"
-    },
-    {
         "id": "5c51ec75.e126c4",
         "type": "twilio-api",
         "z": "",
@@ -384,6 +376,51 @@
         "port": "1433",
         "encyption": true,
         "database": "ucg"
+    },
+    {
+        "id": "33f3291a.c16c36",
+        "type": "redis-config",
+        "z": "99f74819.77fb08",
+        "host": "bluemix-sandbox-dal-9-portal.7.dblayer.com",
+        "port": "27247",
+        "dbase": "0",
+        "pass": "IVKPWZBPOAJYQCRR"
+    },
+    {
+        "id": "567f771.26fba88",
+        "type": "redis-config",
+        "z": "99f74819.77fb08",
+        "host": "bluemix-sandbox-dal-9-portal.7.dblayer.com",
+        "port": "27247",
+        "dbase": "0",
+        "pass": "IVKPWZBPOAJYQCRR"
+    },
+    {
+        "id": "2ac03eb1.f39492",
+        "type": "redis-config",
+        "z": "be024f13.40d248",
+        "host": "bluemix-sandbox-dal-9-portal.7.dblayer.com",
+        "port": "27247",
+        "dbase": "0",
+        "pass": "IVKPWZBPOAJYQCRR"
+    },
+    {
+        "id": "b5d8d26.deba8b",
+        "type": "redis-ucg-config",
+        "z": "be024f13.40d248",
+        "host": "bluemix-sandbox-dal-9-portal.7.dblayer.com",
+        "port": "27247",
+        "dbase": "0",
+        "pass": "IVKPWZBPOAJYQCRR"
+    },
+    {
+        "id": "2e00d394.97dc34",
+        "type": "redis-ucg-config",
+        "z": "99f74819.77fb08",
+        "host": "bluemix-sandbox-dal-9-portal.7.dblayer.com",
+        "port": "27247",
+        "dbase": "0",
+        "pass": "IVKPWZBPOAJYQCRR"
     },
     {
         "id": "c8620933.bc367",
@@ -425,9 +462,7 @@
         "x": 195,
         "y": 55.38446044921875,
         "wires": [
-            [
-                "2a9f3af6.3b2746"
-            ]
+            []
         ]
     },
     {
@@ -444,7 +479,7 @@
             [],
             [
                 "16378c97.61fce3",
-                "f531072e.6b49a"
+                "c5dfed90.5ad1c8"
             ]
         ]
     },
@@ -567,7 +602,7 @@
         "y": 71.6234130859375,
         "wires": [
             [
-                "f09cb9a3.83e488"
+                "30ab074d.dfd9d"
             ]
         ]
     },
@@ -798,6 +833,7 @@
         "name": "Load HTTP in",
         "url": "/load",
         "method": "post",
+        "upload": false,
         "swaggerDoc": "",
         "x": 75.5,
         "y": 54.138872146606445,
@@ -812,7 +848,7 @@
         "type": "function",
         "z": "3fad3621.99e442",
         "name": "Set Params",
-        "func": "msg.source = \"Load\"\nvar user_name = msg.req.query.user_name\n//var user_id = msg.payload.user_id;\nvar workspace_id = msg.req.query.workspace_id\nvar fname = msg.req.query.fname\n\n//create a null context and test for session existance\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n     \n   }\n \nvar newmsg = msg.req.query.text\nnewmsg = newmsg.replace(/'/g, \"\");  \nmsg.payload = newmsg\n\ncontext.fname = fname\n\nvar params = {\n    context: context,\n//    workspace_id : workspace_id\n   \n};\n\n node.log(\"User *** \" + msg.user + \" Said *** \" + newmsg)\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg\n",
+        "func": "msg.source = \"Load\"\n//var user_name = msg.req.query.user_name\n//var user_id = msg.payload.user_id;\nvar workspace_id = msg.req.query.workspace_id\nvar fname = msg.req.query.fname\n\n//create a null context and test for session existance\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n     \n   }\n \nvar newmsg = msg.req.query.text\nnewmsg = newmsg.replace(/'/g, \"\");  \nmsg.payload = newmsg\n\ncontext.fname = fname\n\nvar params = {\n    context: context,\n//    workspace_id : workspace_id\n   \n};\n\n node.log(\"User *** \" + msg.user + \" Said *** \" + newmsg)\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg\n",
         "outputs": 1,
         "noerr": 0,
         "x": 591.4444580078125,
@@ -870,7 +906,8 @@
         "y": 53.43104553222656,
         "wires": [
             [
-                "2f4a8e9a.d0de9a"
+                "2f4a8e9a.d0de9a",
+                "5fbdc831.c5ecb"
             ]
         ]
     },
@@ -2576,7 +2613,8 @@
         "y": 52.583335876464844,
         "wires": [
             [
-                "a7a4b8cb.3748f8"
+                "a7a4b8cb.3748f8",
+                "4f8712eb.127fb4"
             ]
         ]
     },
@@ -2875,36 +2913,6 @@
             [
                 "bae9ada8.9e305"
             ]
-        ]
-    },
-    {
-        "id": "f09cb9a3.83e488",
-        "type": "redis-command",
-        "z": "be024f13.40d248",
-        "server": "c4fe3fc7.317438",
-        "command": "get",
-        "name": "",
-        "topic": "",
-        "x": 340.88235294117635,
-        "y": 72.35294117647057,
-        "wires": [
-            [
-                "92ab3b31.ce168"
-            ]
-        ]
-    },
-    {
-        "id": "2a9f3af6.3b2746",
-        "type": "redis-command",
-        "z": "99f74819.77fb08",
-        "server": "c4fe3fc7.317438",
-        "command": "set",
-        "name": "",
-        "topic": "",
-        "x": 384.41175842285156,
-        "y": 57.05882453918457,
-        "wires": [
-            []
         ]
     },
     {
@@ -3228,8 +3236,8 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 1021.0000610351562,
-        "y": 154.43182373046875,
+        "x": 370.00006103515625,
+        "y": 165.43182373046875,
         "wires": []
     },
     {
@@ -3370,8 +3378,8 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 1409.0909423828125,
-        "y": 182.97726440429688,
+        "x": 1421.0909423828125,
+        "y": 164.97726440429688,
         "wires": []
     },
     {
@@ -3383,8 +3391,7 @@
         "y": 51.940829277038574,
         "wires": [
             [
-                "45ecefd5.b04ee8",
-                "5fbdc831.c5ecb"
+                "45ecefd5.b04ee8"
             ]
         ]
     },
@@ -3566,8 +3573,8 @@
         "context": false,
         "default-endpoint": true,
         "service-endpoint": "",
-        "x": 870.6666259765625,
-        "y": 326.9999895095825,
+        "x": 870.6666450500488,
+        "y": 311.6666564941406,
         "wires": [
             [
                 "e0ccd4d4.d60bd",
@@ -3639,8 +3646,8 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 614,
-        "y": 88.33333349227905,
+        "x": 608.6666469573975,
+        "y": 95,
         "wires": []
     },
     {
@@ -3687,8 +3694,8 @@
         "func": "msg.call_id = \"3333333\"; //msg.payload.context.vgwSessionID;\nvar userToUser = msg.payload.context.vgwSIPCustomInviteHeader;\n//vgwSIPCustomInviteHeader: \"0430333333313938382D323431322D343263662D393364642D666131316565326263643537;encoding=hex\"\nvar conversationId = msg.payload.context.conversation_id;\nglobal.set(\"conversationId\", conversationId);\nglobal.set(\"input\", msg.payload.input.text);\n\nvar callIdHex = userToUser.toString().substring(2, 74);\nvar greetingCode = hex2a(userToUser.toString().substring(74, 78));\nvar callId = hex2a(callIdHex);\nnode.warn(\"callId: \" + callId);\nnode.warn(\"greetingCode: \" + greetingCode);\n\nmsg.call_id = callId;\nmsg.headers = {\"Content-Type\": \"application/json\"}\n//node.warn(\"msg.call_id: \" + msg.call_id);\n//node.warn(\"msg: \" + msg);\n\nmsg.url = \"https://MiddleWareApps.CATO.FDVS.1DC.COM/FDVS/Services/Hydration/WEBAPI/api/WatsonHydrate?call_id=\" + msg.call_id;\nreturn msg;\n// Need better way to do this - too resource intensive - Den/Etay\nfunction hex2a(hexx) {\n    //node.warn(\"hexx: \" + hexx);\n    var hex = hexx.toString();//force conversion\n    var str = '';\n    for (var i = 0; i < hex.length; i += 2)\n    {\n        //node.log(\"hexx val: \" + hex.substr(i, 2));\n        str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));\n        \n    }\n    return str;\n}",
         "outputs": 1,
         "noerr": 0,
-        "x": 234.83332061767578,
-        "y": 303.3333225250244,
+        "x": 236.8333282470703,
+        "y": 306.66664600372314,
         "wires": [
             [
                 "5527b8e0.dd3f58",
@@ -3818,6 +3825,7 @@
         "id": "9063e233.441cc",
         "type": "subflow:52457267.ef5464",
         "z": "bf65cfa5.bbe868",
+        "name": "",
         "x": 938.9999809265137,
         "y": 222.6666774749756,
         "wires": [
@@ -3840,6 +3848,61 @@
             [
                 "f445b5e8.04bcc"
             ]
+        ]
+    },
+    {
+        "id": "4f8712eb.127fb4",
+        "type": "debug",
+        "z": "3fad3621.99e442",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 777.5,
+        "y": 190,
+        "wires": []
+    },
+    {
+        "id": "c2b956f7.6c9d9",
+        "type": "debug",
+        "z": "be024f13.40d248",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 506.5,
+        "y": 201,
+        "wires": []
+    },
+    {
+        "id": "30ab074d.dfd9d",
+        "type": "redis-ucg-command",
+        "z": "be024f13.40d248",
+        "server": "b5d8d26.deba8b",
+        "command": "get",
+        "name": "",
+        "topic": "",
+        "x": 336.5,
+        "y": 144,
+        "wires": [
+            [
+                "92ab3b31.ce168",
+                "c2b956f7.6c9d9"
+            ]
+        ]
+    },
+    {
+        "id": "eee0ae84.cee8c8",
+        "type": "redis-ucg-command",
+        "z": "99f74819.77fb08",
+        "server": "2e00d394.97dc34",
+        "command": "set",
+        "name": "",
+        "topic": "",
+        "x": 389.5,
+        "y": 56,
+        "wires": [
+            []
         ]
     }
 ]
