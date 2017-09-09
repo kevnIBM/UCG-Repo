@@ -18,6 +18,7 @@
 // to make it available:
 //var fs = require("fs");
 
+
 module.exports = {
     // the tcp port that the Node-RED web server is listening on
     uiPort: process.env.PORT || 1880,
@@ -175,7 +176,7 @@ module.exports = {
     //    context.global.os
 
     functionGlobalContext: {
-        // os:require('os'),
+        redis:require('/usr/src/node-red/node_modules/ioredis')
         // octalbonescript:require('octalbonescript'),
         // jfive:require("johnny-five"),
         // j5board:require("johnny-five").Board({repl:false})

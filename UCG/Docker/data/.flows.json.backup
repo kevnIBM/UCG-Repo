@@ -107,11 +107,11 @@
         "info": "",
         "in": [
             {
-                "x": 51.76470756530762,
-                "y": 55.88235282897949,
+                "x": 51.76470947265625,
+                "y": 56.88235092163086,
                 "wires": [
                     {
-                        "id": "4ea1bcba.b9df34"
+                        "id": "a0d36cca.2643b"
                     }
                 ]
             }
@@ -378,51 +378,6 @@
         "database": "ucg"
     },
     {
-        "id": "33f3291a.c16c36",
-        "type": "redis-config",
-        "z": "99f74819.77fb08",
-        "host": "bluemix-sandbox-dal-9-portal.7.dblayer.com",
-        "port": "27247",
-        "dbase": "0",
-        "pass": "IVKPWZBPOAJYQCRR"
-    },
-    {
-        "id": "567f771.26fba88",
-        "type": "redis-config",
-        "z": "99f74819.77fb08",
-        "host": "bluemix-sandbox-dal-9-portal.7.dblayer.com",
-        "port": "27247",
-        "dbase": "0",
-        "pass": "IVKPWZBPOAJYQCRR"
-    },
-    {
-        "id": "2ac03eb1.f39492",
-        "type": "redis-config",
-        "z": "be024f13.40d248",
-        "host": "bluemix-sandbox-dal-9-portal.7.dblayer.com",
-        "port": "27247",
-        "dbase": "0",
-        "pass": "IVKPWZBPOAJYQCRR"
-    },
-    {
-        "id": "b5d8d26.deba8b",
-        "type": "redis-ucg-config",
-        "z": "be024f13.40d248",
-        "host": "bluemix-sandbox-dal-9-portal.7.dblayer.com",
-        "port": "27247",
-        "dbase": "0",
-        "pass": "IVKPWZBPOAJYQCRR"
-    },
-    {
-        "id": "2e00d394.97dc34",
-        "type": "redis-ucg-config",
-        "z": "99f74819.77fb08",
-        "host": "bluemix-sandbox-dal-9-portal.7.dblayer.com",
-        "port": "27247",
-        "dbase": "0",
-        "pass": "IVKPWZBPOAJYQCRR"
-    },
-    {
         "id": "c8620933.bc367",
         "type": "function",
         "z": "e6126968.dddaa",
@@ -452,20 +407,6 @@
         ]
     },
     {
-        "id": "4ea1bcba.b9df34",
-        "type": "function",
-        "z": "99f74819.77fb08",
-        "name": "Set Session-Cache",
-        "func": "\nmsg.payload = [msg.payload.convoUser, JSON.stringify(msg.payload)]\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 195,
-        "y": 55.38446044921875,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "eddc016.e71f68",
         "type": "function",
         "z": "52457267.ef5464",
@@ -478,7 +419,6 @@
         "wires": [
             [],
             [
-                "16378c97.61fce3",
                 "c5dfed90.5ad1c8"
             ]
         ]
@@ -594,15 +534,15 @@
         "id": "45e18f63.d4984",
         "type": "function",
         "z": "be024f13.40d248",
-        "name": "Get Session",
-        "func": "msg.savePayload = msg.payload\n\nmsg.payload = [msg.user]\n\nreturn msg;",
+        "name": "Save payload",
+        "func": "msg.savePayload = msg.payload\n\n//msg.payload = [msg.user]\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 183.48760986328125,
+        "x": 174.48760986328125,
         "y": 71.6234130859375,
         "wires": [
             [
-                "30ab074d.dfd9d"
+                "3c007db5.49f5a2"
             ]
         ]
     },
@@ -611,7 +551,7 @@
         "type": "function",
         "z": "be024f13.40d248",
         "name": "Set Session",
-        "func": "if (typeof msg.payload.convoUser !== \"undefined\" )\n  {msg.session = msg.payload}\nelse \n  { \n      \n}\n   \n//reset payload from channel to continue flow\nmsg.payload = msg.savePayload\nreturn msg;",
+        "func": "if (typeof msg.payload.convoUser !== \"undefined\" )\n  {msg.session = msg.payload\n  \n  }\nelse \n  { \n      \n}\n   \n//reset payload from channel to continue flow\nmsg.payload = msg.savePayload\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 640.480224609375,
@@ -625,11 +565,12 @@
         "type": "json",
         "z": "be024f13.40d248",
         "name": "",
-        "x": 490.4765930175781,
-        "y": 71.85501098632812,
+        "x": 499.4765930175781,
+        "y": 74.85501098632812,
         "wires": [
             [
-                "42337c2f.812434"
+                "42337c2f.812434",
+                "8fdc96df.993d"
             ]
         ]
     },
@@ -889,8 +830,7 @@
         "y": 52.472206115722656,
         "wires": [
             [
-                "f9ebd654.0abf38",
-                "102e4695.5936f1"
+                "f9ebd654.0abf38"
             ]
         ]
     },
@@ -906,8 +846,7 @@
         "y": 53.43104553222656,
         "wires": [
             [
-                "2f4a8e9a.d0de9a",
-                "5fbdc831.c5ecb"
+                "2f4a8e9a.d0de9a"
             ]
         ]
     },
@@ -2613,8 +2552,7 @@
         "y": 52.583335876464844,
         "wires": [
             [
-                "a7a4b8cb.3748f8",
-                "4f8712eb.127fb4"
+                "a7a4b8cb.3748f8"
             ]
         ]
     },
@@ -3229,18 +3167,6 @@
         ]
     },
     {
-        "id": "5fbdc831.c5ecb",
-        "type": "debug",
-        "z": "3fad3621.99e442",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 370.00006103515625,
-        "y": 165.43182373046875,
-        "wires": []
-    },
-    {
         "id": "708e9c33.4590a4",
         "type": "inject",
         "z": "3fad3621.99e442",
@@ -3371,18 +3297,6 @@
         ]
     },
     {
-        "id": "102e4695.5936f1",
-        "type": "debug",
-        "z": "3fad3621.99e442",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 1421.0909423828125,
-        "y": 164.97726440429688,
-        "wires": []
-    },
-    {
         "id": "6b5d678b.113c4",
         "type": "subflow:87530aab.adb068",
         "z": "3fad3621.99e442",
@@ -3408,18 +3322,6 @@
         "wires": [
             []
         ]
-    },
-    {
-        "id": "16378c97.61fce3",
-        "type": "debug",
-        "z": "52457267.ef5464",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "payload",
-        "x": 664.5,
-        "y": 70,
-        "wires": []
     },
     {
         "id": "f4f7a034.c36938",
@@ -3851,58 +3753,45 @@
         ]
     },
     {
-        "id": "4f8712eb.127fb4",
-        "type": "debug",
-        "z": "3fad3621.99e442",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 777.5,
-        "y": 190,
-        "wires": []
-    },
-    {
-        "id": "c2b956f7.6c9d9",
-        "type": "debug",
+        "id": "3c007db5.49f5a2",
+        "type": "function",
         "z": "be024f13.40d248",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 506.5,
-        "y": 201,
-        "wires": []
-    },
-    {
-        "id": "30ab074d.dfd9d",
-        "type": "redis-ucg-command",
-        "z": "be024f13.40d248",
-        "server": "b5d8d26.deba8b",
-        "command": "get",
-        "name": "",
-        "topic": "",
-        "x": 336.5,
-        "y": 144,
+        "name": "Redis GET",
+        "func": "\nvar redis = global.get('redis');\nvar options = {enable_offline_queue:false};\n\nvar client = new redis('redis://admin:IVKPWZBPOAJYQCRR@bluemix-sandbox-dal-9-portal.7.dblayer.com:27247',options);\n\nclient.on(\"error\", function (err) {\n    node.error(\"Error \" + err);\n});\n\n client.get(msg.user,function (err,result) {\n  if (err) \n      node.error(\"Error \" + err);\n    else {\n      msg.payload = result;\n      if (msg.payload === null){\n          msg.payload = \"{}\";}\n      node.send(msg);\n    }\n  client.disconnect();\n});\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 346.5,
+        "y": 74,
         "wires": [
             [
-                "92ab3b31.ce168",
-                "c2b956f7.6c9d9"
+                "92ab3b31.ce168"
             ]
         ]
     },
     {
-        "id": "eee0ae84.cee8c8",
-        "type": "redis-ucg-command",
+        "id": "a0d36cca.2643b",
+        "type": "function",
         "z": "99f74819.77fb08",
-        "server": "2e00d394.97dc34",
-        "command": "set",
-        "name": "",
-        "topic": "",
-        "x": 389.5,
-        "y": 56,
+        "name": "Redis Set",
+        "func": "\nvar redis = global.get('redis');\nvar options = {};\n   \nvar client = new redis('redis://admin:IVKPWZBPOAJYQCRR@bluemix-sandbox-dal-9-portal.7.dblayer.com:27247',options);\n\nclient.on(\"error\", function (err) {\n    node.error(\"Error \" + err);\n});\n\nclient.set(msg.payload.convoUser,JSON.stringify(msg.payload), function (err, response) {\n   if (err) \n      node.error(\"Error \" + err);\n    else \n      msg.payload = response;\n   client.disconnect(); \n   node.send(msg);\n});\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 181.5,
+        "y": 57,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "8fdc96df.993d",
+        "type": "debug",
+        "z": "be024f13.40d248",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 647.5,
+        "y": 188,
+        "wires": []
     }
 ]

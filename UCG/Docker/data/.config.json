@@ -886,7 +886,7 @@
   "node-red-contrib-redis": {
    "name": "node-red-contrib-redis",
    "version": "1.1.5",
-   "local": false,
+   "local": true,
    "nodes": {
     "redis": {
      "name": "redis",
@@ -898,9 +898,9 @@
       "redis-lua-script"
      ],
      "enabled": true,
-     "local": false,
+     "local": true,
      "module": "node-red-contrib-redis",
-     "file": "/usr/src/node-red/node_modules/node-red-contrib-redis/redis.js"
+     "file": "/data/node_modules/node-red-contrib-redis/redis.js"
     }
    }
   },
@@ -993,27 +993,6 @@
      "local": false,
      "module": "node-red-contrib-ucg-mssql",
      "file": "/usr/src/node-red/node_modules/node-red-contrib-ucg-mssql/mssql.js"
-    }
-   }
-  },
-  "node-red-contrib-ucg-redis": {
-   "name": "node-red-contrib-ucg-redis",
-   "version": "1.1.19",
-   "local": false,
-   "nodes": {
-    "redis": {
-     "name": "redis",
-     "types": [
-      "redis-ucg-config",
-      "redis-ucg-in",
-      "redis-ucg-out",
-      "redis-ucg-command",
-      "redis-lua-ucg-script"
-     ],
-     "enabled": true,
-     "local": false,
-     "module": "node-red-contrib-ucg-redis",
-     "file": "/usr/src/node-red/node_modules/node-red-contrib-ucg-redis/redis.js"
     }
    }
   }
