@@ -883,27 +883,6 @@
     }
    }
   },
-  "node-red-contrib-redis": {
-   "name": "node-red-contrib-redis",
-   "version": "1.1.5",
-   "local": true,
-   "nodes": {
-    "redis": {
-     "name": "redis",
-     "types": [
-      "redis-config",
-      "redis-in",
-      "redis-out",
-      "redis-command",
-      "redis-lua-script"
-     ],
-     "enabled": true,
-     "local": true,
-     "module": "node-red-contrib-redis",
-     "file": "/data/node_modules/node-red-contrib-redis/redis.js"
-    }
-   }
-  },
   "node-red-contrib-http-request": {
    "name": "node-red-contrib-http-request",
    "version": "0.1.9",
