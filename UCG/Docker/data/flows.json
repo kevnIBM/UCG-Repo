@@ -3451,7 +3451,7 @@
         "type": "http in",
         "z": "bf65cfa5.bbe868",
         "name": "SIP HTTP in",
-        "url": "/SIPGateway/v1/workspaces/000/message",
+        "url": "/SIPGateway/v1/workspaces/0000/message",
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
