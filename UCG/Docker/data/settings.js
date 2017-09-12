@@ -212,7 +212,7 @@ module.exports = {
                 var fs = require('fs');
 
                 return function(msg) {
-                    console.log(msg.timestamp, msg.event);
+                    console.log((new Date(msg.timestamp)).toISOString() + " Level " + msg.level + " " + msg.msg);
                     fs.appendFile("/data/status.log", (new Date(msg.timestamp)).toISOString() + " Level " + msg.level + " " + msg.msg + "\n", function(err) {
                        if(err) {
                            return console.log(err);
