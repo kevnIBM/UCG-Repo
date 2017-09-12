@@ -368,14 +368,14 @@
         "database": "ucg"
     },
     {
-        "id": "acd2435e.9f2528",
+        "id": "fc597431.b0b028",
         "type": "MSSQL-UCG-CN",
         "z": "",
-        "name": "MSSQL-UCG-CN",
-        "server": "ucg-mssql.database.windows.net",
-        "port": "1433",
+        "name": "",
+        "server": "",
+        "port": "",
         "encyption": true,
-        "database": "ucg"
+        "database": ""
     },
     {
         "id": "c8620933.bc367",
@@ -3400,22 +3400,6 @@
         "wires": []
     },
     {
-        "id": "52eb1a53.c9614c",
-        "type": "MSSQL-UCG",
-        "z": "cb400db2.feb1d8",
-        "mssqlCN": "acd2435e.9f2528",
-        "name": "Our MSSQL-UCG Node",
-        "query": "SELECT * FROM information_schema.tables;",
-        "outField": "payload",
-        "x": 301.5,
-        "y": 402,
-        "wires": [
-            [
-                "e6903af8.80e948"
-            ]
-        ]
-    },
-    {
         "id": "93490d5d.b3ca88",
         "type": "inject",
         "z": "cb400db2.feb1d8",
@@ -3430,7 +3414,7 @@
         "y": 404,
         "wires": [
             [
-                "52eb1a53.c9614c"
+                "acd6852c.5dc3b"
             ]
         ]
     },
@@ -3441,9 +3425,9 @@
         "name": "",
         "active": true,
         "console": "false",
-        "complete": "payload",
-        "x": 511.5,
-        "y": 402,
+        "complete": "true",
+        "x": 699.5,
+        "y": 407,
         "wires": []
     },
     {
@@ -3451,7 +3435,7 @@
         "type": "http in",
         "z": "bf65cfa5.bbe868",
         "name": "SIP HTTP in",
-        "url": "/SIPGateway/v1/workspaces/000/message",
+        "url": "/SIPGateway/v1/workspaces/0000/message",
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
@@ -3756,7 +3740,7 @@
         "type": "function",
         "z": "be024f13.40d248",
         "name": "Redis GET",
-        "func": "\nvar redis = global.get('redis');\nvar options = {enable_offline_queue:false};\n\nvar client = new redis('redis://admin:IVKPWZBPOAJYQCRR@bluemix-sandbox-dal-9-portal.7.dblayer.com:27247',options);\n\nclient.on(\"error\", function (err) {\n    node.error(\"Error \" + err);\n});\n\n client.get(msg.user,function (err,result) {\n  if (err) \n      node.error(\"Error \" + err);\n    else {\n      msg.payload = result;\n      if (msg.payload === null){\n          msg.payload = \"{}\";}\n      node.send(msg);\n    }\n  client.disconnect();\n});\n",
+        "func": "\nvar redis = global.get('redis');\nvar options = {enable_offline_queue:false};\n\nvar client = new redis('redis://admin:IVKPWZBPOAJYQCRR@bluemix-sandbox-dal-9-portal.7.dblayer.com:27247',options);\n\nclient.on(\"error\", function (err) {\n    node.error(\"Error \" + err);\n    client.disconnect(); \n});\n\n client.get(msg.user,function (err,result) {\n  if (err) \n      node.error(\"Error \" + err);\n    else {\n      msg.payload = result;\n      if (msg.payload === null){\n          msg.payload = \"{}\";}\n      node.send(msg);\n    }\n  client.disconnect();\n});\n",
         "outputs": 1,
         "noerr": 0,
         "x": 346.5,
@@ -3772,13 +3756,58 @@
         "type": "function",
         "z": "99f74819.77fb08",
         "name": "Redis Set",
-        "func": "\nvar redis = global.get('redis');\nvar options = {};\n   \nvar client = new redis('redis://admin:IVKPWZBPOAJYQCRR@bluemix-sandbox-dal-9-portal.7.dblayer.com:27247',options);\n\nclient.on(\"error\", function (err) {\n    node.error(\"Error \" + err);\n});\n\nclient.set(msg.payload.convoUser,JSON.stringify(msg.payload), function (err, response) {\n   if (err) \n      node.error(\"Error \" + err);\n    else \n      msg.payload = response;\n   client.disconnect(); \n   node.send(msg);\n});\n\n",
+        "func": "\nvar redis = global.get('redis');\nvar options = {};\n   \nvar client = new redis('redis://admin:IVKPWZBPOAJYQCRR@bluemix-sandbox-dal-9-portal.7.dblayer.com:27247',options);\n\nclient.on(\"error\", function (err) {\n    node.error(\"Error \" + err);\n    client.disconnect(); \n});\n\nclient.set(msg.payload.convoUser,JSON.stringify(msg.payload), function (err, response) {\n   if (err) \n      node.error(\"Error \" + err);\n    else \n      msg.payload = response;\n   client.disconnect(); \n   node.send(msg);\n});\n\n",
         "outputs": 1,
         "noerr": 0,
         "x": 181.5,
         "y": 57,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "acd6852c.5dc3b",
+        "type": "function",
+        "z": "cb400db2.feb1d8",
+        "name": "set config",
+        "func": "msg.user = \"ucgadmin\"\nmsg.password = \"Hockey1234\"\nmsg.port = \"1433\"\nmsg.server = \"ucg-mssql.database.windows.net\"\nmsg.database = \"ucg\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 283.5,
+        "y": 404,
+        "wires": [
+            [
+                "88438118.d2a248",
+                "b69f8c89.55c9c"
+            ]
+        ]
+    },
+    {
+        "id": "88438118.d2a248",
+        "type": "debug",
+        "z": "cb400db2.feb1d8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 491.5,
+        "y": 529,
+        "wires": []
+    },
+    {
+        "id": "b69f8c89.55c9c",
+        "type": "MSSQL-UCG",
+        "z": "cb400db2.feb1d8",
+        "mssqlCN": "fc597431.b0b028",
+        "name": "",
+        "query": "SELECT * FROM information_schema.tables;",
+        "outField": "payload",
+        "x": 473.5,
+        "y": 412,
+        "wires": [
+            [
+                "e6903af8.80e948"
+            ]
         ]
     }
 ]

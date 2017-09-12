@@ -42,7 +42,7 @@
         "node-red-node-cf-cloudant":"0.x",
         "node-red-contrib-scx-ibmiotapp":"0.x",
         "node-red-contrib-mssql":"0.x",
-        "node-red-contrib-ucg-mssql":"0.x",
+        "node-red-contrib-ucg-mssql":"0.1.6",
         "node-red-contrib-http-request":"0.x",
         "ioredis":"3.1.4"
 

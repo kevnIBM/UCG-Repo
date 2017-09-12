@@ -440,7 +440,7 @@
   },
   "node-red-node-rbe": {
    "name": "node-red-node-rbe",
-   "version": "0.1.11",
+   "version": "0.1.13",
    "local": false,
    "nodes": {
     "rbe": {
@@ -959,7 +959,7 @@
   },
   "node-red-contrib-ucg-mssql": {
    "name": "node-red-contrib-ucg-mssql",
-   "version": "0.0.7",
+   "version": "0.1.6",
    "local": false,
    "nodes": {
     "mssql": {

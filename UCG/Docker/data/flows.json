@@ -368,14 +368,14 @@
         "database": "ucg"
     },
     {
-        "id": "acd2435e.9f2528",
+        "id": "fc597431.b0b028",
         "type": "MSSQL-UCG-CN",
         "z": "",
-        "name": "MSSQL-UCG-CN",
-        "server": "ucg-mssql.database.windows.net",
-        "port": "1433",
+        "name": "",
+        "server": "",
+        "port": "",
         "encyption": true,
-        "database": "ucg"
+        "database": ""
     },
     {
         "id": "c8620933.bc367",
@@ -3400,22 +3400,6 @@
         "wires": []
     },
     {
-        "id": "52eb1a53.c9614c",
-        "type": "MSSQL-UCG",
-        "z": "cb400db2.feb1d8",
-        "mssqlCN": "acd2435e.9f2528",
-        "name": "Our MSSQL-UCG Node",
-        "query": "SELECT * FROM information_schema.tables;",
-        "outField": "payload",
-        "x": 301.5,
-        "y": 402,
-        "wires": [
-            [
-                "e6903af8.80e948"
-            ]
-        ]
-    },
-    {
         "id": "93490d5d.b3ca88",
         "type": "inject",
         "z": "cb400db2.feb1d8",
@@ -3430,7 +3414,7 @@
         "y": 404,
         "wires": [
             [
-                "52eb1a53.c9614c"
+                "acd6852c.5dc3b"
             ]
         ]
     },
@@ -3441,9 +3425,9 @@
         "name": "",
         "active": true,
         "console": "false",
-        "complete": "payload",
-        "x": 511.5,
-        "y": 402,
+        "complete": "true",
+        "x": 828.5,
+        "y": 408,
         "wires": []
     },
     {
@@ -3779,6 +3763,51 @@
         "y": 57,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "acd6852c.5dc3b",
+        "type": "function",
+        "z": "cb400db2.feb1d8",
+        "name": "set config",
+        "func": "msg.user = \"ucgadmin\"\nmsg.password = \"Hockey1234\"\nmsg.port = \"1433\"\nmsg.server = \"ucg-mssql.database.windows.net\"\nmsg.database = \"ucg\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 283.5,
+        "y": 404,
+        "wires": [
+            [
+                "88438118.d2a248",
+                "b69f8c89.55c9c"
+            ]
+        ]
+    },
+    {
+        "id": "88438118.d2a248",
+        "type": "debug",
+        "z": "cb400db2.feb1d8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 491.5,
+        "y": 529,
+        "wires": []
+    },
+    {
+        "id": "b69f8c89.55c9c",
+        "type": "MSSQL-UCG",
+        "z": "cb400db2.feb1d8",
+        "mssqlCN": "fc597431.b0b028",
+        "name": "New UCG MSSQL with params sent via msg",
+        "query": "SELECT * FROM information_schema.tables;",
+        "outField": "payload",
+        "x": 568.5,
+        "y": 407,
+        "wires": [
+            [
+                "e6903af8.80e948"
+            ]
         ]
     }
 ]

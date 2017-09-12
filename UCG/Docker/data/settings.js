@@ -207,13 +207,33 @@ module.exports = {
         // Custom logger
         myCustomLogger: {
             level: 'debug',
-            metrics: false,
-            handler: function(settings) {
+            metrics: true,
+            handler: function(settings) {             
                 var fs = require('fs');
-
+                
                 return function(msg) {
-                    console.log((new Date(msg.timestamp)).toISOString() + " Level " + msg.level + " " + msg.msg);
-                    fs.appendFile("/data/status.log", (new Date(msg.timestamp)).toISOString() + " Level " + msg.level + " " + msg.msg + "\n", function(err) {
+                   // console.log((new Date(msg.timestamp)).toISOString() + " Level " + msg.level + " " + mymsg);
+                    if (!msg.msgid)
+                        msg.msgid = ""
+                    if (!msg.nodeid)
+                        msg.nodeid = ""
+                    if (!msg.value)
+                        msg.value = ""
+
+                    if (msg.level === 99 || msg.level === 98)
+                      fs.appendFile("/data/status.log", (new Date(msg.timestamp)).toISOString() + 
+                                      " Level " + msg.level + " " +
+                                      " Node " + msg.nodeid + " " +
+                                      " Event " + msg.event + " " +
+                                      " MSG Id " + msg.msgid + " " +
+                                      " Value " + msg.value + " " +
+                                      "\n", function(err) {
+                       if(err) {
+                           return console.log(err);
+                       }});    
+                    else
+                                        
+                      fs.appendFile("/data/status.log", (new Date(msg.timestamp)).toISOString() + " Level " + msg.level + " " + msg.msg + "\n", function(err) {
                        if(err) {
                            return console.log(err);
                        }}); 
