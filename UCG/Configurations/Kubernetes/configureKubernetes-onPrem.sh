@@ -28,13 +28,13 @@ systemctl disable firewalld
 
 #Browse to cockpit UI -> https://server_ip:9090 to see cluster
  
-#OK: These steps are not necessary due to the fact that kubect is installed with the yum Kubernetes install:
+#These steps are not necessary due to the fact that kubect is installed with the yum Kubernetes install and the repo has a copy located in the Kubernetes directory
 #Install kubctl for kubernetes command control
 #curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-#chmod +x ./kubectl and move to where ever
+#chmod +x ./kubectl #move to your standard bin directory
 
+#In /etc/kubernetes/apiserver - change
 vi /etc/kubernetes/apiserver
- #In /etc/kubernetes/apiserver - change
 
 KUBE_ADMISSION_CONTROL="--admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota"
 #To
@@ -74,6 +74,7 @@ kubectl create -f nodered-volume-claim.yaml
 kubectl create -f nodered-deployment-onPrem.yaml
 #apply the Load Balancing service
 kubectl apply -f nodered-service-onPrem.yaml
+#Leaving ingress off, because the service will be the access point
 
 # Check that Kubernetes components are running in Cockpit or kubectl
 kubectl describe pv
