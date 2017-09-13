@@ -45,39 +45,37 @@ KUBE_API_ARGS="--runtime-config=extensions/v1beta1/deployments=true,extensions/v
 #Retart API Server
 systemctl restart kube-apiserver kube-controller-manager
  
-#Download latest UCG Docker repository 
-mkdr /data
-cd /data
+#Download latest UCG Docker repository to root's home directory 
+cd /root
 #Download UCG project https://github.com/dennisnotojr/UCG-Repo into /data folder as zip file
 unzip UCG-Repo-master.zip
 @Go to Kubernetes configuration folder
 		
-#Download version-1 UCG image
-docker run -v /data/UCG-Repo-master/UCG/Docker/data:/data -p 1880:1880 -e NODE_ENV=production -e NODE_OPTIONS=--max_old_space_size=1024 dennisnotojr/node-red-docker-node8-nr-17:version-2
-
 #Enable read/write access for all users and groups, run the following 
-chmod -R a+rwX /data/UCG-Repo-master/UCG/Docker/data
+chmod -R a+rwX /root/UCG-Repo-master/UCG/Docker/data
 
 #In Cockpit
 #- Create 127.0.0.1 NODE    COMMENT: There should be a default node which can be used
 #Go to Kubernetes configuration folder 
 
-cd /data/UCG-Repo-master/UCG/Configurations/Kubernetes
+cd /root/UCG-Repo-master/UCG/Configurations/Kubernetes
 
-#External IP Addrees fix. not everyone may need this, but some people may. You can run the Kube below commands w/o the fix and check the kubectl get servises command shows an external IP address. If it doesn't, apply the change to the yaml file
 vi nodered-service-onPrem.yaml
-#Uncomment the externalIPs section and replace IP address with the public IP address (e.g. 192.168.32.129)
+#Change externalIPs section and replace IP address with the public IP address (e.g. 192.168.32.129)
     externalIPs:
      -  192.168.32.129
-
-#Run Kube Ctl commands
+     
+#Run Kubectl commands
+#create persistant volume that all containers will use
 kubectl create -f nodered-volume-onPrem.yaml
+#create the claim on the volume
 kubectl create -f nodered-volume-claim.yaml
+#create the deployment
 kubectl create -f nodered-deployment-onPrem.yaml
+#apply the Load Balancing service
 kubectl apply -f nodered-service-onPrem.yaml
 
-# Check that node and containers are running in Cockpit or kubectl
-kubectl get nodes
+# Check that Kubernetes components are running in Cockpit or kubectl
 kubectl describe pv
 kubectl describe pvc
 kubectl describe svc
