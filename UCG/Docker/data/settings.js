@@ -207,7 +207,7 @@ module.exports = {
         // Custom logger
         myCustomLogger: {
             level: 'debug',
-            metrics: true,
+            metrics: false,
             handler: function(settings) {             
                 var fs = require('fs');
                 
@@ -225,7 +225,7 @@ module.exports = {
                                       " Level " + msg.level + " " +
                                       " Node " + msg.nodeid + " " +
                                       " Event " + msg.event + " " +
-                                      " MSG Id " + msg.msgid + " " +
+                                      " MSGId " + msg.msgid + " " +
                                       " Value " + msg.value + " " +
                                       "\n", function(err) {
                        if(err) {
