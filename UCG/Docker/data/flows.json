@@ -328,8 +328,8 @@
         "info": "",
         "in": [
             {
-                "x": 37.499996185302734,
-                "y": 93.45455169677734,
+                "x": 43.499996185302734,
+                "y": 102.45455932617188,
                 "wires": [
                     {
                         "id": "1fcc52c6.73e405"
@@ -339,11 +339,19 @@
         ],
         "out": [
             {
-                "x": 1237.388916015625,
-                "y": 93.9823226928711,
+                "x": 1353.388916015625,
+                "y": 85.9823226928711,
                 "wires": [
                     {
-                        "id": "fed00cc8.7a434",
+                        "id": "cae7bd67.e6bf98",
+                        "port": 0
+                    },
+                    {
+                        "id": "404c2e16.964188",
+                        "port": 0
+                    },
+                    {
+                        "id": "b1be0d25.47d3f",
                         "port": 0
                     }
                 ]
@@ -419,7 +427,8 @@
         "wires": [
             [],
             [
-                "c5dfed90.5ad1c8"
+                "c5dfed90.5ad1c8",
+                "7120875e.c5a748"
             ]
         ]
     },
@@ -796,24 +805,6 @@
         "wires": [
             [
                 "6b5d678b.113c4"
-            ]
-        ]
-    },
-    {
-        "id": "4a556739.234d28",
-        "type": "watson-conversation-v1",
-        "z": "87530aab.adb068",
-        "name": "ConvoUS",
-        "workspaceid": "56cfca8a-b459-447f-ab35-e94511f6f7bc",
-        "multiuser": true,
-        "context": false,
-        "default-endpoint": true,
-        "service-endpoint": "",
-        "x": 924.5653610229492,
-        "y": 62.099971771240234,
-        "wires": [
-            [
-                "fed00cc8.7a434"
             ]
         ]
     },
@@ -3214,33 +3205,15 @@
         "wires": []
     },
     {
-        "id": "994f0308.e1b1f",
-        "type": "watson-conversation-v1",
-        "z": "87530aab.adb068",
-        "name": "ConvoGermany",
-        "workspaceid": "a003413f-2973-4dba-b1ba-550b3fa09a71",
-        "multiuser": false,
-        "context": false,
-        "default-endpoint": false,
-        "service-endpoint": "https://gateway-fra.watsonplatform.net/conversation/api",
-        "x": 930.0000305175781,
-        "y": 121.70947551727295,
-        "wires": [
-            [
-                "fed00cc8.7a434"
-            ]
-        ]
-    },
-    {
         "id": "831eec36.2a31d",
         "type": "function",
         "z": "87530aab.adb068",
         "name": "Test",
-        "func": "if (typeof msg.payload.workspaces === \"undefined\") \n   {msg.switchService = \"Germany\"}\n else  \n   {msg.switchService = \"US\"} \n\nmsg.payload = msg.savePayload\n\nreturn msg;",
+        "func": "if (typeof msg.payload.workspaces === \"undefined\") \n   {msg.switchService = \"Germany\"\n    node.log(\"US WCS failed, sending traffic to Germany for user: \" + msg.user)   \n   }\n else  \n   {msg.switchService = \"US\"} \n\nmsg.payload = msg.savePayload\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 565.9999961853027,
-        "y": 94.45455169677734,
+        "x": 743,
+        "y": 92.45455169677734,
         "wires": [
             [
                 "f9cd5b4e.9a106"
@@ -3268,14 +3241,14 @@
         ],
         "checkall": "true",
         "outputs": 2,
-        "x": 730.9999961853027,
-        "y": 93.45455169677734,
+        "x": 908,
+        "y": 92.45455169677734,
         "wires": [
             [
-                "4a556739.234d28"
+                "cae7bd67.e6bf98"
             ],
             [
-                "994f0308.e1b1f"
+                "404c2e16.964188"
             ]
         ]
     },
@@ -3284,14 +3257,14 @@
         "type": "function",
         "z": "87530aab.adb068",
         "name": "Save Payload",
-        "func": "msg.savePayload = msg.payload\nmsg.headers = {}\nreturn msg;",
+        "func": "msg.savePayload = msg.payload\n\nif (typeof msg.session === \"undefined\") \n  msg.checkService = \"Yes\"\nelse\n  msg.checkService = \"No\"\n\nmsg.headers = {}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 197.49999618530273,
-        "y": 93.45455169677734,
+        "x": 171.5,
+        "y": 102.45455932617188,
         "wires": [
             [
-                "e1afacab.7a71f8"
+                "a75b0ca2.9c8918"
             ]
         ]
     },
@@ -3306,20 +3279,6 @@
             [
                 "45ecefd5.b04ee8"
             ]
-        ]
-    },
-    {
-        "id": "fed00cc8.7a434",
-        "type": "function",
-        "z": "87530aab.adb068",
-        "name": "return",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1119.5,
-        "y": 93,
-        "wires": [
-            []
         ]
     },
     {
@@ -3379,8 +3338,8 @@
         "ret": "obj",
         "url": "https://gateway.watsonplatform.net/conversation/api/v1/workspaces?version=2017-05-26",
         "tls": "",
-        "x": 401.5,
-        "y": 93,
+        "x": 574.5,
+        "y": 158,
         "wires": [
             [
                 "831eec36.2a31d"
@@ -3809,5 +3768,157 @@
                 "e6903af8.80e948"
             ]
         ]
+    },
+    {
+        "id": "a75b0ca2.9c8918",
+        "type": "switch",
+        "z": "87530aab.adb068",
+        "name": "Test First Turn",
+        "property": "checkService",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "No",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Yes",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 378.5,
+        "y": 53,
+        "wires": [
+            [
+                "cae7bd67.e6bf98"
+            ],
+            [
+                "e1afacab.7a71f8"
+            ]
+        ]
+    },
+    {
+        "id": "35b94240.b126c6",
+        "type": "catch",
+        "z": "87530aab.adb068",
+        "name": "US Convo Catch",
+        "scope": [
+            "cae7bd67.e6bf98"
+        ],
+        "x": 344.5,
+        "y": 259,
+        "wires": [
+            [
+                "a9f87d5b.6414c",
+                "e37b9339.f76fa"
+            ]
+        ]
+    },
+    {
+        "id": "a9f87d5b.6414c",
+        "type": "function",
+        "z": "87530aab.adb068",
+        "name": "US Log error",
+        "func": "node.log(\"US WCS failed will try Germany for user \" + msg.user + ' Error: '+ msg.error.message);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 900.5,
+        "y": 262,
+        "wires": [
+            [
+                "404c2e16.964188"
+            ]
+        ]
+    },
+    {
+        "id": "cae7bd67.e6bf98",
+        "type": "watson-conversation-ucg-v1",
+        "z": "87530aab.adb068",
+        "name": "Convo US UCG",
+        "workspaceid": "56cfca8a-b459-447f-ab35-e94511f6f7bc",
+        "multiuser": false,
+        "context": false,
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/conversation/api",
+        "x": 1130.5,
+        "y": 49,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e37b9339.f76fa",
+        "type": "debug",
+        "z": "87530aab.adb068",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 533.5,
+        "y": 305,
+        "wires": []
+    },
+    {
+        "id": "404c2e16.964188",
+        "type": "watson-conversation-ucg-v1",
+        "z": "87530aab.adb068",
+        "name": "Convo Germany UCG",
+        "workspaceid": "a003413f-2973-4dba-b1ba-550b3fa09a71",
+        "multiuser": false,
+        "context": false,
+        "default-endpoint": false,
+        "service-endpoint": "https://gateway-fra.watsonplatform.net/conversation/api",
+        "x": 1132.5,
+        "y": 133,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9d616983.07dad",
+        "type": "catch",
+        "z": "87530aab.adb068",
+        "name": "Germany Convo Catch",
+        "scope": [
+            "404c2e16.964188"
+        ],
+        "x": 328.5,
+        "y": 356,
+        "wires": [
+            [
+                "b1be0d25.47d3f",
+                "e37b9339.f76fa"
+            ]
+        ]
+    },
+    {
+        "id": "b1be0d25.47d3f",
+        "type": "function",
+        "z": "87530aab.adb068",
+        "name": "Germany Log Error",
+        "func": "node.log(\"Germany WCS failed, Transfer to Agent for user \" + msg.user + ' Error: '+ msg.error.message);\nmsg.payload = \"Transfer to Agent\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1111.5,
+        "y": 357,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7120875e.c5a748",
+        "type": "debug",
+        "z": "52457267.ef5464",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 295.5,
+        "y": 406,
+        "wires": []
     }
 ]

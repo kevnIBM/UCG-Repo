@@ -1,0 +1,1750 @@
+2017-09-13T16:58:07.205Z Level 40 Node-RED version: v0.17.5
+2017-09-13T16:58:07.202Z Level 40 
+
+Welcome to Node-RED
+===================
+
+2017-09-13T16:58:07.205Z Level 40 Node.js  version: v8.4.0
+2017-09-13T16:58:07.206Z Level 40 Linux 4.9.41-moby x64 LE
+2017-09-13T16:58:07.623Z Level 40 Loading palette nodes
+2017-09-13T16:58:08.946Z Level 30 ------------------------------------------------------
+2017-09-13T16:58:08.948Z Level 30 ------------------------------------------------------
+2017-09-13T16:58:08.948Z Level 40 Settings file  : /data/settings.js
+2017-09-13T16:58:08.949Z Level 40 User directory : /data
+2017-09-13T16:58:08.950Z Level 40 Flows file     : /data/flows.json
+2017-09-13T16:58:08.947Z Level 30 [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-09-13T16:58:08.948Z Level 30 [udp] Error: udp out already registered (line:102)
+2017-09-13T16:58:08.947Z Level 30 [tcp] Error: tcp in already registered (line:181)
+2017-09-13T16:58:08.966Z Level 40 Server now running at http://127.0.0.1:1880/
+2017-09-13T16:58:08.984Z Level 50 red/runtime/nodes/credentials.load : user provided key
+2017-09-13T16:58:08.997Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-13T16:58:08.998Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-13T16:58:08.998Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-13T16:58:08.999Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-13T16:58:09.000Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-13T16:58:08.999Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-13T16:58:08.998Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-13T16:58:08.983Z Level 50 loaded flow revision: 7952d2dae1801077c59bd97315acfb17
+2017-09-13T16:58:09.000Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-13T16:58:08.997Z Level 40 Starting flows
+2017-09-13T16:58:09.000Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-13T16:58:09.000Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-13T16:58:11.220Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-13T16:58:08.998Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-13T16:58:09.000Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-13T16:58:09.000Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-13T16:58:12.736Z Level 40 Started flows
+2017-09-13T19:20:34.966Z Level 40 User *** dfn49 Said *** yes
+2017-09-13T19:20:35.658Z Level 40 User *** dfn49 Response *** dennis, have a wonderful day! Remember, you can chat with me anytime and anywhere! I'm here for you.
+2017-09-13T19:20:49.848Z Level 40 User *** dfn49 Said *** status of my claim
+2017-09-13T19:20:50.454Z Level 40 User *** dfn49 Response *** Hi dennis, I see by our records that you are a policy holder with Open Insurance. Is that correct? 
+2017-09-14T19:29:15.758Z Level 40 
+
+Welcome to Node-RED
+===================
+
+2017-09-14T19:29:15.760Z Level 40 Node-RED version: v0.17.5
+2017-09-14T19:29:15.760Z Level 40 Node.js  version: v8.4.0
+2017-09-14T19:29:15.760Z Level 40 Linux 4.9.41-moby x64 LE
+2017-09-14T19:29:16.082Z Level 40 Loading palette nodes
+2017-09-14T19:29:17.264Z Level 30 ------------------------------------------------------
+2017-09-14T19:29:17.266Z Level 30 ------------------------------------------------------
+2017-09-14T19:29:17.267Z Level 40 Settings file  : /data/settings.js
+2017-09-14T19:29:17.267Z Level 40 User directory : /data
+2017-09-14T19:29:17.268Z Level 40 Flows file     : /data/flows.json
+2017-09-14T19:29:17.265Z Level 30 [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-09-14T19:29:17.265Z Level 30 [tcp] Error: tcp in already registered (line:181)
+2017-09-14T19:29:17.266Z Level 30 [udp] Error: udp out already registered (line:102)
+2017-09-14T19:29:17.281Z Level 40 Server now running at http://127.0.0.1:1880/
+2017-09-14T19:29:17.290Z Level 50 red/runtime/nodes/credentials.load : user provided key
+2017-09-14T19:29:17.302Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-14T19:29:17.303Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-14T19:29:17.303Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-14T19:29:17.303Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-14T19:29:17.303Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-14T19:29:17.303Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-14T19:29:17.303Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-14T19:29:17.303Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-14T19:29:17.303Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-14T19:29:17.303Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-14T19:29:17.303Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-14T19:29:17.303Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-14T19:29:17.303Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-14T19:29:19.251Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T19:29:17.290Z Level 50 loaded flow revision: 7952d2dae1801077c59bd97315acfb17
+2017-09-14T19:29:17.302Z Level 40 Starting flows
+2017-09-14T19:29:20.532Z Level 40 Started flows
+2017-09-14T19:43:07.906Z Level 50 saved flow revision: bd34701c6acb71a2c76a587cdb97ff34
+2017-09-14T19:43:07.915Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T19:43:07.915Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T19:43:07.915Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T19:43:07.915Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T19:43:07.915Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T19:43:07.916Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T19:43:07.916Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T19:43:07.916Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T19:43:07.916Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T19:43:07.916Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T19:43:07.916Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T19:43:07.919Z Level 40 Stopped modified flows
+2017-09-14T19:43:07.920Z Level 40 Starting modified flows
+2017-09-14T19:43:08.658Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T19:43:08.659Z Level 40 Started modified flows
+2017-09-14T19:43:07.907Z Level 40 Stopping modified flows
+2017-09-14T19:43:07.907Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T19:43:07.908Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T19:43:56.667Z Level 40 User *** dfn49 Said *** status of my claim
+2017-09-14T19:43:57.310Z Level 40 User *** dfn49 Response *** Didn't expect that answer, may I ask the question again? 
+2017-09-14T19:54:40.304Z Level 50 saved flow revision: e08bff2ee05a5921989d87f801640400
+2017-09-14T19:54:40.304Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T19:54:40.314Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T19:54:40.314Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T19:54:40.314Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T19:54:40.315Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T19:54:40.315Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T19:54:40.315Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T19:54:40.315Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T19:54:40.315Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T19:54:40.315Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T19:54:40.315Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T19:54:40.317Z Level 40 Stopped modified flows
+2017-09-14T19:54:40.317Z Level 40 Starting modified flows
+2017-09-14T19:54:41.183Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T19:54:41.184Z Level 40 Started modified flows
+2017-09-14T19:54:40.304Z Level 40 Stopping modified flows
+2017-09-14T19:54:40.304Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T19:54:40.314Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T20:02:59.287Z Level 50 saved flow revision: e08bff2ee05a5921989d87f801640400
+2017-09-14T20:02:59.287Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T20:02:59.302Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T20:02:59.302Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T20:02:59.302Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T20:02:59.302Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T20:02:59.303Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T20:02:59.287Z Level 40 Stopping modified flows
+2017-09-14T20:02:59.304Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T20:02:59.304Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T20:02:59.304Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T20:02:59.305Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T20:02:59.308Z Level 40 Stopped modified flows
+2017-09-14T20:02:59.308Z Level 40 Starting modified flows
+2017-09-14T20:03:00.116Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T20:03:00.118Z Level 40 Started modified flows
+2017-09-14T20:02:59.287Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T20:02:59.301Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T20:02:59.304Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T21:34:42.047Z Level 50 saved flow revision: 74e65149722f35bdbbe3578d5476947a
+2017-09-14T21:34:42.053Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T21:34:42.053Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T21:34:42.054Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T21:34:42.053Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T21:34:42.054Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T21:34:42.054Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T21:34:42.054Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T21:34:42.054Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T21:34:42.054Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T21:34:42.054Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T21:34:42.054Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T21:34:42.056Z Level 40 Starting modified flows
+2017-09-14T21:34:42.055Z Level 40 Stopped modified flows
+2017-09-14T21:34:42.892Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T21:34:42.893Z Level 40 Started modified flows
+2017-09-14T21:34:42.047Z Level 40 Stopping modified flows
+2017-09-14T21:34:42.047Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T21:34:42.047Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T21:40:07.360Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T21:40:07.367Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T21:40:07.367Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T21:40:07.367Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T21:40:07.367Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T21:40:07.367Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T21:40:07.367Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T21:40:07.367Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T21:40:07.367Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T21:40:07.367Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T21:40:07.367Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T21:40:07.367Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T21:40:07.370Z Level 40 Stopped modified flows
+2017-09-14T21:40:07.370Z Level 40 Starting modified flows
+2017-09-14T21:40:08.165Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T21:40:08.166Z Level 40 Started modified flows
+2017-09-14T21:40:07.360Z Level 40 Stopping modified flows
+2017-09-14T21:40:07.360Z Level 50 saved flow revision: b5396a16d8109be119d0944764ff0a90
+2017-09-14T21:40:07.360Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T21:42:56.931Z Level 50 saved flow revision: f70e019780d59d1c090a88c22c88139e
+2017-09-14T21:42:56.940Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T21:42:56.940Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T21:42:56.940Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T21:42:56.931Z Level 40 Stopping modified flows
+2017-09-14T21:42:56.941Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T21:42:56.941Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T21:42:56.941Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T21:42:56.941Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T21:42:56.941Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T21:42:56.941Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T21:42:56.941Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T21:42:56.944Z Level 40 Starting modified flows
+2017-09-14T21:42:56.944Z Level 40 Stopped modified flows
+2017-09-14T21:42:57.740Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T21:42:57.741Z Level 40 Started modified flows
+2017-09-14T21:42:56.932Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T21:42:56.933Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T21:42:56.941Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T21:43:07.937Z Level 40 User *** dfn49 Said *** yes
+2017-09-14T21:44:14.774Z Level 40 User *** dfn49 Said *** yes
+2017-09-14T21:44:15.108Z Level 40 User *** dfn49 Response *** dennis, have a wonderful day! Remember, you can chat with me anytime and anywhere! I'm here for you.
+2017-09-14T21:44:37.341Z Level 40 User *** dfn49 Said *** status of my claim
+2017-09-14T21:44:37.699Z Level 40 User *** dfn49 Response *** Hi dennis, I see by our records that you are a policy holder with Open Insurance. Is that correct? 
+2017-09-14T21:47:15.864Z Level 40 User *** dfn49 Said *** yes
+2017-09-14T21:47:16.200Z Level 40 User *** dfn49 Response *** dennis, we are sorry for your loss.  I see by your recent claim that a tree appears to have fallen on your roof.  Can you confirm? 
+2017-09-14T21:47:24.079Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T21:47:24.084Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T21:47:24.084Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T21:47:24.084Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T21:47:24.084Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T21:47:24.084Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T21:47:24.084Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T21:47:24.078Z Level 50 saved flow revision: 5bbf38568249d8ee096200dc5c5c02cf
+2017-09-14T21:47:24.084Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T21:47:24.084Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T21:47:24.079Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T21:47:24.085Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T21:47:24.088Z Level 40 Stopped modified flows
+2017-09-14T21:47:24.088Z Level 40 Starting modified flows
+2017-09-14T21:47:24.908Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T21:47:24.909Z Level 40 Started modified flows
+2017-09-14T21:47:24.079Z Level 40 Stopping modified flows
+2017-09-14T21:47:24.084Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T21:47:24.085Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T21:47:37.231Z Level 40 User *** dfn49 Said *** yea
+2017-09-14T21:47:37.537Z Level 40 User *** dfn49 Response *** Looking at your file, I see that Mr. Fred Balboni filed his report with us on October 1st. Coverage was confirmed and we issued a letter to you with instructions on October 5th. Have you received that letter? 
+2017-09-14T21:49:08.703Z Level 50 saved flow revision: cde278aaf7cc8758567414d650f0b0b4
+2017-09-14T21:49:08.711Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T21:49:08.712Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T21:49:08.712Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T21:49:08.712Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T21:49:08.712Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T21:49:08.712Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T21:49:08.712Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T21:49:08.713Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T21:49:08.713Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T21:49:08.713Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T21:49:08.713Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T21:49:08.715Z Level 40 Stopped modified flows
+2017-09-14T21:49:08.715Z Level 40 Starting modified flows
+2017-09-14T21:49:08.703Z Level 40 Stopping modified flows
+2017-09-14T21:49:09.598Z Level 40 Started modified flows
+2017-09-14T21:49:08.703Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T21:49:08.703Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T21:49:09.593Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T21:49:20.383Z Level 40 User *** dfn49 Said *** no
+2017-09-14T21:49:20.728Z Level 40 User *** dfn49 Response *** Sorry you didn't receive your letter. Based on the contents of the letter, your property coverage is replacement cost up to the agreed assessed replacement value of your house. We see from the adjuster’s notes that this should be well under that amount. You should have plenty of coverage. Any questions about your claim or coverage? 
+2017-09-14T21:49:27.128Z Level 50 saved flow revision: 7e49d05e0bf5948c7cbc2f151bd77f07
+2017-09-14T21:49:27.128Z Level 40 Stopping modified flows
+2017-09-14T21:49:27.140Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T21:49:27.140Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T21:49:27.140Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T21:49:27.140Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T21:49:27.140Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T21:49:27.129Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T21:49:27.141Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T21:49:27.141Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T21:49:27.128Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T21:49:27.141Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T21:49:27.147Z Level 40 Stopped modified flows
+2017-09-14T21:49:27.147Z Level 40 Starting modified flows
+2017-09-14T21:49:28.043Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T21:49:28.044Z Level 40 Started modified flows
+2017-09-14T21:49:27.140Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T21:49:27.141Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T21:49:27.141Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T21:49:54.125Z Level 40 User *** dfn49 Said *** status of my claim
+2017-09-14T21:49:54.503Z Level 40 User *** dfn49 Response *** Hi dennis, I see by our records that you are a policy holder with Open Insurance. Is that correct? 
+2017-09-14T21:50:28.996Z Level 40 User *** dfn49 Said *** yes
+2017-09-14T21:50:29.330Z Level 40 User *** dfn49 Response *** dennis, we are sorry for your loss.  I see by your recent claim that a tree appears to have fallen on your roof.  Can you confirm? 
+2017-09-14T21:51:51.547Z Level 40 Stopping modified flows
+2017-09-14T21:51:51.552Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T21:51:51.552Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T21:51:51.552Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T21:51:51.553Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T21:51:51.553Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T21:51:51.553Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T21:51:51.547Z Level 50 saved flow revision: 9a0547097874b79222d08b5448027cfc
+2017-09-14T21:51:51.553Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T21:51:51.554Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T21:51:51.554Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T21:51:51.554Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T21:51:51.557Z Level 40 Stopped modified flows
+2017-09-14T21:51:51.557Z Level 40 Starting modified flows
+2017-09-14T21:51:52.362Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T21:51:52.363Z Level 40 Started modified flows
+2017-09-14T21:51:51.547Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T21:51:51.547Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T21:51:51.553Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T21:52:14.597Z Level 50 saved flow revision: 53d08ad3a485fd30cb0e0818265d35fe
+2017-09-14T21:52:14.598Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T21:52:14.598Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T21:52:14.598Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T21:52:14.598Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T21:52:14.598Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T21:52:14.598Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T21:52:14.598Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T21:52:14.598Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T21:52:14.598Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T21:52:14.598Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T21:52:14.598Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T21:52:14.601Z Level 40 Stopped modified flows
+2017-09-14T21:52:14.602Z Level 40 Starting modified flows
+2017-09-14T21:52:14.602Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T21:52:14.604Z Level 40 Started modified flows
+2017-09-14T21:52:14.598Z Level 40 Stopping modified flows
+2017-09-14T21:52:14.598Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T21:52:14.598Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T21:52:36.993Z Level 40 User *** dfn49 Said *** yes
+2017-09-14T21:52:37.288Z Level 40 User *** dfn49 Response *** Looking at your file, I see that Mr. Fred Balboni filed his report with us on October 1st. Coverage was confirmed and we issued a letter to you with instructions on October 5th. Have you received that letter? 
+2017-09-14T21:53:21.544Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T21:53:21.549Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T21:53:21.544Z Level 40 Stopping modified flows
+2017-09-14T21:53:21.549Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T21:53:21.549Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T21:53:21.549Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T21:53:21.549Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T21:53:21.549Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T21:53:21.550Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T21:53:21.550Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T21:53:21.550Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T21:53:21.551Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T21:53:21.553Z Level 40 Stopped modified flows
+2017-09-14T21:53:21.553Z Level 40 Starting modified flows
+2017-09-14T21:53:22.369Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T21:53:22.370Z Level 40 Started modified flows
+2017-09-14T21:53:21.543Z Level 50 saved flow revision: 60818e9734bab1444af041dc71723957
+2017-09-14T21:53:21.544Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T21:53:21.549Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T21:53:36.892Z Level 40 User *** dfn49 Said *** nope
+2017-09-14T21:53:37.179Z Level 40 User *** dfn49 Response *** Sorry you didn't receive your letter. Based on the contents of the letter, your property coverage is replacement cost up to the agreed assessed replacement value of your house. We see from the adjuster’s notes that this should be well under that amount. You should have plenty of coverage. Any questions about your claim or coverage? 
+2017-09-14T21:53:51.060Z Level 50 saved flow revision: 27d58ff9e7837e33f0d6be3ab94cdb02
+2017-09-14T21:53:51.065Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T21:53:51.060Z Level 40 Stopping modified flows
+2017-09-14T21:53:51.065Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T21:53:51.060Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T21:53:51.065Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T21:53:51.060Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T21:53:51.065Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T21:53:51.065Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T21:53:51.065Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T21:53:51.066Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T21:53:51.065Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T21:53:51.067Z Level 40 Stopped modified flows
+2017-09-14T21:53:51.067Z Level 40 Starting modified flows
+2017-09-14T21:53:51.954Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T21:53:51.955Z Level 40 Started modified flows
+2017-09-14T21:53:51.065Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T21:53:51.066Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T21:53:51.066Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T21:54:17.583Z Level 40 User *** dfn49 Said *** status of my claim
+2017-09-14T21:54:17.918Z Level 40 User *** dfn49 Response *** Hi dennis, I see by our records that you are a policy holder with Open Insurance. Is that correct? 
+2017-09-14T21:55:17.628Z Level 50 saved flow revision: 3238e105a5b545cdd3c26126ee47f9b4
+2017-09-14T21:55:17.628Z Level 40 Stopping modified flows
+2017-09-14T21:55:17.636Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T21:55:17.637Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T21:55:17.637Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T21:55:17.637Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T21:55:17.637Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T21:55:17.638Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T21:55:17.638Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T21:55:17.638Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T21:55:17.638Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T21:55:17.629Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T21:55:17.640Z Level 40 Stopped modified flows
+2017-09-14T21:55:17.640Z Level 40 Starting modified flows
+2017-09-14T21:55:17.630Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T21:55:18.602Z Level 40 Started modified flows
+2017-09-14T21:55:17.637Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T21:55:17.638Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T21:55:18.601Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T21:55:22.292Z Level 40 User *** dfn49 Said *** status of my claim
+2017-09-14T21:55:22.669Z Level 40 User *** dfn49 Response *** Didn't expect that answer, may I ask the question again? 
+2017-09-14T21:55:58.804Z Level 40 User *** dfn50 Said *** status of my claim
+2017-09-14T21:55:58.805Z Level 30 TypeError: Cannot read property 'convoCounter' of undefined
+2017-09-14T22:03:21.365Z Level 50 saved flow revision: 1742f38f00057f8299b68a6ee63b4204
+2017-09-14T22:03:21.372Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T22:03:21.372Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T22:03:21.372Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T22:03:21.373Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T22:03:21.365Z Level 40 Stopping modified flows
+2017-09-14T22:03:21.373Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T22:03:21.373Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T22:03:21.373Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T22:03:21.374Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T22:03:21.374Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T22:03:21.374Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T22:03:21.375Z Level 40 Stopped modified flows
+2017-09-14T22:03:21.376Z Level 40 Starting modified flows
+2017-09-14T22:03:22.396Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T22:03:22.397Z Level 40 Started modified flows
+2017-09-14T22:03:21.365Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T22:03:21.365Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T22:03:21.373Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T22:03:39.148Z Level 40 User *** dfn50 Said *** status of my claim
+2017-09-14T22:03:39.499Z Level 40 US WCS failed, sending traffic to Germany for user: dfn50
+2017-09-14T22:03:40.533Z Level 40 User *** dfn50 Response *** Hi dennis, I see by our records that you are a policy holder with Open Insurance. Is that correct? 
+2017-09-14T22:03:51.191Z Level 40 User *** dfn51 Said *** status of my claim
+2017-09-14T22:03:51.507Z Level 40 US WCS failed, sending traffic to Germany for user: dfn51
+2017-09-14T22:03:52.146Z Level 40 User *** dfn51 Response *** Hi dennis, I see by our records that you are a policy holder with Open Insurance. Is that correct? 
+2017-09-14T22:05:02.383Z Level 50 saved flow revision: c3c41b8398ed6bc3c124099b8aae0f78
+2017-09-14T22:05:02.391Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T22:05:02.391Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T22:05:02.391Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T22:05:02.392Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T22:05:02.392Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T22:05:02.392Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T22:05:02.392Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T22:05:02.393Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T22:05:02.393Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T22:05:02.393Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T22:05:02.393Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T22:05:02.396Z Level 40 Stopped modified flows
+2017-09-14T22:05:02.396Z Level 40 Starting modified flows
+2017-09-14T22:05:03.455Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T22:05:03.456Z Level 40 Started modified flows
+2017-09-14T22:05:02.383Z Level 40 Stopping modified flows
+2017-09-14T22:05:02.383Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T22:05:02.384Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T22:05:15.269Z Level 40 User *** dfn52 Said *** status of my claim
+2017-09-14T22:05:15.843Z Level 40 User *** dfn52 Response *** Hi dennis, I see by our records that you are a policy holder with Open Insurance. Is that correct? 
+2017-09-14T22:05:55.169Z Level 40 User *** dfn52 Said *** yes
+2017-09-14T22:05:55.503Z Level 40 User *** dfn52 Response *** dennis, we are sorry for your loss.  I see by your recent claim that a tree appears to have fallen on your roof.  Can you confirm? 
+2017-09-14T22:07:29.409Z Level 40 Stopping modified flows
+2017-09-14T22:07:29.420Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T22:07:29.420Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T22:07:29.420Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T22:07:29.420Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T22:07:29.421Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T22:07:29.421Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T22:07:29.420Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T22:07:29.421Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T22:07:29.421Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T22:07:29.421Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T22:07:29.421Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T22:07:29.425Z Level 40 Starting modified flows
+2017-09-14T22:07:29.425Z Level 40 Stopped modified flows
+2017-09-14T22:07:30.561Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T22:07:30.562Z Level 40 Started modified flows
+2017-09-14T22:07:29.410Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T22:07:29.409Z Level 50 saved flow revision: f158ccec7ae81197a50d3b0ceb297f68
+2017-09-14T22:07:29.410Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T22:07:36.172Z Level 40 User *** dfn52 Said *** yes
+2017-09-14T22:07:36.461Z Level 40 User *** dfn52 Response *** Looking at your file, I see that Mr. Fred Balboni filed his report with us on October 1st. Coverage was confirmed and we issued a letter to you with instructions on October 5th. Have you received that letter? 
+2017-09-14T22:07:47.394Z Level 50 saved flow revision: faff748b51e933032dc4bdb050020dcb
+2017-09-14T22:07:47.403Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T22:07:47.403Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T22:07:47.395Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T22:07:47.404Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T22:07:47.404Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T22:07:47.404Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T22:07:47.404Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T22:07:47.404Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T22:07:47.404Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T22:07:47.404Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T22:07:47.404Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T22:07:47.412Z Level 40 Stopped modified flows
+2017-09-14T22:07:47.413Z Level 40 Starting modified flows
+2017-09-14T22:07:48.557Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T22:07:48.558Z Level 40 Started modified flows
+2017-09-14T22:07:47.394Z Level 40 Stopping modified flows
+2017-09-14T22:07:47.395Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T22:07:47.404Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T22:08:31.298Z Level 50 saved flow revision: a239fb12567e44f71ee915a6013e572d
+2017-09-14T22:08:31.298Z Level 40 Stopping modified flows
+2017-09-14T22:08:31.307Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T22:08:31.307Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T22:08:31.307Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T22:08:31.307Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T22:08:31.307Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T22:08:31.307Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T22:08:31.307Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T22:08:31.307Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T22:08:31.307Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T22:08:31.307Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T22:08:31.309Z Level 40 Stopped modified flows
+2017-09-14T22:08:31.309Z Level 40 Starting modified flows
+2017-09-14T22:08:32.556Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T22:08:32.559Z Level 40 Started modified flows
+2017-09-14T22:08:31.301Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T22:08:31.301Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T22:08:31.307Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T22:08:40.886Z Level 40 User *** dfn52 Said *** nope
+2017-09-14T22:08:41.021Z Level 20 Error: Forbidden
+2017-09-14T22:09:05.409Z Level 50 saved flow revision: 21cf7b830230833ff519d9834d718b93
+2017-09-14T22:09:05.414Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T22:09:05.416Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T22:09:05.410Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T22:09:05.416Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T22:09:05.416Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T22:09:05.416Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T22:09:05.416Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T22:09:05.410Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T22:09:05.416Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T22:09:05.416Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T22:09:05.418Z Level 40 Stopped modified flows
+2017-09-14T22:09:05.416Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T22:09:05.422Z Level 40 Starting modified flows
+2017-09-14T22:09:06.544Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T22:09:06.546Z Level 40 Started modified flows
+2017-09-14T22:09:05.409Z Level 40 Stopping modified flows
+2017-09-14T22:09:05.416Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T22:09:05.416Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T22:09:08.949Z Level 40 User *** dfn52 Said *** nope
+2017-09-14T22:09:09.136Z Level 20 Error: Forbidden
+2017-09-14T22:11:23.448Z Level 50 saved flow revision: f84216a9114028e241164c0d5fdb1504
+2017-09-14T22:11:23.458Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T22:11:23.458Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T22:11:23.457Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T22:11:23.458Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T22:11:23.458Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T22:11:23.448Z Level 40 Stopping modified flows
+2017-09-14T22:11:23.458Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T22:11:23.459Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T22:11:23.459Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T22:11:23.459Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T22:11:23.459Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T22:11:23.462Z Level 40 Stopped modified flows
+2017-09-14T22:11:23.462Z Level 40 Starting modified flows
+2017-09-14T22:11:24.629Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T22:11:24.633Z Level 40 Started modified flows
+2017-09-14T22:11:23.449Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T22:11:23.449Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T22:11:23.458Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T22:11:57.995Z Level 40 User *** dfn52 Said *** nope
+2017-09-14T22:11:58.268Z Level 20 Error: Forbidden
+2017-09-14T22:12:38.599Z Level 50 saved flow revision: 199b3f00b88ea560d6445e2098b02c66
+2017-09-14T22:12:38.606Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T22:12:38.606Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T22:12:38.607Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T22:12:38.606Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T22:12:38.607Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T22:12:38.607Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T22:12:38.607Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T22:12:38.607Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T22:12:38.607Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T22:12:38.607Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T22:12:38.607Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T22:12:38.612Z Level 40 Starting modified flows
+2017-09-14T22:12:38.612Z Level 40 Stopped modified flows
+2017-09-14T22:12:39.890Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T22:12:39.891Z Level 40 Started modified flows
+2017-09-14T22:12:38.599Z Level 40 Stopping modified flows
+2017-09-14T22:12:38.599Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T22:12:38.599Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T22:12:54.406Z Level 40 User *** dfn52 Said *** nope
+2017-09-14T22:12:54.604Z Level 20 Error: <!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>404.</b> <ins>That’s an error.</ins>
+  <p>The requested URL <code>/v1/workspaces/56cfca8a-b459-447f-ab35-e94511f6f7bc/message</code> was not found on this server.  <ins>That’s all we know.</ins>
+
+2017-09-14T22:13:14.747Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T22:13:14.763Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T22:13:14.763Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T22:13:14.763Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T22:13:14.747Z Level 40 Stopping modified flows
+2017-09-14T22:13:14.763Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T22:13:14.747Z Level 50 saved flow revision: 65593bbb5f8f5c8fa49256af0140c3f5
+2017-09-14T22:13:14.763Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T22:13:14.763Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T22:13:14.748Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T22:13:14.763Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T22:13:14.763Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T22:13:14.763Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T22:13:14.763Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T22:13:15.939Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T22:13:15.941Z Level 40 Started modified flows
+2017-09-14T22:13:14.763Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T22:13:14.768Z Level 40 Stopped modified flows
+2017-09-14T22:13:14.769Z Level 40 Starting modified flows
+2017-09-14T22:13:18.876Z Level 40 User *** dfn52 Said *** nope
+2017-09-14T22:13:19.841Z Level 20 Error: <!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>404.</b> <ins>That’s an error.</ins>
+  <p>The requested URL <code>/v1/workspaces/56cfca8a-b459-447f-ab35-e94511f6f7bc/message</code> was not found on this server.  <ins>That’s all we know.</ins>
+
+2017-09-14T22:13:24.900Z Level 40 User *** dfn52 Said *** nope
+2017-09-14T22:13:24.960Z Level 20 Error: <!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>404.</b> <ins>That’s an error.</ins>
+  <p>The requested URL <code>/v1/workspaces/56cfca8a-b459-447f-ab35-e94511f6f7bc/message</code> was not found on this server.  <ins>That’s all we know.</ins>
+
+2017-09-14T22:19:43.261Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T22:19:43.264Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T22:19:43.265Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T22:19:43.265Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T22:19:43.265Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T22:19:43.265Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T22:19:43.265Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T22:19:43.267Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T22:19:43.267Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T22:19:43.267Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T22:19:43.267Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T22:19:43.267Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T22:19:43.274Z Level 40 Stopped modified flows
+2017-09-14T22:19:43.274Z Level 40 Starting modified flows
+2017-09-14T22:19:44.305Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T22:19:44.306Z Level 40 Started modified flows
+2017-09-14T22:19:43.260Z Level 40 Stopping modified flows
+2017-09-14T22:19:43.260Z Level 50 saved flow revision: c5a58e3cc657608a24f8b2b41e71e529
+2017-09-14T22:19:43.261Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T22:19:51.410Z Level 40 User *** dfn52 Said *** nope
+2017-09-14T22:19:51.798Z Level 20 Error: URL workspaceid parameter '56cfca8a-b459-447f-ab35-e94511f6f7b' is not a valid GUID.
+2017-09-14T22:21:42.997Z Level 50 saved flow revision: 22ca53b198dad52501b210cf1982fd9c
+2017-09-14T22:21:43.010Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T22:21:43.010Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T22:21:43.011Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T22:21:43.011Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T22:21:43.011Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T22:21:43.011Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T22:21:43.011Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T22:21:43.012Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T22:21:43.011Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T22:21:43.012Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T22:21:43.012Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T22:21:42.998Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T22:21:43.021Z Level 40 Starting modified flows
+2017-09-14T22:21:44.145Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T22:21:44.146Z Level 40 Started modified flows
+2017-09-14T22:21:42.998Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T22:21:42.997Z Level 40 Stopping modified flows
+2017-09-14T22:21:43.021Z Level 40 Stopped modified flows
+2017-09-14T22:21:50.422Z Level 50 saved flow revision: f5a738d98f19ae198efdc75ea1661481
+2017-09-14T22:21:50.430Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T22:21:50.423Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T22:21:50.431Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T22:21:50.431Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T22:21:50.431Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T22:21:50.431Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T22:21:50.431Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T22:21:50.431Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T22:21:50.432Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T22:21:50.432Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T22:21:50.432Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T22:21:50.435Z Level 40 Stopped modified flows
+2017-09-14T22:21:50.435Z Level 40 Starting modified flows
+2017-09-14T22:21:51.658Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T22:21:51.661Z Level 40 Started modified flows
+2017-09-14T22:21:50.422Z Level 40 Stopping modified flows
+2017-09-14T22:21:50.423Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T22:21:50.430Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T22:21:56.722Z Level 40 User *** dfn52 Said *** nope
+2017-09-14T22:21:56.980Z Level 20 Error: URL workspaceid parameter '56cfca8a-b459-447f-ab35-e94511f6f7b' is not a valid GUID.
+2017-09-14T22:22:45.098Z Level 50 saved flow revision: 4cdd1333a5c192d9ceaf8349429ec7d0
+2017-09-14T22:22:45.104Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T22:22:45.104Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T22:22:45.098Z Level 40 Stopping modified flows
+2017-09-14T22:22:45.105Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T22:22:45.105Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T22:22:45.105Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T22:22:45.098Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T22:22:45.105Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T22:22:45.105Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T22:22:45.105Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T22:22:45.105Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T22:22:45.107Z Level 40 Stopped modified flows
+2017-09-14T22:22:45.107Z Level 40 Starting modified flows
+2017-09-14T22:22:46.207Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T22:22:46.208Z Level 40 Started modified flows
+2017-09-14T22:22:45.098Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T22:22:45.104Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T22:22:45.105Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T22:22:54.166Z Level 40 User *** dfn52 Said *** nope
+2017-09-14T22:22:54.469Z Level 20 Error: URL workspaceid parameter '56cfca8a-b459-447f-ab35-e94511f6f7b' is not a valid GUID.
+2017-09-14T22:33:47.382Z Level 50 saved flow revision: fe89d4cf3162b0d2b24b4dc2ea2b1321
+2017-09-14T22:33:47.391Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T22:33:47.391Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T22:33:47.391Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T22:33:47.382Z Level 40 Stopping modified flows
+2017-09-14T22:33:47.384Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T22:33:47.392Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T22:33:47.392Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T22:33:47.392Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T22:33:47.392Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T22:33:47.392Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T22:33:47.393Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T22:33:47.394Z Level 40 Stopped modified flows
+2017-09-14T22:33:47.395Z Level 40 Starting modified flows
+2017-09-14T22:33:48.686Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T22:33:48.687Z Level 40 Started modified flows
+2017-09-14T22:33:47.384Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T22:33:47.391Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T22:33:47.392Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T22:33:55.895Z Level 40 User *** dfn52 Said *** nope
+2017-09-14T22:33:56.230Z Level 20 Error: URL workspaceid parameter '56cfca8a-b459-447f-ab35-e94511f6f7b' is not a valid GUID.
+2017-09-14T22:39:39.426Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T22:39:39.437Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T22:39:39.437Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T22:39:39.437Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T22:39:39.437Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T22:39:39.437Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T22:39:39.437Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T22:39:39.438Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T22:39:39.438Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T22:39:39.438Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T22:39:39.438Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T22:39:39.438Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T22:39:39.442Z Level 40 Stopped modified flows
+2017-09-14T22:39:39.442Z Level 40 Starting modified flows
+2017-09-14T22:39:40.665Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T22:39:40.666Z Level 40 Started modified flows
+2017-09-14T22:39:39.426Z Level 40 Stopping modified flows
+2017-09-14T22:39:39.427Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T22:39:39.426Z Level 50 saved flow revision: b13af3797fd703bb0df5800e8589fbb4
+2017-09-14T22:39:50.411Z Level 40 User *** dfn52 Said *** nope
+2017-09-14T22:39:50.768Z Level 20 Error: URL workspaceid parameter '56cfca8a-b459-447f-ab35-e94511f6f7b' is not a valid GUID.
+2017-09-14T22:40:24.404Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-14T22:40:24.404Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-14T22:40:24.404Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-14T22:40:24.404Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-14T22:40:24.404Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-14T22:40:24.404Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-14T22:40:24.404Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-14T22:40:24.404Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-14T22:40:24.404Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-14T22:40:24.404Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-14T22:40:24.404Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-14T22:40:24.404Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-14T22:40:24.408Z Level 40 Stopped modified flows
+2017-09-14T22:40:24.408Z Level 40 Starting modified flows
+2017-09-14T22:40:24.412Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-14T22:40:24.414Z Level 40 Started modified flows
+2017-09-14T22:40:24.403Z Level 50 saved flow revision: b13af3797fd703bb0df5800e8589fbb4
+2017-09-14T22:40:24.404Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-14T22:40:24.404Z Level 40 Stopping modified flows
+2017-09-14T22:40:27.096Z Level 40 User *** dfn52 Said *** nope
+2017-09-14T22:40:27.350Z Level 20 Error: URL workspaceid parameter '56cfca8a-b459-447f-ab35-e94511f6f7b' is not a valid GUID.
+2017-09-15T04:44:44.920Z Level 40 
+
+Welcome to Node-RED
+===================
+
+2017-09-15T04:44:44.922Z Level 40 Node-RED version: v0.17.5
+2017-09-15T04:44:44.923Z Level 40 Linux 4.9.41-moby x64 LE
+2017-09-15T04:44:44.922Z Level 40 Node.js  version: v8.4.0
+2017-09-15T04:44:45.257Z Level 40 Loading palette nodes
+2017-09-15T04:44:46.542Z Level 30 ------------------------------------------------------
+2017-09-15T04:44:46.542Z Level 30 [watson-conversation-v1] Error: Cannot find module '../../utilities/service-utils' (line:21)
+2017-09-15T04:44:46.543Z Level 30 ------------------------------------------------------
+2017-09-15T04:44:46.542Z Level 30 [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-09-15T04:44:46.543Z Level 40 User directory : /data
+2017-09-15T04:44:46.543Z Level 40 Flows file     : /data/flows.json
+2017-09-15T04:44:46.542Z Level 30 [tcp] Error: tcp in already registered (line:181)
+2017-09-15T04:44:46.542Z Level 30 [udp] Error: udp out already registered (line:102)
+2017-09-15T04:44:46.543Z Level 40 Settings file  : /data/settings.js
+2017-09-15T04:44:46.562Z Level 40 Server now running at http://127.0.0.1:1880/
+2017-09-15T04:44:46.566Z Level 50 loaded flow revision: b13af3797fd703bb0df5800e8589fbb4
+2017-09-15T04:44:46.578Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-15T04:44:46.579Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-15T04:44:46.579Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-15T04:44:46.579Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-15T04:44:46.579Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-15T04:44:46.579Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-15T04:44:46.567Z Level 50 red/runtime/nodes/credentials.load : user provided key
+2017-09-15T04:44:46.579Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-15T04:44:46.579Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-15T04:44:46.579Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-15T04:44:46.579Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-15T04:44:46.579Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-15T04:44:48.412Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T04:44:49.883Z Level 40 Started flows
+2017-09-15T04:44:46.578Z Level 40 Starting flows
+2017-09-15T04:44:46.579Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-15T04:44:46.579Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-15T04:51:57.465Z Level 40 
+
+Welcome to Node-RED
+===================
+
+2017-09-15T04:51:57.466Z Level 40 Node-RED version: v0.17.5
+2017-09-15T04:51:57.467Z Level 40 Node.js  version: v8.4.0
+2017-09-15T04:51:57.467Z Level 40 Linux 4.9.41-moby x64 LE
+2017-09-15T04:51:57.800Z Level 40 Loading palette nodes
+2017-09-15T04:51:58.889Z Level 30 ------------------------------------------------------
+2017-09-15T04:51:58.891Z Level 30 [watson-conversation-ucg] Error: Cannot find module '../../utilities/service-utils' (line:21)
+2017-09-15T04:51:58.891Z Level 30 ------------------------------------------------------
+2017-09-15T04:51:58.892Z Level 30 Missing node modules:
+2017-09-15T04:51:58.892Z Level 30  - node-red-contrib-ucg-conversation (0.0.2): watson-conversation-ucg
+2017-09-15T04:51:58.892Z Level 40 Removing modules from config
+2017-09-15T04:51:58.893Z Level 40 Settings file  : /data/settings.js
+2017-09-15T04:51:58.894Z Level 40 User directory : /data
+2017-09-15T04:51:58.894Z Level 40 Flows file     : /data/flows.json
+2017-09-15T04:51:58.890Z Level 30 [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-09-15T04:51:58.891Z Level 30 [tcp] Error: tcp in already registered (line:181)
+2017-09-15T04:51:58.891Z Level 30 [udp] Error: udp out already registered (line:102)
+2017-09-15T04:51:58.909Z Level 40 Server now running at http://127.0.0.1:1880/
+2017-09-15T04:51:58.917Z Level 50 loaded flow revision: b13af3797fd703bb0df5800e8589fbb4
+2017-09-15T04:51:58.927Z Level 40 Starting flows
+2017-09-15T04:51:58.928Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-15T04:51:58.928Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-15T04:51:58.928Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-15T04:51:58.928Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-15T04:51:58.928Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-15T04:51:58.929Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-15T04:51:58.929Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-15T04:51:58.929Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-15T04:51:58.928Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-15T04:51:58.929Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-15T04:51:58.929Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-15T04:51:58.929Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-15T04:52:00.783Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T04:51:58.927Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-15T04:51:58.918Z Level 50 red/runtime/nodes/credentials.load : user provided key
+2017-09-15T04:52:01.987Z Level 40 Started flows
+2017-09-15T05:20:41.760Z Level 40 
+
+Welcome to Node-RED
+===================
+
+2017-09-15T05:20:41.762Z Level 40 Node-RED version: v0.17.5
+2017-09-15T05:20:41.762Z Level 40 Node.js  version: v8.4.0
+2017-09-15T05:20:41.763Z Level 40 Linux 4.9.41-moby x64 LE
+2017-09-15T05:20:42.073Z Level 40 Loading palette nodes
+2017-09-15T05:20:43.354Z Level 30 ------------------------------------------------------
+2017-09-15T05:20:43.357Z Level 30 [conversation] Error: Cannot find module 'package.json' (line:19)
+2017-09-15T05:20:43.357Z Level 30 ------------------------------------------------------
+2017-09-15T05:20:43.357Z Level 30 Missing node modules:
+2017-09-15T05:20:43.358Z Level 30  - node-red-contrib-ucg-conversation (0.0.3): watson-conversation-ucg, watson-conversation-ucg
+2017-09-15T05:20:43.358Z Level 40 Removing modules from config
+2017-09-15T05:20:43.359Z Level 40 Settings file  : /data/settings.js
+2017-09-15T05:20:43.360Z Level 40 User directory : /data
+2017-09-15T05:20:43.362Z Level 40 Flows file     : /data/flows.json
+2017-09-15T05:20:43.355Z Level 30 [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-09-15T05:20:43.356Z Level 30 [tcp] Error: tcp in already registered (line:181)
+2017-09-15T05:20:43.356Z Level 30 [udp] Error: udp out already registered (line:102)
+2017-09-15T05:20:43.393Z Level 40 Server now running at http://127.0.0.1:1880/
+2017-09-15T05:20:43.403Z Level 50 loaded flow revision: b13af3797fd703bb0df5800e8589fbb4
+2017-09-15T05:20:43.419Z Level 40 Starting flows
+2017-09-15T05:20:43.420Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-15T05:20:43.420Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-15T05:20:43.420Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-15T05:20:43.421Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-15T05:20:43.421Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-15T05:20:43.421Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-15T05:20:43.421Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-15T05:20:43.421Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-15T05:20:43.421Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-15T05:20:43.422Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-15T05:20:43.422Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-15T05:20:43.422Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-15T05:20:45.655Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T05:20:43.404Z Level 50 red/runtime/nodes/credentials.load : user provided key
+2017-09-15T05:20:43.419Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-15T05:20:47.122Z Level 40 Started flows
+2017-09-15T15:01:19.234Z Level 40 
+
+Welcome to Node-RED
+===================
+
+2017-09-15T15:01:19.237Z Level 40 Node-RED version: v0.17.5
+2017-09-15T15:01:19.237Z Level 40 Node.js  version: v8.4.0
+2017-09-15T15:01:19.238Z Level 40 Linux 4.9.41-moby x64 LE
+2017-09-15T15:01:19.593Z Level 40 Loading palette nodes
+2017-09-15T15:01:20.847Z Level 30 ------------------------------------------------------
+2017-09-15T15:01:20.849Z Level 30 [watson-conversation-ucg] Error: Cannot find module 'package.json' (line:19)
+2017-09-15T15:01:20.849Z Level 30 ------------------------------------------------------
+2017-09-15T15:01:20.849Z Level 30 Missing node modules:
+2017-09-15T15:01:20.849Z Level 30  - node-red-contrib-ucg-conversation (0.0.6): watson-conversation-ucg, watson-conversation-ucg
+2017-09-15T15:01:20.850Z Level 40 Removing modules from config
+2017-09-15T15:01:20.850Z Level 40 Settings file  : /data/settings.js
+2017-09-15T15:01:20.851Z Level 40 User directory : /data
+2017-09-15T15:01:20.851Z Level 40 Flows file     : /data/flows.json
+2017-09-15T15:01:20.848Z Level 30 [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-09-15T15:01:20.848Z Level 30 [tcp] Error: tcp in already registered (line:181)
+2017-09-15T15:01:20.848Z Level 30 [udp] Error: udp out already registered (line:102)
+2017-09-15T15:01:20.871Z Level 40 Server now running at http://127.0.0.1:1880/
+2017-09-15T15:01:20.878Z Level 50 loaded flow revision: b13af3797fd703bb0df5800e8589fbb4
+2017-09-15T15:01:20.889Z Level 40 Starting flows
+2017-09-15T15:01:20.890Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-15T15:01:20.891Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-15T15:01:20.891Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-15T15:01:20.891Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-15T15:01:20.891Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-15T15:01:20.891Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-15T15:01:20.891Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-15T15:01:20.891Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-15T15:01:20.891Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-15T15:01:20.891Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-15T15:01:20.891Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-15T15:01:20.891Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-15T15:01:23.011Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T15:01:20.878Z Level 50 red/runtime/nodes/credentials.load : user provided key
+2017-09-15T15:01:20.890Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-15T15:01:24.360Z Level 40 Started flows
+2017-09-15T15:11:22.075Z Level 40 
+
+Welcome to Node-RED
+===================
+
+2017-09-15T15:11:22.078Z Level 40 Node-RED version: v0.17.5
+2017-09-15T15:11:22.078Z Level 40 Node.js  version: v8.4.0
+2017-09-15T15:11:22.078Z Level 40 Linux 4.9.41-moby x64 LE
+2017-09-15T15:11:22.461Z Level 40 Loading palette nodes
+2017-09-15T15:11:23.852Z Level 30 ------------------------------------------------------
+2017-09-15T15:11:23.854Z Level 30 [watson-conversation-ucg] Error: Cannot find module 'service-utils' (line:21)
+2017-09-15T15:11:23.855Z Level 30 ------------------------------------------------------
+2017-09-15T15:11:23.855Z Level 30 Missing node modules:
+2017-09-15T15:11:23.856Z Level 30  - node-red-contrib-ucg-conversation (0.0.7): watson-conversation-ucg, watson-conversation-ucg
+2017-09-15T15:11:23.856Z Level 40 Removing modules from config
+2017-09-15T15:11:23.857Z Level 40 Settings file  : /data/settings.js
+2017-09-15T15:11:23.858Z Level 40 User directory : /data
+2017-09-15T15:11:23.858Z Level 40 Flows file     : /data/flows.json
+2017-09-15T15:11:23.853Z Level 30 [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-09-15T15:11:23.854Z Level 30 [tcp] Error: tcp in already registered (line:181)
+2017-09-15T15:11:23.854Z Level 30 [udp] Error: udp out already registered (line:102)
+2017-09-15T15:11:23.872Z Level 40 Server now running at http://127.0.0.1:1880/
+2017-09-15T15:11:23.881Z Level 50 loaded flow revision: b13af3797fd703bb0df5800e8589fbb4
+2017-09-15T15:11:23.900Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-15T15:11:23.902Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-15T15:11:23.901Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-15T15:11:23.900Z Level 40 Starting flows
+2017-09-15T15:11:23.902Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-15T15:11:23.902Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-15T15:11:23.882Z Level 50 red/runtime/nodes/credentials.load : user provided key
+2017-09-15T15:11:23.903Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-15T15:11:23.903Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-15T15:11:23.903Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-15T15:11:23.903Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-15T15:11:23.902Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-15T15:11:26.147Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T15:11:23.902Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-15T15:11:23.902Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-15T15:11:23.903Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-15T15:11:27.527Z Level 40 Started flows
+2017-09-15T15:15:03.901Z Level 40 
+
+Welcome to Node-RED
+===================
+
+2017-09-15T15:15:03.905Z Level 40 Node-RED version: v0.17.5
+2017-09-15T15:15:03.905Z Level 40 Node.js  version: v8.4.0
+2017-09-15T15:15:03.906Z Level 40 Linux 4.9.41-moby x64 LE
+2017-09-15T15:15:04.293Z Level 40 Loading palette nodes
+2017-09-15T15:15:05.638Z Level 30 ------------------------------------------------------
+2017-09-15T15:15:05.640Z Level 30 ------------------------------------------------------
+2017-09-15T15:15:05.640Z Level 30 Missing node modules:
+2017-09-15T15:15:05.640Z Level 30  - node-red-contrib-ucg-conversation (0.0.8): watson-conversation-ucg, watson-conversation-ucg
+2017-09-15T15:15:05.641Z Level 40 Removing modules from config
+2017-09-15T15:15:05.641Z Level 40 Settings file  : /data/settings.js
+2017-09-15T15:15:05.642Z Level 40 User directory : /data
+2017-09-15T15:15:05.642Z Level 40 Flows file     : /data/flows.json
+2017-09-15T15:15:05.639Z Level 30 [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-09-15T15:15:05.639Z Level 30 [tcp] Error: tcp in already registered (line:181)
+2017-09-15T15:15:05.640Z Level 30 [udp] Error: udp out already registered (line:102)
+2017-09-15T15:15:05.661Z Level 40 Server now running at http://127.0.0.1:1880/
+2017-09-15T15:15:05.669Z Level 50 red/runtime/nodes/credentials.load : user provided key
+2017-09-15T15:15:05.681Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-15T15:15:05.682Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-15T15:15:05.681Z Level 40 Starting flows
+2017-09-15T15:15:05.682Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-15T15:15:05.682Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-15T15:15:05.682Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-15T15:15:05.669Z Level 50 loaded flow revision: b13af3797fd703bb0df5800e8589fbb4
+2017-09-15T15:15:05.682Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-15T15:15:05.682Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-15T15:15:05.682Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-15T15:15:05.682Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-15T15:15:05.683Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-15T15:15:05.682Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-15T15:15:07.836Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T15:15:05.682Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-15T15:15:05.682Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-15T15:15:09.207Z Level 40 Started flows
+2017-09-15T15:47:15.530Z Level 40 
+
+Welcome to Node-RED
+===================
+
+2017-09-15T15:47:15.532Z Level 40 Node-RED version: v0.17.5
+2017-09-15T15:47:15.533Z Level 40 Node.js  version: v8.4.0
+2017-09-15T15:47:15.533Z Level 40 Linux 4.9.41-moby x64 LE
+2017-09-15T15:47:15.874Z Level 40 Loading palette nodes
+2017-09-15T15:47:17.117Z Level 30 ------------------------------------------------------
+2017-09-15T15:47:17.118Z Level 30 [udp] Error: udp out already registered (line:102)
+2017-09-15T15:47:17.118Z Level 30 Missing node modules:
+2017-09-15T15:47:17.119Z Level 30  - node-red-contrib-ucg-conversation (0.0.9): watson-conversation-ucg, watson-conversation-ucg
+2017-09-15T15:47:17.118Z Level 30 [tcp] Error: tcp in already registered (line:181)
+2017-09-15T15:47:17.120Z Level 40 Settings file  : /data/settings.js
+2017-09-15T15:47:17.121Z Level 40 User directory : /data
+2017-09-15T15:47:17.121Z Level 40 Flows file     : /data/flows.json
+2017-09-15T15:47:17.118Z Level 30 [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-09-15T15:47:17.118Z Level 30 ------------------------------------------------------
+2017-09-15T15:47:17.119Z Level 40 Removing modules from config
+2017-09-15T15:47:17.139Z Level 40 Server now running at http://127.0.0.1:1880/
+2017-09-15T15:47:17.146Z Level 50 red/runtime/nodes/credentials.load : user provided key
+2017-09-15T15:47:17.157Z Level 40 Starting flows
+2017-09-15T15:47:17.157Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-15T15:47:17.158Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-15T15:47:17.158Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-15T15:47:17.158Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-15T15:47:17.158Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-15T15:47:17.145Z Level 50 loaded flow revision: b13af3797fd703bb0df5800e8589fbb4
+2017-09-15T15:47:17.158Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-15T15:47:17.158Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-15T15:47:17.158Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-15T15:47:17.158Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-15T15:47:17.158Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-15T15:47:17.158Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-15T15:47:19.253Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T15:47:17.158Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-15T15:47:17.158Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-15T15:47:20.629Z Level 40 Started flows
+2017-09-15T16:26:44.641Z Level 40 
+
+Welcome to Node-RED
+===================
+
+2017-09-15T16:26:44.644Z Level 40 Node-RED version: v0.17.5
+2017-09-15T16:26:44.644Z Level 40 Node.js  version: v8.4.0
+2017-09-15T16:26:44.645Z Level 40 Linux 4.9.41-moby x64 LE
+2017-09-15T16:26:44.989Z Level 40 Loading palette nodes
+2017-09-15T16:26:46.231Z Level 30 ------------------------------------------------------
+2017-09-15T16:26:46.233Z Level 30 ------------------------------------------------------
+2017-09-15T16:26:46.233Z Level 30 Missing node modules:
+2017-09-15T16:26:46.234Z Level 30  - node-red-contrib-ucg-conversation (0.0.9): watson-conversation-ucg, watson-conversation-ucg, watson-conversation-ucg
+2017-09-15T16:26:46.234Z Level 40 Removing modules from config
+2017-09-15T16:26:46.240Z Level 40 Settings file  : /data/settings.js
+2017-09-15T16:26:46.232Z Level 30 [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-09-15T16:26:46.241Z Level 40 User directory : /data
+2017-09-15T16:26:46.232Z Level 30 [tcp] Error: tcp in already registered (line:181)
+2017-09-15T16:26:46.232Z Level 30 [udp] Error: udp out already registered (line:102)
+2017-09-15T16:26:46.241Z Level 40 Flows file     : /data/flows.json
+2017-09-15T16:26:46.260Z Level 40 Server now running at http://127.0.0.1:1880/
+2017-09-15T16:26:46.266Z Level 50 loaded flow revision: b13af3797fd703bb0df5800e8589fbb4
+2017-09-15T16:26:46.278Z Level 40 Starting flows
+2017-09-15T16:26:46.279Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-15T16:26:46.279Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-15T16:26:46.279Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-15T16:26:46.279Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-15T16:26:46.279Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-15T16:26:46.279Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-15T16:26:46.279Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-15T16:26:46.279Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-15T16:26:46.279Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-15T16:26:46.279Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-15T16:26:46.279Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-15T16:26:46.280Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-15T16:26:48.365Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T16:26:46.266Z Level 50 red/runtime/nodes/credentials.load : user provided key
+2017-09-15T16:26:46.278Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-15T16:26:49.727Z Level 40 Started flows
+2017-09-15T16:28:51.232Z Level 40 
+
+Welcome to Node-RED
+===================
+
+2017-09-15T16:28:51.235Z Level 40 Node-RED version: v0.17.5
+2017-09-15T16:28:51.235Z Level 40 Node.js  version: v8.4.0
+2017-09-15T16:28:51.235Z Level 40 Linux 4.9.41-moby x64 LE
+2017-09-15T16:28:51.580Z Level 40 Loading palette nodes
+2017-09-15T16:28:52.882Z Level 30 ------------------------------------------------------
+2017-09-15T16:28:52.883Z Level 30 ------------------------------------------------------
+2017-09-15T16:28:52.882Z Level 30 [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-09-15T16:28:52.884Z Level 40 User directory : /data
+2017-09-15T16:28:52.884Z Level 40 Flows file     : /data/flows.json
+2017-09-15T16:28:52.883Z Level 30 [udp] Error: udp out already registered (line:102)
+2017-09-15T16:28:52.883Z Level 30 [tcp] Error: tcp in already registered (line:181)
+2017-09-15T16:28:52.883Z Level 40 Settings file  : /data/settings.js
+2017-09-15T16:28:52.899Z Level 40 Server now running at http://127.0.0.1:1880/
+2017-09-15T16:28:52.915Z Level 50 red/runtime/nodes/credentials.load : user provided key
+2017-09-15T16:28:52.934Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-15T16:28:52.935Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-15T16:28:52.935Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-15T16:28:52.935Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-15T16:28:52.935Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-15T16:28:52.935Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-15T16:28:52.935Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-15T16:28:52.935Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-15T16:28:52.935Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-15T16:28:52.935Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-15T16:28:52.935Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-15T16:28:52.935Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-15T16:28:52.935Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-15T16:28:54.970Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T16:28:52.915Z Level 50 loaded flow revision: b13af3797fd703bb0df5800e8589fbb4
+2017-09-15T16:28:52.934Z Level 40 Starting flows
+2017-09-15T16:28:56.363Z Level 40 Started flows
+2017-09-15T16:38:07.095Z Level 50 red/runtime/nodes/credentials.export : encrypting
+2017-09-15T16:38:07.114Z Level 50 saved flow revision: b21e1553ddacf706b2969f2ff5374e90
+2017-09-15T16:38:07.129Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T16:38:07.129Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T16:38:07.114Z Level 40 Stopping modified flows
+2017-09-15T16:38:07.129Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T16:38:07.129Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T16:38:07.129Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T16:38:07.129Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T16:38:07.129Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T16:38:07.130Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T16:38:07.130Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T16:38:07.114Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T16:38:07.115Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T16:38:07.134Z Level 40 Starting modified flows
+2017-09-15T16:38:08.122Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T16:38:08.124Z Level 40 Started modified flows
+2017-09-15T16:38:07.129Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T16:38:07.130Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T16:38:07.133Z Level 40 Stopped modified flows
+2017-09-15T16:38:58.656Z Level 40 User *** dfn52 Said *** nope
+2017-09-15T16:38:59.055Z Level 20 Error: URL workspaceid parameter '56cfca8a-b459-447f-ab35-e94511f6f7b' is not a valid GUID.
+2017-09-15T16:39:35.211Z Level 40 Stopping modified flows
+2017-09-15T16:39:35.211Z Level 50 saved flow revision: 04cdaa9e31d710ec49dda94627211f49
+2017-09-15T16:39:35.211Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T16:39:35.211Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T16:39:35.229Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T16:39:35.229Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T16:39:35.229Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T16:39:35.230Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T16:39:35.230Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T16:39:35.229Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T16:39:35.229Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T16:39:35.230Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T16:39:35.232Z Level 40 Stopped modified flows
+2017-09-15T16:39:35.232Z Level 40 Starting modified flows
+2017-09-15T16:39:36.306Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T16:39:36.309Z Level 40 Started modified flows
+2017-09-15T16:39:35.229Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T16:39:35.230Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T16:39:35.230Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T16:39:41.924Z Level 40 User *** dfn52 Said *** nope
+2017-09-15T16:39:42.239Z Level 40 did we make it to catch
+2017-09-15T16:40:27.649Z Level 50 saved flow revision: 2c9a3e7bcfa715a3abdfa5cb761efa86
+2017-09-15T16:40:27.651Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T16:40:27.671Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T16:40:27.672Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T16:40:27.671Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T16:40:27.672Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T16:40:27.672Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T16:40:27.672Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T16:40:27.672Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T16:40:27.672Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T16:40:27.673Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T16:40:27.673Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T16:40:27.679Z Level 40 Stopped modified flows
+2017-09-15T16:40:27.680Z Level 40 Starting modified flows
+2017-09-15T16:40:28.831Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T16:40:28.833Z Level 40 Started modified flows
+2017-09-15T16:40:27.650Z Level 40 Stopping modified flows
+2017-09-15T16:40:27.672Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T16:40:27.650Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T16:40:34.056Z Level 40 User *** dfn52 Said *** nope
+2017-09-15T16:40:34.306Z Level 40 did we make it to catch
+2017-09-15T16:40:54.926Z Level 50 saved flow revision: 2c9a3e7bcfa715a3abdfa5cb761efa86
+2017-09-15T16:40:54.960Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T16:40:54.926Z Level 40 Stopping modified flows
+2017-09-15T16:40:54.961Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T16:40:54.960Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T16:40:54.961Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T16:40:54.961Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T16:40:54.961Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T16:40:54.926Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T16:40:54.927Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T16:40:54.961Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T16:40:54.960Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T16:40:54.965Z Level 40 Stopped modified flows
+2017-09-15T16:40:54.965Z Level 40 Starting modified flows
+2017-09-15T16:40:56.131Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T16:40:56.132Z Level 40 Started modified flows
+2017-09-15T16:40:54.961Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T16:40:54.961Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T16:40:54.961Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T16:41:15.662Z Level 40 User *** dfn53 Said *** nope
+2017-09-15T16:41:16.200Z Level 40 did we make it to catch
+2017-09-15T16:45:43.452Z Level 50 saved flow revision: 0e1a8229be249c29b340a0d86b357383
+2017-09-15T16:45:43.464Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T16:45:43.452Z Level 40 Stopping modified flows
+2017-09-15T16:45:43.463Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T16:45:43.452Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T16:45:43.452Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T16:45:43.464Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T16:45:43.464Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T16:45:43.464Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T16:45:43.464Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T16:45:43.464Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T16:45:43.464Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T16:45:43.464Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T16:45:43.464Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T16:45:44.739Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T16:45:44.741Z Level 40 Started modified flows
+2017-09-15T16:45:43.466Z Level 40 Stopped modified flows
+2017-09-15T16:45:43.464Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T16:45:43.467Z Level 40 Starting modified flows
+2017-09-15T16:45:55.359Z Level 40 User *** dfn54 Said *** nope
+2017-09-15T16:45:55.945Z Level 40 did we make it to catch
+2017-09-15T16:51:14.908Z Level 40 
+
+Welcome to Node-RED
+===================
+
+2017-09-15T16:51:14.911Z Level 40 Node-RED version: v0.17.5
+2017-09-15T16:51:14.912Z Level 40 Node.js  version: v8.4.0
+2017-09-15T16:51:14.912Z Level 40 Linux 4.9.41-moby x64 LE
+2017-09-15T16:51:15.314Z Level 40 Loading palette nodes
+2017-09-15T16:51:16.706Z Level 30 ------------------------------------------------------
+2017-09-15T16:51:16.707Z Level 30 [tcp] Error: tcp in already registered (line:181)
+2017-09-15T16:51:16.708Z Level 40 Settings file  : /data/settings.js
+2017-09-15T16:51:16.709Z Level 40 User directory : /data
+2017-09-15T16:51:16.709Z Level 40 Flows file     : /data/flows.json
+2017-09-15T16:51:16.707Z Level 30 [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-09-15T16:51:16.707Z Level 30 [udp] Error: udp out already registered (line:102)
+2017-09-15T16:51:16.708Z Level 30 ------------------------------------------------------
+2017-09-15T16:51:16.723Z Level 40 Server now running at http://127.0.0.1:1880/
+2017-09-15T16:51:16.730Z Level 50 red/runtime/nodes/credentials.load : user provided key
+2017-09-15T16:51:16.745Z Level 50 red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-09-15T16:51:16.745Z Level 50 red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-09-15T16:51:16.745Z Level 50 red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-09-15T16:51:16.745Z Level 50 red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-09-15T16:51:16.745Z Level 50 red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-09-15T16:51:16.745Z Level 50 red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-09-15T16:51:16.745Z Level 50 red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-09-15T16:51:16.745Z Level 50 red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-09-15T16:51:16.745Z Level 50 red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-09-15T16:51:16.745Z Level 50 red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-09-15T16:51:16.745Z Level 50 red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-09-15T16:51:16.745Z Level 50 red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-09-15T16:51:19.082Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T16:51:20.649Z Level 40 Started flows
+2017-09-15T16:51:16.744Z Level 40 Starting flows
+2017-09-15T16:51:16.730Z Level 50 loaded flow revision: ff59dc25bbf6bce955988db49f431681
+2017-09-15T16:51:16.744Z Level 50 red/nodes/flows.start : starting flow : global
+2017-09-15T16:51:43.721Z Level 40 User *** dfn55 Said *** nope
+2017-09-15T16:51:44.348Z Level 40 did we make it to catch
+2017-09-15T16:52:43.721Z Level 50 saved flow revision: c8e91154cfffad42244fd29cf09d3629
+2017-09-15T16:52:43.735Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T16:52:43.736Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T16:52:43.736Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T16:52:43.736Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T16:52:43.736Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T16:52:43.736Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T16:52:43.737Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T16:52:43.737Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T16:52:43.737Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T16:52:43.722Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T16:52:43.738Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T16:52:43.740Z Level 40 Stopped modified flows
+2017-09-15T16:52:43.741Z Level 40 Starting modified flows
+2017-09-15T16:52:44.797Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T16:52:44.800Z Level 40 Started modified flows
+2017-09-15T16:52:43.722Z Level 40 Stopping modified flows
+2017-09-15T16:52:43.723Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T16:52:43.737Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T16:52:55.506Z Level 40 User *** dfn56 Said *** nope
+2017-09-15T16:52:56.100Z Level 40 did we make it to catch
+2017-09-15T16:56:02.787Z Level 40 User *** dfn57 Said *** nope
+2017-09-15T16:56:03.450Z Level 40 did we make it to catch
+2017-09-15T16:57:17.325Z Level 40 Stopping modified flows
+2017-09-15T16:57:17.334Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T16:57:17.334Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T16:57:17.335Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T16:57:17.335Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T16:57:17.335Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T16:57:17.335Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T16:57:17.335Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T16:57:17.335Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T16:57:17.336Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T16:57:17.336Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T16:57:17.336Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T16:57:17.337Z Level 40 Stopped modified flows
+2017-09-15T16:57:17.338Z Level 40 Starting modified flows
+2017-09-15T16:57:18.375Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T16:57:18.376Z Level 40 Started modified flows
+2017-09-15T16:57:17.324Z Level 50 saved flow revision: 564d174884e169f7366f35e9fd8d6814
+2017-09-15T16:57:17.325Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T16:57:17.325Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T16:57:26.930Z Level 40 User *** dfn58 Said *** nope
+2017-09-15T16:57:27.511Z Level 40 did we make it here
+2017-09-15T16:57:27.512Z Level 40 User *** dfn58 Response *** dennis, have a wonderful day! Remember, you can chat with me anytime and anywhere! I'm here for you.
+2017-09-15T17:07:36.862Z Level 50 red/runtime/nodes/credentials.export : encrypting
+2017-09-15T17:07:36.871Z Level 50 saved flow revision: f0784c6fab43ace9ccdada0dc4c5fbec
+2017-09-15T17:07:36.889Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T17:07:36.889Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T17:07:36.889Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T17:07:36.889Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T17:07:36.889Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T17:07:36.889Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T17:07:36.890Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T17:07:36.890Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T17:07:36.890Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T17:07:36.890Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T17:07:36.890Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T17:07:36.893Z Level 40 Stopped modified flows
+2017-09-15T17:07:36.894Z Level 40 Starting modified flows
+2017-09-15T17:07:37.946Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T17:07:37.949Z Level 40 Started modified flows
+2017-09-15T17:07:36.871Z Level 40 Stopping modified flows
+2017-09-15T17:07:36.872Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T17:07:36.872Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T17:09:49.922Z Level 40 Stopping modified flows
+2017-09-15T17:09:49.932Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T17:09:49.932Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T17:09:49.932Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T17:09:49.932Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T17:09:49.933Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T17:09:49.932Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T17:09:49.933Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T17:09:49.933Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T17:09:49.933Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T17:09:49.933Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T17:09:49.933Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T17:09:49.936Z Level 40 Starting modified flows
+2017-09-15T17:09:49.935Z Level 40 Stopped modified flows
+2017-09-15T17:09:51.094Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T17:09:51.096Z Level 40 Started modified flows
+2017-09-15T17:09:49.923Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T17:09:49.922Z Level 50 saved flow revision: c63b29c0f53203ed583cc7ed4136da0f
+2017-09-15T17:09:49.922Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T17:10:32.401Z Level 40 Stopping modified flows
+2017-09-15T17:10:32.412Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T17:10:32.412Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T17:10:32.412Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T17:10:32.412Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T17:10:32.412Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T17:10:32.412Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T17:10:32.413Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T17:10:32.413Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T17:10:32.413Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T17:10:32.413Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T17:10:32.413Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T17:10:32.415Z Level 40 Stopped modified flows
+2017-09-15T17:10:32.415Z Level 40 Starting modified flows
+2017-09-15T17:10:33.511Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T17:10:33.514Z Level 40 Started modified flows
+2017-09-15T17:10:32.402Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T17:10:32.402Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T17:10:32.401Z Level 50 saved flow revision: ca68c4f58c2f0e08867e8d5a147caa4d
+2017-09-15T18:12:44.406Z Level 40 Stopping modified flows
+2017-09-15T18:12:44.418Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T18:12:44.418Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T18:12:44.418Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T18:12:44.418Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T18:12:44.418Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T18:12:44.418Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T18:12:44.418Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T18:12:44.419Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T18:12:44.419Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T18:12:44.419Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T18:12:44.419Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T18:12:44.423Z Level 40 Stopped modified flows
+2017-09-15T18:12:44.423Z Level 40 Starting modified flows
+2017-09-15T18:12:45.562Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T18:12:45.563Z Level 40 Started modified flows
+2017-09-15T18:12:44.406Z Level 50 saved flow revision: 5e9eb53f75d787b1942284ea33f6f234
+2017-09-15T18:12:44.407Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T18:12:44.407Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T18:20:04.080Z Level 50 saved flow revision: 09d2e380933848589cc4ab287e838a4d
+2017-09-15T18:20:04.081Z Level 40 Stopping modified flows
+2017-09-15T18:20:04.097Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T18:20:04.097Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T18:20:04.081Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T18:20:04.098Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T18:20:04.098Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T18:20:04.098Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T18:20:04.098Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T18:20:04.098Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T18:20:04.098Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T18:20:04.098Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T18:20:04.100Z Level 40 Starting modified flows
+2017-09-15T18:20:04.100Z Level 40 Stopped modified flows
+2017-09-15T18:20:05.410Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T18:20:05.413Z Level 40 Started modified flows
+2017-09-15T18:20:04.081Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T18:20:04.097Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T18:20:04.097Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T18:23:19.633Z Level 50 saved flow revision: 87138cf269a4e8c61809f10355921d35
+2017-09-15T18:23:19.634Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T18:23:19.635Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T18:23:19.635Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T18:23:19.635Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T18:23:19.635Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T18:23:19.636Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T18:23:19.636Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T18:23:19.636Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T18:23:19.636Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T18:23:19.636Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T18:23:19.636Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T18:23:19.638Z Level 40 Stopped modified flows
+2017-09-15T18:23:19.639Z Level 40 Starting modified flows
+2017-09-15T18:23:19.641Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T18:23:19.643Z Level 40 Started modified flows
+2017-09-15T18:23:19.633Z Level 40 Stopping modified flows
+2017-09-15T18:23:19.634Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T18:23:19.634Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T18:26:57.066Z Level 50 saved flow revision: 1788cd9adb526a95e2eea5d390b0ecf5
+2017-09-15T18:26:57.066Z Level 40 Stopping modified flows
+2017-09-15T18:26:57.081Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T18:26:57.082Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T18:26:57.082Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T18:26:57.082Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T18:26:57.082Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T18:26:57.082Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T18:26:57.082Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T18:26:57.083Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T18:26:57.083Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T18:26:57.083Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T18:26:57.086Z Level 40 Stopped modified flows
+2017-09-15T18:26:57.087Z Level 40 Starting modified flows
+2017-09-15T18:26:58.439Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T18:26:58.441Z Level 40 Started modified flows
+2017-09-15T18:26:57.067Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T18:26:57.067Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T18:26:57.081Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T18:27:33.217Z Level 50 saved flow revision: baf349026b90cbcdc9f957c97d09bfa3
+2017-09-15T18:27:33.217Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T18:27:33.246Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T18:27:33.246Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T18:27:33.246Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T18:27:33.246Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T18:27:33.246Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T18:27:33.246Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T18:27:33.246Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T18:27:33.217Z Level 40 Stopping modified flows
+2017-09-15T18:27:33.246Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T18:27:33.246Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T18:27:33.252Z Level 40 Stopped modified flows
+2017-09-15T18:27:33.252Z Level 40 Starting modified flows
+2017-09-15T18:27:34.676Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T18:27:34.679Z Level 40 Started modified flows
+2017-09-15T18:27:33.217Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T18:27:33.245Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T18:27:33.246Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T18:27:55.191Z Level 40 User *** dfn59 Said *** status of a claim
+2017-09-15T18:27:55.838Z Level 20 ReferenceError: error is not defined (line 1, col 66)
+2017-09-15T18:27:55.844Z Level 20 ReferenceError: error is not defined (line 1, col 73)
+2017-09-15T18:29:21.524Z Level 40 Stopping modified flows
+2017-09-15T18:29:21.536Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T18:29:21.536Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T18:29:21.537Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T18:29:21.537Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T18:29:21.539Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T18:29:21.539Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T18:29:21.539Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T18:29:21.539Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T18:29:21.539Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T18:29:21.540Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T18:29:21.540Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T18:29:21.543Z Level 40 Stopped modified flows
+2017-09-15T18:29:21.543Z Level 40 Starting modified flows
+2017-09-15T18:29:22.982Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T18:29:22.986Z Level 40 Started modified flows
+2017-09-15T18:29:21.524Z Level 50 saved flow revision: 09e59ea237bdb37ea0b6c31d827f46ce
+2017-09-15T18:29:21.525Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T18:29:21.525Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T18:29:29.966Z Level 40 User *** dfn60 Said *** status of a claim
+2017-09-15T18:29:30.515Z Level 20 ReferenceError: error is not defined (line 1, col 66)
+2017-09-15T18:29:30.521Z Level 20 ReferenceError: error is not defined (line 1, col 73)
+2017-09-15T18:30:04.729Z Level 50 saved flow revision: 03b7d25d66616b1a02bab8d734edff70
+2017-09-15T18:30:04.740Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T18:30:04.739Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T18:30:04.729Z Level 40 Stopping modified flows
+2017-09-15T18:30:04.740Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T18:30:04.740Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T18:30:04.740Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T18:30:04.740Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T18:30:04.741Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T18:30:04.741Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T18:30:04.741Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T18:30:04.746Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T18:30:04.748Z Level 40 Stopped modified flows
+2017-09-15T18:30:04.748Z Level 40 Starting modified flows
+2017-09-15T18:30:06.265Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T18:30:06.267Z Level 40 Started modified flows
+2017-09-15T18:30:04.729Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T18:30:04.730Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T18:30:04.740Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T18:30:13.060Z Level 40 User *** dfn61 Said *** status of a claim
+2017-09-15T18:30:13.542Z Level 20 ReferenceError: error is not defined (line 1, col 66)
+2017-09-15T18:30:13.548Z Level 20 ReferenceError: error is not defined (line 1, col 73)
+2017-09-15T18:30:46.968Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T18:30:46.981Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T18:30:46.981Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T18:30:46.981Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T18:30:46.981Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T18:30:46.981Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T18:30:46.982Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T18:30:46.981Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T18:30:46.981Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T18:30:46.982Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T18:30:46.982Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T18:30:46.982Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T18:30:46.986Z Level 40 Stopped modified flows
+2017-09-15T18:30:46.986Z Level 40 Starting modified flows
+2017-09-15T18:30:48.369Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T18:30:48.371Z Level 40 Started modified flows
+2017-09-15T18:30:46.968Z Level 40 Stopping modified flows
+2017-09-15T18:30:46.968Z Level 50 saved flow revision: 008200daf4dd18bb8b2dca2cfbf7092e
+2017-09-15T18:30:46.968Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T18:30:59.286Z Level 40 User *** dfn62 Said *** status of a claim
+2017-09-15T18:30:59.879Z Level 40 US WCS failed will try Germanydfn62
+2017-09-15T18:30:59.890Z Level 20 TypeError: Cannot read property '0' of undefined
+2017-09-15T18:30:59.881Z Level 30 Overridden saved context
+2017-09-15T18:30:59.889Z Level 40 Germany WCS failed, Transfer to Agentdfn62
+2017-09-15T18:31:00.593Z Level 20 Error: Not Authorized
+2017-09-15T18:32:09.136Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T18:32:09.135Z Level 50 saved flow revision: 9f6550609d45d9a3686dcaabec41a139
+2017-09-15T18:32:09.145Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T18:32:09.145Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T18:32:09.145Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T18:32:09.145Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T18:32:09.145Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T18:32:09.145Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T18:32:09.146Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T18:32:09.146Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T18:32:09.146Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T18:32:09.146Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T18:32:09.151Z Level 40 Stopped modified flows
+2017-09-15T18:32:09.151Z Level 40 Starting modified flows
+2017-09-15T18:32:10.607Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T18:32:10.609Z Level 40 Started modified flows
+2017-09-15T18:32:09.135Z Level 40 Stopping modified flows
+2017-09-15T18:32:09.136Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T18:32:09.145Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T18:33:05.954Z Level 40 User *** dfn63 Said *** status of a claim
+2017-09-15T18:33:06.445Z Level 40 Germany WCS failed, Transfer to Agentdfn63
+2017-09-15T18:33:06.437Z Level 40 US WCS failed will try Germanydfn63
+2017-09-15T18:33:06.446Z Level 20 TypeError: Cannot read property '0' of undefined
+2017-09-15T18:33:06.955Z Level 20 Error: Not Authorized
+2017-09-15T18:34:09.171Z Level 50 saved flow revision: 1b8b91fbc8091f8c8580c54746f8f430
+2017-09-15T18:34:09.180Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T18:34:09.180Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T18:34:09.180Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T18:34:09.180Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T18:34:09.180Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T18:34:09.180Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T18:34:09.181Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T18:34:09.181Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T18:34:09.181Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T18:34:09.181Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T18:34:09.181Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T18:34:09.185Z Level 40 Stopped modified flows
+2017-09-15T18:34:09.185Z Level 40 Starting modified flows
+2017-09-15T18:34:10.765Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T18:34:10.766Z Level 40 Started modified flows
+2017-09-15T18:34:09.171Z Level 40 Stopping modified flows
+2017-09-15T18:34:09.171Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T18:34:09.171Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T18:35:09.177Z Level 50 red/runtime/nodes/credentials.export : encrypting
+2017-09-15T18:35:09.200Z Level 40 Stopping modified flows
+2017-09-15T18:35:09.216Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T18:35:09.218Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T18:35:09.218Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T18:35:09.218Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T18:35:09.218Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T18:35:09.218Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T18:35:09.218Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T18:35:09.219Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T18:35:09.219Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T18:35:09.219Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T18:35:09.219Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T18:35:09.235Z Level 40 Starting modified flows
+2017-09-15T18:35:09.235Z Level 40 Stopped modified flows
+2017-09-15T18:35:10.679Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T18:35:10.680Z Level 40 Started modified flows
+2017-09-15T18:35:09.200Z Level 50 saved flow revision: 358416bab6251eb29e442745f9a92c20
+2017-09-15T18:35:09.201Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T18:35:09.201Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T19:02:16.093Z Level 40 User *** dfn64 Said *** status of a claim
+2017-09-15T19:02:16.674Z Level 40 US WCS failed will try Germany for user dfn64
+2017-09-15T19:02:16.681Z Level 20 TypeError: Cannot read property '0' of undefined
+2017-09-15T19:02:16.681Z Level 40 Germany WCS failed, Transfer to Agent for user dfn64
+2017-09-15T19:02:17.511Z Level 40 User *** dfn64 Response *** Hi dennis, I see by our records that you are a policy holder with Open Insurance. Is that correct? 
+2017-09-15T19:05:36.290Z Level 40 User *** dfn64 Said *** yes
+2017-09-15T19:05:36.609Z Level 40 US WCS failed will try Germany for user dfn64
+2017-09-15T19:05:36.613Z Level 40 Germany WCS failed, Transfer to Agent for user dfn64
+2017-09-15T19:05:36.615Z Level 20 TypeError: Cannot read property '0' of undefined
+2017-09-15T19:05:37.386Z Level 40 User *** dfn64 Response *** dennis, we are sorry for your loss.  I see by your recent claim that a tree appears to have fallen on your roof.  Can you confirm? 
+2017-09-15T19:06:23.890Z Level 50 saved flow revision: 6de7f6ba8db1fce65ab80bbb91cd11ad
+2017-09-15T19:06:23.900Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T19:06:23.906Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T19:06:23.924Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T19:06:23.933Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T19:06:23.944Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T19:06:23.957Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T19:06:23.957Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T19:06:23.961Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T19:06:23.961Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T19:06:23.961Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T19:06:23.962Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T19:06:23.985Z Level 40 Stopped modified flows
+2017-09-15T19:06:23.985Z Level 40 Starting modified flows
+2017-09-15T19:06:31.292Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T19:06:32.889Z Level 40 Started modified flows
+2017-09-15T19:06:23.890Z Level 40 Stopping modified flows
+2017-09-15T19:06:23.891Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T19:06:23.891Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T19:06:48.197Z Level 40 User *** dfn64 Said *** yes
+2017-09-15T19:06:48.504Z Level 40 US WCS failed will try Germany for user dfn64
+2017-09-15T19:06:48.509Z Level 40 Germany WCS failed, Transfer to Agent for user dfn64
+2017-09-15T19:06:48.510Z Level 20 TypeError: Cannot read property '0' of undefined
+2017-09-15T19:06:49.136Z Level 40 User *** dfn64 Response *** Looking at your file, I see that Mr. Fred Balboni filed his report with us on October 1st. Coverage was confirmed and we issued a letter to you with instructions on October 5th. Have you received that letter? 
+2017-09-15T19:59:10.548Z Level 50 saved flow revision: f9e08d5b71fcdf5f0bc46e877d77e096
+2017-09-15T19:59:10.556Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T19:59:10.557Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T19:59:10.557Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T19:59:10.557Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T19:59:10.557Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T19:59:10.557Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T19:59:10.557Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T19:59:10.557Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T19:59:10.558Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T19:59:10.558Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T19:59:10.557Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T19:59:10.561Z Level 40 Stopped modified flows
+2017-09-15T19:59:10.562Z Level 40 Starting modified flows
+2017-09-15T19:59:11.983Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T19:59:11.984Z Level 40 Started modified flows
+2017-09-15T19:59:10.548Z Level 40 Stopping modified flows
+2017-09-15T19:59:10.548Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T19:59:10.549Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T19:59:41.625Z Level 40 User *** dfn64 Said *** nope
+2017-09-15T19:59:41.974Z Level 40 US WCS failed will try Germany for user dfn64
+2017-09-15T19:59:42.766Z Level 40 User *** dfn64 Response *** Sorry you didn't receive your letter. Based on the contents of the letter, your property coverage is replacement cost up to the agreed assessed replacement value of your house. We see from the adjuster’s notes that this should be well under that amount. You should have plenty of coverage. Any questions about your claim or coverage? 
+2017-09-15T20:00:29.766Z Level 40 User *** dfn64 Said *** status of my claim
+2017-09-15T20:00:30.073Z Level 40 US WCS failed will try Germany for user dfn64
+2017-09-15T20:00:30.839Z Level 40 User *** dfn64 Response *** Hi dennis, I see by our records that you are a policy holder with Open Insurance. Is that correct? 
+2017-09-15T20:01:03.507Z Level 40 User *** dfn65 Said *** status of my claim
+2017-09-15T20:01:04.028Z Level 40 US WCS failed will try Germany for user dfn65
+2017-09-15T20:01:04.647Z Level 40 User *** dfn65 Response *** Hi dennis, I see by our records that you are a policy holder with Open Insurance. Is that correct? 
+2017-09-15T20:01:56.021Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T20:01:56.021Z Level 40 Stopping modified flows
+2017-09-15T20:01:56.031Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T20:01:56.031Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T20:01:56.031Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T20:01:56.031Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T20:01:56.032Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T20:01:56.031Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T20:01:56.032Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T20:01:56.032Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T20:01:56.032Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T20:01:56.032Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T20:01:56.036Z Level 40 Stopped modified flows
+2017-09-15T20:01:56.036Z Level 40 Starting modified flows
+2017-09-15T20:01:57.535Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T20:01:57.541Z Level 40 Started modified flows
+2017-09-15T20:01:56.021Z Level 50 saved flow revision: d3e0f94fed935ab4c59ba904a2f2c8f2
+2017-09-15T20:01:56.022Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T20:01:56.030Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T20:02:20.888Z Level 40 User *** dfn67 Said *** status of my claim
+2017-09-15T20:02:21.416Z Level 40 US WCS failed will try Germany for user dfn67 Error: Error: URL workspaceid parameter '56cfca8a-b459-447f-ab35-e94511f6f7b' is not a valid GUID.
+2017-09-15T20:02:22.172Z Level 40 User *** dfn67 Response *** Hi dennis, I see by our records that you are a policy holder with Open Insurance. Is that correct? 
+2017-09-15T20:02:53.888Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T20:02:53.887Z Level 50 saved flow revision: 77279b0cfcb0135008c8bccc035be105
+2017-09-15T20:02:53.898Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T20:02:53.898Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T20:02:53.898Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T20:02:53.898Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T20:02:53.898Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T20:02:53.900Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T20:02:53.900Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T20:02:53.900Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T20:02:53.901Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T20:02:53.901Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T20:02:53.908Z Level 40 Stopped modified flows
+2017-09-15T20:02:53.908Z Level 40 Starting modified flows
+2017-09-15T20:02:55.439Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T20:02:55.441Z Level 40 Started modified flows
+2017-09-15T20:02:53.888Z Level 40 Stopping modified flows
+2017-09-15T20:02:53.888Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T20:02:53.898Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T20:03:11.603Z Level 40 User *** dfn67 Said *** yes
+2017-09-15T20:03:11.940Z Level 40 User *** dfn67 Response *** dennis, have a wonderful day! Remember, you can chat with me anytime and anywhere! I'm here for you.
+2017-09-15T23:05:54.543Z Level 50 saved flow revision: 57356bcfb94fde78b1e44da4369686fa
+2017-09-15T23:05:54.552Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T23:05:54.552Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T23:05:54.552Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T23:05:54.552Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T23:05:54.554Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T23:05:54.554Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T23:05:54.554Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T23:05:54.554Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T23:05:54.554Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T23:05:54.554Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T23:05:54.543Z Level 40 Stopping modified flows
+2017-09-15T23:05:54.556Z Level 40 Stopped modified flows
+2017-09-15T23:05:54.557Z Level 40 Starting modified flows
+2017-09-15T23:05:55.883Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T23:05:55.884Z Level 40 Started modified flows
+2017-09-15T23:05:54.543Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T23:05:54.543Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T23:05:54.554Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T23:06:26.214Z Level 50 saved flow revision: 386b8780a83ae612b75131c2db5943b1
+2017-09-15T23:06:26.215Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T23:06:26.215Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T23:06:26.215Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T23:06:26.215Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T23:06:26.216Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T23:06:26.216Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T23:06:26.214Z Level 40 Stopping modified flows
+2017-09-15T23:06:26.216Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T23:06:26.217Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T23:06:26.217Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T23:06:26.217Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T23:06:26.221Z Level 40 Stopped modified flows
+2017-09-15T23:06:26.221Z Level 40 Starting modified flows
+2017-09-15T23:06:26.233Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T23:06:26.236Z Level 40 Started modified flows
+2017-09-15T23:06:26.214Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T23:06:26.214Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T23:06:26.216Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T23:07:02.292Z Level 50 saved flow revision: 386b8780a83ae612b75131c2db5943b1
+2017-09-15T23:07:02.292Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T23:07:02.313Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T23:07:02.313Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-09-15T23:07:02.313Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T23:07:02.313Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T23:07:02.314Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T23:07:02.292Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T23:07:02.314Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T23:07:02.292Z Level 40 Stopping modified flows
+2017-09-15T23:07:02.314Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T23:07:02.314Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T23:07:02.321Z Level 40 Stopped modified flows
+2017-09-15T23:07:02.321Z Level 40 Starting modified flows
+2017-09-15T23:07:03.678Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T23:07:03.682Z Level 40 Started modified flows
+2017-09-15T23:07:02.312Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T23:07:02.314Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T23:07:02.314Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T23:07:09.161Z Level 40 Stopping modified flows
+2017-09-15T23:07:09.175Z Level 50 red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-09-15T23:07:09.161Z Level 50 saved flow revision: 769ad9c64113a54c7645776c511e9f99
+2017-09-15T23:07:09.161Z Level 50 red/nodes/flows.stop : stopping flow : global
+2017-09-15T23:07:09.176Z Level 50 red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-09-15T23:07:09.176Z Level 50 red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-09-15T23:07:09.176Z Level 50 red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-09-15T23:07:09.176Z Level 50 red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-09-15T23:07:09.176Z Level 50 red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-09-15T23:07:09.176Z Level 50 red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-09-15T23:07:09.176Z Level 50 red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-09-15T23:07:09.176Z Level 50 red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-09-15T23:07:09.181Z Level 40 Starting modified flows
+2017-09-15T23:07:09.180Z Level 40 Stopped modified flows
+2017-09-15T23:07:10.716Z Level 20 Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-09-15T23:07:10.718Z Level 40 Started modified flows
+2017-09-15T23:07:09.162Z Level 50 red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-09-15T23:07:09.175Z Level 50 red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-09-15T23:07:09.176Z Level 50 red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8

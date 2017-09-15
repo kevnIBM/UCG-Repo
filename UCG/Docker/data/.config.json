@@ -974,6 +974,23 @@
      "file": "/usr/src/node-red/node_modules/node-red-contrib-ucg-mssql/mssql.js"
     }
    }
+  },
+  "node-red-node-watson-ucg": {
+   "name": "node-red-node-watson-ucg",
+   "version": "0.0.11",
+   "local": false,
+   "nodes": {
+    "watson-conversation-ucg-v1": {
+     "name": "watson-conversation-ucg-v1",
+     "types": [
+      "watson-conversation-ucg-v1"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-node-watson-ucg",
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson-ucg/services/conversation/v1.js"
+    }
+   }
   }
  }
 }
