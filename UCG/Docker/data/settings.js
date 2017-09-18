@@ -198,7 +198,7 @@ module.exports = {
             // info - LEVEL40-record information about the general running of the application + warn + error + fatal errors
             // debug - LEVEL50-record information which is more verbose than info + info + warn + error + fatal errors
             // trace - LEVEL60-record very detailed logging + debug + info + warn + error + fatal errors
-            level: "info",
+            level: "debug",
             // LEVEL99-Whether or not to include metric events in the log output
             metrics: false,
             // LEVRL98-Whether or not to include audit events in the log output
@@ -208,35 +208,44 @@ module.exports = {
         myCustomLogger: {
             level: 'debug',
             metrics: false,
+            audit: false,
             handler: function(settings) {             
                 var fs = require('fs');
-                
+                var os = require('os');
                 return function(msg) {
-                   // console.log((new Date(msg.timestamp)).toISOString() + " Level " + msg.level + " " + mymsg);
-                    if (!msg.msgid)
-                        msg.msgid = ""
-                    if (!msg.nodeid)
-                        msg.nodeid = ""
-                    if (!msg.value)
-                        msg.value = ""
+                    
+                    if (msg.level === 99) {
+                      mylogMsg = (new Date(msg.timestamp)).toISOString() + " System " + os.hostname + " Level " + msg.level
+                      if (msg.nodeid)
+                        mylogMsg = mylogMsg + " Node " + msg.nodeid 
+                      if (msg.event)
+                        mylogMsg = mylogMsg + " Event " + msg.event
+                      if (msg.msgid)
+                        mylogMsg = mylogMsg + " MSGId " + msg.msgid
+                      if (msg.value)
+                        mylogMsg = mylogMsg + " Value " + msg.value
+                      mylogMsg = mylogMsg + "\n"
 
-                    if (msg.level === 99 || msg.level === 98)
-                      fs.appendFile("/data/status.log", (new Date(msg.timestamp)).toISOString() + 
-                                      " Level " + msg.level + " " +
-                                      " Node " + msg.nodeid + " " +
-                                      " Event " + msg.event + " " +
-                                      " MSGId " + msg.msgid + " " +
-                                      " Value " + msg.value + " " +
-                                      "\n", function(err) {
-                       if(err) {
-                           return console.log(err);
-                       }});    
-                    else
-                                        
-                      fs.appendFile("/data/status.log", (new Date(msg.timestamp)).toISOString() + " Level " + msg.level + " " + msg.msg + "\n", function(err) {
+                      fs.appendFile("/data/status.log",mylogMsg, function(err) {
                        if(err) {
                            return console.log(err);
                        }}); 
+                    }      
+                    else {
+                      mylogMsg = (new Date(msg.timestamp)).toISOString() + " System " + os.hostname + " Level " + msg.level
+                      if (msg.nodeid)
+                        mylogMsg = mylogMsg + " Node " + msg.nodeid 
+                      if (msg.event)
+                        mylogMsg = mylogMsg + " Event " + msg.event
+                      if (msg.msg)
+                        mylogMsg = mylogMsg + " Msg " + msg.msg
+                      mylogMsg = mylogMsg + "\n"
+
+                      fs.appendFile("/data/status.log", mylogMsg, function(err) {
+                       if(err) {
+                           return console.log(err);
+                       }}); 
+                    }  
                 }
             }
         }
