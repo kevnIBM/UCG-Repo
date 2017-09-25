@@ -225,7 +225,7 @@ module.exports = {
                       if (msg.value)
                         mylogMsg = mylogMsg + " Value " + msg.value
                       mylogMsg = mylogMsg + "\n"
-
+                     
                       fs.appendFile("/data/status.log",mylogMsg, function(err) {
                        if(err) {
                            return console.log(err);

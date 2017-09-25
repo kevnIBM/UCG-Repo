@@ -3200,8 +3200,8 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 453.25,
-        "y": 329.50000953674316,
+        "x": 452.5833435058594,
+        "y": 328.8333225250244,
         "wires": []
     },
     {
@@ -3736,22 +3736,9 @@
         "y": 404,
         "wires": [
             [
-                "88438118.d2a248",
                 "b69f8c89.55c9c"
             ]
         ]
-    },
-    {
-        "id": "88438118.d2a248",
-        "type": "debug",
-        "z": "cb400db2.feb1d8",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 491.5,
-        "y": 529,
-        "wires": []
     },
     {
         "id": "b69f8c89.55c9c",
@@ -3759,7 +3746,7 @@
         "z": "cb400db2.feb1d8",
         "mssqlCN": "fc597431.b0b028",
         "name": "New UCG MSSQL with params sent via msg",
-        "query": "SELECT * FROM information_schema.tables;",
+        "query": "insert into session VALUES ('dddd', '10/01/2017', 'load', 'test')\n\n",
         "outField": "payload",
         "x": 568.5,
         "y": 407,
@@ -3886,8 +3873,8 @@
         "scope": [
             "404c2e16.964188"
         ],
-        "x": 346.5,
-        "y": 357,
+        "x": 328.5,
+        "y": 356,
         "wires": [
             [
                 "b1be0d25.47d3f",
