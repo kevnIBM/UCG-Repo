@@ -4,7 +4,7 @@ metadata:
   name: ucg-ingress
 spec:
   rules:
-  - host: ucg-cluster.us-south.containers.mybluemix.net
+  - host: ucg-clusterv3.us-south.containers.mybluemix.net
     http:
       paths:
       - path: /

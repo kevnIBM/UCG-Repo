@@ -2537,7 +2537,7 @@
         "id": "2f4a8e9a.d0de9a",
         "type": "subflow:f48845d6.67899",
         "z": "3fad3621.99e442",
-        "name": "",
+        "name": "Get Session",
         "x": 407,
         "y": 52.583335876464844,
         "wires": [

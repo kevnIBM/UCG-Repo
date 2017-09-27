@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nodered
 spec:
-  replicas: 78
+  replicas: 20
   template:
     metadata:
       labels:
@@ -11,18 +11,18 @@ spec:
     spec:
       containers:
       - name: nodered
-        image: dennisnotojr/nodered-loadtest:version9
+        image: dennisnotojr/nodered-loadtest:version12
         ports: 
          - containerPort: 1880
            protocol: TCP
         imagePullPolicy: Always
         resources:
           limits:
+            cpu: 0.60
+            memory: 512Mi
+          requests:  
             cpu: 0.25
             memory: 256Mi
-          requests:  
-            cpu: 0.1
-            memory: 256Mi
         env:
-        - name: httpAdminRoot
-          value: "false"
+        - name: NODE_ENV
+          value: "production"

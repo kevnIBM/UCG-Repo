@@ -4,7 +4,8 @@ FROM node:8
 RUN mkdir -p /usr/src/node-red
 
 # User data directory, contains flows, config and nodes.
-RUN mkdir /data
+RUN mkdir /data 
+COPY /data/ /data/
 
 WORKDIR /usr/src/node-red
 
