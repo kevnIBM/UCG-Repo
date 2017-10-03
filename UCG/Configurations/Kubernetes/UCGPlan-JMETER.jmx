@@ -17,7 +17,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1000</stringProp>
+        <stringProp name="ThreadGroup.num_threads">50000</stringProp>
         <stringProp name="ThreadGroup.ramp_time">100</stringProp>
         <longProp name="ThreadGroup.start_time">1506523237000</longProp>
         <longProp name="ThreadGroup.end_time">1506523237000</longProp>
@@ -55,15 +55,14 @@
           <stringProp name="filename"></stringProp>
           <stringProp name="script">int threadNum = ctx.getThreadNum();
 
-String myuser = &quot;testA&quot; + String.valueOf(threadNum);
+String myuser = &quot;testG&quot; + String.valueOf(threadNum);
 
 vars.put(&quot;myuser&quot;, myuser);
-
-print(myuser);</stringProp>
+</stringProp>
         </BeanShellPreProcessor>
         <hashTree/>
         <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-          <stringProp name="ConstantTimer.delay">30000</stringProp>
+          <stringProp name="ConstantTimer.delay">40000</stringProp>
         </ConstantTimer>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
@@ -74,7 +73,7 @@ print(myuser);</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;status of my claim&apos;&amp;fname=dennis</stringProp>
+          <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;Status of my claim&apos;&amp;fname=dennis</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -94,7 +93,7 @@ print(myuser);</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;yes&apos;&amp;fname=dennis</stringProp>
+          <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;Yes I am&apos;&amp;fname=dennis</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -114,7 +113,7 @@ print(myuser);</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;yea what a mess&apos;&amp;fname=dennis</stringProp>
+          <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;Yeah what a mess&apos;&amp;fname=dennis</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -134,7 +133,7 @@ print(myuser);</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;nope never got it&apos;&amp;fname=dennis</stringProp>
+          <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;Nope never got it&apos;&amp;fname=dennis</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -154,7 +153,7 @@ print(myuser);</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;what is my deductable and limits&apos;&amp;fname=dennis</stringProp>
+          <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;What is my deductable and limits&apos;&amp;fname=dennis</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -174,7 +173,7 @@ print(myuser);</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;how do claims work&apos;&amp;fname=dennis</stringProp>
+          <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;How do claims work&apos;&amp;fname=dennis</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -194,7 +193,7 @@ print(myuser);</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;ok&apos;&amp;fname=dennis</stringProp>
+          <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;Ok&apos;&amp;fname=dennis</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -214,7 +213,7 @@ print(myuser);</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;that would be great&apos;&amp;fname=dennis</stringProp>
+          <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;That would be great&apos;&amp;fname=dennis</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -234,7 +233,7 @@ print(myuser);</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;please schedule a call&apos;&amp;fname=dennis</stringProp>
+          <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;Please schedule a call&apos;&amp;fname=dennis</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -255,6 +254,46 @@ print(myuser);</stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;1 PM tomorrow&apos;&amp;fname=dennis</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">true</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;goodbye&apos;&amp;fname=dennis</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">true</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/load?user_id=${myuser}&amp;workspace_id=aaa&amp;text=&apos;What is my deductable and limits&apos;&amp;fname=dennis</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>

@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nodered
 spec:
-  replicas: 20
+  replicas: 40
   template:
     metadata:
       labels:
@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: nodered
-        image: dennisnotojr/nodered-loadtest:version12
+        image: dennisnotojr/nodered-loadtest:version16
         ports: 
          - containerPort: 1880
            protocol: TCP
