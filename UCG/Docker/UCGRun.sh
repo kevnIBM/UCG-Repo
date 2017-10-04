@@ -4,3 +4,12 @@ docker run -d -v /Users/dennisnoto/Documents/NotoData-Dev/UCG-Repo/UCG/Docker/da
 
 #Run command for container with data in the container
 docker run -d -p 1880:1880  -e NODE_ENV=production -e NODE_OPTIONS=--max_old_space_size=1024 dennisnotojr/nodered-loadtest:version17
+
+
+#Run command for container with data in the container and logging to syslog
+ docker run -d -p 1880:1880  \
+    --log-driver syslog \
+    --log-opt tag="{{ (.ExtraAttributes nil).appName }}" \
+    --log-opt env=appName \
+    -e appName=NodeRed -e NODE_ENV=production -e NODE_OPTIONS=--max_old_space_size=1024 \
+    dennisnotojr/nodered-loadtest:version17

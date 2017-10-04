@@ -41,7 +41,8 @@
     {
         "id": "14d2f552.3522fb",
         "type": "tab",
-        "label": "TwilioSMS"
+        "label": "TwilioSMS",
+        "disabled": false
     },
     {
         "id": "cb400db2.feb1d8",
@@ -831,7 +832,7 @@
         "type": "function",
         "z": "3fad3621.99e442",
         "name": "Get User",
-        "func": "\nmsg.user =  msg.req.query.user_id;\nreturn msg;",
+        "func": "\nmsg.user =  msg.req.query.user_id;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 244.72414779663086,
@@ -1948,7 +1949,7 @@
         "type": "function",
         "z": "d284a7e7.ca3e08",
         "name": "Set Params",
-        "func": "msg.source = \"GoogleHome\"\nvar workspace_id = msg.req.query.workspace_id;\nvar fname = msg.req.query.fname;\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context}\n\ncontext.flowName = \"GoogleHome\"\n\n\nvar params = {\n    context : context,\n    workspace_id : workspace_id\n};\n\nvar additional_context = {};\nvar googleIntent = \"\"\nvar googleIName = \"\"\nvar googleContext = \"\"\nif (typeof msg.payload.originalRequest.data.user.profile !== \"undefined\"){\n     additional_context.fname = msg.payload.originalRequest.data.user.profile.given_name   \n    }\n\nif (typeof msg.payload.originalRequest.data.inputs !== \"undefined\"){\n     googleIntent = msg.payload.originalRequest.data.inputs[0].intent\n    }\n\nif (typeof msg.payload.originalRequest.data.inputs[0].arguments[0] !== \"undefined\"){\n     \n     if (typeof msg.payload.originalRequest.data.inputs[0].arguments[0].name !== \"undefined\"){\n       googleIName =  msg.payload.originalRequest.data.inputs[0].arguments[0].name \n     }\n    }\n\nif (typeof msg.payload.result.contexts[0] !== \"undefined\") {\n    \n     if (msg.payload.result.contexts[0].name.lastIndexOf(\"actions\") >= 0) {\n        \n        if (typeof msg.payload.result.contexts[1] !== \"undefined\"){\n           googleContext = msg.payload.result.contexts[1].name \n        }\n     }\n     else {\n        googleContext = msg.payload.result.contexts[0].name \n     }\n}\n\nmsg.payload = msg.payload.result.resolvedQuery\nmsg.params = params\nmsg.googleIntent = googleIntent\nmsg.googleIName = googleIName\nmsg.googleContext = googleContext\n\nreturn msg;",
+        "func": "msg.source = \"GoogleHome\"\nvar workspace_id = msg.req.query.workspace_id;\nvar fname = msg.req.query.fname;\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context}\n\ncontext.flowName = \"GoogleHome\"\n\n\nvar params = {\n    context : context,\n    workspace_id : workspace_id,\n    source : msg.source\n};\n\nvar additional_context = {};\nvar googleIntent = \"\"\nvar googleIName = \"\"\nvar googleContext = \"\"\nif (typeof msg.payload.originalRequest.data.user.profile !== \"undefined\"){\n     additional_context.fname = msg.payload.originalRequest.data.user.profile.given_name   \n    }\n\nif (typeof msg.payload.originalRequest.data.inputs !== \"undefined\"){\n     googleIntent = msg.payload.originalRequest.data.inputs[0].intent\n    }\n\nif (typeof msg.payload.originalRequest.data.inputs[0].arguments[0] !== \"undefined\"){\n     \n     if (typeof msg.payload.originalRequest.data.inputs[0].arguments[0].name !== \"undefined\"){\n       googleIName =  msg.payload.originalRequest.data.inputs[0].arguments[0].name \n     }\n    }\n\nif (typeof msg.payload.result.contexts[0] !== \"undefined\") {\n    \n     if (msg.payload.result.contexts[0].name.lastIndexOf(\"actions\") >= 0) {\n        \n        if (typeof msg.payload.result.contexts[1] !== \"undefined\"){\n           googleContext = msg.payload.result.contexts[1].name \n        }\n     }\n     else {\n        googleContext = msg.payload.result.contexts[0].name \n     }\n}\n\nmsg.payload = msg.payload.result.resolvedQuery\nmsg.params = params\nmsg.googleIntent = googleIntent\nmsg.googleIName = googleIName\nmsg.googleContext = googleContext\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 290,
@@ -3953,5 +3954,52 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "9b67ecc7.c4228",
+        "type": "inject",
+        "z": "3fad3621.99e442",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 93.5,
+        "y": 410,
+        "wires": [
+            [
+                "91bb250c.aab44"
+            ]
+        ]
+    },
+    {
+        "id": "91bb250c.aab44",
+        "type": "function",
+        "z": "3fad3621.99e442",
+        "name": "",
+        "func": "var process = global.get('process');\nmsg.payload = process.env\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 235.5,
+        "y": 415,
+        "wires": [
+            [
+                "690f11d9.b99eb8"
+            ]
+        ]
+    },
+    {
+        "id": "690f11d9.b99eb8",
+        "type": "debug",
+        "z": "3fad3621.99e442",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 409.5,
+        "y": 410,
+        "wires": []
     }
 ]

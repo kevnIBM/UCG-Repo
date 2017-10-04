@@ -175,7 +175,8 @@ module.exports = {
     //    context.global.os
 
     functionGlobalContext: {
-        redis:require('/usr/src/node-red/node_modules/ioredis')
+        redis:require('/usr/src/node-red/node_modules/ioredis'),
+        process: process
         // octalbonescript:require('octalbonescript'),
         // jfive:require("johnny-five"),
         // j5board:require("johnny-five").Board({repl:false})

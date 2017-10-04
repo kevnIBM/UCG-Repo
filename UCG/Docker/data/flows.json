@@ -41,7 +41,8 @@
     {
         "id": "14d2f552.3522fb",
         "type": "tab",
-        "label": "TwilioSMS"
+        "label": "TwilioSMS",
+        "disabled": false
     },
     {
         "id": "cb400db2.feb1d8",
@@ -831,7 +832,7 @@
         "type": "function",
         "z": "3fad3621.99e442",
         "name": "Get User",
-        "func": "\nmsg.user =  msg.req.query.user_id;\nreturn msg;",
+        "func": "\nmsg.user =  msg.req.query.user_id;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 244.72414779663086,
@@ -3953,5 +3954,52 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "9b67ecc7.c4228",
+        "type": "inject",
+        "z": "3fad3621.99e442",
+        "name": "Start",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 83.5,
+        "y": 410,
+        "wires": [
+            [
+                "91bb250c.aab44"
+            ]
+        ]
+    },
+    {
+        "id": "91bb250c.aab44",
+        "type": "function",
+        "z": "3fad3621.99e442",
+        "name": "Get ENV",
+        "func": "var process = global.get('process');\nmsg.payload = process.env\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 245.5,
+        "y": 410,
+        "wires": [
+            [
+                "690f11d9.b99eb8"
+            ]
+        ]
+    },
+    {
+        "id": "690f11d9.b99eb8",
+        "type": "debug",
+        "z": "3fad3621.99e442",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 409.5,
+        "y": 410,
+        "wires": []
     }
 ]
