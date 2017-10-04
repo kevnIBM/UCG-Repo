@@ -198,7 +198,7 @@ module.exports = {
             // info - LEVEL40-record information about the general running of the application + warn + error + fatal errors
             // debug - LEVEL50-record information which is more verbose than info + info + warn + error + fatal errors
             // trace - LEVEL60-record very detailed logging + debug + info + warn + error + fatal errors
-            level: "debug",
+            level: "error",
             // LEVEL99-Whether or not to include metric events in the log output
             metrics: false,
             // LEVRL98-Whether or not to include audit events in the log output

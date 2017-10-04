@@ -65,11 +65,6 @@
         "info": ""
     },
     {
-        "id": "f43ae83e.d7c77",
-        "type": "tab",
-        "label": "Flow 1"
-    },
-    {
         "id": "e6126968.dddaa",
         "type": "subflow",
         "name": "SetNodeRedSession",
@@ -806,8 +801,8 @@
         "func": "msg.source = \"Load\"\n//var user_name = msg.req.query.user_name\n//var user_id = msg.payload.user_id;\nvar workspace_id = msg.req.query.workspace_id\nvar fname = msg.req.query.fname\n\n//create a null context and test for session existance\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n     \n   }\n \nvar newmsg = msg.req.query.text\nnewmsg = newmsg.replace(/'/g, \"\");  \nmsg.payload = newmsg\n\ncontext.fname = fname\n\nvar params = {\n    context: context,\n//    workspace_id : workspace_id\n   \n};\n\n// node.log(\"User *** \" + msg.user + \" Said *** \" + newmsg)\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 591.4444580078125,
-        "y": 54.36112976074219,
+        "x": 590.4444580078125,
+        "y": 52.36112976074219,
         "wires": [
             [
                 "f5adf38a.64667"
@@ -2557,8 +2552,8 @@
         "type": "subflow:52457267.ef5464",
         "z": "3fad3621.99e442",
         "name": "",
-        "x": 991.5991821289062,
-        "y": 53.814109802246094,
+        "x": 984.5991821289062,
+        "y": 52.814109802246094,
         "wires": [
             [
                 "a2bae10d.ddec8"
@@ -3923,11 +3918,39 @@
         "default-endpoint": true,
         "service-endpoint": "https://gateway.watsonplatform.net/conversation/api",
         "x": 784.5,
-        "y": 56,
+        "y": 53,
         "wires": [
             [
                 "45ecefd5.b04ee8"
             ]
+        ]
+    },
+    {
+        "id": "cff4c89e.9614a8",
+        "type": "catch",
+        "z": "3fad3621.99e442",
+        "name": "",
+        "scope": null,
+        "x": 85.5,
+        "y": 192,
+        "wires": [
+            [
+                "c19c9e60.baa25"
+            ]
+        ]
+    },
+    {
+        "id": "c19c9e60.baa25",
+        "type": "function",
+        "z": "3fad3621.99e442",
+        "name": "Log Error",
+        "func": "node.error(\"NodeRed - Caught Error from \" + msg.error.source.name + ' Error Msg: '+ msg.error.message);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 258.5,
+        "y": 192,
+        "wires": [
+            []
         ]
     }
 ]
