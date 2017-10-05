@@ -3959,14 +3959,14 @@
         "id": "9b67ecc7.c4228",
         "type": "inject",
         "z": "3fad3621.99e442",
-        "name": "",
+        "name": "Start",
         "topic": "",
         "payload": "",
-        "payloadType": "date",
+        "payloadType": "str",
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 93.5,
+        "x": 83.5,
         "y": 410,
         "wires": [
             [
@@ -3978,12 +3978,12 @@
         "id": "91bb250c.aab44",
         "type": "function",
         "z": "3fad3621.99e442",
-        "name": "",
+        "name": "Get ENV",
         "func": "var process = global.get('process');\nmsg.payload = process.env\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 235.5,
-        "y": 415,
+        "x": 245.5,
+        "y": 410,
         "wires": [
             [
                 "690f11d9.b99eb8"

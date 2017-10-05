@@ -1,0 +1,1 @@
+require("cluster-service").start({ workers: "node_modules/node-red/red.js", accessKey: "ucg" });
