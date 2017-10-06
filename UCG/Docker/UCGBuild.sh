@@ -1,8 +1,6 @@
 # Steps to complete
-# May need to Refresh the nodered docker source dir by copying the github nodered docker to node-red-docker directory
-    # copy the docker files from Docker/DockerFiles/* to node-red-docker/latest
-    # create a directory under node-red-docker called /data
-    # copy setting.js, flows.json, flows_cred.json from Docker/data/ to node-red-docker/data
+    
+# copy setting.js, flows.json, flows_cred.json from Docker/data/ to node-red-docker/data for data-container
 
 # Build command for creating the container for volume mapping via the run command
 docker build -f latest/Dockerfile-Data-Volume-Mapped -t dennisnotojr/node-red-docker-node8-nr-17-data-mapped:version-1 .

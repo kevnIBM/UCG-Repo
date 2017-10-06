@@ -17,8 +17,8 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">50000</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">100</stringProp>
+        <stringProp name="ThreadGroup.num_threads">20000</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">300</stringProp>
         <longProp name="ThreadGroup.start_time">1506523237000</longProp>
         <longProp name="ThreadGroup.end_time">1506523237000</longProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
@@ -30,7 +30,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">169.60.32.246</stringProp>
+          <stringProp name="HTTPSampler.domain">169.60.13.110</stringProp>
           <stringProp name="HTTPSampler.port">1880</stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -55,7 +55,7 @@
           <stringProp name="filename"></stringProp>
           <stringProp name="script">int threadNum = ctx.getThreadNum();
 
-String myuser = &quot;testG&quot; + String.valueOf(threadNum);
+String myuser = &quot;testL&quot; + String.valueOf(threadNum);
 
 vars.put(&quot;myuser&quot;, myuser);
 </stringProp>

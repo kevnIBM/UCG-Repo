@@ -493,7 +493,7 @@
   },
   "node-red-node-watson": {
    "name": "node-red-node-watson",
-   "version": "0.5.13",
+   "version": "0.5.16",
    "local": false,
    "nodes": {
     "watson-conversation-v1": {
