@@ -10,6 +10,7 @@ Configurations - Various directories to configure
    - Kubernetes
    - Mesosphere DCOS
    - Cloundant
+ ![Cloud Enterprise UCG](https://github.com/dennisnotojr/UCG-Repo/blob/master/UCG/Images/UCG-Scaling.jpeg)
 
 Docker - Configuration directories to build your own NodeRed containers
 
