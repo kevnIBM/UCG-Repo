@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="WatsonConversationReport" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7a5c9b49-9dc5-422a-ac69-e92cf61ef530">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="UCG"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="250"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="739"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<style name="Crosstab_CH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab_CG" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab_CT" mode="Opaque" backcolor="#005FB3">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab_CD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="startDate" class="java.lang.String"/>
+	<parameter name="endDate" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select
+
+min(convoUser) as Username,
+min(convert(varchar, convoTS, 101)) as ConvoDate,
+min(convoTransID) as convoTransID,
+case 
+   when  substring(min(convoIntent), 1, 9) like 'ROOT-FAIL' then substring(min(convoIntent), 11, len(min(convoIntent))) 
+   when  substring(min(convoIntent), 1, 4) like 'ROOT' then substring(min(convoIntent), 6, len(min(convoIntent))) 
+   when  substring(min(convoIntent), 1, 4)  like 'FAIL' then substring(min(convoIntent), 6, len(min(convoIntent))) 
+ end as Convo,
+sum(case when convoDialogType like 'SUCCESS' then 1 else 0 end) as SuccessNodes,
+sum(case when convoDialogType like 'FAIL' then 1 else 0 end) as FailNodes,
+sum(case when convoDialogType like 'High_Confidence' then 1 else 0 end) as HighConfNodes,
+sum(case when convoDialogType like 'Medium_Confidence' then 1 else 0 end) as MediumConfNodes,
+sum(case when convoDialogType like 'Low_Confidence' then 1 else 0 end) as LowConfNodes,
+sum(case when convoDialogType like 'No_Confidence' then 1 else 0 end) as NoConfNodes,
+sum(convoContainmentScore) as ContainmentScore,
+case when sum(convoContainmentScore) > 0 then 'Yes' else 'No' end as Contained
+
+from session_ver3   where convoTS >= convert(datetime,$P{startDate},101) AND convoTS < convert(datetime,$P{endDate},101)   group by convoTransID]]>
+	</queryString>
+	<field name="Username" class="java.lang.String"/>
+	<field name="ConvoDate" class="java.lang.String"/>
+	<field name="convoTransID" class="java.lang.String"/>
+	<field name="Convo" class="java.lang.String"/>
+	<field name="SuccessNodes" class="java.lang.Integer"/>
+	<field name="FailNodes" class="java.lang.Integer"/>
+	<field name="HighConfNodes" class="java.lang.Integer"/>
+	<field name="MediumConfNodes" class="java.lang.Integer"/>
+	<field name="LowConfNodes" class="java.lang.Integer"/>
+	<field name="NoConfNodes" class="java.lang.Integer"/>
+	<field name="ContainmentScore" class="java.lang.Integer"/>
+	<field name="Contained" class="java.lang.String"/>
+	<group name="Group1">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
+		<groupFooter>
+			<band>
+				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/5)]]></groupExpression>
+	</group>
+	<background>
+		<band height="119" splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="66" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="801" height="66" backcolor="#000000" uuid="d8d9e644-3a32-491d-97cb-a277aff17133"/>
+				<staticText>
+					<reportElement style="Title" x="50" y="-4" width="745" height="46" uuid="27d8f6ee-f0a9-44f6-a160-1763c3b00f30"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Gill Sans" size="26" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Watson Conversation Containment Scorecard]]></text>
+				</staticText>
+				<frame>
+					<reportElement mode="Opaque" x="300" y="42" width="139" height="20" backcolor="#FBFF00" uuid="8de4ac4a-b9d6-47ad-ac63-0c63eaf2692a"/>
+					<staticText>
+						<reportElement x="0" y="0" width="139" height="20" uuid="fa5e8585-1bc5-47f5-b22c-b542261c2111">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<textElement textAlignment="Center">
+							<font size="16"/>
+						</textElement>
+						<text><![CDATA[Business Rules]]></text>
+					</staticText>
+				</frame>
+				<staticText>
+					<reportElement mode="Opaque" x="437" y="42" width="183" height="20" backcolor="#FFB60A" uuid="f652edef-d200-4297-97a1-10789c06600a">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font size="16"/>
+					</textElement>
+					<text><![CDATA[Confidence Rules]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="618" y="42" width="173" height="20" backcolor="#F76FF5" uuid="a515f9cf-5a50-4c17-906b-815bd3d0b894">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font size="16"/>
+					</textElement>
+					<text><![CDATA[Scoring]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="50" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="801" height="49" forecolor="#000000" backcolor="#2500CC" uuid="b0c895f6-6dbd-477d-9858-9ad66af087e1">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="10" y="-22" width="144" height="20" forecolor="#FFFFFF" uuid="a33fce3b-20c1-4696-873a-fe134d1e7d88"/>
+					<textElement textAlignment="Left">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="158" y="1" width="139" height="48" forecolor="#FFFCFC" uuid="de70953c-8b97-425f-b033-e4bcc9be6af7"/>
+					<textElement textAlignment="Center">
+						<font fontName="Gill Sans" size="18"/>
+					</textElement>
+					<text><![CDATA[Conversation
+Intent]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="80" y="1" width="80" height="48" forecolor="#FFFCFC" uuid="5f9a5694-aada-4546-804c-5973f1b5087c"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Gill Sans" size="18"/>
+					</textElement>
+					<text><![CDATA[Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="0" width="80" height="48" forecolor="#FFFCFC" uuid="30a24050-8a6c-46d4-a0a5-e1f9f6e86578"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Gill Sans" size="18"/>
+					</textElement>
+					<text><![CDATA[User]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="300" y="1" width="75" height="48" forecolor="#FFFCFC" uuid="9507d2ac-3876-4471-b26c-c1968fb26d4e"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Gill Sans" size="18"/>
+					</textElement>
+					<text><![CDATA[Success
+Nodes]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="361" y="0" width="75" height="48" forecolor="#FFFCFC" uuid="a398daec-6d66-47df-8aa8-0cffeed9f7fd">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Gill Sans" size="18"/>
+					</textElement>
+					<text><![CDATA[Fail
+Nodes]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="1" width="75" height="48" forecolor="#FFFCFC" uuid="50e34164-2d96-48b5-81a2-c817825ff0a9">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Gill Sans" size="18"/>
+					</textElement>
+					<text><![CDATA[High
+Conf]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="466" y="1" width="75" height="48" forecolor="#FFFCFC" uuid="89195a78-eef7-47e1-9b40-7169c8b7d89c">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Gill Sans" size="18"/>
+					</textElement>
+					<text><![CDATA[Med
+Conf]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="510" y="1" width="75" height="48" forecolor="#FFFCFC" uuid="a2184454-18f7-48c0-929f-64381208eedd">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Gill Sans" size="18"/>
+					</textElement>
+					<text><![CDATA[Low
+Conf]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="555" y="0" width="75" height="48" forecolor="#FFFCFC" uuid="6428f854-8bbb-481b-aa1d-770af579d08e">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Gill Sans" size="18"/>
+					</textElement>
+					<text><![CDATA[No
+Conf]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="613" y="0" width="178" height="29" forecolor="#FFFCFC" uuid="3667cfae-409a-4040-9055-f9323273ce22">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Gill Sans" size="18"/>
+					</textElement>
+					<text><![CDATA[Containment]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="627" y="18" width="75" height="30" forecolor="#FFFCFC" uuid="5975e860-5d8e-44a6-8002-bca6f65b54fa">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Gill Sans" size="18"/>
+					</textElement>
+					<text><![CDATA[Score]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="710" y="18" width="75" height="30" forecolor="#FFFCFC" uuid="497dd19d-ca22-40f3-87e9-cacdeb4cdcd7">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Gill Sans" size="18"/>
+					</textElement>
+					<text><![CDATA[Result]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="51" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="3" width="797" height="24" uuid="34a2ae4b-4055-476b-8676-d499f6af510b">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textField>
+					<reportElement x="10" y="3" width="70" height="19" uuid="e7816bd4-9f3c-4236-ac3a-f28e98cceb71"/>
+					<textElement verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Username}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="80" y="3" width="80" height="20" uuid="c852d81d-dfb6-4227-b517-7e5c6a75a634"/>
+					<textElement verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ConvoDate}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="160" y="3" width="160" height="20" uuid="d0f08e1b-dda8-4aa5-8066-07d31f8708ec">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Convo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="320" y="3" width="40" height="20" uuid="34d10a1e-f244-4a77-9457-a83f76f2bc02"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SuccessNodes}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="380" y="3" width="39" height="20" uuid="b7530495-b6db-4b59-83c0-e18eed01484a">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{FailNodes}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="435" y="3" width="43" height="20" uuid="8d08fa1d-266f-440f-b062-d82094a4114e">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{HighConfNodes}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="480" y="3" width="48" height="20" uuid="ccdc3039-84cd-4f82-9ade-a077f868acff">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{MediumConfNodes}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="530" y="3" width="39" height="20" uuid="b234db4a-d168-4db9-85a3-ec1a547135c9">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{LowConfNodes}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="569" y="3" width="46" height="20" uuid="08c866b8-a3b8-44cd-a1a0-9513ba9cb783">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{NoConfNodes}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="625" y="3" width="70" height="20" uuid="d90375dc-67b8-4168-a7bd-8a8a9dd87b55">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ContainmentScore}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="690" y="3" width="100" height="20" uuid="3a49f27b-702f-4aef-b281-606e83b564ea">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Contained}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<subreport isUsingCache="true" overflowType="Stretch">
+				<reportElement isPrintRepeatedValues="false" x="0" y="30" width="797" height="20" isPrintWhenDetailOverflows="true" uuid="0ce40954-6d5e-409f-8f1c-ca1eb6894a48"/>
+				<subreportParameter name="convoTransID">
+					<subreportParameterExpression><![CDATA[$F{convoTransID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["ConversationDetail-Subreport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="28" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="3" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="ffb10ec8-0371-4545-8eaa-96d62ad3cec0"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" isPrintWhenDetailOverflows="true" forecolor="#FFFFFF" uuid="b5521ea6-5f36-4864-856f-58d0bcd011f2"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" isPrintWhenDetailOverflows="true" forecolor="#FFFFFF" uuid="e625ea3c-1741-4cfe-81cf-fbbdd00162c8"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement key="" style="Column header" x="3" y="0" width="127" height="25" isPrintWhenDetailOverflows="true" forecolor="#FFFFFF" uuid="0c9f7e91-d3f5-47f9-82b7-0b2b3a43a5d6"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="288" y="9" width="100" height="30" uuid="fe26447a-86dc-48be-b50a-6b704f3eb91c"/>
+					<textFieldExpression><![CDATA[$P{startDate}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="278" y="-1" width="100" height="26" isPrintWhenDetailOverflows="true" forecolor="#FFFFFF" uuid="1ae5962b-8dd9-48b5-9d24-918b718d368d"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{startDate}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="515" y="0" width="100" height="24" isPrintWhenDetailOverflows="true" forecolor="#FFFFFF" uuid="e02039ec-8806-46fc-b9db-2eef786e42d2"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{endDate}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="450" y="0" width="76" height="24" isPrintWhenDetailOverflows="true" forecolor="#FFFFFF" uuid="3e8a52d6-6360-496c-849f-36380b9e882c"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[End Date:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="202" y="-1" width="76" height="26" isPrintWhenDetailOverflows="true" forecolor="#FFFFFF" uuid="d8ad8b00-0ced-4fa9-bc92-ae59775ad9ee"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Start Date:]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="221" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<crosstab horizontalPosition="Center">
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="10" width="801" height="160" uuid="a7ba8545-8fac-46a5-906e-7009920071d9">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.crosstab.style.header" value="Crosstab_CH"/>
+					<property name="com.jaspersoft.studio.crosstab.style.group" value="Crosstab_CG"/>
+					<property name="com.jaspersoft.studio.crosstab.style.total" value="Crosstab_CT"/>
+					<property name="com.jaspersoft.studio.crosstab.style.detail" value="Crosstab_CD"/>
+				</reportElement>
+				<crosstabHeaderCell>
+					<cellContents>
+						<staticText>
+							<reportElement mode="Opaque" x="0" y="0" width="130" height="50" forecolor="#FCFAFA" backcolor="#030202" uuid="eea7e531-0d45-4bf9-b739-6649700e5287"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font size="16" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Contaiment Summary]]></text>
+						</staticText>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="ConvoDate" width="130" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{ConvoDate}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents mode="Opaque" style="Crosstab_CH">
+							<textField>
+								<reportElement x="0" y="0" width="130" height="40" uuid="c4408ee0-4a6a-49b1-84d8-f302915b7a7c"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{ConvoDate}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents mode="Opaque" style="Crosstab_CT">
+							<staticText>
+								<reportElement x="0" y="0" width="130" height="40" forecolor="#FFFFFF" uuid="d5ae2507-bac5-4cd4-b69c-2ee50aa6df4a"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="14" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Total by Containment]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="Contained" height="50" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{Contained}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents mode="Opaque" style="Crosstab_CH">
+							<textField>
+								<reportElement x="0" y="0" width="110" height="50" uuid="83a5617f-1a37-48be-b500-75ad4df85fd3"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{Contained}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents mode="Opaque" style="Crosstab_CT">
+							<staticText>
+								<reportElement x="0" y="0" width="130" height="50" forecolor="#FFFFFF" uuid="376b1acb-51bd-4b10-ab40-801fd43bdbc1">
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="14" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Total Conversations]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="Contained_MEASURE" class="java.lang.Integer" calculation="Count">
+					<measureExpression><![CDATA[$F{Contained}]]></measureExpression>
+				</measure>
+				<crosstabCell width="110" height="40">
+					<cellContents mode="Opaque" style="Crosstab_CD">
+						<textField>
+							<reportElement x="0" y="0" width="110" height="20" uuid="f7418d92-4a6c-411b-a3aa-caaf1c35cbb7"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font size="14"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{Contained_MEASURE}]]></textFieldExpression>
+						</textField>
+						<textField pattern="#,##0%">
+							<reportElement x="0" y="20" width="110" height="20" uuid="e59b95b6-7f37-416b-b63c-73eafca37f20"/>
+							<textElement textAlignment="Center">
+								<font size="14" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[new Double($V{Contained_MEASURE}.doubleValue() /$V{Contained_MEASURE_Contained_ALL}.doubleValue())]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="130" height="40" columnTotalGroup="Contained">
+					<cellContents mode="Opaque" style="Crosstab_CT">
+						<textField>
+							<reportElement x="0" y="0" width="130" height="40" forecolor="#FFFFFF" uuid="dba1d11e-d02f-4ac1-8934-97c4da5f5aa2"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font size="14"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{Contained_MEASURE}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="110" height="40" rowTotalGroup="ConvoDate">
+					<cellContents mode="Opaque" style="Crosstab_CT">
+						<textField>
+							<reportElement x="0" y="0" width="110" height="40" forecolor="#FFFFFF" uuid="10f3218d-4cd5-4af8-b9c6-9536fa39be72"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font size="14" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{Contained_MEASURE}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="130" height="40" rowTotalGroup="ConvoDate" columnTotalGroup="Contained">
+					<cellContents mode="Opaque" style="Crosstab_CT">
+						<textField>
+							<reportElement x="0" y="0" width="130" height="40" forecolor="#FFFFFF" uuid="2265415d-94ad-40f4-9b6d-151072cb3bd9"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font size="14" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{Contained_MEASURE}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
+		</band>
+	</summary>
+</jasperReport>

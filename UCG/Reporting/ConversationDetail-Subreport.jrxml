@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ConversationDetail-Subreport" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="602ed419-9efc-4d25-8ac5-8491dd7275b7">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="UCG"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#3C02FA">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_CH" mode="Opaque" backcolor="#000205">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Dataset1" uuid="e7fda626-0e36-4f1e-93e7-4568c2dfe767">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="UCG"/>
+		<parameter name="convoTransID" class="java.lang.String"/>
+		<queryString language="SQL">
+			<![CDATA[SELECT 
+convoUser,
+convoTS,
+convoSource,
+convoIntent,
+convoDialogNode,
+convoDialogType,
+convoDialogIntents,
+convoDialogEntities,
+convoDialogConfidence,
+convoContainmentScore,
+convoCounter,
+convoTransID,
+convoUtterance,
+REPLACE(convoAnswer,'&#39;','''') as convoAnswer
+FROM session_ver3  where convoTransID = $P{convoTransID}  ORDER BY convoTS DESC]]>
+		</queryString>
+		<field name="convoUser" class="java.lang.String"/>
+		<field name="convoTS" class="java.sql.Timestamp"/>
+		<field name="convoSource" class="java.lang.String"/>
+		<field name="convoIntent" class="java.lang.String"/>
+		<field name="convoDialogNode" class="java.lang.String"/>
+		<field name="convoDialogType" class="java.lang.String"/>
+		<field name="convoDialogIntents" class="java.lang.String"/>
+		<field name="convoDialogEntities" class="java.lang.String"/>
+		<field name="convoDialogConfidence" class="java.math.BigDecimal"/>
+		<field name="convoContainmentScore" class="java.lang.Integer"/>
+		<field name="convoCounter" class="java.lang.Integer"/>
+		<field name="convoTransID" class="java.lang.String"/>
+		<field name="convoUtterance" class="java.lang.String"/>
+		<field name="convoAnswer" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="convoTransID" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[$P{convoTransID}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT 
+convoUser,
+convoTS,
+convoSource,
+convoIntent,
+convoDialogNode,
+convoDialogType,
+convoDialogIntents,
+convoDialogEntities,
+convoDialogConfidence,
+convoContainmentScore,
+convoCounter,
+convoTransID,
+convoUtterance,
+REPLACE(convoAnswer,'&#39;','''') as convoAnswer
+FROM session_ver3  where convoTransID = $P{convoTransID}  ORDER BY convoTS DESC]]>
+	</queryString>
+	<field name="convoUser" class="java.lang.String"/>
+	<field name="convoTS" class="java.sql.Timestamp"/>
+	<field name="convoSource" class="java.lang.String"/>
+	<field name="convoIntent" class="java.lang.String"/>
+	<field name="convoDialogNode" class="java.lang.String"/>
+	<field name="convoDialogType" class="java.lang.String"/>
+	<field name="convoDialogIntents" class="java.lang.String"/>
+	<field name="convoDialogEntities" class="java.lang.String"/>
+	<field name="convoDialogConfidence" class="java.math.BigDecimal"/>
+	<field name="convoContainmentScore" class="java.lang.Integer"/>
+	<field name="convoCounter" class="java.lang.Integer"/>
+	<field name="convoTransID" class="java.lang.String"/>
+	<field name="convoUtterance" class="java.lang.String"/>
+	<field name="convoAnswer" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+		</band>
+	</background>
+	<title>
+		<band>
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+		</band>
+	</title>
+	<detail>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+		</band>
+	</detail>
+	<summary>
+		<band height="144" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<componentElement>
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="70" width="770" height="70" uuid="67971ae9-e3cf-47c0-8cbb-c9d3aa1cd6b2">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+					<property name="com.jaspersoft.studio.components.autoresize.next" value="true"/>
+					<property name="com.jaspersoft.studio.components.autoresize.proportional" value="true"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="Dataset1" uuid="e7b2375a-3201-4b26-9397-cbb680fd565f">
+						<datasetParameter name="convoTransID">
+							<datasetParameterExpression><![CDATA[$F{convoTransID}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="82" uuid="3d8ab043-5d36-4875-a602-b5db58bcb874">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="82" height="30" forecolor="#FCFAFA" uuid="82ad750b-c60c-4064-b957-c1eab4deafe2"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="10" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Source]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="82" height="30" uuid="cd4bd486-77e4-45b2-a001-2c7318583c40"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="8"/>
+									<paragraph leftIndent="5" rightIndent="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{convoSource}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="99" uuid="d548081f-53b0-4fb5-9478-11fef1f532a4">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="99" height="30" forecolor="#FCFAFA" uuid="75175200-ae5a-4c60-9acb-59afac15af91"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="10" isBold="true"/>
+								</textElement>
+								<text><![CDATA[conversation
+Intent]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="99" height="30" uuid="6e84f64d-9855-4e3d-a2c9-4d8c7fa98d4e"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="8"/>
+									<paragraph leftIndent="5" rightIndent="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{convoIntent}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="115" uuid="28787900-d080-4136-85cd-fc6ae4dbf39a">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="115" height="30" forecolor="#FCFAFA" uuid="4905d66a-4c37-40d3-81dc-de81e3a13f49"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="10" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Dialog Node]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="115" height="30" uuid="da5f06ec-9095-4292-81e8-5534219fa174"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="8"/>
+									<paragraph leftIndent="5" rightIndent="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{convoDialogNode}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="95" uuid="f98794e1-7394-44e5-83fc-02fc13802cb0">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="95" height="30" forecolor="#FCFAFA" uuid="4c4cfef2-17a1-4df5-aada-f95ae07325a3"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="10" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Dialog Type]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="95" height="30" uuid="9f997823-d21f-4c98-8993-a8bad36b07b3"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{convoDialogType}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="101" uuid="63baa86c-6460-4bf6-baef-72a785676748">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="101" height="30" forecolor="#FCFAFA" uuid="28059c9e-5b38-433c-88cb-652e8521f08e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="10" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Dialog Intents]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="101" height="30" uuid="4b90df90-68c9-4c9c-9183-9ae2d7d8dc99"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{convoDialogIntents}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="115" uuid="c0db1146-8c50-465d-aa2a-618cb84900a2">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column6"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="115" height="30" forecolor="#FCFAFA" uuid="c464bbce-cc05-4dc9-acca-ae03463396aa"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="10" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Dialog Entities]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="115" height="30" uuid="91f4ca1d-16b2-44d6-a031-b47c0657ac8e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{convoDialogEntities}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="80" uuid="f355e078-eeed-49b4-8192-f14b5239acbf">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column7"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="80" height="30" forecolor="#FCFAFA" uuid="b7d9b650-afca-453d-bf0d-02acda61279a"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="10" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Dialog
+Confidence]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="30" uuid="dfc4fd6b-ee58-4c9c-8ca8-60a0483e79d9"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{convoDialogConfidence}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="83" uuid="cf4a118e-b6a6-4aae-a1bf-3be17cd68b4d">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column8"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="83" height="30" forecolor="#FCFAFA" uuid="716d62ab-b9f9-42f2-8d71-5487ce38e66d"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="10" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Containment
+Score]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="83" height="30" uuid="ca199c61-3c41-431a-871a-da6ab2d4557f"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{convoContainmentScore}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<componentElement>
+				<reportElement x="0" y="0" width="769" height="60" uuid="0b63b56f-aeb0-4f1d-99c6-c06daa3df140">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 1_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 1_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table 1_TD"/>
+					<property name="com.jaspersoft.studio.components.autoresize.next" value="true"/>
+					<property name="com.jaspersoft.studio.components.autoresize.proportional" value="true"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Dataset1" uuid="ef914f14-71fc-48bd-8482-0bae22e0314c">
+						<datasetParameter name="convoTransID">
+							<datasetParameterExpression><![CDATA[$F{convoTransID}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="385" uuid="67eb4e66-c4a9-46cf-818c-71549f3c8d18">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table 1_CH" height="20">
+							<staticText>
+								<reportElement x="0" y="0" width="385" height="20" forecolor="#FCFCFC" backcolor="#050000" uuid="20d4c5a8-f3a5-4156-ac34-58f07e1fbfec"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Utterance]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="385" height="30" uuid="abf4d432-0d04-4574-8720-4b1d1a96a2aa"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="9"/>
+									<paragraph leftIndent="5" rightIndent="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{convoUtterance}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="384" uuid="39b8cb84-b9c4-4950-af51-98d6ef6a518d">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:columnHeader style="Table 1_CH" height="20">
+							<staticText>
+								<reportElement x="0" y="0" width="384" height="20" forecolor="#FCFAFA" uuid="8ab5ef8d-7616-402a-958d-c2f59a9eae22"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Answer]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="384" height="30" uuid="13a56b63-eb23-42f1-917a-2c324060fc1c"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="9"/>
+									<paragraph leftIndent="5" rightIndent="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{convoAnswer}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>
