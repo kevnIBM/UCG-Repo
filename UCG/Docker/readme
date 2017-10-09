@@ -2,23 +2,29 @@ This Directory is for Docker Configurations and the creation and maintenence of 
 
 Steps to Implement
   
-  0) Pull down a copy of UCG-Repo - https://github.com/dennisnotojr/UCG-Repo
+0) Pull down a copy of UCG-Repo - https://github.com/dennisnotojr/UCG-Repo
+ 
+1) To build images
+  - cd /UCG/Docker/node-red-docker
+  - Review/Choose from the UCGBuild.sh file for which container you would like to build.
+  - Execute docker build
+  - Docker push to your own dockerhub account
 
-  0.1) Optional - building your container
-     - Pull from github new node-red-docker directory - https://github.com/node-red/node-red-docker
-     - Change Dockerfile in latest to have node:8 for latest node.js
-     - Change package.json to node:8
-     - Use the build comand in the UCGBuild file
-     - Push the image to DockerHub
-     - No longer needed to add modules manually for UCG flows
-     - Update the run command with new image location.   
+2) To run containers
+  - Choose from the UCGRun.sh the run command for the cooresponding build
+  - Execute docker Run   
 
-  1) Create a /data directory on the host and move the /data from the repo into that directory.
+Notes
+
+node-red-docker-node8-nr-17-data-mapped:version-1 -> /data volume mapping via the run command (requires -v for pre-existing /data on host)
+
+node-red-docker-node8-nr-17-data-mapped-cluster:version-1 -> /data Volume mapping + Clustering(requires -v for pre-existing /data on host)
+
+node-red-docker-node8-nr-17-data-container:version-1 -> /data in the container (populate the /data in root dir to be copied)
+
+node-red-docker-node8-nr-17-data-container-cluster:version-1 -> /data in the container + Clustering (populate the /data in root dir to be copied)
   
-  2) Update the UCGRun-mapped-data-volume with the new path to the host /data 
-        - do not put any files in /data. Initial run will be created dir/files under /data
-  
-  4) For Flows 
+3) For Flows 
   
   Automatic way - with the /data from UCG-Repo - skip!!
 
@@ -29,7 +35,7 @@ Steps to Implement
   - Either Create a flows.json file - copy in the json array from flows-UCGx.json file or move the flows-UCGx.jsonfile in place.
         - You can copy from cloudant nodered but only copy the array after "flows" =
   
-  5) Node Red credentials
+4) Node Red credentials
  
  -Using the /data from UCG-Repo
  
@@ -42,7 +48,7 @@ Steps to Implement
   Either Create a flows_cred.json file-copy in the json array from flows_cred-UCGx.json file or move the file in place.
       - if you copy from cloudant - create empty file - copy flows_cred-UCGx.js structure and replace the value field
 
-  6) Node Red config files
+5) Node Red config files
 
   Automatic way - with the /data from UCG-Repo - skip!!
 
