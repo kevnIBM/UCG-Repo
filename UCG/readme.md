@@ -1,6 +1,8 @@
 Welclome to the UCG Repo
 
 Our mission: to build the ultimate conversation framework to orchestrate services into patterned flows for NLP/AI systems. Today we support IBM Watson.
+![Cloud Enterprise UCG](/images/Cloud-UCG.jpeg)
+
 
 Repo Directory Structure
 
