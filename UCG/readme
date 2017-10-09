@@ -13,11 +13,13 @@ Docker - Configuration directories to build your own NodeRed containers
 
 Flows - NodeRed flows for demos
 
-How To - Various documents on how to accomplish tasks
+HowTo - Various documents on how to accomplish tasks
+
+NPM_Modules - NPM modules that required custom changes to enhance functionality 
 
 Reporting - Business Reporting for Watson Conversation Service
    - Jasper Report example
 
 Watson Workspaces - Actual full workspaces with multipe convos for 
-Watson Conversatin service
+Watson Conversation service
 
