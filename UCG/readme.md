@@ -20,6 +20,8 @@ HowTo - Various documents on how to accomplish tasks
 
 NPM_Modules - NPM modules that required custom changes to enhance functionality 
 
+LivePersonBot - Integration with liveperson.com
+
 Reporting - Business Reporting for Watson Conversation Service
    - Jasper Report example
 
