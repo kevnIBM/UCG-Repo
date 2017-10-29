@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "liveperson-bot"
+  labels:
+    name: ""
+  namespace: ""
+  generateName: ""
+spec:
+  containers:
+    - name: zookeeper
+      image: wurstmeister/zookeeper
+      ports:
+        - containerPort: 2181
+          name: ""
+          protocol: TCP 
+    - name: app
+      image: node:slim
+      ports:
+        - name: headless
+          containerPort: 55555
+      args:
+        - node
+        - examples/cluster/index.js
+      env:
+        - name: BOT_CONFIG_FILE
+          value: examples/cluster/local/agents.json
+        - name: ZK_PORT_2181_TCP_PORT
+          value: "2181"
+        - name: ZK_PORT_2181_TCP_ADDR
+          value: "127.0.0.1"  
+      volumeMounts:
+        - mountPath: /code
+          name: code
+      workingDir: /code
+  volumes:
+    - name: code
+      persistentVolumeClaim:
+       claimName: ucg-volume-code

@@ -83,7 +83,7 @@ vi nodered-service-onPrem.yaml and ingress-controller-onPrem
 #create persistant volume that all containers will use
 kubectl create -f nodered-volume-onPrem.yaml
 #create the claim on the volume
-kubectl create -f nodered-volume-claim.yaml
+kubectl create -f nodered-volume-claim-onPrem.yaml
 #create the deployment
 kubectl create -f nodered-deployment-onPrem.yaml
 #apply the Load Balancing service

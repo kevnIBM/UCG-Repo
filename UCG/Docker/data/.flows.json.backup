@@ -390,9 +390,9 @@
         "z": "",
         "name": "",
         "server": "",
-        "port": "",
+        "port": "1433",
         "encyption": true,
-        "database": ""
+        "database": "ucg"
     },
     {
         "id": "c8620933.bc367",
@@ -3737,7 +3737,7 @@
         "type": "function",
         "z": "cb400db2.feb1d8",
         "name": "set config",
-        "func": "msg.user = \"ucgadmin\"\nmsg.password = \"Hockey1234\"\nmsg.port = \"1433\"\nmsg.server = \"ucg-mssql.database.windows.net\"\nmsg.database = \"ucg\"\nreturn msg;",
+        "func": "msg.user = \"ucgadmin\"\nmsg.password = \"Hockey1234\"\nmsg.port = \"1433\"\n//msg.server = \"ucg-mssql.database.windows.net\"\nmsg.server = \"undefined\"\nmsg.database = \"ucg\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 283.5,
@@ -3754,7 +3754,7 @@
         "z": "cb400db2.feb1d8",
         "mssqlCN": "fc597431.b0b028",
         "name": "New UCG MSSQL with params sent via msg",
-        "query": "insert into session VALUES ('dddd12', '10/01/2017', 'load', 'test')\n\n",
+        "query": "insert into session VALUES ('dddd15', '10/01/2017', 'load', 'test')\n\n",
         "outField": "payload",
         "x": 568.5,
         "y": 407,
@@ -4150,7 +4150,7 @@
         "sentences": "true",
         "contentType": "false",
         "tone-method": "generalTone",
-        "interface-version": "generalTone",
+        "interface-version": "2016-05-19",
         "inputlang": "en",
         "default-endpoint": true,
         "service-endpoint": "https://gateway.watsonplatform.net/tone-analyzer/api",

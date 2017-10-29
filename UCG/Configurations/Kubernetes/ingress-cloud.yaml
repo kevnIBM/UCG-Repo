@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ucg-ingress
+spec:
+  rules:
+  - host: ucg-clusterv3.us-south.containers.mybluemix.net
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: nodered
+          servicePort: 1880
