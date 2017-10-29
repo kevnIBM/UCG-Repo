@@ -11,16 +11,17 @@ module.exports = function(RED) {
             user: node.credentials.username,
             password: node.credentials.password,
             domain: node.credentials.domain,
-            server: config.server,
-            port: config.port,
-            database: config.database,
-            requestTimeout: config.requestTimeout,
+            server: node.config.server,
+            port: node.config.port,
+            database: node.config.database,
+            connectionTimeout: node.config.connectionTimeout,
+            requestTimeout: node.config.requestTimeout,
             options: {
-                encrypt: config.encyption,
-                useUTC: config.useUTC
+                encrypt: node.config.encyption,
+                useUTC: node.config.useUTC
             }
         };
-
+        node.debug("output debug message, the value of the configuration is " + config); //JB
 
         this.connection = sql;
         /*
@@ -30,7 +31,7 @@ module.exports = function(RED) {
 			*/
     }
 
-    RED.nodes.registerType('MSSQL-UCG-CN', connection, {
+    RED.nodes.registerType('MSSQL-UCGv2-CN', connection, {
         credentials: {
             username: { type: 'text' },
             password: { type: 'password' },
@@ -74,8 +75,9 @@ module.exports = function(RED) {
             if (msg.domain != '') { node.config.domain = msg.domain; }
             if (msg.server != '') { node.config.server = msg.server; }
             if (msg.port != '') { node.config.port = msg.port; }
-            if (msg.timeout != '') { node.config.timeout = msg.timeout; }
             if (msg.database != '') { node.config.database = msg.database; }
+            if (msg.connectionTimeout != '') { node.config.connectionTimeout = msg.connectionTimeout; }
+            if (msg.requestTimeout != '') { node.config.requestTimeout = msg.requestTimeout; }
 
             node.connection.connect(node.config).then(function() {
 
@@ -109,45 +111,5 @@ module.exports = function(RED) {
         });
 
     }
-    RED.nodes.registerType('MSSQL-UCG', mssql);
-
-    function processResponse(err, body, node, msg, config) {
-        if (err !== null && body === null) {
-            node.error(err, msg);
-            node.status({
-                fill: 'blue',
-                shape: 'dot',
-                text: 'call to mssql service failed'
-            });
-            return;
-        }
-        msg.payload = body;
-        node.context().flow.set('context', body.context);
-        /*
-        if (config.context) {
-          if (config.multiuser && msg.user) {
-            node.context().flow.set('context-' + msg.user, body.context);
-          } else {
-            if (msg.user) {
-              node.warn('msg.user ignored when multiple users not set in node');
-            }
-            node.context().flow.set('context', body.context);
-          }
-        }
-    */
-        node.send(msg);
-        node.status({});
-    }
-
-    function execute(params, node, msg, config) {
-        node.status({
-            fill: 'blue',
-            shape: 'dot',
-            text: 'Calling MSSQL service ...'
-        });
-        // call POST /message through SDK
-        node.service.message(params, function(err, body) {
-            processResponse(err, body, node, msg, config);
-        });
-    }
+    RED.nodes.registerType('MSSQL-UCGv2', mssql);
 };
