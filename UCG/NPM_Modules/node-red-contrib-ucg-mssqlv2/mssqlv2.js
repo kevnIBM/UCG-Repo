@@ -22,7 +22,18 @@ module.exports = function(RED) {
                 useUTC: config.useUTC
             }
         };
-        //node.debug("output debug message, the value of the configuration is " + config); //JB
+        //this.log("output debug message, the value of the user is " + this.connection.config.user); //JB
+        // this.log("output debug message, the value of the password is " + this.connection.config.password); //JB
+        // this.log("output debug message, the value of the domain is " + this.connection.config.domain); //JB
+        // this.log("output debug message, the value of the server is " + this.connection.config.server); //JB
+        // this.log("output debug message, the value of the port is " + this.connection.config.port); //JB
+        // this.log("output debug message, the value of the database is " + this.connection.config.database); //JB
+        // this.log("output debug message, the value of the connectionTimeout is " + this.connection.config.connectionTimeout); //JB
+        // this.log("output debug message, the value of the requestTimout is " + this.connection.config.requestTimeout); //JB
+        // this.log("output debug message, the value of the encrypt is " + this.connection.config.options.encrypt); //JB
+        // this.log("output debug message, the value of the useUTC is " + this.connection.config.options.useUTC); //JB
+
+
 
         this.connection = sql;
         /*
@@ -79,7 +90,17 @@ module.exports = function(RED) {
             if (msg.database != '') { node.config.database = msg.database; }
             if (msg.connectionTimeout != '') { node.config.connectionTimeout = msg.connectionTimeout; }
             if (msg.requestTimeout != '') { node.config.requestTimeout = msg.requestTimeout; }
-
+            this.log("output debug message2, the value of the node config in the connection is " + node.config); //JB
+            this.log("output debug message2, the value of the user is " + node.config.user); //JB
+            this.log("output debug message2, the value of the password is " + node.config.password); //JB
+            this.log("output debug message2, the value of the domain is " + node.config.domain); //JB
+            this.log("output debug message2, the value of the server is " + node.config.server); //JB
+            this.log("output debug message2, the value of the port is " + node.config.port); //JB
+            this.log("output debug message2, the value of the database is " + node.config.database); //JB
+            this.log("output debug message2, the value of the connectionTimeout is " + node.config.connectionTimeout); //JB
+            this.log("output debug message2, the value of the requestTimout is " + node.config.requestTimeout); //JB
+            this.log("output debug message2, the value of the encrypt is " + node.config.encrypt); //JB
+            this.log("output debug message2, the value of the useUTC is " + node.config.useUTC); //JB
             node.connection.connect(node.config).then(function() {
 
                 node.status({ fill: 'blue', shape: 'dot', text: 'requesting' });
