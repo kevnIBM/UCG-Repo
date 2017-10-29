@@ -7,6 +7,7 @@ module.exports = function(RED) {
         RED.nodes.createNode(this, config);
 
         var node = this;
+
         this.config = {
             user: node.credentials.username,
             password: node.credentials.password,
@@ -14,12 +15,24 @@ module.exports = function(RED) {
             server: config.server,
             port: config.port,
             database: config.database,
+            connectionTimeout: config.connectionTimeout,
             requestTimeout: config.requestTimeout,
             options: {
                 encrypt: config.encyption,
                 useUTC: config.useUTC
             }
         };
+        //this.log("output debug message, the value of the user is " + this.connection.config.user); //JB
+        // this.log("output debug message, the value of the password is " + this.connection.config.password); //JB
+        // this.log("output debug message, the value of the domain is " + this.connection.config.domain); //JB
+        // this.log("output debug message, the value of the server is " + this.connection.config.server); //JB
+        // this.log("output debug message, the value of the port is " + this.connection.config.port); //JB
+        // this.log("output debug message, the value of the database is " + this.connection.config.database); //JB
+        // this.log("output debug message, the value of the connectionTimeout is " + this.connection.config.connectionTimeout); //JB
+        // this.log("output debug message, the value of the requestTimout is " + this.connection.config.requestTimeout); //JB
+        // this.log("output debug message, the value of the encrypt is " + this.connection.config.options.encrypt); //JB
+        // this.log("output debug message, the value of the useUTC is " + this.connection.config.options.useUTC); //JB
+
 
 
         this.connection = sql;
@@ -30,7 +43,7 @@ module.exports = function(RED) {
 			*/
     }
 
-    RED.nodes.registerType('MSSQL-UCG-CN', connection, {
+    RED.nodes.registerType('MSSQL-UCGv2-CN', connection, {
         credentials: {
             username: { type: 'text' },
             password: { type: 'password' },
@@ -38,7 +51,7 @@ module.exports = function(RED) {
         }
     });
 
-    function mssql(config) {
+    function mssqlv2(config) {
         RED.nodes.createNode(this, config);
         var mssqlCN = RED.nodes.getNode(config.mssqlCN);
         this.query = config.query;
@@ -74,9 +87,20 @@ module.exports = function(RED) {
             if (msg.domain != '') { node.config.domain = msg.domain; }
             if (msg.server != '') { node.config.server = msg.server; }
             if (msg.port != '') { node.config.port = msg.port; }
-            if (msg.timeout != '') { node.config.timeout = msg.timeout; }
             if (msg.database != '') { node.config.database = msg.database; }
-
+            if (msg.connectionTimeout != '') { node.config.connectionTimeout = msg.connectionTimeout; }
+            if (msg.requestTimeout != '') { node.config.requestTimeout = msg.requestTimeout; }
+            this.log("output debug message2, the value of the node config in the connection is " + node.config); //JB
+            this.log("output debug message2, the value of the user is " + node.config.user); //JB
+            this.log("output debug message2, the value of the password is " + node.config.password); //JB
+            this.log("output debug message2, the value of the domain is " + node.config.domain); //JB
+            this.log("output debug message2, the value of the server is " + node.config.server); //JB
+            this.log("output debug message2, the value of the port is " + node.config.port); //JB
+            this.log("output debug message2, the value of the database is " + node.config.database); //JB
+            this.log("output debug message2, the value of the connectionTimeout is " + node.config.connectionTimeout); //JB
+            this.log("output debug message2, the value of the requestTimout is " + node.config.requestTimeout); //JB
+            this.log("output debug message2, the value of the encrypt is " + node.config.encrypt); //JB
+            this.log("output debug message2, the value of the useUTC is " + node.config.useUTC); //JB
             node.connection.connect(node.config).then(function() {
 
                 node.status({ fill: 'blue', shape: 'dot', text: 'requesting' });
@@ -109,45 +133,5 @@ module.exports = function(RED) {
         });
 
     }
-    RED.nodes.registerType('MSSQL-UCG', mssql);
-
-    function processResponse(err, body, node, msg, config) {
-        if (err !== null && body === null) {
-            node.error(err, msg);
-            node.status({
-                fill: 'blue',
-                shape: 'dot',
-                text: 'call to mssql service failed'
-            });
-            return;
-        }
-        msg.payload = body;
-        node.context().flow.set('context', body.context);
-        /*
-        if (config.context) {
-          if (config.multiuser && msg.user) {
-            node.context().flow.set('context-' + msg.user, body.context);
-          } else {
-            if (msg.user) {
-              node.warn('msg.user ignored when multiple users not set in node');
-            }
-            node.context().flow.set('context', body.context);
-          }
-        }
-    */
-        node.send(msg);
-        node.status({});
-    }
-
-    function execute(params, node, msg, config) {
-        node.status({
-            fill: 'blue',
-            shape: 'dot',
-            text: 'Calling MSSQL service ...'
-        });
-        // call POST /message through SDK
-        node.service.message(params, function(err, body) {
-            processResponse(err, body, node, msg, config);
-        });
-    }
+    RED.nodes.registerType('MSSQL-UCGv2', mssqlv2);
 };
