@@ -7,21 +7,22 @@ module.exports = function(RED) {
         RED.nodes.createNode(this, config);
 
         var node = this;
+
         this.config = {
             user: node.credentials.username,
             password: node.credentials.password,
             domain: node.credentials.domain,
-            server: node.config.server,
-            port: node.config.port,
-            database: node.config.database,
-            connectionTimeout: node.config.connectionTimeout,
-            requestTimeout: node.config.requestTimeout,
+            server: config.server,
+            port: config.port,
+            database: config.database,
+            connectionTimeout: config.connectionTimeout,
+            requestTimeout: config.requestTimeout,
             options: {
-                encrypt: node.config.encyption,
-                useUTC: node.config.useUTC
+                encrypt: config.encyption,
+                useUTC: config.useUTC
             }
         };
-        node.debug("output debug message, the value of the configuration is " + config); //JB
+        //node.debug("output debug message, the value of the configuration is " + config); //JB
 
         this.connection = sql;
         /*
@@ -39,7 +40,7 @@ module.exports = function(RED) {
         }
     });
 
-    function mssql(config) {
+    function mssqlv2(config) {
         RED.nodes.createNode(this, config);
         var mssqlCN = RED.nodes.getNode(config.mssqlCN);
         this.query = config.query;
@@ -111,5 +112,5 @@ module.exports = function(RED) {
         });
 
     }
-    RED.nodes.registerType('MSSQL-UCGv2', mssql);
+    RED.nodes.registerType('MSSQL-UCGv2', mssqlv2);
 };
