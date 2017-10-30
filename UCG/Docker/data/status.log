@@ -1135,3 +1135,252 @@ Welcome to Node-RED
 2017-10-29T19:36:42.790Z System c7464402c885 Level 50 Msg red/nodes/flows.stop : stopping flow : 3fad3621.99e442
 2017-10-29T19:36:42.790Z System c7464402c885 Level 40 Msg Stopping flows
 2017-10-29T19:36:44.878Z System c7464402c885 Level 20 Msg ConnectionError: Failed to connect to :1433 - connect ECONNREFUSED 127.0.0.1:1433
+2017-10-30T14:15:42.674Z System c7464402c885 Level 50 Msg red/nodes/flows.stop : stopping flow : global
+2017-10-30T14:15:42.689Z System c7464402c885 Level 50 Msg red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-10-30T14:15:42.672Z System c7464402c885 Level 50 Msg saved flow revision: c5e455a06404d423a058d0280e2cc57e
+2017-10-30T14:15:42.674Z System c7464402c885 Level 40 Msg Stopping flows
+2017-10-30T14:15:42.705Z System c7464402c885 Level 50 Msg red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-10-30T14:15:42.718Z System c7464402c885 Level 50 Msg red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-10-30T14:15:42.724Z System c7464402c885 Level 50 Msg red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-10-30T14:15:42.725Z System c7464402c885 Level 50 Msg red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-10-30T14:15:42.731Z System c7464402c885 Level 50 Msg red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-10-30T14:15:42.733Z System c7464402c885 Level 50 Msg red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-10-30T14:15:42.734Z System c7464402c885 Level 50 Msg red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-10-30T14:15:42.734Z System c7464402c885 Level 50 Msg red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-10-30T14:15:42.741Z System c7464402c885 Level 50 Msg red/nodes/flows.stop : stopping flow : 15c6f20.6b9dd0e
+2017-10-30T14:15:42.760Z System c7464402c885 Level 40 Msg Starting flows
+2017-10-30T14:15:42.760Z System c7464402c885 Level 40 Msg Stopped flows
+2017-10-30T14:15:42.760Z System c7464402c885 Level 50 Msg red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-10-30T14:15:42.760Z System c7464402c885 Level 50 Msg red/nodes/flows.start : starting flow : global
+2017-10-30T14:15:42.761Z System c7464402c885 Level 50 Msg red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-10-30T14:15:42.761Z System c7464402c885 Level 50 Msg red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-10-30T14:15:42.761Z System c7464402c885 Level 50 Msg red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-10-30T14:15:42.761Z System c7464402c885 Level 50 Msg red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-10-30T14:15:42.761Z System c7464402c885 Level 50 Msg red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-10-30T14:15:42.761Z System c7464402c885 Level 50 Msg red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-10-30T14:15:42.761Z System c7464402c885 Level 50 Msg red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-10-30T14:15:42.761Z System c7464402c885 Level 50 Msg red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-10-30T14:15:42.761Z System c7464402c885 Level 50 Msg red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-10-30T14:15:42.761Z System c7464402c885 Level 50 Msg red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-10-30T14:15:42.761Z System c7464402c885 Level 50 Msg red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-10-30T14:15:42.761Z System c7464402c885 Level 50 Msg red/nodes/flows.start : starting flow : 15c6f20.6b9dd0e
+2017-10-30T14:15:43.058Z System c7464402c885 Level 20 Msg Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-10-30T14:15:43.216Z System c7464402c885 Level 40 Msg Started flows
+2017-10-30T14:15:42.675Z System c7464402c885 Level 50 Msg red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-10-30T14:15:42.693Z System c7464402c885 Level 50 Msg red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-10-30T14:15:42.698Z System c7464402c885 Level 50 Msg red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-10-30T14:15:46.333Z System c7464402c885 Level 20 Msg ConnectionError: Failed to connect to undefined:1433 - connect ECONNREFUSED 127.0.0.1:1433
+2017-10-30T14:32:07.042Z System 80b982bdf715 Level 40 Msg 
+
+Welcome to Node-RED
+===================
+
+2017-10-30T14:32:07.043Z System 80b982bdf715 Level 40 Msg Node-RED version: v0.17.5
+2017-10-30T14:32:07.043Z System 80b982bdf715 Level 40 Msg Node.js  version: v8.8.0
+2017-10-30T14:32:07.043Z System 80b982bdf715 Level 40 Msg Linux 4.9.49-moby x64 LE
+2017-10-30T14:32:07.201Z System 80b982bdf715 Level 40 Msg Loading palette nodes
+2017-10-30T14:32:08.495Z System 80b982bdf715 Level 30 Msg ------------------------------------------------------
+2017-10-30T14:32:08.496Z System 80b982bdf715 Level 30 Msg [udp] Error: udp out already registered (line:102)
+2017-10-30T14:32:08.496Z System 80b982bdf715 Level 40 Msg Settings file  : /data/settings.js
+2017-10-30T14:32:08.497Z System 80b982bdf715 Level 40 Msg Flows file     : /data/flows.json
+2017-10-30T14:32:08.497Z System 80b982bdf715 Level 40 Msg User directory : /data
+2017-10-30T14:32:08.496Z System 80b982bdf715 Level 30 Msg [tcp] Error: tcp in already registered (line:181)
+2017-10-30T14:32:08.496Z System 80b982bdf715 Level 30 Msg [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-10-30T14:32:08.496Z System 80b982bdf715 Level 30 Msg ------------------------------------------------------
+2017-10-30T14:32:08.506Z System 80b982bdf715 Level 40 Msg Server now running at http://127.0.0.1:1880/
+2017-10-30T14:32:08.512Z System 80b982bdf715 Level 50 Msg red/runtime/nodes/credentials.load : user provided key
+2017-10-30T14:32:08.523Z System 80b982bdf715 Level 50 Msg red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-10-30T14:32:08.524Z System 80b982bdf715 Level 50 Msg red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-10-30T14:32:08.524Z System 80b982bdf715 Level 50 Msg red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-10-30T14:32:08.524Z System 80b982bdf715 Level 50 Msg red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-10-30T14:32:08.524Z System 80b982bdf715 Level 50 Msg red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-10-30T14:32:08.524Z System 80b982bdf715 Level 50 Msg red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-10-30T14:32:08.524Z System 80b982bdf715 Level 50 Msg red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-10-30T14:32:08.524Z System 80b982bdf715 Level 50 Msg red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-10-30T14:32:08.524Z System 80b982bdf715 Level 50 Msg red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-10-30T14:32:08.525Z System 80b982bdf715 Level 50 Msg red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-10-30T14:32:08.525Z System 80b982bdf715 Level 50 Msg red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-10-30T14:32:08.524Z System 80b982bdf715 Level 50 Msg red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-10-30T14:32:08.525Z System 80b982bdf715 Level 50 Msg red/nodes/flows.start : starting flow : 15c6f20.6b9dd0e
+2017-10-30T14:32:08.595Z System 80b982bdf715 Level 20 Msg Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-10-30T14:32:08.630Z System 80b982bdf715 Level 40 Msg Started flows
+2017-10-30T14:32:08.512Z System 80b982bdf715 Level 50 Msg loaded flow revision: 953a9aa6416518f857b323332ed06ce5
+2017-10-30T14:32:08.523Z System 80b982bdf715 Level 40 Msg Starting flows
+2017-10-30T14:32:08.523Z System 80b982bdf715 Level 50 Msg red/nodes/flows.start : starting flow : global
+2017-10-30T14:33:00.807Z System 80b982bdf715 Level 20 Msg ConnectionError: Failed to connect to :1433 - connect ECONNREFUSED 127.0.0.1:1433
+2017-10-30T14:41:22.605Z System 057f24699c4f Level 40 Msg 
+
+Welcome to Node-RED
+===================
+
+2017-10-30T14:41:22.606Z System 057f24699c4f Level 40 Msg Node-RED version: v0.17.5
+2017-10-30T14:41:22.606Z System 057f24699c4f Level 40 Msg Node.js  version: v8.8.0
+2017-10-30T14:41:22.607Z System 057f24699c4f Level 40 Msg Linux 4.9.49-moby x64 LE
+2017-10-30T14:41:22.758Z System 057f24699c4f Level 40 Msg Loading palette nodes
+2017-10-30T14:41:24.122Z System 057f24699c4f Level 30 Msg ------------------------------------------------------
+2017-10-30T14:41:24.123Z System 057f24699c4f Level 30 Msg ------------------------------------------------------
+2017-10-30T14:41:24.123Z System 057f24699c4f Level 40 Msg Settings file  : /data/settings.js
+2017-10-30T14:41:24.123Z System 057f24699c4f Level 40 Msg User directory : /data
+2017-10-30T14:41:24.123Z System 057f24699c4f Level 40 Msg Flows file     : /data/flows.json
+2017-10-30T14:41:24.122Z System 057f24699c4f Level 30 Msg [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-10-30T14:41:24.122Z System 057f24699c4f Level 30 Msg [tcp] Error: tcp in already registered (line:181)
+2017-10-30T14:41:24.122Z System 057f24699c4f Level 30 Msg [udp] Error: udp out already registered (line:102)
+2017-10-30T14:41:24.133Z System 057f24699c4f Level 40 Msg Server now running at http://127.0.0.1:1880/
+2017-10-30T14:41:24.139Z System 057f24699c4f Level 50 Msg loaded flow revision: 953a9aa6416518f857b323332ed06ce5
+2017-10-30T14:41:24.139Z System 057f24699c4f Level 50 Msg red/runtime/nodes/credentials.load : user provided key
+2017-10-30T14:41:24.151Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-10-30T14:41:24.152Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-10-30T14:41:24.152Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-10-30T14:41:24.152Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-10-30T14:41:24.152Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-10-30T14:41:24.152Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-10-30T14:41:24.152Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-10-30T14:41:24.152Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-10-30T14:41:24.152Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-10-30T14:41:24.152Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-10-30T14:41:24.153Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 15c6f20.6b9dd0e
+2017-10-30T14:41:24.153Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-10-30T14:41:24.223Z System 057f24699c4f Level 20 Msg Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-10-30T14:41:24.255Z System 057f24699c4f Level 40 Msg Started flows
+2017-10-30T14:41:24.151Z System 057f24699c4f Level 40 Msg Starting flows
+2017-10-30T14:41:24.151Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : global
+2017-10-30T14:41:24.151Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-10-30T14:42:11.512Z System 057f24699c4f Level 50 Msg saved flow revision: cc72c0d4554f397acd351ab7c30373f8
+2017-10-30T14:42:11.521Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-10-30T14:42:11.525Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-10-30T14:42:11.531Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-10-30T14:42:11.536Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-10-30T14:42:11.542Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-10-30T14:42:11.546Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-10-30T14:42:11.550Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-10-30T14:42:11.555Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-10-30T14:42:11.557Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-10-30T14:42:11.558Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-10-30T14:42:11.558Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-10-30T14:42:11.563Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 15c6f20.6b9dd0e
+2017-10-30T14:42:11.580Z System 057f24699c4f Level 40 Msg Stopped flows
+2017-10-30T14:42:11.580Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-10-30T14:42:11.580Z System 057f24699c4f Level 40 Msg Starting flows
+2017-10-30T14:42:11.580Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : global
+2017-10-30T14:42:11.580Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-10-30T14:42:11.580Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-10-30T14:42:11.580Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-10-30T14:42:11.580Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-10-30T14:42:11.580Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-10-30T14:42:11.580Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-10-30T14:42:11.580Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-10-30T14:42:11.580Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-10-30T14:42:11.580Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-10-30T14:42:11.580Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-10-30T14:42:11.580Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-10-30T14:42:11.580Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 15c6f20.6b9dd0e
+2017-10-30T14:42:11.690Z System 057f24699c4f Level 20 Msg Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-10-30T14:42:11.755Z System 057f24699c4f Level 40 Msg Started flows
+2017-10-30T14:42:11.512Z System 057f24699c4f Level 40 Msg Stopping flows
+2017-10-30T14:42:11.512Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : global
+2017-10-30T14:42:11.513Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-10-30T14:42:59.175Z System 057f24699c4f Level 40 Msg Stopping flows
+2017-10-30T14:42:59.182Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-10-30T14:42:59.186Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-10-30T14:42:59.191Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-10-30T14:42:59.197Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-10-30T14:42:59.202Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-10-30T14:42:59.207Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-10-30T14:42:59.209Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-10-30T14:42:59.215Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-10-30T14:42:59.217Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-10-30T14:42:59.218Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-10-30T14:42:59.218Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-10-30T14:42:59.223Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 15c6f20.6b9dd0e
+2017-10-30T14:42:59.242Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : global
+2017-10-30T14:42:59.242Z System 057f24699c4f Level 40 Msg Starting flows
+2017-10-30T14:42:59.242Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-10-30T14:42:59.241Z System 057f24699c4f Level 40 Msg Stopped flows
+2017-10-30T14:42:59.242Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-10-30T14:42:59.242Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-10-30T14:42:59.242Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-10-30T14:42:59.242Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-10-30T14:42:59.242Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-10-30T14:42:59.242Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-10-30T14:42:59.242Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-10-30T14:42:59.242Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-10-30T14:42:59.242Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-10-30T14:42:59.242Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-10-30T14:42:59.242Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-10-30T14:42:59.242Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 15c6f20.6b9dd0e
+2017-10-30T14:42:59.338Z System 057f24699c4f Level 20 Msg Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-10-30T14:42:59.393Z System 057f24699c4f Level 40 Msg Started flows
+2017-10-30T14:42:59.175Z System 057f24699c4f Level 50 Msg saved flow revision: fe394decbf7320231c2c60cdaaa83d68
+2017-10-30T14:42:59.176Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-10-30T14:42:59.176Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : global
+2017-10-30T14:43:16.482Z System 057f24699c4f Level 50 Msg red/runtime/nodes/credentials.export : encrypting
+2017-10-30T14:43:16.494Z System 057f24699c4f Level 50 Msg saved flow revision: c163b271f3686e22f780c35674fad651
+2017-10-30T14:43:16.504Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-10-30T14:43:16.494Z System 057f24699c4f Level 40 Msg Stopping flows
+2017-10-30T14:43:16.515Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-10-30T14:43:16.522Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-10-30T14:43:16.494Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-10-30T14:43:16.537Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-10-30T14:43:16.539Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-10-30T14:43:16.544Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-10-30T14:43:16.548Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-10-30T14:43:16.549Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-10-30T14:43:16.549Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-10-30T14:43:16.494Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : global
+2017-10-30T14:43:16.510Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-10-30T14:43:16.531Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-10-30T14:43:16.570Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-10-30T14:43:16.570Z System 057f24699c4f Level 40 Msg Stopped flows
+2017-10-30T14:43:16.571Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-10-30T14:43:16.570Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-10-30T14:43:16.570Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-10-30T14:43:16.571Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-10-30T14:43:16.571Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-10-30T14:43:16.571Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-10-30T14:43:16.571Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-10-30T14:43:16.571Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-10-30T14:43:16.571Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-10-30T14:43:16.571Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-10-30T14:43:16.571Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-10-30T14:43:16.571Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 15c6f20.6b9dd0e
+2017-10-30T14:43:16.674Z System 057f24699c4f Level 20 Msg Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-10-30T14:43:16.732Z System 057f24699c4f Level 40 Msg Started flows
+2017-10-30T14:43:16.555Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 15c6f20.6b9dd0e
+2017-10-30T14:43:16.570Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : global
+2017-10-30T14:43:16.570Z System 057f24699c4f Level 40 Msg Starting flows
+2017-10-30T14:43:18.968Z System 057f24699c4f Level 20 Msg ConnectionError: Failed to connect to :1433 - connect ECONNREFUSED 127.0.0.1:1433
+2017-10-30T14:43:45.147Z System 057f24699c4f Level 50 Msg saved flow revision: 602149c54b9b8a7b6beecc039b824fb5
+2017-10-30T14:43:45.147Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : global
+2017-10-30T14:43:45.147Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 3fad3621.99e442
+2017-10-30T14:43:45.165Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : e85cff5a.1f786
+2017-10-30T14:43:45.171Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : c1e9a4dc.c42cf8
+2017-10-30T14:43:45.178Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : d284a7e7.ca3e08
+2017-10-30T14:43:45.183Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 17eb59dd.9ff326
+2017-10-30T14:43:45.184Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 14d2f552.3522fb
+2017-10-30T14:43:45.191Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : cb400db2.feb1d8
+2017-10-30T14:43:45.194Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 6e97b3ee.89fce4
+2017-10-30T14:43:45.195Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 5b6fab52.9eae84
+2017-10-30T14:43:45.195Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : bf65cfa5.bbe868
+2017-10-30T14:43:45.200Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 15c6f20.6b9dd0e
+2017-10-30T14:43:45.216Z System 057f24699c4f Level 40 Msg Stopped flows
+2017-10-30T14:43:45.216Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : global
+2017-10-30T14:43:45.216Z System 057f24699c4f Level 40 Msg Starting flows
+2017-10-30T14:43:45.216Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-10-30T14:43:45.216Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-10-30T14:43:45.216Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-10-30T14:43:45.216Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-10-30T14:43:45.216Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-10-30T14:43:45.216Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-10-30T14:43:45.216Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-10-30T14:43:45.216Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-10-30T14:43:45.216Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-10-30T14:43:45.216Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-10-30T14:43:45.217Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-10-30T14:43:45.217Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-10-30T14:43:45.217Z System 057f24699c4f Level 50 Msg red/nodes/flows.start : starting flow : 15c6f20.6b9dd0e
+2017-10-30T14:43:45.336Z System 057f24699c4f Level 20 Msg Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+2017-10-30T14:43:45.399Z System 057f24699c4f Level 40 Msg Started flows
+2017-10-30T14:43:45.147Z System 057f24699c4f Level 40 Msg Stopping flows
+2017-10-30T14:43:45.156Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
+2017-10-30T14:43:45.160Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
+2017-10-30T14:43:50.412Z System 057f24699c4f Level 20 Msg RequestError: Violation of PRIMARY KEY constraint 'PK__session__621F4C1B526B31C7'. Cannot insert duplicate key in object 'dbo.session'. The duplicate key value is (dddd15, Oct  1 2017 12:00AM).

@@ -70,12 +70,12 @@ module.exports = function(RED) {
 
       node.on('input',function(msg){
 
-          if (msg.user != '') {node.config.user = msg.user;}
-          if (msg.password != '') {node.config.password = msg.password;}
-          if (msg.domain != '') {node.config.domain = msg.domain;}
-          if (msg.server != '' ) {node.config.server = msg.server;}
-          if (msg.port != '') {node.config.port = msg.port;}
-          if (msg.database != '') {node.config.database = msg.database;}
+          if (typeof msg.user !== "undefined") {node.config.user = msg.user;}
+          if (typeof msg.password != "undefined") {node.config.password = msg.password;}
+          if (typeof msg.domain != "undefined") {node.config.domain = msg.domain;}
+          if (typeof msg.server != "undefined" ) {node.config.server = msg.server;}
+          if (typeof msg.port != "undefined") {node.config.port = msg.port;}
+          if (typeof msg.database != "undefined") {node.config.database = msg.database;}
 
           node.connection.connect(node.config).then(function(){
 

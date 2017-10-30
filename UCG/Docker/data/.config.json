@@ -493,7 +493,7 @@
   },
   "node-red-node-watson": {
    "name": "node-red-node-watson",
-   "version": "0.5.16",
+   "version": "0.5.23",
    "local": false,
    "nodes": {
     "watson-conversation-v1": {
@@ -769,6 +769,16 @@
      "local": false,
      "module": "node-red-node-watson",
      "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/alchemy_vision/v1.js"
+    },
+    "watson-discovery-v1-document-loader": {
+     "name": "watson-discovery-v1-document-loader",
+     "types": [
+      "watson-discovery-v1-document-loader"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-node-watson",
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/discovery/v1-document-loader.js"
     }
    }
   },
@@ -959,7 +969,7 @@
   },
   "node-red-contrib-ucg-mssql": {
    "name": "node-red-contrib-ucg-mssql",
-   "version": "0.1.6",
+   "version": "0.1.8",
    "local": false,
    "nodes": {
     "mssql": {

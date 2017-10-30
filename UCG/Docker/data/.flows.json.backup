@@ -390,9 +390,9 @@
         "z": "",
         "name": "",
         "server": "",
-        "port": "1433",
+        "port": "",
         "encyption": true,
-        "database": "ucg"
+        "database": ""
     },
     {
         "id": "c8620933.bc367",
@@ -3737,14 +3737,15 @@
         "type": "function",
         "z": "cb400db2.feb1d8",
         "name": "set config",
-        "func": "msg.user = \"ucgadmin\"\nmsg.password = \"Hockey1234\"\nmsg.port = \"1433\"\n//msg.server = \"ucg-mssql.database.windows.net\"\nmsg.server = \"undefined\"\nmsg.database = \"ucg\"\nreturn msg;",
+        "func": "msg.user = \"ucgadmin\"\nmsg.password = \"Hockey1234\"\nmsg.port = \"1433\"\nmsg.server = \"ucg-mssql.database.windows.net\"\nmsg.server = \"\"\nmsg.database = \"ucg\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 283.5,
         "y": 404,
         "wires": [
             [
-                "b69f8c89.55c9c"
+                "b69f8c89.55c9c",
+                "e3602a5e.65bd"
             ]
         ]
     },
@@ -4161,5 +4162,17 @@
                 "7b56c7e7.db612"
             ]
         ]
+    },
+    {
+        "id": "e3602a5e.65bd",
+        "type": "debug",
+        "z": "cb400db2.feb1d8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 510.5,
+        "y": 506,
+        "wires": []
     }
 ]
