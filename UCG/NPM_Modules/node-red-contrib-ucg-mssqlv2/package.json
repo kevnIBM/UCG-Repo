@@ -1,7 +1,7 @@
 {
     "name": "node-red-contrib-ucg-mssqlv2",
-    "version": "0.1.18",
-    "description": "Node for node-red to connect to a Microsoft MS SQL Database",
+    "version": "0.1.24",
+    "description": "Node for node-red to connect to a Microsoft MS SQL - timeouts exposed via gui and settable via function node",
     "main": "odbc.js",
     "dependencies": {
         "mssql": ">=3.0.1 <4.0.0",
