@@ -15,23 +15,23 @@ module.exports = function(RED) {
             server: config.server,
             port: config.port,
             database: config.database,
-            connectionTimeout: config.connectionTimeout,
+            connectTimeout: config.connectTimeout,
             requestTimeout: config.requestTimeout,
             options: {
                 encrypt: config.encyption,
                 useUTC: config.useUTC
             }
         };
-        //this.log("output debug message, the value of the user is " + this.connection.config.user); //JB
+        //this.log("output debug message, the value of the user is " + node.credentails.username); //JB
         // this.log("output debug message, the value of the password is " + this.connection.config.password); //JB
         // this.log("output debug message, the value of the domain is " + this.connection.config.domain); //JB
         // this.log("output debug message, the value of the server is " + this.connection.config.server); //JB
         // this.log("output debug message, the value of the port is " + this.connection.config.port); //JB
         // this.log("output debug message, the value of the database is " + this.connection.config.database); //JB
         // this.log("output debug message, the value of the connectionTimeout is " + this.connection.config.connectionTimeout); //JB
-        // this.log("output debug message, the value of the requestTimout is " + this.connection.config.requestTimeout); //JB
+        //this.log("output debug message, the value of the requestTimout is " + config.requestTimeout); //JB
         // this.log("output debug message, the value of the encrypt is " + this.connection.config.options.encrypt); //JB
-        // this.log("output debug message, the value of the useUTC is " + this.connection.config.options.useUTC); //JB
+        // this.log("output debug message, the value of the useUTC is " + this.connection.config.options.useUTC); //JB 
 
 
 
@@ -82,25 +82,41 @@ module.exports = function(RED) {
 
         node.on('input', function(msg) {
 
-            if (msg.user != '') { node.config.user = msg.user; }
-            if (msg.password != '') { node.config.password = msg.password; }
-            if (msg.domain != '') { node.config.domain = msg.domain; }
-            if (msg.server != '') { node.config.server = msg.server; }
-            if (msg.port != '') { node.config.port = msg.port; }
-            if (msg.database != '') { node.config.database = msg.database; }
-            if (msg.connectionTimeout != '') { node.config.connectionTimeout = msg.connectionTimeout; }
-            if (msg.requestTimeout != '') { node.config.requestTimeout = msg.requestTimeout; }
-            this.log("output debug message2, the value of the node config in the connection is " + node.config); //JB
-            this.log("output debug message2, the value of the user is " + node.config.user); //JB
-            this.log("output debug message2, the value of the password is " + node.config.password); //JB
-            this.log("output debug message2, the value of the domain is " + node.config.domain); //JB
-            this.log("output debug message2, the value of the server is " + node.config.server); //JB
-            this.log("output debug message2, the value of the port is " + node.config.port); //JB
-            this.log("output debug message2, the value of the database is " + node.config.database); //JB
-            this.log("output debug message2, the value of the connectionTimeout is " + node.config.connectionTimeout); //JB
-            this.log("output debug message2, the value of the requestTimout is " + node.config.requestTimeout); //JB
-            this.log("output debug message2, the value of the encrypt is " + node.config.encrypt); //JB
-            this.log("output debug message2, the value of the useUTC is " + node.config.useUTC); //JB
+            //this.log("output debug nodeconfg, the value of the node user is " + node.config.user); //JB
+            //this.log("output debug nodeconfig, the value of the node password is " + node.config.password); //JB
+            //this.log("output debug nodeconfig, the value of the node domain is " + node.config.domain); //JB
+            //this.log("output debug nodeconfig, the value of the node server is " + node.config.server); //JB
+            //this.log("output debug nodeconfig, the value of the node port is " + node.config.port); //JB
+            //this.log("output debug nodeconfig, the value of the node database is " + node.config.database); //JB
+            //this.log("output debug nodeconfig, the value of the node connectionTimeout is " + node.config.connectTimeout); //JB
+            //this.log("output debug nodeconfig, the value of the node requestTimout is " + node.config.requestTimeout); //JB
+            //this.log("output debug nodeconfg, the value of the msg user is " + msg.user); //JB
+            //this.log("output debug nodeconfig, the value of the msg password is " + msg.password); //JB
+            //this.log("output debug nodeconfig, the value of the msg domain is " + msg.domain); //JB
+            //this.log("output debug nodeconfig, the value of the msg server is " + msg.server); //JB
+            //this.log("output debug nodeconfig, the value of the msg port is " + msg.port); //JB
+            //this.log("output debug nodeconfig, the value of the msg database is " + msg.database); //JB
+            //this.log("output debug nodeconfig, the value of the msg connectionTimeout is " + msg.connectionTimeout); //JB
+            //this.log("output debug nodeconfig, the value of the msg requestTimeout is " + msg.requestTimeout); //JB
+            if (typeof msg.user !== "undefined") { node.config.user = msg.user; }
+            if (typeof msg.password !== "undefined") { node.config.password = msg.password; }
+            if (typeof msg.domain !== "undefined") { node.config.domain = msg.domain; }
+            if (typeof msg.server !== "undefined") { node.config.server = msg.server; }
+            if (typeof msg.port !== "undefined") { node.config.port = msg.port; }
+            if (typeof msg.database !== "undefined") { node.config.database = msg.database; }
+            if (typeof msg.connectionTimeout !== "undefined") { node.config.connectTimeout = msg.connectionTimeout; }
+            if (typeof msg.requestTimeout !== "undefined") { node.config.requestTimeout = msg.requestTimeout; }
+            //this.log("output debug message2, the value of the node config in the connection is " + node.config); //JB
+            //this.log("output debug message2, the value of the user is " + node.config.user); //JB
+            // this.log("output debug message2, the value of the password is " + node.config.password); //JB
+            // this.log("output debug message2, the value of the domain is " + node.config.domain); //JB
+            // this.log("output debug message2, the value of the server is " + node.config.server); //JB
+            // this.log("output debug message2, the value of the port is " + node.config.port); //JB
+            // this.log("output debug message2, the value of the database is " + node.config.database); //JB
+            // this.log("output debug message2, the value of the connectionTimeout is " + node.config.connectTimeout); //JB
+            // this.log("output debug message2, the value of the requestTimout is " + node.config.requestTimeout); //JB
+            // this.log("output debug message2, the value of the encrypt is " + node.config.encrypt); //JB
+            // this.log("output debug message2, the value of the useUTC is " + node.config.useUTC); //JB
             node.connection.connect(node.config).then(function() {
 
                 node.status({ fill: 'blue', shape: 'dot', text: 'requesting' });
