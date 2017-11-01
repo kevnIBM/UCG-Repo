@@ -1384,3 +1384,40 @@ Welcome to Node-RED
 2017-10-30T14:43:45.156Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 1b19f8b1.08de9f
 2017-10-30T14:43:45.160Z System 057f24699c4f Level 50 Msg red/nodes/flows.stop : stopping flow : 5c4d249a.7988f4
 2017-10-30T14:43:50.412Z System 057f24699c4f Level 20 Msg RequestError: Violation of PRIMARY KEY constraint 'PK__session__621F4C1B526B31C7'. Cannot insert duplicate key in object 'dbo.session'. The duplicate key value is (dddd15, Oct  1 2017 12:00AM).
+2017-11-01T15:55:30.712Z System 7ef7a219ae4a Level 40 Msg Node-RED version: v0.17.5
+2017-11-01T15:55:30.712Z System 7ef7a219ae4a Level 40 Msg Linux 4.9.49-moby x64 LE
+2017-11-01T15:55:30.711Z System 7ef7a219ae4a Level 40 Msg 
+
+Welcome to Node-RED
+===================
+
+2017-11-01T15:55:30.712Z System 7ef7a219ae4a Level 40 Msg Node.js  version: v8.8.1
+2017-11-01T15:55:30.859Z System 7ef7a219ae4a Level 40 Msg Loading palette nodes
+2017-11-01T15:55:32.077Z System 7ef7a219ae4a Level 30 Msg [udp] Error: udp out already registered (line:102)
+2017-11-01T15:55:32.076Z System 7ef7a219ae4a Level 30 Msg ------------------------------------------------------
+2017-11-01T15:55:32.077Z System 7ef7a219ae4a Level 30 Msg [tcp] Error: tcp in already registered (line:181)
+2017-11-01T15:55:32.077Z System 7ef7a219ae4a Level 40 Msg Settings file  : /data/settings.js
+2017-11-01T15:55:32.078Z System 7ef7a219ae4a Level 40 Msg User directory : /data
+2017-11-01T15:55:32.077Z System 7ef7a219ae4a Level 30 Msg [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+2017-11-01T15:55:32.077Z System 7ef7a219ae4a Level 30 Msg ------------------------------------------------------
+2017-11-01T15:55:32.078Z System 7ef7a219ae4a Level 40 Msg Flows file     : /data/flows.json
+2017-11-01T15:55:32.085Z System 7ef7a219ae4a Level 40 Msg Server now running at http://127.0.0.1:1880/
+2017-11-01T15:55:32.091Z System 7ef7a219ae4a Level 50 Msg loaded flow revision: bcb2db392f2f0d93c0074409bbee9acc
+2017-11-01T15:55:32.102Z System 7ef7a219ae4a Level 50 Msg red/nodes/flows.start : starting flow : global
+2017-11-01T15:55:32.102Z System 7ef7a219ae4a Level 50 Msg red/nodes/flows.start : starting flow : 1b19f8b1.08de9f
+2017-11-01T15:55:32.102Z System 7ef7a219ae4a Level 50 Msg red/nodes/flows.start : starting flow : 5c4d249a.7988f4
+2017-11-01T15:55:32.092Z System 7ef7a219ae4a Level 50 Msg red/runtime/nodes/credentials.load : user provided key
+2017-11-01T15:55:32.102Z System 7ef7a219ae4a Level 50 Msg red/nodes/flows.start : starting flow : 3fad3621.99e442
+2017-11-01T15:55:32.102Z System 7ef7a219ae4a Level 50 Msg red/nodes/flows.start : starting flow : d284a7e7.ca3e08
+2017-11-01T15:55:32.102Z System 7ef7a219ae4a Level 40 Msg Starting flows
+2017-11-01T15:55:32.102Z System 7ef7a219ae4a Level 50 Msg red/nodes/flows.start : starting flow : cb400db2.feb1d8
+2017-11-01T15:55:32.102Z System 7ef7a219ae4a Level 50 Msg red/nodes/flows.start : starting flow : 14d2f552.3522fb
+2017-11-01T15:55:32.102Z System 7ef7a219ae4a Level 50 Msg red/nodes/flows.start : starting flow : 6e97b3ee.89fce4
+2017-11-01T15:55:32.102Z System 7ef7a219ae4a Level 50 Msg red/nodes/flows.start : starting flow : 5b6fab52.9eae84
+2017-11-01T15:55:32.102Z System 7ef7a219ae4a Level 50 Msg red/nodes/flows.start : starting flow : 15c6f20.6b9dd0e
+2017-11-01T15:55:32.102Z System 7ef7a219ae4a Level 50 Msg red/nodes/flows.start : starting flow : e85cff5a.1f786
+2017-11-01T15:55:32.102Z System 7ef7a219ae4a Level 50 Msg red/nodes/flows.start : starting flow : c1e9a4dc.c42cf8
+2017-11-01T15:55:32.203Z System 7ef7a219ae4a Level 40 Msg Started flows
+2017-11-01T15:55:32.102Z System 7ef7a219ae4a Level 50 Msg red/nodes/flows.start : starting flow : 17eb59dd.9ff326
+2017-11-01T15:55:32.102Z System 7ef7a219ae4a Level 50 Msg red/nodes/flows.start : starting flow : bf65cfa5.bbe868
+2017-11-01T15:55:32.171Z System 7ef7a219ae4a Level 20 Msg Client requires an Account SID and Auth Token set explicitly or via the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
