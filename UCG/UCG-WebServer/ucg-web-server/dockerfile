@@ -1,0 +1,19 @@
+FROM node:8-stretch
+
+# create dir for node files
+RUN mkdir -p /code
+
+# copy node files
+COPY / /code/
+
+WORKDIR /code
+
+RUN npm install
+
+# User configuration directory volume
+EXPOSE 3000
+
+# Environment variable holding file path for flows configuration
+#ENV DEBUG=ucg-web-server 
+
+CMD ["npm", "start"]

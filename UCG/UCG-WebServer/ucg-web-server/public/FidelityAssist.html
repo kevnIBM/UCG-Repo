@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/stylesheets/mystyle.css"> 
+
+<style>
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+   <h1>Universal Conversation Gateway Web Chat</h1>
+</header>
+  
+
+<article>
+  <div id=watson >
+    </div>
+</article>
+
+<footer>Copyright &copy; IBM.com</footer>
+
+</div>
+<script src="https://cdn.smooch.io/smooch.min.js"></script>  
+<script> 
+var d = new Date();
+var n = d.getTime();
+// userId: n.toString(),
+
+Smooch.init({
+    appToken: '7788i215s5s6si7bp23uv33o9',
+    embedded: true,
+    userId: n.toString(),
+    givenName: "Dennis",
+    surName: "Noto",
+    email: "dennisnoto@gmail.com"
+    
+}).then(() => {
+    Smooch.sendMessage("Hello Fidelity Assist")
+    Smooch.render(document.getElementById('watson'))
+});
+</script>
+</body>
+</html>
+
