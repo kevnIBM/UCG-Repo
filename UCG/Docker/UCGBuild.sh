@@ -19,3 +19,8 @@ docker push dennisnotojr/node-red-docker-node8-nr-17-data-mapped:version-3
 docker push dennisnotojr/node-red-docker-node8-nr-17-data-mapped-cluster:version-3
 docker push dennisnotojr/node-red-docker-node8-nr-17-data-container:version-3
 docker push dennisnotojr/node-red-docker-node8-nr-17-data-container-cluster:version-3
+
+
+docker build -f latest/dockerfile-Node-Ubuntu -t dennisnotojr/node-ubuntu:version-1 .
+
+docker build -f latest/Dockerfile-Data-Volume-Mapped-Cluster-Alpine -t dennisnotojr/node-red-docker-node8-nr-17-data-mapped-cluster-alpine:version-1 .

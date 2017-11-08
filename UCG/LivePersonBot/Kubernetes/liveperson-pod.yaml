@@ -8,13 +8,13 @@ metadata:
   generateName: ""
 spec:
   containers:
-    - name: zookeeper
+    - name: zookeeper-lp
       image: wurstmeister/zookeeper
       ports:
         - containerPort: 2181
           name: ""
           protocol: TCP 
-    - name: app
+    - name: app-lp
       image: node:slim
       ports:
         - name: headless

@@ -3737,7 +3737,7 @@
         "type": "function",
         "z": "cb400db2.feb1d8",
         "name": "set config",
-        "func": "msg.user = \"ucgadmin\"\nmsg.password = \"Hockey1234\"\nmsg.port = \"1433\"\nmsg.server = \"ucg-mssql.database.windows.net\"\nmsg.server = \"\"\nmsg.database = \"ucg\"\nreturn msg;",
+        "func": "msg.user = \"ucgadmin\"\nmsg.password = \"Hockey1234\"\nmsg.port = \"1433\"\nmsg.server = \"ucg-mssql.database.windows.net\"\nmsg.database = \"ucg\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 283.5,
@@ -4032,7 +4032,7 @@
         "type": "function",
         "z": "15c6f20.6b9dd0e",
         "name": "Set Params",
-        "func": "msg.source = \"LivePerson\"\n//var user_name = msg.req.query.user_name\n//var user_id = msg.payload.user_id;\nvar workspace_id = msg.req.query.workspace_id\nvar fname = msg.req.query.fname\n\n//create a null context and test for session existance\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n     \n   }\n \nvar newmsg = msg.req.query.text\nnewmsg = newmsg.replace(/'/g, \"\");  \nmsg.payload = newmsg\n\ncontext.fname = fname\n\nvar params = {\n    context: context,\n//    workspace_id : workspace_id\n   \n};\n\n// node.log(\"User *** \" + msg.user + \" Said *** \" + newmsg)\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg\n",
+        "func": "msg.source = \"LivePerson\"\n//var user_name = msg.req.query.user_name\n//var user_id = msg.payload.user_id;\nvar workspace_id = msg.req.query.workspace_id\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\n\nvar fname = msg.req.query.fname\n\n//create a null context and test for session existance\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n     \n   }\n \nvar newmsg = msg.req.query.text\nnewmsg = newmsg.replace(/'/g, \"\");  \nmsg.payload = newmsg\n\ncontext.fname = fname\n\nvar params = {\n    context: context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password\n};\n\n// node.log(\"User *** \" + msg.user + \" Said *** \" + newmsg)\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg\n",
         "outputs": 1,
         "noerr": 0,
         "x": 625.9444580078125,
@@ -4089,7 +4089,7 @@
         "type": "watson-conversation-ucg-v1",
         "z": "15c6f20.6b9dd0e",
         "name": "",
-        "workspaceid": "3890336e-4fba-45cc-8d6d-1d5c5e41098b",
+        "workspaceid": "",
         "multiuser": false,
         "context": false,
         "default-endpoint": true,
@@ -4138,7 +4138,8 @@
         "y": 56,
         "wires": [
             [
-                "1ce052eb.ac9a8d"
+                "1ce052eb.ac9a8d",
+                "cb8322fb.d9dec8"
             ]
         ]
     },
@@ -4173,6 +4174,18 @@
         "complete": "true",
         "x": 510.5,
         "y": 506,
+        "wires": []
+    },
+    {
+        "id": "cb8322fb.d9dec8",
+        "type": "debug",
+        "z": "15c6f20.6b9dd0e",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 769.5,
+        "y": 283,
         "wires": []
     }
 ]

@@ -11,6 +11,10 @@ docker run -d -p 1880:1880  -e NODE_ENV=production -e NODE_OPTIONS=--max_old_spa
 #Run command for container with data in the container and cluster
 docker run -d -p 1880:1880  -e NODE_ENV=production -e NODE_OPTIONS=--max_old_space_size=1024 dennisnotojr/node-red-docker-node8-nr-17-data-container-cluster:version-3
 
+
+docker run -d -v /Users/dennisnoto/Documents/NotoData-Dev/UCG-Repo/UCG/Docker/data:/data  -p 1880:1880  -e NODE_ENV=production -e NODE_OPTIONS=--max_old_space_size=1024 dennisnotojr/node-red-docker-node8-nr-17-data-mapped-cluster-alpine:version-1
+
+
 #Run command for container with data in the container and logging to syslog
  docker run -d -p 1880:1880  \
     --log-driver syslog \

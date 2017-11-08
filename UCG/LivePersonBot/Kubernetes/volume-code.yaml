@@ -4,9 +4,9 @@ metadata:
  name: ucg-volume-code
 spec:
  capacity:
-   storage: "40Gi"
+   storage: "100Gi"
  accessModes:
    - ReadWriteMany
  nfs:
-   server: "fsf-dal1001f-fz.adn.networklayer.com"
-   path: "/IBM02SV1339641_1/data01/code"
+   server: "fsf-dal1001h-fz.adn.networklayer.com"
+   path: "/IBM02SV1339641_2/data01/code"

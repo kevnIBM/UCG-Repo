@@ -95,8 +95,8 @@ class MyCoolAgent extends Agent {
             body.changes.forEach(c => {
                 // In the current version MessagingEventNotification are recived also without subscription
                 // Will be fixed in the next api version. So we have to check if this notification is handled by us.
-                console.log('\nc.serverTimestamp is :', c.serverTimestamp)
-                console.log('\nopenConvs[c.dialogId].joined value :', openConvs[c.dialogId].joined )
+                //console.log('\nc.serverTimestamp is :', c.serverTimestamp)
+                //console.log('\nopenConvs[c.dialogId].joined value :', openConvs[c.dialogId].joined )
                 if (openConvs[c.dialogId]) {
                     // add to respond list all content event not by me
                     if (c.event.type === 'ContentEvent' && c.originatorMetadata.role === 'CONSUMER' //) {

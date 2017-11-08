@@ -19,8 +19,9 @@ Steps to use an NFS File storage volume in Bluemix for Kubernetes Persistant Vol
    Install nfs 
         yum -y install nfs-utils nfs-utils-lib
    Mount nfs
-       mount -t nfs4 -o hard,intr fsf-dal1001f-fz.adn.networklayer.com:/IBM02SV1339641_1/data01 /mnt
-      - mount_point can be found at step 3
+       mkdir /nfs
+       mount -t nfs4 -o hard,intr fsf-dal1001h-fz.adn.networklayer.com:/IBM02SV1339641_2/data01 /nfs
+           - mount_point can be found at step 3
    Test to see if mounted
         df -h
 5. create directores and copy files
@@ -33,7 +34,8 @@ Steps to use an NFS File storage volume in Bluemix for Kubernetes Persistant Vol
        for /data
            - copy settings.js, flows.json, flows-cred.json
        for /code
-           - copy /examples directory to /code - tar first, then copy, and untar
+           - copy all liveperson file from the sdk(node-agent-sdk-master) directory to /code - tar first, then copy, and untar
+           - example of making copies of code directories - cp -a code  code-xx
      - unsecure files 
        chmod 777 -R data
        chmod 777 -R code
@@ -45,7 +47,6 @@ Steps to use an NFS File storage volume in Bluemix for Kubernetes Persistant Vol
       ./kubectl apply -f volume-claim.yaml
 
  8. Now you can use the nodered-deployment-data-mapped-cloud.yaml
-
 
 
 

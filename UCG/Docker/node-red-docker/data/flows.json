@@ -3744,7 +3744,8 @@
         "y": 404,
         "wires": [
             [
-                "b69f8c89.55c9c"
+                "b69f8c89.55c9c",
+                "e3602a5e.65bd"
             ]
         ]
     },
@@ -3754,7 +3755,7 @@
         "z": "cb400db2.feb1d8",
         "mssqlCN": "fc597431.b0b028",
         "name": "New UCG MSSQL with params sent via msg",
-        "query": "insert into session VALUES ('dddd12', '10/01/2017', 'load', 'test')\n\n",
+        "query": "insert into session VALUES ('dddd15', '10/01/2017', 'load', 'test')\n\n",
         "outField": "payload",
         "x": 568.5,
         "y": 407,
@@ -4031,7 +4032,7 @@
         "type": "function",
         "z": "15c6f20.6b9dd0e",
         "name": "Set Params",
-        "func": "msg.source = \"LivePerson\"\n//var user_name = msg.req.query.user_name\n//var user_id = msg.payload.user_id;\nvar workspace_id = msg.req.query.workspace_id\nvar fname = msg.req.query.fname\n\n//create a null context and test for session existance\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n     \n   }\n \nvar newmsg = msg.req.query.text\nnewmsg = newmsg.replace(/'/g, \"\");  \nmsg.payload = newmsg\n\ncontext.fname = fname\n\nvar params = {\n    context: context,\n//    workspace_id : workspace_id\n   \n};\n\n// node.log(\"User *** \" + msg.user + \" Said *** \" + newmsg)\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg\n",
+        "func": "msg.source = \"LivePerson\"\n//var user_name = msg.req.query.user_name\n//var user_id = msg.payload.user_id;\nvar workspace_id = msg.req.query.workspace_id\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\n\nvar fname = msg.req.query.fname\n\n//create a null context and test for session existance\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n     \n   }\n \nvar newmsg = msg.req.query.text\nnewmsg = newmsg.replace(/'/g, \"\");  \nmsg.payload = newmsg\n\ncontext.fname = fname\n\nvar params = {\n    context: context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password\n};\n\n// node.log(\"User *** \" + msg.user + \" Said *** \" + newmsg)\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg\n",
         "outputs": 1,
         "noerr": 0,
         "x": 625.9444580078125,
@@ -4088,7 +4089,7 @@
         "type": "watson-conversation-ucg-v1",
         "z": "15c6f20.6b9dd0e",
         "name": "",
-        "workspaceid": "3890336e-4fba-45cc-8d6d-1d5c5e41098b",
+        "workspaceid": "",
         "multiuser": false,
         "context": false,
         "default-endpoint": true,
@@ -4161,5 +4162,17 @@
                 "7b56c7e7.db612"
             ]
         ]
+    },
+    {
+        "id": "e3602a5e.65bd",
+        "type": "debug",
+        "z": "cb400db2.feb1d8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 510.5,
+        "y": 506,
+        "wires": []
     }
 ]

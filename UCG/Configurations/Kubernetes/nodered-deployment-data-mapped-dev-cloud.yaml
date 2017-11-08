@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nodered
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nodered
+    spec:
+      containers:
+      - name: nodered
+        image: dennisnotojr/node-red-docker-node8-nr-17-data-mapped:version-1
+        ports: 
+         - containerPort: 1880
+           protocol: TCP
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: 0.8
+            memory: 1024Mi
+          requests:  
+            cpu: 0.5
+            memory: 512Mi
+        env:
+        - name: NODE_ENV
+          value: "production"
+        volumeMounts:
+        - name: data
+          mountPath: /data
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+         claimName: ucg-volume-data-dev
