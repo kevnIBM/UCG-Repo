@@ -38,7 +38,7 @@ function createNewAgent(newAgentConf) {
             });
         } else {
             //Add call to NodeRed 
-            var myUrl = `http://ucg-clusterv3.us-south.containers.mybluemix.net/liveperson?user_id=${contentEvent.dialogId}&wcs_username=4acac659-e820-4ef6-8421-e88f517c9c4c&wcs_password=k0gYo1FjJymP&workspace_id=54141f49-ffa2-4f6b-887c-aac6aea5d42d&text=\'${contentEvent.message}\'&fname=dennis`
+            var myUrl = `http://ucg-cluster-dev.us-south.containers.mybluemix.net/liveperson?user_id=${contentEvent.dialogId}&wcs_username=4acac659-e820-4ef6-8421-e88f517c9c4c&wcs_password=k0gYo1FjJymP&workspace_id=54141f49-ffa2-4f6b-887c-aac6aea5d42d&text=\'${contentEvent.message}\'&fname=dennis`
             console.log('Web Request ', myUrl)
             request.post(myUrl, function (error, response, body) {
                 console.log('error:', error); // Print the error if one occurred

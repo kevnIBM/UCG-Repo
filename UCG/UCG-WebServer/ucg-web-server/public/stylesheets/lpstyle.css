@@ -2,3 +2,35 @@
 height: 800px !important;
 width: 500px !important;
 }
+.lp-json-pollock-element-button {
+border-color: white !important;
+}
+DIV.lp_rich_content_line {
+/*+placement: 48px -25px !important;*/
+position: relative !important;
+left: 48px !important;
+top: -25px !important;
+}
+.lp-json-pollock-layout .lp-json-pollock-element-text {
+color: #F9F9F9 !important;
+background-color: #165EA3 !important;
+/*+border-radius: 5px !important;*/
+-moz-border-radius: 5px !important;
+-webkit-border-radius: 5px !important;
+-khtml-border-radius: 5px !important;
+border-radius: 5px !important;
+}
+BUTTON {
+color: #E8E8EA !important;
+background-color: #040EBC !important;
+/*+border-radius: 22px !important;*/
+-moz-border-radius: 22px !important;
+-webkit-border-radius: 22px !important;
+-khtml-border-radius: 22px !important;
+border-radius: 22px !important;
+margin-top: 15px !important;
+font-weight: bold !important;
+}
+DIV.lp-json-pollock-layout {
+border-color: rgba(236, 234, 234, 0) rgba(240, 238, 238, 0) rgba(239, 238, 238, 0) rgba(236, 234, 234, 0) !important;
+}
