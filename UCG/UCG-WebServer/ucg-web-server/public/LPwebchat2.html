@@ -38,7 +38,7 @@ xhttp.onreadystatechange = function() {
     tokenResponse = this.responseText.match(/{\s*\"jwt\".*}/)[0];
   }
 };
-xhttp.open('GET', 'http://localhost:8080/signup', true);
+xhttp.open('GET', 'http://ucg-clusterv3.us-south.containers.mybluemix.net/signup', true);
 xhttp.send();
 
 // Authentication JSMethod for LiveEngage
