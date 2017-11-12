@@ -13,8 +13,9 @@
  */
 
 const Agent = require('./../../lib/AgentSDK');
-
-
+var request = require('request');
+var watsonAnswer = [];
+var saveAgent;
 class MyCoolAgent extends Agent {
     constructor(conf) {
         super(conf);
@@ -77,10 +78,81 @@ class MyCoolAgent extends Agent {
                                 type: 'ContentEvent',
                                 contentType: 'text/plain',
                          //       message: `Just joined to conversation with ${JSON.stringify(profileResp)}`
-                                  message: `Just joined to conversation with ${profileResp[0].info.ctype}`
+                                  message: `Just joined to conversation with IBM Watson`
                             }
                         });
-                    });
+                    
+                        //Add call to NodeRed to start convo
+                        var myUrl = `http://${process.env.ucg_domain}/liveperson?user_id=${change.result.convId}&wcs_username=${process.env.wcs_username}&wcs_password=${process.env.wcs_password}&workspace_id=${process.env.workspace_id}&text=\'Hi\'&fname=dennis`
+                        console.log('Web Request ', myUrl)                    
+                        saveAgent = this;
+                        request.post(myUrl, function (error, response, body) {
+                       //   console.log('error:', error); // Print the error if one occurred
+                       //   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+                       //  console.log('body:', body); // Return from WCS
+                         watsonAnswer = JSON.parse(body);
+                         console.log('watsonAnswer:', JSON.stringify(watsonAnswer));
+                         var i = 0;
+                         if (typeof watsonAnswer.text !== "undefined") {
+             
+                           for (i = 0; i < watsonAnswer.text.length; i++) {
+
+                             saveAgent.publishEvent({
+                                dialogId: change.result.convId,
+                                event: {
+                                  type: 'ContentEvent',
+                                  contentType: 'text/plain',
+                                  message : watsonAnswer.text[i]
+                                }
+                             });
+            
+                           }
+
+
+                         } 
+            
+                         if (typeof watsonAnswer.content !== "undefined") {
+                            for (i = 0; i < watsonAnswer.content.elements[0].text.length; i++) {
+
+                             if ((i+1) == (watsonAnswer.content.elements[0].text.length)) {
+                                var saveLast = watsonAnswer.content.elements[0].text[i]
+                                console.log('saveLast:', saveLast);
+                                watsonAnswer.content.elements[0].text = saveLast
+                                i = 1000
+                                console.log('mycoolagent content before at last :', JSON.stringify(watsonAnswer.content)); 
+                                saveAgent.publishEvent({
+                                  dialogId: change.result.convId,
+                                  event: {
+                                     type: 'RichContentEvent',
+                                     content: watsonAnswer.content
+                                  }
+                                }, function(err) {
+                                     if (err) {console.log('error', err)}
+                                  }
+                                );
+
+                              }
+                             else {
+                    
+                               console.log('mycoolagent content at each turn :', watsonAnswer.content.elements[0].text[i]); 
+                               saveAgent.publishEvent({
+                                  dialogId: change.result.convId,
+                                  event: {
+                                    type: 'ContentEvent',
+                                    contentType: 'text/plain',
+                                    message : watsonAnswer.content.elements[0].text[i]
+                                  }
+                               });
+
+
+                             }    
+                            }
+                           }
+                        })
+                      
+
+                        // End of code add
+                    }); 
                     this.subscribeMessagingEvents({dialogId: change.result.convId});
                 } else if (change.type === 'DELETE') {
                     // conversation was closed or transferred
