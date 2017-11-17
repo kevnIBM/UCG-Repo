@@ -1,9 +1,13 @@
 
-# Integreation with UCG
+# Integration with UCG
 # node-agent-sdk
-# Requirements - UCG LivePerson Flow and WCS workspace that has a 
+# Requirements - UCG LivePerson Flow and WCS workspace: 
+#
 #"Transfer Agent" intent - contact-agent-intent.csv 
-# and a Dialog node with answer that contians "transfer you to"
+#    - Dialog node with answer that contians "transfer you to"
+#
+# "Watson join convo again" intent with utterance "watson join convo again"
+#    - Dialog node with answer - example - ""I'm back to answer your questions, what's on your mind?"" 
 
 [![build](https://travis-ci.org/LivePersonInc/node-agent-sdk.svg?branch=master)](https://travis-ci.org/LivePersonInc/node-agent-sdk)
 [![npm version](https://img.shields.io/npm/v/node-agent-sdk.svg)](https://img.shields.io/npm/v/node-agent-sdk)

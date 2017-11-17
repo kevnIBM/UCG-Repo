@@ -4032,7 +4032,7 @@
         "type": "function",
         "z": "15c6f20.6b9dd0e",
         "name": "Set Params",
-        "func": "msg.source = \"LivePerson\"\n//var user_name = msg.req.query.user_name\n//var user_id = msg.payload.user_id;\nvar workspace_id = msg.req.query.workspace_id\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\n\nvar fname = msg.req.query.fname\n\n//create a null context and test for session existance\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n     \n   }\n \nvar newmsg = msg.req.query.text\nnewmsg = newmsg.replace(/'/g, \"\");  \nmsg.payload = newmsg\n\ncontext.fname = fname\n\nvar params = {\n    context: context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password\n};\n\n// node.log(\"User *** \" + msg.user + \" Said *** \" + newmsg)\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg\n",
+        "func": "msg.source = \"LivePerson\"\n//var user_name = msg.req.query.user_name\n//var user_id = msg.payload.user_id;\nvar workspace_id = msg.req.query.workspace_id\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\n\nvar fname = msg.req.query.fname\n\n//create a null context and test for session existance\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n     \n   }\n \nvar newmsg = msg.req.query.text\nnewmsg = newmsg.replace(/'/g, \"\");  \n\nvar image = JSON.parse(\"{}\");  \nvar button = JSON.parse(\"{}\");\n\nmsg.payload = newmsg\n\ncontext.fname = fname;\ncontext.image = image;\ncontext.button = button;\n\nvar params = {\n    context: context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password\n};\n\n// node.log(\"User *** \" + msg.user + \" Said *** \" + newmsg)\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg\n",
         "outputs": 1,
         "noerr": 0,
         "x": 625.9444580078125,
@@ -4048,14 +4048,15 @@
         "type": "function",
         "z": "15c6f20.6b9dd0e",
         "name": "Respone Msg",
-        "func": "var Watson_msg = msg.payload;\nvar Watson_response = JSON.stringify(msg.payload.output.text);\nvar Watson_contextOBJ = msg.payload.context;\n\nvar texts = msg.payload.output.text\ntotalText = \"\"\nfor (i = 0; i < texts.length; i++) {\n    \n    if (texts[i].lastIndexOf(\"[\") >= 0 ) {\n       findindex = texts[i].lastIndexOf(\"[\");\n       texts[i] = texts[i].substring(0,findindex);\n    } \n \n  // Dennis added because SSML tag was escaping the \" with \\\" and the replace command fixes it!!!!\n   texts[i] = texts[i].replace(/\\\\/g, \"\");\n  //Dennis - Remove XML SSML tags from chat systems\n   texts[i] =  texts[i].replace(/<[^>]+>/g, \"\");\n \n  if (texts[i].lastIndexOf(\"InsMap\") >= 0 ) {\n     findindex = texts[i].lastIndexOf(\"InsMap\")\n     texts[i] = texts[i].substring(0,findindex)\n  } \n  \n  totalText = totalText + \" \" + texts[i]\n}\n\nnode.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + totalText)\n\nvar buttoncomponent = \"\";\nvar imagecomponent = \"\";\nvar found_link = 0;\nbuttonjsonObj = Watson_contextOBJ.button;\nif (typeof buttonjsonObj.values != \"undefined\") {\n  \n    for (var c in buttonjsonObj.values) {\n      buttonStr = buttonjsonObj.values[c];\n      if (buttonStr.lastIndexOf(\"|\") >= 0 ) {\n        found_link = 1;\n        buttonItems = buttonStr.split(\"|\");\n        button_title = buttonItems[0];\n        button_url = buttonItems[1];\n        \n        buttonactionsArr.push({\"type\": \"button\",\"title\": button_title,\"click\":{\"actions\":[{\"type\":\"link\",\"name\":button_title, \"uri\": button_url}]}}); \n      }\n      else {\n        button_title = buttonStr;  \n        buttonactionsArr.push({\"type\": \"button\",\"title\": button_title,\"click\":{\"actions\":[{\"type\":\"publishText\",\"name\":button_title, \"text\": button_title}]}}); \n      }\n    } \n    buttoncomponent = \"button\"; \n}\n\n//json image\nimagejsonObj = Watson_contextOBJ.image;\nif (typeof imagejsonObj.values != \"undefined\") {\n    imagecomponent = \"image\";\n    for (var c in imagejsonObj.values) {\n      imageStr = imagejsonObj.values[c];\n      node.log(\"Found Json map str: \" + imageStr);\n      imageactionsArr.push({\"type\":\"image\",\"uri\": imageStr,\"click\":{\"actions\":[]}});\n //     actions = {\"actions\" : actionsArr };\n    }\n}\n\nvar element_index = 1;\n\nresponse = {\n  content: {\n    \"type\": \"vertical\",\n    \"elements\": [\n           {\"type\": \"text\",\n             \"text\": totalText \n            },\n         ]\n  }\n}\n\nif (imagecomponent == \"image\") {\n   element_index = elmenent_index + 1;\n   response.content.elements[1] = imageactionArr\n }\n\nif (buttoncomponent == \"button\") {\n   element_index = elmenent_index + 1;\n   response.content.elements[1] = buttonactionArr\n }\n\n\n\nmsg.payload = response;\n\nreturn msg;",
+        "func": "var Watson_msg = msg.payload;\nvar Watson_response = JSON.stringify(msg.payload.output.text);\nvar Watson_contextOBJ = msg.payload.context;\n\nvar texts = msg.payload.output.text\ntotalText = \"\"\nfor (i = 0; i < texts.length; i++) {\n    \n    if (texts[i].lastIndexOf(\"[\") >= 0 ) {\n       findindex = texts[i].lastIndexOf(\"[\");\n       texts[i] = texts[i].substring(0,findindex);\n    } \n \n  // Dennis added because SSML tag was escaping the \" with \\\" and the replace command fixes it!!!!\n   texts[i] = texts[i].replace(/\\\\/g, \"\");\n  //Dennis - Remove XML SSML tags from chat systems\n   texts[i] =  texts[i].replace(/<[^>]+>/g, \"\");\n \n  if (texts[i].lastIndexOf(\"InsMap\") >= 0 ) {\n     findindex = texts[i].lastIndexOf(\"InsMap\")\n     texts[i] = texts[i].substring(0,findindex)\n  } \n  \n  totalText = totalText + \" \" + texts[i]\n}\n\nnode.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + totalText)\n\nvar found_link = 0;\nvar belementArr = []\nvar ielementArr = [{\"type\":\"text\",\"text\":totalText}]\n//json image\nimagejsonObj = Watson_contextOBJ.image;\nif (typeof imagejsonObj.values != \"undefined\") {\n    for (var c in imagejsonObj.values) {\n      imageStr = imagejsonObj.values[c];\n      node.log(\"Found Json map str: \" + imageStr);\n      ielementArr.push({\"type\":\"image\",\"url\": imageStr});\n    }\n}\n\nbuttonjsonObj = Watson_contextOBJ.button;\nif (typeof buttonjsonObj.values != \"undefined\") {\n    for (var c in buttonjsonObj.values) {\n      buttonStr = buttonjsonObj.values[c];\n      if (buttonStr.lastIndexOf(\"|\") >= 0 ) {\n        found_link = 1;\n        buttonItems = buttonStr.split(\"|\");\n        button_title = buttonItems[0];\n        button_url = buttonItems[1];\n        \n        belementArr.push({\"type\": \"button\",\"title\": button_title,\"click\":{\"actions\":[{\"type\":\"link\",\"name\":button_title, \"uri\": button_url}]}}); \n      }\n      else {\n        button_title = buttonStr;  \n        belementArr.push({\"type\": \"button\",\"title\": button_title,\"click\":{\"actions\":[{\"type\":\"publishText\",\"name\":button_title, \"text\": button_title}]}}); \n      }\n    }\n}\n\nvar content = {\"type\": \"vertical\"}\n\ncontent.elements = ielementArr;\n\nif (belementArr.length > 0)  {\n    content.elements[ielementArr.length] = {\"type\": \"horizontal\", \"elements\" : belementArr}\n}\n\nif (ielementArr.length > 1 || belementArr.length > 0) {\n   response = {content : content}; \n}\nelse {\n   response = {text: totalText};    \n}\n\n\nmsg.payload = response;\n\nreturn msg;",
         "outputs": "1",
         "noerr": 0,
         "x": 1196.7830390930176,
         "y": 146.33333587646484,
         "wires": [
             [
-                "2a2ab63a.30e332"
+                "2a2ab63a.30e332",
+                "fa37f53c.648028"
             ]
         ]
     },
@@ -4173,6 +4174,18 @@
         "complete": "true",
         "x": 510.5,
         "y": 506,
+        "wires": []
+    },
+    {
+        "id": "fa37f53c.648028",
+        "type": "debug",
+        "z": "15c6f20.6b9dd0e",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1350,
+        "y": 280,
         "wires": []
     }
 ]
