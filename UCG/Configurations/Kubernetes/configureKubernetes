@@ -4,9 +4,10 @@
 #assumes you installed the kubernetes cli after installing the cluster via bluemix.
 #assumes that the nodered docker image is on docker hub.
 
-#DCOS install
+#Kubernetes install
      #Goto the bluemix catalog and click on kubernetes service
      #     Select Paid service and set the name, number of workers, and the micro machine footprint
+     #     Follow the steps on the Access tab in your kubernetes service so you can have cli access from your computer
      # Config Note - change the ingress file with your cluster host
      # Config Note - change the deployment file to set replicas to the number of workers that you created
 
