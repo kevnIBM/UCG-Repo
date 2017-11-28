@@ -15,12 +15,20 @@
 
 #assumes you set the configuration to your cluster via the steps definied in installing kuberctl for bluemix
 
-#configure the deployment
-./kubectl create -f nodered-deployment.yaml
+#configure the deployment without persistant volume and data directory in the container
+./kubectl create -f nodered-deployment-data-container-cloud.yaml
 #configure the service
-./kubectl apply -f nodered-service.yaml
+./kubectl apply -f nodered-service-cloud.yaml
 #configure ingress 
-./kubectl apply -f ingress.yaml
+./kubectl apply -f ingress-cloud.yaml
+
+#configure the deployment with persistant volume with data directory on PV
+./kubectl create -f nodered-deployment-data-mapped-cloud.yaml
+#configure the service
+./kubectl apply -f nodered-service-cloud.yaml
+#configure ingress 
+./kubectl apply -f ingress-cloud.yaml
+
 
 #Start Dashboard service locally which will connect to the bluemix cluster
 ./kubectl proxy
