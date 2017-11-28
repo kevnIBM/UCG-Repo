@@ -83,11 +83,12 @@ class MyCoolAgent extends Agent {
                         });
                     
                         //Add call to NodeRed to start convo
-                        console.log('Sequence: ', change.result.lastContentEventNotification.sequence)
+                        console.log('message: ', change.result.lastContentEventNotification.event.message)
+                        
                         if (change.result.lastContentEventNotification.sequence > 0)
                            var myUrl = `http://${process.env.ucg_domain}/liveperson?user_id=${change.result.convId}&wcs_username=${process.env.wcs_username}&wcs_password=${process.env.wcs_password}&workspace_id=${process.env.workspace_id}&text=\'watson join convo again\'&fname=dennis`
                          else
-                           var myUrl = `http://${process.env.ucg_domain}/liveperson?user_id=${change.result.convId}&wcs_username=${process.env.wcs_username}&wcs_password=${process.env.wcs_password}&workspace_id=${process.env.workspace_id}&text=\'Hi\'&fname=dennis`
+                           var myUrl = `http://${process.env.ucg_domain}/liveperson?user_id=${change.result.convId}&wcs_username=${process.env.wcs_username}&wcs_password=${process.env.wcs_password}&workspace_id=${process.env.workspace_id}&text=\'${change.result.lastContentEventNotification.event.message}\'&fname=dennis`
                         console.log('Web Request ', myUrl)                    
                         saveAgent = this;
                         request.post(myUrl, function (error, response, body) {
