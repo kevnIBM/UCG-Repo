@@ -28,7 +28,15 @@ spec:
         - name: ZK_PORT_2181_TCP_PORT
           value: "2181"
         - name: ZK_PORT_2181_TCP_ADDR
-          value: "127.0.0.1"  
+          value: "127.0.0.1"
+        - name: ucg_domain
+          value: "ucg-clusterv3.us-south.containers.mybluemix.net"
+        - name: wcs_username
+          value: "4acac659-e820-4ef6-8421-e88f517c9c4c"
+        - name: wcs_password
+          value: "k0gYo1FjJymP"
+        - name: workspace_id
+          value: "54141f49-ffa2-4f6b-887c-aac6aea5d42d"  
       volumeMounts:
         - mountPath: /code
           name: code

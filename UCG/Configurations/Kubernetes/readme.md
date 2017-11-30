@@ -5,7 +5,7 @@ Steps to use an NFS File storage volume in Bluemix for Kubernetes Persistant Vol
 
 1. Create an NFS File storage volume
    Catalog - Storage - File Storage
-   Select Performance, Dallas-10, 40 GB, 100 IOPS
+   Select Performance, Dallas-10, 100 GB, 1000 IOPS
 
 2. Create a Centos VM for managing files on NFS
    Catalog - Compute - Virtual Server

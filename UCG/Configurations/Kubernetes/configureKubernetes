@@ -4,9 +4,10 @@
 #assumes you installed the kubernetes cli after installing the cluster via bluemix.
 #assumes that the nodered docker image is on docker hub.
 
-#DCOS install
+#Kubernetes install
      #Goto the bluemix catalog and click on kubernetes service
      #     Select Paid service and set the name, number of workers, and the micro machine footprint
+     #     Follow the steps on the Access tab in your kubernetes service so you can have cli access from your computer
      # Config Note - change the ingress file with your cluster host
      # Config Note - change the deployment file to set replicas to the number of workers that you created
 
@@ -14,12 +15,20 @@
 
 #assumes you set the configuration to your cluster via the steps definied in installing kuberctl for bluemix
 
-#configure the deployment
-./kubectl create -f nodered-deployment.yaml
+#configure the deployment without persistant volume and data directory in the container
+./kubectl create -f nodered-deployment-data-container-cloud.yaml
 #configure the service
-./kubectl apply -f nodered-service.yaml
+./kubectl apply -f nodered-service-cloud.yaml
 #configure ingress 
-./kubectl apply -f ingress.yaml
+./kubectl apply -f ingress-cloud.yaml
+
+#configure the deployment with persistant volume with data directory on PV - see readme on PV
+./kubectl create -f nodered-deployment-data-mapped-cloud.yaml
+#configure the service
+./kubectl apply -f nodered-service-cloud.yaml
+#configure ingress 
+./kubectl apply -f ingress-cloud.yaml
+
 
 #Start Dashboard service locally which will connect to the bluemix cluster
 ./kubectl proxy
