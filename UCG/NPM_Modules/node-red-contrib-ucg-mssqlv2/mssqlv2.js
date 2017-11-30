@@ -20,7 +20,12 @@ module.exports = function(RED) {
             options: {
                 encrypt: config.encyption,
                 useUTC: config.useUTC
-            }
+            },
+            pool: {
+                max: config.pool,
+                min: 0,
+                idleTimeoutMillis: config.connectTimeout
+            },
         };
         //this.log("output debug message, the value of the user is " + node.credentails.username); //JB
         // this.log("output debug message, the value of the password is " + this.connection.config.password); //JB
@@ -58,6 +63,8 @@ module.exports = function(RED) {
         this.connection = mssqlCN.connection;
         this.config = mssqlCN.config;
         this.outField = config.outField;
+
+
 
         var node = this;
         var b = node.outField.split('.');
@@ -106,6 +113,7 @@ module.exports = function(RED) {
             if (typeof msg.database !== "undefined") { node.config.database = msg.database; }
             if (typeof msg.connectionTimeout !== "undefined") { node.config.connectTimeout = msg.connectionTimeout; }
             if (typeof msg.requestTimeout !== "undefined") { node.config.requestTimeout = msg.requestTimeout; }
+            if (typeof msg.poolsize !== "undefined") { node.config.pool = msg.requestTimeout; }
             //this.log("output debug message2, the value of the node config in the connection is " + node.config); //JB
             //this.log("output debug message2, the value of the user is " + node.config.user); //JB
             // this.log("output debug message2, the value of the password is " + node.config.password); //JB
