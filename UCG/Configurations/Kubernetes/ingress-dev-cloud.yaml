@@ -3,6 +3,10 @@ kind: Ingress
 metadata:
   name: ucg-ingress
 spec:
+  tls:
+  - hosts:
+    - ucg-cluster-dev.us-south.containers.mybluemix.net
+    secretName: ucg-cluster-dev
   rules:
   - host: ucg-cluster-dev.us-south.containers.mybluemix.net
     http:

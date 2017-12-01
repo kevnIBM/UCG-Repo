@@ -45,12 +45,11 @@ function createNewAgent(newAgentConf) {
             var myUrl = `http://${process.env.ucg_domain}/liveperson?user_id=${contentEvent.dialogId}&wcs_username=${process.env.wcs_username}&wcs_password=${process.env.wcs_password}&workspace_id=${process.env.workspace_id}&text=\'${contentEvent.message}\'&fname=dennis`
             console.log('Web Request ', myUrl)
             request.post(myUrl, function (error, response, body) {
-             //   console.log('error:', error); // Print the error if one occurred
-             //   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-             //   console.log('body:', body); // Return from WCS
-             //   watsonAnswer = body
+                console.log('error:', error); // Print the error if one occurred
+                console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+                console.log('body:', body); // Return from WCS
                 watsonAnswer = JSON.parse(body);
-                 console.log('watsonAnswer:', JSON.stringify(watsonAnswer));
+                console.log('watsonAnswer:', JSON.stringify(watsonAnswer));
             var i = 0;
             var transfer = "no"
             if (typeof watsonAnswer.text !== "undefined") {
@@ -69,7 +68,9 @@ function createNewAgent(newAgentConf) {
               //       message: `response from ${this.conf.id} message from user ${contentEvent.message}`
                       message : watsonAnswer.text[i]
                     }
-               });
+               }, function(err) {
+                                     if (err) {console.log('error from publishEvent in index : ', err)}
+                                  });
             
              }
 
@@ -96,7 +97,7 @@ function createNewAgent(newAgentConf) {
                           content: watsonAnswer.content
                         }
                     }, function(err) {
-                              if (err) {console.log('error', err)}
+                              if (err) {console.log('error from publishEvent-RichContentEvent in index : ', err)}
                         }
                     );
 

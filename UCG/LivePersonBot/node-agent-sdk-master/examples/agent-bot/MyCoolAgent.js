@@ -92,9 +92,9 @@ class MyCoolAgent extends Agent {
                         console.log('Web Request ', myUrl)                    
                         saveAgent = this;
                         request.post(myUrl, function (error, response, body) {
-                       //   console.log('error:', error); // Print the error if one occurred
-                       //   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-                       //  console.log('body:', body); // Return from WCS
+                         console.log('error:', error); // Print the error if one occurred
+                         console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+                         console.log('body:', body); // Return from WCS
                          watsonAnswer = JSON.parse(body);
                          console.log('watsonAnswer:', JSON.stringify(watsonAnswer));
                          var i = 0;
@@ -109,7 +109,9 @@ class MyCoolAgent extends Agent {
                                   contentType: 'text/plain',
                                   message : watsonAnswer.text[i]
                                 }
-                             });
+                             }, function(err) {
+                                     if (err) {console.log('error from publishEvent-RichContentEvent in MyCoolAgent: ', err)}
+                                  });
             
                            }
 
@@ -132,7 +134,7 @@ class MyCoolAgent extends Agent {
                                      content: watsonAnswer.content
                                   }
                                 }, function(err) {
-                                     if (err) {console.log('error', err)}
+                                     if (err) {console.log('error from publishEvent-RichContentEvent in MyCoolAgent', err)}
                                   }
                                 );
 

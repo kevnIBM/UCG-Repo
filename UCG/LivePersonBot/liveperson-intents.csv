@@ -2,7 +2,7 @@ i want to speak to a real person,contact-agent
 i want to speak to a live agent,contact-agent
 I need to talk to a claims rep,contact-agent
 i don't want to talk to a computer,contact-agent
-I�۪d like to speak to a live claims representative.,contact-agent
+I would like to speak to a live claims representative.,contact-agent
 please transfer me to a person,contact-agent
 real person,contact-agent
 real person please,contact-agent
@@ -24,3 +24,4 @@ i want to talk to someone now,contact-agent
 i want to talk to a Liberty agent,contact-agent
 I want to talk to a human,contact-agent
 transfer me to a claims representative,contact-agent
+watson join convo again,watson-join-convo-again
