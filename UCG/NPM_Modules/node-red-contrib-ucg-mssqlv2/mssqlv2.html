@@ -44,6 +44,10 @@
         <input type="text" id="node-config-input-database">
     </div>
     <div class="form-row">
+        <label for="node-config-input-pool"><i class="icon-bookmark"></i> Max Pool Size</label>
+        <input type="text" id="node-config-input-pool" placeholder="Max Pool Size">
+    </div>
+    <div class="form-row">
         <label for="node-config-input-connectTimeout"><i class="fa fa-user"></i> ConnectionTimeout</label>
         <input type="text" id="node-config-input-connectTimeout">
     </div>
@@ -77,8 +81,11 @@
             database: {
                 value: ""
             },
+            pool: {
+                value: "20"
+            },
             connectionTimeout: {
-                value: "15000"
+                value: "16000"
             },
             requestTimeout: {
                 value: "15000"
