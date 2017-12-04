@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodered
+  name: ucg-nodered
   labels:
-     app: nodered
+     app: ucg-nodered
 spec:
   selector:
-    app: nodered
+    app: ucg-nodered
   type: LoadBalancer
   externalIPs : ["169.60.13.110"]
   ports:

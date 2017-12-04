@@ -1,7 +1,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
- name: ucg-volume-code
+ name: ucg-nodered-data-prod
  annotations:
    volume.beta.kubernetes.io/storage-class: ""
 spec:

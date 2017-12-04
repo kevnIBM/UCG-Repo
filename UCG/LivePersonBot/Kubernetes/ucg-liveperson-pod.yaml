@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "liveperson-bot"
+  name: "ucg-liveperson-bot"
   labels:
     name: ""
   namespace: ""
@@ -44,4 +44,4 @@ spec:
   volumes:
     - name: code
       persistentVolumeClaim:
-       claimName: ucg-volume-code
+       claimName: volume-ucg-liveperson-code-prod

@@ -1,13 +1,13 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: nodered
+  name: ucg-nodered
 spec:
   replicas: 8
   template:
     metadata:
       labels:
-        app: nodered
+        app: ucg-nodered
     spec:
       containers:
       - name: nodered
@@ -32,4 +32,4 @@ spec:
       volumes:
       - name: data
         persistentVolumeClaim:
-         claimName: ucg-volume-data
+         claimName: ucg-nodered-data-prod
