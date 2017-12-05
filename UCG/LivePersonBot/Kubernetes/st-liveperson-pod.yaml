@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "st-liveperson-bot"
+  labels:
+    name: ""
+  namespace: ""
+  generateName: ""
+spec:
+  containers:
+    - name: zookeeper-lp-st
+      image: wurstmeister/zookeeper
+      ports:
+        - containerPort: 2181
+          name: ""
+          protocol: TCP 
+    - name: app-lp-st
+      image: node:slim
+      ports:
+        - name: headless
+          containerPort: 55555
+      args:
+        - node
+        - examples/cluster/index.js
+      env:
+        - name: BOT_CONFIG_FILE
+          value: examples/cluster/local/agents.json
+        - name: ZK_PORT_2181_TCP_PORT
+          value: "2181"
+        - name: ZK_PORT_2181_TCP_ADDR
+          value: "127.0.0.1" 
+        - name: ucg_domain
+          value: "ucg-clusterv3.us-south.containers.mybluemix.net"
+        - name: wcs_username
+          value: "3d951dbc-2ddc-4f54-abfb-a711815dfb8f"
+        - name: wcs_password
+          value: "F1Ck4i8EDf8y"
+        - name: workspace_id
+          value: "309b3d31-2154-489c-8cb7-37ad3486bec8" 
+      volumeMounts:
+        - mountPath: /code
+          name: code
+      workingDir: /code
+  volumes:
+    - name: code
+      persistentVolumeClaim:
+       claimName: st-liveperson-code-prod

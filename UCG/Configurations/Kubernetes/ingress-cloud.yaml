@@ -3,6 +3,10 @@ kind: Ingress
 metadata:
   name: ucg-ingress
 spec:
+  tls:
+  - hosts:
+    - ucg-clusterv3.us-south.containers.mybluemix.net
+    secretName: ucg-clusterv3
   rules:
   - host: ucg-clusterv3.us-south.containers.mybluemix.net
     http:
@@ -13,33 +17,33 @@ spec:
           servicePort: 80
       - path: /load
         backend:
-          serviceName: nodered
+          serviceName: ucg-nodered
           servicePort: 1880
       - path: /liveperson
         backend:
-          serviceName: nodered
+          serviceName: ucg-nodered
           servicePort: 1880
       - path: /mobile
         backend:
-          serviceName: nodered
+          serviceName: ucg-nodered
           servicePort: 1880
       - path: /Alexa
         backend:
-          serviceName: nodered
+          serviceName: ucg-nodered
           servicePort: 1880
       - path: /sip
         backend:
-          serviceName: nodered
+          serviceName: ucg-nodered
           servicePort: 1880
       - path: /GoogleHome
         backend:
-          serviceName: nodered
+          serviceName: ucg-nodered
           servicePort: 1880
       - path: /slack
         backend:
-          serviceName: nodered
+          serviceName: ucg-nodered
           servicePort: 1880
       - path: /smooch
         backend:
-          serviceName: nodered
+          serviceName: ucg-nodered
           servicePort: 1880
