@@ -44,4 +44,4 @@ spec:
   volumes:
     - name: code
       persistentVolumeClaim:
-       claimName: volume-ucg-liveperson-code-prod
+       claimName: ucg-liveperson-code-prod
