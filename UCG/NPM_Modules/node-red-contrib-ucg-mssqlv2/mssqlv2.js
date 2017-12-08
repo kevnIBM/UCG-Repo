@@ -42,10 +42,10 @@ module.exports = function(RED) {
 
         this.connection = sql;
         /*
-			node.on('close',function(){
-   			node.pool.close(function(){});
-   		})
-			*/
+                node.on('close', function() {
+                    node.pool.close(function() {});
+                })
+        */
     }
 
     RED.nodes.registerType('MSSQL-UCGv2-CN', connection, {
@@ -125,7 +125,7 @@ module.exports = function(RED) {
             // this.log("output debug message2, the value of the requestTimout is " + node.config.requestTimeout); //JB
             // this.log("output debug message2, the value of the encrypt is " + node.config.encrypt); //JB
             // this.log("output debug message2, the value of the useUTC is " + node.config.useUTC); //JB
-            node.connection.connect(node.config).then(function() {
+            node.connection.connect(node.config).then(function(connection) {
 
                 node.status({ fill: 'blue', shape: 'dot', text: 'requesting' });
 
@@ -135,16 +135,18 @@ module.exports = function(RED) {
                     query = msg.payload;
                 }
 
-                var request = new node.connection.Request();
+                var request = new node.connection.Request(connection);
 
                 request.query(query).then(function(rows) {
                     i = 0;
                     r = rows;
                     m = msg;
                     rec(msg);
+                    connection.close();
                 }).catch(function(err) {
                     node.error(err, msg);
                     node.status({ fill: 'red', shape: 'ring', text: 'Error' });
+                    connection.close();
                     return;
                 });
 
@@ -152,6 +154,7 @@ module.exports = function(RED) {
             }).catch(function(err) {
                 node.error(err, msg);
                 node.status({ fill: 'red', shape: 'ring', text: 'Error' });
+                connection.close();
                 return;
             });
         });
