@@ -3,7 +3,8 @@
         "id": "3fad3621.99e442",
         "type": "tab",
         "label": "Load",
-        "disabled": false
+        "disabled": false,
+        "info": ""
     },
     {
         "id": "1b19f8b1.08de9f",
@@ -41,7 +42,8 @@
         "id": "17eb59dd.9ff326",
         "type": "tab",
         "label": "SIP",
-        "disabled": false
+        "disabled": false,
+        "info": ""
     },
     {
         "id": "15c6f20.6b9dd0e",
@@ -69,7 +71,8 @@
     {
         "id": "5b6fab52.9eae84",
         "type": "tab",
-        "label": "General"
+        "label": "General",
+        "disabled": false
     },
     {
         "id": "bf65cfa5.bbe868",
@@ -395,6 +398,35 @@
                 "wires": [
                     {
                         "id": "c01a54c3.6e10e8",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "73d26c58.2475cc",
+        "type": "subflow",
+        "name": "Log Error",
+        "info": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 30,
+                "wires": [
+                    {
+                        "id": "c19c9e60.baa25"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 310.92309951782227,
+                "y": 29.692319869995117,
+                "wires": [
+                    {
+                        "id": "c19c9e60.baa25",
                         "port": 0
                     }
                 ]
@@ -781,8 +813,8 @@
         "active": true,
         "console": "false",
         "complete": "false",
-        "x": 1010,
-        "y": 280,
+        "x": 1005.3846130371094,
+        "y": 162.30768585205078,
         "wires": []
     },
     {
@@ -810,8 +842,8 @@
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 90,
-        "y": 60,
+        "x": 84.61540985107422,
+        "y": 86.92308044433594,
         "wires": [
             [
                 "125118f3.9c6aff"
@@ -823,14 +855,15 @@
         "type": "function",
         "z": "3fad3621.99e442",
         "name": "Set Params",
-        "func": "msg.source = \"Load\"\n//var user_name = msg.req.query.user_name\n//var user_id = msg.payload.user_id;\nvar workspace_id = msg.req.query.workspace_id\nvar wcs_user_name = msg.payload.wcs_username\nvar wcs_password = msg.payload.wcs_password\nvar fname = msg.req.query.fname\n\n//create a null context and test for session existance\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id \n   }\n \nvar newmsg = msg.req.query.text\nnewmsg = newmsg.replace(/'/g, \"\");  \nmsg.payload = newmsg\n\ncontext.fname = fname\n\nvar params = {\n    context: context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password\n};\n\n// node.log(\"User *** \" + msg.user + \" Said *** \" + newmsg)\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg\n",
+        "func": "msg.source = \"Load\"\n//var user_name = msg.req.query.user_name\n//var user_id = msg.payload.user_id;\nvar workspace_id = msg.req.query.workspace_id\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\nvar fname = msg.req.query.fname\n\n//create a null context and test for session existance\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id \n   }\n \nvar newmsg = msg.req.query.text\nnewmsg = newmsg.replace(/'/g, \"\");  \nmsg.payload = newmsg\n\ncontext.fname = fname\n\nvar params = {\n    context: context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password\n};\n\n// node.log(\"User *** \" + msg.user + \" Said *** \" + newmsg)\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 610,
-        "y": 60,
+        "x": 604.6154098510742,
+        "y": 86.92308044433594,
         "wires": [
             [
-                "f5adf38a.64667"
+                "d607cfa4.6f61",
+                "858b7538.3af7"
             ]
         ]
     },
@@ -842,11 +875,12 @@
         "func": "var Watson_msg = msg.payload;\nvar Watson_response = JSON.stringify(msg.payload.output.text);\n\nvar texts = msg.payload.output.text\ntotalText = \"\"\nfor (i = 0; i < texts.length; i++) {\n    \n    if (texts[i].lastIndexOf(\"[\") >= 0 ) {\n       findindex = texts[i].lastIndexOf(\"[\");\n       texts[i] = texts[i].substring(0,findindex);\n    } \n \n  // Dennis added because SSML tag was escaping the \" with \\\" and the replace command fixes it!!!!\n   texts[i] = texts[i].replace(/\\\\/g, \"\");\n  //Dennis - Remove XML SSML tags from chat systems\n   texts[i] =  texts[i].replace(/<[^>]+>/g, \"\");\n \n  if (texts[i].lastIndexOf(\"InsMap\") >= 0 ) {\n     findindex = texts[i].lastIndexOf(\"InsMap\")\n     texts[i] = texts[i].substring(0,findindex)\n  } \n  \n  totalText = totalText + \" \" + texts[i]\n}\n\nnode.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + totalText)\n\nmsg.payload = totalText;\n\nreturn msg;",
         "outputs": "1",
         "noerr": 0,
-        "x": 1140,
-        "y": 60,
+        "x": 1376.1540184020996,
+        "y": 85.3846206665039,
         "wires": [
             [
-                "f9ebd654.0abf38"
+                "f9ebd654.0abf38",
+                "bfe109be.2128e8"
             ]
         ]
     },
@@ -858,8 +892,8 @@
         "func": "\nmsg.user =  msg.req.query.user_id;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 260,
-        "y": 60,
+        "x": 254.61540985107422,
+        "y": 86.92308044433594,
         "wires": [
             [
                 "2f4a8e9a.d0de9a"
@@ -871,8 +905,8 @@
         "type": "http response",
         "z": "3fad3621.99e442",
         "name": "Http Response",
-        "x": 1340,
-        "y": 60,
+        "x": 1579.2308883666992,
+        "y": 85.3846206665039,
         "wires": []
     },
     {
@@ -1051,8 +1085,8 @@
         "active": true,
         "console": "false",
         "complete": "payload",
-        "x": 1352.7777099609375,
-        "y": 326.55560302734375,
+        "x": 1368.9316101074219,
+        "y": 185.7863597869873,
         "wires": []
     },
     {
@@ -1154,7 +1188,7 @@
         "type": "function",
         "z": "e85cff5a.1f786",
         "name": "Set Params",
-        "func": "msg.source = \"Slack\"\nvar channel = msg.payload.channel_name;\nvar team = msg.payload.team_domain;\nvar workspace_id = msg.req.query.workspace_id;\nvar wcs_user_name = msg.req.query.wcs_username;\nvar wcs_password = msg.req.query.wcs_password;\nvar fname = msg.req.query.fname;\n\nnode.log(\"Team:\" + team);\nnode.log(\"username:\" + msg.user);\nnode.log(\"channel:\" + channel);\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id    \n   }\n   \nvar temp_msg = msg.payload.text;\nvar newmsg = temp_msg.replace(\"Watson\", \"\");\nmsg.payload = newmsg;\n\nglobal.set(\"last_question\",newmsg);\nglobal.set(\"user\",msg.user);\n\n\nvar params = {\n    context: context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password,\n    source : msg.source\n};\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg",
+        "func": "msg.source = \"Slack\"\nvar channel = msg.payload.channel_name;\nvar team = msg.payload.team_domain;\nvar workspace_id = msg.req.query.workspace_id;\nvar wcs_user_name = msg.req.query.wcs_username;\nvar wcs_password = msg.req.query.wcs_password;\nvar fname = msg.req.query.fname;\n\nnode.log(\"Team:\" + team);\nnode.log(\"username:\" + msg.user);\nnode.log(\"channel:\" + channel);\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id    \n   }\n   \nvar temp_msg = msg.payload.text;\nvar newmsg = temp_msg.replace(\"Watson\", \"\");\nmsg.payload = newmsg;\n\nglobal.set(\"last_question\",newmsg);\nglobal.set(\"user\",msg.user);\ncontext.fname = fname\n\nvar params = {\n    context: context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password,\n    source : msg.source\n};\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "x": 850,
@@ -1867,8 +1901,9 @@
         "type": "http in",
         "z": "17eb59dd.9ff326",
         "name": "SIP HTTP in",
-        "url": "/sip/v1/workspaces/e162651d-3bf1-4cdb-9b88-c700511eef66/message",
+        "url": "/sip",
         "method": "post",
+        "upload": false,
         "swaggerDoc": "",
         "x": 78,
         "y": 119.4444465637207,
@@ -1919,7 +1954,7 @@
         "wires": [
             [
                 "3254107a.45b6f8",
-                "a47faab6.f4132"
+                "1c65d777.c58401"
             ]
         ]
     },
@@ -2051,8 +2086,8 @@
         "active": false,
         "console": "false",
         "complete": "true",
-        "x": 1070,
-        "y": 340,
+        "x": 1099.2307586669922,
+        "y": 188.46153450012207,
         "wires": []
     },
     {
@@ -2111,8 +2146,8 @@
         "type": "subflow:f48845d6.67899",
         "z": "3fad3621.99e442",
         "name": "Get Session",
-        "x": 430,
-        "y": 60,
+        "x": 424.6154098510742,
+        "y": 86.92308044433594,
         "wires": [
             [
                 "a7a4b8cb.3748f8"
@@ -2124,8 +2159,8 @@
         "type": "subflow:52457267.ef5464",
         "z": "3fad3621.99e442",
         "name": "",
-        "x": 950.3161430358887,
-        "y": 60.34191131591797,
+        "x": 1185.700891494751,
+        "y": 86.49576091766357,
         "wires": [
             [
                 "a2bae10d.ddec8"
@@ -2847,8 +2882,8 @@
         "type": "subflow:87530aab.adb068",
         "z": "3fad3621.99e442",
         "name": "Dynamic WCS Router",
-        "x": 785.45849609375,
-        "y": 137.27415943145752,
+        "x": 966.9969940185547,
+        "y": 163.42800998687744,
         "wires": [
             []
         ]
@@ -3474,13 +3509,13 @@
         "type": "watson-conversation-ucg-v1",
         "z": "3fad3621.99e442",
         "name": "Convo UCG",
-        "workspaceid": "56cfca8a-b459-447f-ab35-e94511f6f7bc",
+        "workspaceid": "",
         "multiuser": false,
         "context": false,
         "default-endpoint": true,
         "service-endpoint": "https://gateway.watsonplatform.net/conversation/api",
-        "x": 770,
-        "y": 60,
+        "x": 1009.2308616638184,
+        "y": 86.92308044433594,
         "wires": [
             [
                 "45ecefd5.b04ee8"
@@ -3488,29 +3523,15 @@
         ]
     },
     {
-        "id": "cff4c89e.9614a8",
-        "type": "catch",
-        "z": "3fad3621.99e442",
-        "name": "",
-        "scope": null,
-        "x": 85.5,
-        "y": 192,
-        "wires": [
-            [
-                "c19c9e60.baa25"
-            ]
-        ]
-    },
-    {
         "id": "c19c9e60.baa25",
         "type": "function",
-        "z": "3fad3621.99e442",
+        "z": "73d26c58.2475cc",
         "name": "Log Error",
-        "func": "node.error(\"NodeRed - Caught Error from \" + msg.error.source.name + ' Error Msg: '+ msg.error.message);\nreturn msg;",
+        "func": "var err_msg = \"UCG received an error from \" + msg.error.source.name + ' stating '+ msg.error.message;\n\nnode.error(err_msg);\nmsg.payload = err_msg;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 254.5,
-        "y": 192,
+        "x": 186.3076992034912,
+        "y": 30.4615535736084,
         "wires": [
             []
         ]
@@ -3750,6 +3771,7 @@
         "id": "11d0ef84.6383a8",
         "type": "subflow:f48845d6.67899",
         "z": "17eb59dd.9ff326",
+        "name": "",
         "x": 410,
         "y": 120,
         "wires": [
@@ -3775,13 +3797,15 @@
         "type": "function",
         "z": "a0e2e197.345df",
         "name": "Find Workspace",
-        "func": "\nif (msg.payload.trim().toUpperCase().substring(0,6) == \"ASK ME\"){\n    msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n    msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n    msg.params.password = \"k0gYo1FjJymP\";\n}\n\nif ((msg.payload.toUpperCase().substring(0,5) == \"HELLO\") && (msg.payload.length > 5)){\nswitch(msg.payload.toUpperCase()) {\n    case 'HELLO BANK ASSIST':\n        msg.params.workspace_id = \"d13cc96b-a323-43a1-b484-29d37679ac27\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'HELLO INSURE ASSIST':\n        msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'HELLO INSURE CALL CENTER ASSIST':\n        msg.params.workspace_id = \"faf6e421-43ae-474a-8f9e-e8e10e71e3df\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'HELLO MONEY ASSIST':\n        msg.params.workspace_id = \"c2777aef-fe89-4df5-8792-46880d6a0662\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'HELLO METLIFE ASSIST':\n        msg.params.workspace_id = \"5fd7c1c7-9ea2-4fc8-b6fa-7920e10aad5a\";\n        msg.params.username = \"7d18e2e6-310b-4efc-9370-d9a8289e17dd\";\n        msg.params.password = \"UEVfKB4CLIyF\";\n        break;\n    case 'HELLO FIDELITY ASSIST':\n        msg.params.workspace_id = \"1555159e-fa59-4d8d-bfba-b10a19144e22\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n     case 'HELLO REGIONS ASSIST':\n        msg.params.workspace_id = \"321e996d-efee-42a0-8aed-3dc93006a026\";\n        msg.params.username = \"f40d2d94-d2e7-4dd1-a718-b57d93203aaa\";\n        msg.params.password = \"cYuHIo2dCmwf\";\n        break;\n     case 'HELLO REGIONS UAT ASSIST':\n        msg.params.workspace_id = \"de1089d8-46e6-4a7d-b5ed-03c5338b7b0a\";\n        msg.params.username = \"271cc33b-4cf3-480c-8798-f4b3e980df00\";\n        msg.params.password = \"BlnizADsfAh8\";\n        break;\n         case 'HELLO LIBERTY MUTUAL ASSIST':\n        msg.params.workspace_id = \"893ec9b6-bfc8-426a-8fd1-592a2e6ebaa8\";\n        msg.params.username = \"6c6eb782-c2ea-4b14-8912-072ac57eee3a\";\n        msg.params.password = \"Au5euZDUZBvO\";\n        break;\n    default: \n        msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n }\n}\n// check for date and compute age context vars\nif (msg.payload.lastIndexOf('/') >= 0 ) {\n     var myindex = msg.payload.lastIndexOf('/')\n     var dateString = msg.payload\n     \n     var d = new Date(dateString)\n     var now = new Date()\n     var years = now.getFullYear() - d.getFullYear()\n\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var age = years + days /365\n    \n     msg.params.context.age = Math.round(age *100)/100\n \n     var d = new Date(dateString)\n     var now = new Date()\n     now.setMonth(\"12\")\n     now.setDate(\"31\")\n     var years = now.getFullYear() - d.getFullYear()\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var ageEOY = years + days /365\n     msg.params.context.ageEOY = Math.round(ageEOY * 100)/100\n     \n     var d = new Date(dateString)\n     var now = new Date()\n     now.setMonth(\"01\")\n     now.setDate(\"01\")\n     var years = now.getFullYear() - d.getFullYear()\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var ageBOY = years + days /365\n     msg.params.context.ageBOY = Math.round(ageBOY * 100)/100\n}\n\nreturn msg;",
+        "func": "\nif (msg.payload.trim().toUpperCase().substring(0,6) == \"ASK ME\"){\n    msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n    msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n    msg.params.password = \"k0gYo1FjJymP\";\n}\n//msg.payload = msg.payload.replace(/\\s+$/g,'')\nif ((msg.payload.toUpperCase().substring(0,5) == \"HELLO\") && (msg.payload.length > 5)){\n\n msg.testHello = msg.payload.toUpperCase().match(/\\b(BANK|INSURE|CALL CENTER|MONEY|METLIFE|FIDELITY|REGIONS|REGIONS TEST|LIBERTY)\\b/g);\n if (msg.testHello !== null)\n   {msg.testHello = msg.testHello[0]}\n switch(msg.testHello) {\n    case 'BANK':\n        msg.params.workspace_id = \"d13cc96b-a323-43a1-b484-29d37679ac27\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'INSURE':\n        msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'CALL CENTER':\n        msg.params.workspace_id = \"faf6e421-43ae-474a-8f9e-e8e10e71e3df\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'MONEY':\n        msg.params.workspace_id = \"c2777aef-fe89-4df5-8792-46880d6a0662\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'METLIFE':\n        msg.params.workspace_id = \"5fd7c1c7-9ea2-4fc8-b6fa-7920e10aad5a\";\n        msg.params.username = \"7d18e2e6-310b-4efc-9370-d9a8289e17dd\";\n        msg.params.password = \"UEVfKB4CLIyF\";\n        break;\n    case 'FIDELITY':\n        msg.params.workspace_id = \"1555159e-fa59-4d8d-bfba-b10a19144e22\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n     case 'REGIONS':\n        msg.params.workspace_id = \"321e996d-efee-42a0-8aed-3dc93006a026\";\n        msg.params.username = \"f40d2d94-d2e7-4dd1-a718-b57d93203aaa\";\n        msg.params.password = \"cYuHIo2dCmwf\";\n        break;\n     case 'REGIONS TEST':\n        msg.params.workspace_id = \"de1089d8-46e6-4a7d-b5ed-03c5338b7b0a\";\n        msg.params.username = \"271cc33b-4cf3-480c-8798-f4b3e980df00\";\n        msg.params.password = \"BlnizADsfAh8\";\n        break;\n         case 'LIBERTY':\n        msg.params.workspace_id = \"893ec9b6-bfc8-426a-8fd1-592a2e6ebaa8\";\n        msg.params.username = \"6c6eb782-c2ea-4b14-8912-072ac57eee3a\";\n        msg.params.password = \"Au5euZDUZBvO\";\n        break;\n    default: \n }\n}\n// check for date and compute age context vars\nif (msg.payload.lastIndexOf('/') >= 0 ) {\n     var myindex = msg.payload.lastIndexOf('/')\n     var dateString = msg.payload\n     \n     var d = new Date(dateString)\n     var now = new Date()\n     var years = now.getFullYear() - d.getFullYear()\n\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var age = years + days /365\n    \n     msg.params.context.age = Math.round(age *100)/100\n \n     var d = new Date(dateString)\n     var now = new Date()\n     now.setMonth(\"12\")\n     now.setDate(\"31\")\n     var years = now.getFullYear() - d.getFullYear()\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var ageEOY = years + days /365\n     msg.params.context.ageEOY = Math.round(ageEOY * 100)/100\n     \n     var d = new Date(dateString)\n     var now = new Date()\n     now.setMonth(\"01\")\n     now.setDate(\"01\")\n     var years = now.getFullYear() - d.getFullYear()\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var ageBOY = years + days /365\n     msg.params.context.ageBOY = Math.round(ageBOY * 100)/100\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 200,
         "y": 60,
         "wires": [
-            []
+            [
+                "bca89eae.0fd01"
+            ]
         ]
     },
     {
@@ -3889,18 +3913,6 @@
         "wires": []
     },
     {
-        "id": "a47faab6.f4132",
-        "type": "subflow:a0e2e197.345df",
-        "z": "17eb59dd.9ff326",
-        "x": 800,
-        "y": 120,
-        "wires": [
-            [
-                "1066a348.7e8b2d"
-            ]
-        ]
-    },
-    {
         "id": "80c40209.380db",
         "type": "comment",
         "z": "15c6f20.6b9dd0e",
@@ -3988,8 +4000,8 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 1310,
-        "y": 260,
+        "x": 1312.3077487945557,
+        "y": 132.30769443511963,
         "wires": []
     },
     {
@@ -4230,8 +4242,315 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 1350,
-        "y": 320,
+        "x": 1348.461498260498,
+        "y": 160.7692230939865,
+        "wires": []
+    },
+    {
+        "id": "6a08b025.b4083",
+        "type": "debug",
+        "z": "17eb59dd.9ff326",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 1029.0384411811829,
+        "y": 63.69230842590332,
+        "wires": []
+    },
+    {
+        "id": "d607cfa4.6f61",
+        "type": "debug",
+        "z": "3fad3621.99e442",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 642.6470813751221,
+        "y": 232.9412031173706,
+        "wires": []
+    },
+    {
+        "id": "bfe109be.2128e8",
+        "type": "debug",
+        "z": "3fad3621.99e442",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1570.6107635498047,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "858b7538.3af7",
+        "type": "subflow:a0e2e197.345df",
+        "z": "3fad3621.99e442",
+        "x": 808.84619140625,
+        "y": 86.92308616638184,
+        "wires": [
+            [
+                "f5adf38a.64667"
+            ]
+        ]
+    },
+    {
+        "id": "1c65d777.c58401",
+        "type": "subflow:a0e2e197.345df",
+        "z": "17eb59dd.9ff326",
+        "x": 818.0769271850586,
+        "y": 118.4615364074707,
+        "wires": [
+            [
+                "6a08b025.b4083",
+                "1066a348.7e8b2d"
+            ]
+        ]
+    },
+    {
+        "id": "9276e28b.47e05",
+        "type": "catch",
+        "z": "3fad3621.99e442",
+        "name": "",
+        "scope": null,
+        "x": 1210.384609222412,
+        "y": 163.07690048217773,
+        "wires": [
+            [
+                "e336bd51.ed2658"
+            ]
+        ]
+    },
+    {
+        "id": "cbf85049.06ec38",
+        "type": "catch",
+        "z": "1b19f8b1.08de9f",
+        "name": "",
+        "scope": null,
+        "x": 684.9999694824219,
+        "y": 319.23076248168945,
+        "wires": [
+            [
+                "df8771c3.a0d3b8"
+            ]
+        ]
+    },
+    {
+        "id": "dc2067bc.5121e",
+        "type": "catch",
+        "z": "5c4d249a.7988f4",
+        "name": "",
+        "scope": null,
+        "x": 1033.4615364074705,
+        "y": 305.38460148297816,
+        "wires": [
+            [
+                "1f10857b.99f073"
+            ]
+        ]
+    },
+    {
+        "id": "adaf6bad.b592a8",
+        "type": "catch",
+        "z": "e85cff5a.1f786",
+        "name": "",
+        "scope": null,
+        "x": 778.8461303710938,
+        "y": 200.76922035217285,
+        "wires": [
+            [
+                "24a60928.81d1ae"
+            ]
+        ]
+    },
+    {
+        "id": "e336bd51.ed2658",
+        "type": "subflow:73d26c58.2475cc",
+        "z": "3fad3621.99e442",
+        "x": 1368.8460960388184,
+        "y": 163.0768985748291,
+        "wires": [
+            [
+                "f9ebd654.0abf38"
+            ]
+        ]
+    },
+    {
+        "id": "df8771c3.a0d3b8",
+        "type": "subflow:73d26c58.2475cc",
+        "z": "1b19f8b1.08de9f",
+        "x": 831.1537857055664,
+        "y": 319.23073863983154,
+        "wires": [
+            [
+                "55ff4025.e8fc88"
+            ]
+        ]
+    },
+    {
+        "id": "1f10857b.99f073",
+        "type": "subflow:73d26c58.2475cc",
+        "z": "5c4d249a.7988f4",
+        "x": 1178.846206665039,
+        "y": 305.38459968566895,
+        "wires": [
+            [
+                "405b64ad.ffce54"
+            ]
+        ]
+    },
+    {
+        "id": "24a60928.81d1ae",
+        "type": "subflow:73d26c58.2475cc",
+        "z": "e85cff5a.1f786",
+        "x": 938.846076965332,
+        "y": 200.7692356109619,
+        "wires": [
+            [
+                "dd47a31b.84b06"
+            ]
+        ]
+    },
+    {
+        "id": "83cfde7e.c7acd",
+        "type": "catch",
+        "z": "c1e9a4dc.c42cf8",
+        "name": "",
+        "scope": null,
+        "x": 1337.3077392578125,
+        "y": 353.84615325927734,
+        "wires": [
+            [
+                "e4beccfe.56bb28"
+            ]
+        ]
+    },
+    {
+        "id": "e4beccfe.56bb28",
+        "type": "subflow:73d26c58.2475cc",
+        "z": "c1e9a4dc.c42cf8",
+        "x": 1481.9231033325195,
+        "y": 353.8461380004883,
+        "wires": [
+            [
+                "4d6e27c.bb5ed58"
+            ]
+        ]
+    },
+    {
+        "id": "90358780.f552",
+        "type": "catch",
+        "z": "d284a7e7.ca3e08",
+        "name": "",
+        "scope": null,
+        "x": 1256.538314819336,
+        "y": 225.38461685180664,
+        "wires": [
+            [
+                "ac7a567b.9181d8"
+            ]
+        ]
+    },
+    {
+        "id": "ac7a567b.9181d8",
+        "type": "subflow:73d26c58.2475cc",
+        "z": "d284a7e7.ca3e08",
+        "x": 1424.230728149414,
+        "y": 225.3846082687378,
+        "wires": [
+            [
+                "4ae751b0.293c08"
+            ]
+        ]
+    },
+    {
+        "id": "8fa088d.7656af8",
+        "type": "catch",
+        "z": "17eb59dd.9ff326",
+        "name": "",
+        "scope": null,
+        "x": 1032.692367553711,
+        "y": 313.0768928527832,
+        "wires": [
+            [
+                "c9d32cbc.517e38"
+            ]
+        ]
+    },
+    {
+        "id": "c9d32cbc.517e38",
+        "type": "subflow:73d26c58.2475cc",
+        "z": "17eb59dd.9ff326",
+        "x": 1195.7692527770996,
+        "y": 312.307692527771,
+        "wires": [
+            [
+                "bb72b47.dae0048"
+            ]
+        ]
+    },
+    {
+        "id": "17661852.bbefc",
+        "type": "catch",
+        "z": "15c6f20.6b9dd0e",
+        "name": "",
+        "scope": null,
+        "x": 984.2307815551758,
+        "y": 279.23078441619873,
+        "wires": [
+            [
+                "2e6ac22d.7878be"
+            ]
+        ]
+    },
+    {
+        "id": "2e6ac22d.7878be",
+        "type": "subflow:73d26c58.2475cc",
+        "z": "15c6f20.6b9dd0e",
+        "x": 1156.538475036621,
+        "y": 279.2307643890381,
+        "wires": [
+            [
+                "2a2ab63a.30e332"
+            ]
+        ]
+    },
+    {
+        "id": "3c7fecf0.cb5204",
+        "type": "catch",
+        "z": "14d2f552.3522fb",
+        "name": "",
+        "scope": null,
+        "x": 782.6923065185547,
+        "y": 368.46154403686523,
+        "wires": [
+            [
+                "cbecb878.53e2f8"
+            ]
+        ]
+    },
+    {
+        "id": "cbecb878.53e2f8",
+        "type": "subflow:73d26c58.2475cc",
+        "z": "14d2f552.3522fb",
+        "x": 943.4615384615382,
+        "y": 368.4615384615384,
+        "wires": [
+            [
+                "4df3afc9.57e1d8"
+            ]
+        ]
+    },
+    {
+        "id": "bca89eae.0fd01",
+        "type": "debug",
+        "z": "a0e2e197.345df",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 359.6153846153845,
+        "y": 143.8461538461538,
         "wires": []
     }
 ]

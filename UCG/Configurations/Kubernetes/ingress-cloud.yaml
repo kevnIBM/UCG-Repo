@@ -15,6 +15,10 @@ spec:
         backend:
           serviceName: ucg-web-server
           servicePort: 80
+      - path: /admin
+        backend:
+          serviceName: ucg-nodered
+          servicePort: 1880   
       - path: /load
         backend:
           serviceName: ucg-nodered
