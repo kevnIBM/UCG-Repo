@@ -24,13 +24,13 @@ Steps to use Intergration
         
 	Example
         Collection Id
-		06bca61b-6cad-4573-a618-215ae55b643c
+		06bca61b-6cad-4573-a618-215aexxxxxxx
 		
 		Configuration Id
-		1d573129-7100-4405-b6a0-439cd8af2640
+		1d573129-7100-4405-b6a0-439cdxxxxxxx
 		
 		Environment Id
-		d40ba5ee-be86-4b59-8a67-f463f233367d
+		d40ba5ee-be86-4b59-8a67-f463fxxxxxxx
 
 9) Go to the node-red console, click on the UCG Discovery flow
      a) In most of the function nodes you will see vars for the ids, please replace values
@@ -39,9 +39,9 @@ Steps to use Intergration
           In the http-request nodes set username/password
           In the function nodes that use the Discover NodeSDK, update the username and password vars
 
- NOW YOU ARE READY UPLOAD CONTENT and ML TRAIN NL QUESTIONS
+ NOW YOU ARE READY TO UPLOAD CONTENT and ML TRAIN NL QUESTIONS
 
  1) I have provided a Terms.csv file to use with the Auto upload flow in the Discovery tab, just make sure the file and flow vars are set and you can click inject
  2) After the content is loaded, you can upload the training data. I have provided a TrainingQueries.csv touse with the Auto upload training data flow in the Discovery tab, click inject after vars and file are changed.
  3) If all goes well you can use the search flow to ask NP Questions located at the top of the Discovery tab.
- 
+
