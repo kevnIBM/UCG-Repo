@@ -354,7 +354,7 @@
   },
   "node-red-node-base64": {
    "name": "node-red-node-base64",
-   "version": "0.0.6",
+   "version": "0.0.8",
    "local": false,
    "nodes": {
     "base64": {
@@ -406,7 +406,7 @@
   },
   "node-red-node-msgpack": {
    "name": "node-red-node-msgpack",
-   "version": "1.0.0",
+   "version": "1.0.1",
    "local": false,
    "nodes": {
     "msgpack": {
@@ -440,7 +440,7 @@
   },
   "node-red-node-rbe": {
    "name": "node-red-node-rbe",
-   "version": "0.1.13",
+   "version": "0.1.14",
    "local": false,
    "nodes": {
     "rbe": {
@@ -474,7 +474,7 @@
   },
   "node-red-node-twitter": {
    "name": "node-red-node-twitter",
-   "version": "0.1.11",
+   "version": "0.1.12",
    "local": false,
    "nodes": {
     "twitter": {
@@ -895,7 +895,7 @@
   },
   "node-red-contrib-http-request": {
    "name": "node-red-contrib-http-request",
-   "version": "0.1.9",
+   "version": "0.1.10",
    "local": false,
    "nodes": {
     "www-request": {
@@ -950,7 +950,7 @@
   },
   "node-red-node-openwhisk": {
    "name": "node-red-node-openwhisk",
-   "version": "0.3.2",
+   "version": "0.3.4",
    "local": false,
    "nodes": {
     "openwhisk": {

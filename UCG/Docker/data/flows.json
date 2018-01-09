@@ -61,12 +61,15 @@
     {
         "id": "cb400db2.feb1d8",
         "type": "tab",
-        "label": "MSSQL"
+        "label": "MSSQL",
+        "disabled": false
     },
     {
         "id": "6e97b3ee.89fce4",
         "type": "tab",
-        "label": "Discovery"
+        "label": "Discovery",
+        "disabled": false,
+        "info": ""
     },
     {
         "id": "5b6fab52.9eae84",
@@ -346,7 +349,7 @@
         "in": [
             {
                 "x": 43.499996185302734,
-                "y": 102.45455932617188,
+                "y": 37.069942474365234,
                 "wires": [
                     {
                         "id": "1fcc52c6.73e405"
@@ -356,19 +359,15 @@
         ],
         "out": [
             {
-                "x": 1353.388916015625,
-                "y": 85.9823226928711,
+                "x": 1097.2349081039429,
+                "y": 105.98232078552246,
                 "wires": [
                     {
-                        "id": "cae7bd67.e6bf98",
-                        "port": 0
-                    },
-                    {
-                        "id": "404c2e16.964188",
-                        "port": 0
-                    },
-                    {
                         "id": "b1be0d25.47d3f",
+                        "port": 0
+                    },
+                    {
+                        "id": "d37a7262.117b5",
                         "port": 0
                     }
                 ]
@@ -427,6 +426,72 @@
                 "wires": [
                     {
                         "id": "c19c9e60.baa25",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "3c30ab94.447d3c",
+        "type": "subflow",
+        "name": "Add Tone",
+        "info": "",
+        "in": [
+            {
+                "x": 36.000003814697266,
+                "y": 33.33333396911621,
+                "wires": [
+                    {
+                        "id": "8028d1ba.6d4238"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 456.00000381469727,
+                "y": 33.33333396911621,
+                "wires": [
+                    {
+                        "id": "9a74bd1c.3dec38",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "75456024.34a398",
+        "type": "subflow",
+        "name": "Get Answer",
+        "info": "",
+        "in": [
+            {
+                "x": 47.33349609375,
+                "y": 69,
+                "wires": [
+                    {
+                        "id": "e5997a86.312588"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 1165.5,
+                "y": 61.07691955566406,
+                "wires": [
+                    {
+                        "id": "77767850.bd513",
+                        "port": 0
+                    },
+                    {
+                        "id": "25c719ea.a89abe",
+                        "port": 0
+                    },
+                    {
+                        "id": "7a1dbcb3.e1fb34",
                         "port": 0
                     }
                 ]
@@ -608,8 +673,7 @@
         "y": 46,
         "wires": [
             [
-                "d25d9cc7.111198",
-                "27751e29.7dd92a"
+                "d25d9cc7.111198"
             ]
         ]
     },
@@ -720,7 +784,7 @@
         "type": "function",
         "z": "1b19f8b1.08de9f",
         "name": "Set Params",
-        "func": "msg.source = \"Mobile\"\nvar temp_msg = msg.payload.input\nvar workspace_id = msg.payload.workspace_id\nvar wcs_user_name = msg.payload.wcs_username\nvar wcs_password = msg.payload.wcs_password\nvar fname = msg.payload.fname\nvar lname = msg.payload.lname\nvar nname = msg.payload.nname\nvar cvalue1 = msg.payload.cvalue1\nvar cvalue2 = msg.payload.cvalue2\nvar cvalue3 = msg.payload.cvalue3\n\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id \n   }\n   \nif (typeof context.button == \"object\"){\n    delete context.button\n    node.log(\"after delete - context\" + JSON.stringify(context))\n}\nif (typeof context.map == \"object\"){\n    delete context.map\n}\nif (typeof context.movie == \"object\"){\n    delete context.movie\n}\nif (typeof context.checkbox == \"object\"){\n    delete context.checkbox\n}\nif (typeof context.barscore == \"object\"){\n    delete context.barscore\n}\n\n\nif (temp_msg.substring(0,2) == 'Hi') {\n   //Uncomment if you want the convo to start at begining when app starts\n   //context = {}\n}\n\ncontext.username = msg.user\ncontext.fname = fname\ncontext.lname = lname\ncontext.nname = nname\ncontext.cvalue1 = cvalue1\ncontext.cvalue2 = cvalue2\ncontext.cvalue3 = cvalue3 \ncontext.source = msg.source\n\n//node.log(JSON.stringify(msg.payload));\nmsg.payload = temp_msg;\n\nvar params = {\n     context: context, \n     workspace_id : workspace_id,\n     username : wcs_user_name,\n     password : wcs_password\n}\n\nmsg.payload = temp_msg\nmsg.params = params\n\nreturn msg\n",
+        "func": "msg.source = \"Mobile\"\nvar temp_msg = msg.payload.input\nvar workspace_id = msg.payload.workspace_id\nvar wcs_user_name = msg.payload.wcs_username\nvar wcs_password = msg.payload.wcs_password\nvar fname = msg.payload.fname\nvar lname = msg.payload.lname\nvar nname = msg.payload.nname\nvar cvalue1 = msg.payload.cvalue1\nvar cvalue2 = msg.payload.cvalue2\nvar cvalue3 = msg.payload.cvalue3\n\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id \n   }\n   \nif (typeof context.button == \"object\"){\n    delete context.button\n}\nif (typeof context.map == \"object\"){\n    delete context.map\n}\nif (typeof context.movie == \"object\"){\n    delete context.movie\n}\nif (typeof context.checkbox == \"object\"){\n    delete context.checkbox\n}\nif (typeof context.barscore == \"object\"){\n    delete context.barscore\n}\n\n\nif (temp_msg.substring(0,2) == 'Hi') {\n   //Uncomment if you want the convo to start at begining when app starts\n   //context = {}\n}\n\ncontext.username = msg.user\ncontext.fname = fname\ncontext.lname = lname\ncontext.nname = nname\ncontext.cvalue1 = cvalue1\ncontext.cvalue2 = cvalue2\ncontext.cvalue3 = cvalue3 \ncontext.source = msg.source\n\n//node.log(JSON.stringify(msg.payload));\nmsg.payload = temp_msg;\n\nvar params = {\n     context: context, \n     workspace_id : workspace_id,\n     username : wcs_user_name,\n     password : wcs_password\n}\n\nmsg.payload = temp_msg\nmsg.params = params\n\nreturn msg\n",
         "outputs": 1,
         "noerr": 0,
         "x": 610,
@@ -756,7 +820,7 @@
         "type": "function",
         "z": "1b19f8b1.08de9f",
         "name": "Response Msg",
-        "func": "var Watson_msg = msg.payload;\n\nvar Watson_response = JSON.stringify(msg.payload.output.text);\nvar Watson_context = JSON.stringify(msg.payload.context);\nnode.log(Watson_response)\n\nMyresponse = Watson_response.substring(2,Watson_response.length-2);\n\nif (Myresponse.substring(0,Myresponse,2) == \"\\\",\\\"\") {\n     Myresponse = Myresponse.substring(3,Myresponse.length)\n     node.log(\"Found a comma\")\n     node.log(Myresponse)\n}\n    \n// Dennis added because SSML tag was escaping the \" with \\\" and the replace command fixes it!!!!\nMyresponse = Myresponse.replace(/\\\\/g, \"\");\n\nvar response = {\n //   text: Watson_response.substring(2,Watson_response.length-2),\n    text: Myresponse,\n    username: \"Watson\",\n    context: Watson_context\n};\n\n//var Watson_gvar = global.get(\"Watson_mobile_context\"); \nnode.log(JSON.stringify(response))\n\nmsg.payload = response\n\nreturn msg",
+        "func": "var Watson_msg = msg.payload;\n\nvar Watson_response = JSON.stringify(msg.payload.output.text);\nvar Watson_context = JSON.stringify(msg.payload.context);\nnode.log(Watson_response)\n\nMyresponse = Watson_response.substring(2,Watson_response.length-2);\n\nif (Myresponse.substring(0,Myresponse,2) == \"\\\",\\\"\") {\n     Myresponse = Myresponse.substring(3,Myresponse.length)\n}\n    \n// Dennis added because SSML tag was escaping the \" with \\\" and the replace command fixes it!!!!\nMyresponse = Myresponse.replace(/\\\\/g, \"\");\n\nvar response = {\n    text: Myresponse,\n    username: \"Watson\",\n    context: Watson_context\n};\n\nnode.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + Myresponse)\n\nmsg.payload = response\n\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "x": 820,
@@ -780,17 +844,15 @@
     {
         "id": "9a74bd1c.3dec38",
         "type": "function",
-        "z": "1b19f8b1.08de9f",
+        "z": "3c30ab94.447d3c",
         "name": "add Tone",
-        "func": "\nnode.log(\"*********Found Tone ********\" + msg.response.document_tone.tone_categories[0].tones[0].tone_id);\nnode.log(\"*********Found Tone **Score*****\" + msg.response.document_tone.tone_categories[0].tones[0].score.toFixed(3));\n\nmsg.params.context.angerName = msg.response.document_tone.tone_categories[0].tones[0].tone_name;\nmsg.params.context.angerScore = msg.response.document_tone.tone_categories[0].tones[0].score.toFixed(3);\nmsg.params.context.disgustName = msg.response.document_tone.tone_categories[0].tones[1].tone_name;\nmsg.params.context.disgustScore = msg.response.document_tone.tone_categories[0].tones[1].score.toFixed(3);\nmsg.params.context.fearName = msg.response.document_tone.tone_categories[0].tones[2].tone_name;\nmsg.params.context.fearScore = msg.response.document_tone.tone_categories[0].tones[2].score.toFixed(3);\nmsg.params.context.joyName = msg.response.document_tone.tone_categories[0].tones[3].tone_name;\nmsg.params.context.joyScore = msg.response.document_tone.tone_categories[0].tones[3].score.toFixed(3);\nmsg.params.context.sadnessName = msg.response.document_tone.tone_categories[0].tones[4].tone_name;\nmsg.params.context.sadnessScore = msg.response.document_tone.tone_categories[0].tones[4].score.toFixed(3);\n\nmsg.params.context.analyticalName = msg.response.document_tone.tone_categories[1].tones[0].tone_name;\nmsg.params.context.analyticalScore = msg.response.document_tone.tone_categories[1].tones[0].score.toFixed(3);\nmsg.params.context.confidentName = msg.response.document_tone.tone_categories[1].tones[1].tone_name;\nmsg.params.context.confidentScore = msg.response.document_tone.tone_categories[1].tones[1].score.toFixed(3);\nmsg.params.context.tentativeName = msg.response.document_tone.tone_categories[1].tones[2].tone_name;\nmsg.params.context.tentativeScore = msg.response.document_tone.tone_categories[1].tones[2].score.toFixed(3);\n\nmsg.params.context.OpenName = msg.response.document_tone.tone_categories[2].tones[0].tone_name;\nmsg.params.context.OpenScore = msg.response.document_tone.tone_categories[2].tones[0].score.toFixed(3);\nmsg.params.context.conTitle = msg.response.document_tone.tone_categories[2].tones[1].tone_name;\nmsg.params.context.conScore = msg.response.document_tone.tone_categories[2].tones[1].score.toFixed(3);\nmsg.params.context.extName = msg.response.document_tone.tone_categories[2].tones[2].tone_name;\nmsg.params.context.extScore = msg.response.document_tone.tone_categories[2].tones[2].score.toFixed(3);\nmsg.params.context.agreeName = msg.response.document_tone.tone_categories[2].tones[3].tone_name;\nmsg.params.context.agreeScore = msg.response.document_tone.tone_categories[2].tones[3].score.toFixed(3);\nmsg.params.context.emoName = msg.response.document_tone.tone_categories[2].tones[4].tone_name;\nmsg.params.context.emoScore = msg.response.document_tone.tone_categories[2].tones[4].score.toFixed(3);\n\nreturn msg;\n",
+        "func": "\n\nmsg.params.context.angerName = msg.response.document_tone.tone_categories[0].tones[0].tone_name;\nmsg.params.context.angerScore = msg.response.document_tone.tone_categories[0].tones[0].score.toFixed(3);\nmsg.params.context.disgustName = msg.response.document_tone.tone_categories[0].tones[1].tone_name;\nmsg.params.context.disgustScore = msg.response.document_tone.tone_categories[0].tones[1].score.toFixed(3);\nmsg.params.context.fearName = msg.response.document_tone.tone_categories[0].tones[2].tone_name;\nmsg.params.context.fearScore = msg.response.document_tone.tone_categories[0].tones[2].score.toFixed(3);\nmsg.params.context.joyName = msg.response.document_tone.tone_categories[0].tones[3].tone_name;\nmsg.params.context.joyScore = msg.response.document_tone.tone_categories[0].tones[3].score.toFixed(3);\nmsg.params.context.sadnessName = msg.response.document_tone.tone_categories[0].tones[4].tone_name;\nmsg.params.context.sadnessScore = msg.response.document_tone.tone_categories[0].tones[4].score.toFixed(3);\n\nmsg.params.context.analyticalName = msg.response.document_tone.tone_categories[1].tones[0].tone_name;\nmsg.params.context.analyticalScore = msg.response.document_tone.tone_categories[1].tones[0].score.toFixed(3);\nmsg.params.context.confidentName = msg.response.document_tone.tone_categories[1].tones[1].tone_name;\nmsg.params.context.confidentScore = msg.response.document_tone.tone_categories[1].tones[1].score.toFixed(3);\nmsg.params.context.tentativeName = msg.response.document_tone.tone_categories[1].tones[2].tone_name;\nmsg.params.context.tentativeScore = msg.response.document_tone.tone_categories[1].tones[2].score.toFixed(3);\n\nmsg.params.context.OpenName = msg.response.document_tone.tone_categories[2].tones[0].tone_name;\nmsg.params.context.OpenScore = msg.response.document_tone.tone_categories[2].tones[0].score.toFixed(3);\nmsg.params.context.conTitle = msg.response.document_tone.tone_categories[2].tones[1].tone_name;\nmsg.params.context.conScore = msg.response.document_tone.tone_categories[2].tones[1].score.toFixed(3);\nmsg.params.context.extName = msg.response.document_tone.tone_categories[2].tones[2].tone_name;\nmsg.params.context.extScore = msg.response.document_tone.tone_categories[2].tones[2].score.toFixed(3);\nmsg.params.context.agreeName = msg.response.document_tone.tone_categories[2].tones[3].tone_name;\nmsg.params.context.agreeScore = msg.response.document_tone.tone_categories[2].tones[3].score.toFixed(3);\nmsg.params.context.emoName = msg.response.document_tone.tone_categories[2].tones[4].tone_name;\nmsg.params.context.emoScore = msg.response.document_tone.tone_categories[2].tones[4].score.toFixed(3);\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 320,
-        "y": 220,
+        "x": 316.00000381469727,
+        "y": 33.33333396911621,
         "wires": [
-            [
-                "1babb086.be4e37"
-            ]
+            []
         ]
     },
     {
@@ -801,8 +863,8 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 745.5,
-        "y": 27,
+        "x": 772.5,
+        "y": 30,
         "wires": []
     },
     {
@@ -843,7 +905,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 84.61540985107422,
-        "y": 86.92308044433594,
+        "y": 116.92308044433594,
         "wires": [
             [
                 "125118f3.9c6aff"
@@ -855,11 +917,11 @@
         "type": "function",
         "z": "3fad3621.99e442",
         "name": "Set Params",
-        "func": "msg.source = \"Load\"\n//var user_name = msg.req.query.user_name\n//var user_id = msg.payload.user_id;\nvar workspace_id = msg.req.query.workspace_id\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\nvar fname = msg.req.query.fname\n\n//create a null context and test for session existance\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id \n   }\n \nvar newmsg = msg.req.query.text\nnewmsg = newmsg.replace(/'/g, \"\");  \nmsg.payload = newmsg\n\ncontext.fname = fname\n\nvar params = {\n    context: context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password\n};\n\n// node.log(\"User *** \" + msg.user + \" Said *** \" + newmsg)\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg\n",
+        "func": "msg.source = \"Load\"\n//var user_name = msg.req.query.user_name\n//var user_id = msg.payload.user_id;\nvar workspace_id = msg.req.query.workspace_id\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\nvar fname = msg.req.query.fname\n\n//create a null context and test for session existance\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id \n   }\n \nvar newmsg = msg.req.query.text\nnewmsg = newmsg.replace(/'/g, \"\");  \nmsg.payload = newmsg\n\ncontext.fname = fname\n\nvar params = {\n    context: context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password\n};\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg\n",
         "outputs": 1,
         "noerr": 0,
         "x": 604.6154098510742,
-        "y": 86.92308044433594,
+        "y": 116.92308044433594,
         "wires": [
             [
                 "d607cfa4.6f61",
@@ -875,8 +937,8 @@
         "func": "var Watson_msg = msg.payload;\nvar Watson_response = JSON.stringify(msg.payload.output.text);\n\nvar texts = msg.payload.output.text\ntotalText = \"\"\nfor (i = 0; i < texts.length; i++) {\n    \n    if (texts[i].lastIndexOf(\"[\") >= 0 ) {\n       findindex = texts[i].lastIndexOf(\"[\");\n       texts[i] = texts[i].substring(0,findindex);\n    } \n \n  // Dennis added because SSML tag was escaping the \" with \\\" and the replace command fixes it!!!!\n   texts[i] = texts[i].replace(/\\\\/g, \"\");\n  //Dennis - Remove XML SSML tags from chat systems\n   texts[i] =  texts[i].replace(/<[^>]+>/g, \"\");\n \n  if (texts[i].lastIndexOf(\"InsMap\") >= 0 ) {\n     findindex = texts[i].lastIndexOf(\"InsMap\")\n     texts[i] = texts[i].substring(0,findindex)\n  } \n  \n  totalText = totalText + \" \" + texts[i]\n}\n\nnode.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + totalText)\n\nmsg.payload = totalText;\n\nreturn msg;",
         "outputs": "1",
         "noerr": 0,
-        "x": 1376.1540184020996,
-        "y": 85.3846206665039,
+        "x": 1413.154052734375,
+        "y": 117.3846435546875,
         "wires": [
             [
                 "f9ebd654.0abf38",
@@ -893,7 +955,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 254.61540985107422,
-        "y": 86.92308044433594,
+        "y": 116.92308044433594,
         "wires": [
             [
                 "2f4a8e9a.d0de9a"
@@ -905,8 +967,8 @@
         "type": "http response",
         "z": "3fad3621.99e442",
         "name": "Http Response",
-        "x": 1579.2308883666992,
-        "y": 85.3846206665039,
+        "x": 1664.564208984375,
+        "y": 116.71795654296875,
         "wires": []
     },
     {
@@ -972,7 +1034,7 @@
         "type": "function",
         "z": "5c4d249a.7988f4",
         "name": "Set Params",
-        "func": "msg.source = \"Alexa\"\nvar fname = msg.req.query.fname;\nvar workspace_id = msg.req.query.workspace_id;\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\n//var user_temp = msg.payload.session.user.userId;\n//user = user_temp.substring(user_temp.length-10, user_temp.length);\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id    \n   }\n   \nnode.log(\"alexa user:\" + msg.user);\n\nif (msg.payload.request.type ==\"LaunchRequest\") {\n   var temp_msg = \"Hello\";\n   //Uncomment if you want the convo to start at begining when a Launch is dedected\n   //context = {}\n}\nelse {\n   var temp_msg = msg.payload.request.intent.slots.command.value; \n}\n\nnode.log(\"alexa utterance:\" + temp_msg);\n//Zero out maps \nvar map = JSON.parse(\"{}\");  \n\nvar newmsg = temp_msg.replace(\"Watson\", \"\");\nmsg.payload = newmsg;\n\n\nglobal.set(\"last_question\",newmsg);\n\ncontext.fname = fname\ncontext.map = map\n\nvar params = {\n    context : context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password,\n    source : msg.source\n};\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg\n\n",
+        "func": "msg.source = \"Alexa\"\nvar fname = msg.req.query.fname;\nvar workspace_id = msg.req.query.workspace_id;\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id    \n   }\n\nif (msg.payload.request.type ==\"LaunchRequest\") {\n   var temp_msg = \"Hello\";\n   //Uncomment if you want the convo to start at begining when a Launch is dedected\n   //context = {}\n}\nelse {\n   var temp_msg = msg.payload.request.intent.slots.command.value; \n}\n\n//Zero out maps \nvar map = JSON.parse(\"{}\");  \n\nvar newmsg = temp_msg.replace(\"Watson\", \"\");\nmsg.payload = newmsg;\n\n\nglobal.set(\"last_question\",newmsg);\n\ncontext.fname = fname\ncontext.map = map\n\nvar params = {\n    context : context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password,\n    source : msg.source\n};\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg\n\n",
         "outputs": 1,
         "noerr": 0,
         "x": 870,
@@ -1028,8 +1090,8 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 994.111083984375,
-        "y": 37,
+        "x": 1018.111083984375,
+        "y": 40,
         "wires": []
     },
     {
@@ -1056,7 +1118,7 @@
         "type": "function",
         "z": "5c4d249a.7988f4",
         "name": "Response Msg",
-        "func": "//var Watson_msg = msg.payload;\n//var Watson_response = JSON.stringify(msg.payload.output.text);\n//var Watson_context = JSON.stringify(msg.payload.context);\nvar Watson_contextOBJ = msg.payload.context;\n//node.log(Watson_response);\n//Myresponse = Watson_response.substring(2,Watson_response.length-2);\n\nvar texts = msg.payload.output.text\n\ntotalText = \"\"\nfor (i = 0; i < texts.length; i++) {\n    \n    if (texts[i].lastIndexOf(\"[\") >= 0 ) {\n       findindex = texts[i].lastIndexOf(\"[\");\n       texts[i] = texts[i].substring(0,findindex);\n    } \n  \n  texts[i] = texts[i].replace(/\\\\/g, \"\");\n  texts[i] = texts[i].replace('=\\\"number\\\" format=\\\"telephone\\\"', '=\\\"digits\\\"');\n  \n  totalText = totalText + \" \" + texts[i]\n}\n\nvar myquestion = global.get(\"last_question\");\nnode.log(\"last question:\"+ myquestion);\n\nvar myEndSession = false;    \n\nif (myquestion.lastIndexOf(\"goodbye\") >= 0 )\n   {myEndSession = true}\n\n\nvar response = {\n    version : \"1.0\",\n    response : { \n       outputSpeech : { \n          //type : \"PlainText\",\n          type : \"SSML\",\n          ssml: \"<speak>\" + totalText + \"</speak>\"\n        },        \n    shouldEndSession : myEndSession,\n   // context: Watson_context\n    }\n};\n\n\n//json map\n//var mapjsonStr = Watson_context.match(/\\\"map.*Yes\\\"/);\nvar mapjsonObj = Watson_contextOBJ.map;\nif (typeof mapjsonObj.values != \"undefined\") {\n//node.log(\"mapjson: \" + mapjsonStr);\n//if (mapjsonStr  !== null){\n    component = \"map\";\n    for (var c in mapjsonObj.values) {\n      mapStr = mapjsonObj.values[c] + \"&size=500x300\";\n      node.log(\"Found Json map str: \" + mapStr);\n    \n    response = {\n      version : \"1.0\",\n      response : { \n         outputSpeech : { \n            type : \"SSML\",\n            ssml: \"<speak>\" + Myresponse + \" Check your Alexa app for the map\" + \"</speak>\"\n          },        \n      card: {\n        type: \"Standard\",\n        title: \"Google Map\",\n        text: \"\",\n        image: {\n          smallImageUrl: mapjsonObj.values[c] + \"&size=500x300\",\n          largeImageUrl: mapjsonObj.values[c] + \"&size=600x400\"\n        }\n      },\n      shouldEndSession : myEndSession,\n   // context: Watson_context\n      }\n    \n     };   \n    \n   }\n}\n\nnode.log(JSON.stringify(response));\n\nmsg.payload = response\n\nreturn  msg;",
+        "func": "//var Watson_msg = msg.payload;\n//var Watson_response = JSON.stringify(msg.payload.output.text);\n//var Watson_context = JSON.stringify(msg.payload.context);\nvar Watson_contextOBJ = msg.payload.context;\n//node.log(Watson_response);\n//Myresponse = Watson_response.substring(2,Watson_response.length-2);\n\nvar texts = msg.payload.output.text\n\ntotalText = \"\"\nfor (i = 0; i < texts.length; i++) {\n    \n    if (texts[i].lastIndexOf(\"[\") >= 0 ) {\n       findindex = texts[i].lastIndexOf(\"[\");\n       texts[i] = texts[i].substring(0,findindex);\n    } \n  \n  texts[i] = texts[i].replace(/\\\\/g, \"\");\n  texts[i] = texts[i].replace('=\\\"number\\\" format=\\\"telephone\\\"', '=\\\"digits\\\"');\n  \n  totalText = totalText + \" \" + texts[i]\n}\n\nvar myquestion = global.get(\"last_question\");\n\nvar myEndSession = false;    \n\nif (myquestion.lastIndexOf(\"goodbye\") >= 0 )\n   {myEndSession = true}\n\n\nvar response = {\n    version : \"1.0\",\n    response : { \n       outputSpeech : { \n          //type : \"PlainText\",\n          type : \"SSML\",\n          ssml: \"<speak>\" + totalText + \"</speak>\"\n        },        \n    shouldEndSession : myEndSession,\n   // context: Watson_context\n    }\n};\n\n\n//json map\n//var mapjsonStr = Watson_context.match(/\\\"map.*Yes\\\"/);\nvar mapjsonObj = Watson_contextOBJ.map;\nif (typeof mapjsonObj.values != \"undefined\") {\n//node.log(\"mapjson: \" + mapjsonStr);\n//if (mapjsonStr  !== null){\n    component = \"map\";\n    for (var c in mapjsonObj.values) {\n      mapStr = mapjsonObj.values[c] + \"&size=500x300\";\n    \n    response = {\n      version : \"1.0\",\n      response : { \n         outputSpeech : { \n            type : \"SSML\",\n            ssml: \"<speak>\" + totalText + \" Check your Alexa app for the map\" + \"</speak>\"\n          },        \n      card: {\n        type: \"Standard\",\n        title: \"Google Map\",\n        text: \"\",\n        image: {\n          smallImageUrl: mapjsonObj.values[c] + \"&size=500x300\",\n          largeImageUrl: mapjsonObj.values[c] + \"&size=600x400\"\n        }\n      },\n      shouldEndSession : myEndSession,\n   // context: Watson_context\n      }\n    \n     };   \n    \n   }\n}\n\nnode.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + totalText)\n\nmsg.payload = response\n\nreturn  msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 1180,
@@ -1088,22 +1150,6 @@
         "x": 1368.9316101074219,
         "y": 185.7863597869873,
         "wires": []
-    },
-    {
-        "id": "90efc173.916f7",
-        "type": "function",
-        "z": "5c4d249a.7988f4",
-        "name": "Add Tone",
-        "func": "\nnode.log(\"*********Found Tone ********\" + msg.response.document_tone.tone_categories[0].tones[0].tone_id);\nnode.log(\"*********Found Tone **Score*****\" + msg.response.document_tone.tone_categories[0].tones[0].score.toFixed(3));\n\nmsg.params.context.angerName = msg.response.document_tone.tone_categories[0].tones[0].tone_name;\nmsg.params.context.angerScore = msg.response.document_tone.tone_categories[0].tones[0].score.toFixed(3);\nmsg.params.context.disgustName = msg.response.document_tone.tone_categories[0].tones[1].tone_name;\nmsg.params.context.disgustScore = msg.response.document_tone.tone_categories[0].tones[1].score.toFixed(3);\nmsg.params.context.fearName = msg.response.document_tone.tone_categories[0].tones[2].tone_name;\nmsg.params.context.fearScore = msg.response.document_tone.tone_categories[0].tones[2].score.toFixed(3);\nmsg.params.context.joyName = msg.response.document_tone.tone_categories[0].tones[3].tone_name;\nmsg.params.context.joyScore = msg.response.document_tone.tone_categories[0].tones[3].score.toFixed(3);\nmsg.params.context.sadnessName = msg.response.document_tone.tone_categories[0].tones[4].tone_name;\nmsg.params.context.sadnessScore = msg.response.document_tone.tone_categories[0].tones[4].score.toFixed(3);\n\nmsg.params.context.analyticalName = msg.response.document_tone.tone_categories[1].tones[0].tone_name;\nmsg.params.context.analyticalScore = msg.response.document_tone.tone_categories[1].tones[0].score.toFixed(3);\nmsg.params.context.confidentName = msg.response.document_tone.tone_categories[1].tones[1].tone_name;\nmsg.params.context.confidentScore = msg.response.document_tone.tone_categories[1].tones[1].score.toFixed(3);\nmsg.params.context.tentativeName = msg.response.document_tone.tone_categories[1].tones[2].tone_name;\nmsg.params.context.tentativeScore = msg.response.document_tone.tone_categories[1].tones[2].score.toFixed(3);\n\nmsg.params.context.OpenName = msg.response.document_tone.tone_categories[2].tones[0].tone_name;\nmsg.params.context.OpenScore = msg.response.document_tone.tone_categories[2].tones[0].score.toFixed(3);\nmsg.params.context.conTitle = msg.response.document_tone.tone_categories[2].tones[1].tone_name;\nmsg.params.context.conScore = msg.response.document_tone.tone_categories[2].tones[1].score.toFixed(3);\nmsg.params.context.extName = msg.response.document_tone.tone_categories[2].tones[2].tone_name;\nmsg.params.context.extScore = msg.response.document_tone.tone_categories[2].tones[2].score.toFixed(3);\nmsg.params.context.agreeName = msg.response.document_tone.tone_categories[2].tones[3].tone_name;\nmsg.params.context.agreeScore = msg.response.document_tone.tone_categories[2].tones[3].score.toFixed(3);\nmsg.params.context.emoName = msg.response.document_tone.tone_categories[2].tones[4].tone_name;\nmsg.params.context.emoScore = msg.response.document_tone.tone_categories[2].tones[4].score.toFixed(3);\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 720,
-        "y": 240,
-        "wires": [
-            [
-                "580c2a8.ffb35d4"
-            ]
-        ]
     },
     {
         "id": "fefc0181.ac8d4",
@@ -1188,7 +1234,7 @@
         "type": "function",
         "z": "e85cff5a.1f786",
         "name": "Set Params",
-        "func": "msg.source = \"Slack\"\nvar channel = msg.payload.channel_name;\nvar team = msg.payload.team_domain;\nvar workspace_id = msg.req.query.workspace_id;\nvar wcs_user_name = msg.req.query.wcs_username;\nvar wcs_password = msg.req.query.wcs_password;\nvar fname = msg.req.query.fname;\n\nnode.log(\"Team:\" + team);\nnode.log(\"username:\" + msg.user);\nnode.log(\"channel:\" + channel);\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id    \n   }\n   \nvar temp_msg = msg.payload.text;\nvar newmsg = temp_msg.replace(\"Watson\", \"\");\nmsg.payload = newmsg;\n\nglobal.set(\"last_question\",newmsg);\nglobal.set(\"user\",msg.user);\ncontext.fname = fname\n\nvar params = {\n    context: context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password,\n    source : msg.source\n};\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg",
+        "func": "msg.source = \"Slack\"\nvar channel = msg.payload.channel_name;\nvar team = msg.payload.team_domain;\nvar workspace_id = msg.req.query.workspace_id;\nvar wcs_user_name = msg.req.query.wcs_username;\nvar wcs_password = msg.req.query.wcs_password;\nvar fname = msg.req.query.fname;\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id    \n   }\n   \nvar temp_msg = msg.payload.text;\nvar newmsg = temp_msg.replace(\"Watson\", \"\");\nmsg.payload = newmsg;\n\nglobal.set(\"last_question\",newmsg);\nglobal.set(\"user\",msg.user);\ncontext.fname = fname\n\nvar params = {\n    context: context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password,\n    source : msg.source\n};\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "x": 850,
@@ -1238,7 +1284,7 @@
         "type": "function",
         "z": "e85cff5a.1f786",
         "name": "1st Level msg",
-        "func": "//var Watson_msg = msg.payload;\n//var Watson_response = JSON.stringify(msg.payload.output.text);\n//Myresponse = Watson_response.substring(2,Watson_response.length-2);\n// Dennis added because SSML tag was escaping the \" with \\\" and the replace command fixes it!!!!\n//Myresponse = Myresponse.replace(/\\\\/g, \"\");\n//Dennis - Remove XML SSML tags from chat systems\n//Myresponse = Myresponse.replace(/<[^>]+>/g, \"\");\n//var texts = Myresponse.split(\"\\\",\\\"\");\n\nvar texts = msg.payload.output.text\n\nfor (i = 0; i < texts.length; i++) {\n   Myresponse = texts[i];\n   node.log(\"**********  length ******* \" + texts.length);\n\n// causing issues for multiple output responses\n//if (Myresponse.match(\"\\\",\\\"\")) {\n  if (Myresponse.substring(0,Myresponse,2) == \"\\\",\\\"\") {\n     Myresponse = Myresponse.substring(3,Myresponse.length)\n     node.log(\"Found a comma\")\n     node.log(Myresponse)\n}\n \nif (Myresponse.lastIndexOf(\"[\") >= 0 ) {\n     findindex = Myresponse.lastIndexOf(\"[\")\n     Myresponse = Myresponse.substring(0,findindex)\n     node.log(\"Found a buttons at index:\", findindex)\n     node.log(Myresponse)\n} \nif (Myresponse.lastIndexOf(\"InsMap\") >= 0 ) {\n     findindex = Myresponse.lastIndexOf(\"InsMap\")\n     Myresponse = Myresponse.substring(0,findindex)\n     node.log(\"Found a maps at index:\", findindex)\n     node.log(Myresponse)\n} \n\n\nif (Myresponse.lastIndexOf(\"future training\") >= 0) {\n var response = {\n    text: \"Sorry I can't answer this question. Escalating to Second Level Support, please stand by\" ,\n    question: Myresponse,\n    escalate: \"Yes\",\n    username: \"Watson\",\n    icon_url: \"https://developer.ibm.com/watson/wp-content/uploads/sites/19/2015/01/IBM_Watson_avatar_pos.png\"\n};}\n\nelse {\n var response = {\n    text: Myresponse,\n    username: \"Watson\",\n    icon_url: \"https://developer.ibm.com/watson/wp-content/uploads/sites/19/2015/01/IBM_Watson_avatar_pos.png\"\n};}\n\nmsg.payload = response;\n\nnode.send([msg,msg]);\n}\nreturn null;\n",
+        "func": "//var Watson_msg = msg.payload;\n//var Watson_response = JSON.stringify(msg.payload.output.text);\n//Myresponse = Watson_response.substring(2,Watson_response.length-2);\n// Dennis added because SSML tag was escaping the \" with \\\" and the replace command fixes it!!!!\n//Myresponse = Myresponse.replace(/\\\\/g, \"\");\n//Dennis - Remove XML SSML tags from chat systems\n//Myresponse = Myresponse.replace(/<[^>]+>/g, \"\");\n//var texts = Myresponse.split(\"\\\",\\\"\");\n\nvar texts = msg.payload.output.text\n\nfor (i = 0; i < texts.length; i++) {\n   Myresponse = texts[i];\n\n// causing issues for multiple output responses\n//if (Myresponse.match(\"\\\",\\\"\")) {\n  if (Myresponse.substring(0,Myresponse,2) == \"\\\",\\\"\") {\n     Myresponse = Myresponse.substring(3,Myresponse.length)\n}\n \nif (Myresponse.lastIndexOf(\"[\") >= 0 ) {\n     findindex = Myresponse.lastIndexOf(\"[\")\n     Myresponse = Myresponse.substring(0,findindex)\n} \nif (Myresponse.lastIndexOf(\"InsMap\") >= 0 ) {\n     findindex = Myresponse.lastIndexOf(\"InsMap\")\n     Myresponse = Myresponse.substring(0,findindex)\n} \n\n\nif (Myresponse.lastIndexOf(\"future training\") >= 0) {\n var response = {\n    text: \"Sorry I can't answer this question. Escalating to Second Level Support, please stand by\" ,\n    question: Myresponse,\n    escalate: \"Yes\",\n    username: \"Watson\",\n    icon_url: \"https://developer.ibm.com/watson/wp-content/uploads/sites/19/2015/01/IBM_Watson_avatar_pos.png\"\n};}\n\nelse {\n var response = {\n    text: Myresponse,\n    username: \"Watson\",\n    icon_url: \"https://developer.ibm.com/watson/wp-content/uploads/sites/19/2015/01/IBM_Watson_avatar_pos.png\"\n};}\n\nnode.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + Myresponse)\nmsg.payload = response;\n\nnode.send([msg,msg]);\n}\nreturn null;\n",
         "outputs": "2",
         "noerr": 0,
         "x": 860,
@@ -1325,22 +1371,6 @@
         "wires": []
     },
     {
-        "id": "25d8baa5.d2ed7e",
-        "type": "function",
-        "z": "e85cff5a.1f786",
-        "name": "Add Tone",
-        "func": "\nnode.log(\"*********Found Tone ********\" + msg.response.document_tone.tone_categories[0].tones[0].tone_id);\nnode.log(\"*********Found Tone **Score*****\" + msg.response.document_tone.tone_categories[0].tones[0].score.toFixed(3));\n\nmsg.params.context.angerName = msg.response.document_tone.tone_categories[0].tones[0].tone_name;\nmsg.params.context.angerScore = msg.response.document_tone.tone_categories[0].tones[0].score.toFixed(3);\nmsg.params.context.disgustName = msg.response.document_tone.tone_categories[0].tones[1].tone_name;\nmsg.params.context.disgustScore = msg.response.document_tone.tone_categories[0].tones[1].score.toFixed(3);\nmsg.params.context.fearName = msg.response.document_tone.tone_categories[0].tones[2].tone_name;\nmsg.params.context.fearScore = msg.response.document_tone.tone_categories[0].tones[2].score.toFixed(3);\nmsg.params.context.joyName = msg.response.document_tone.tone_categories[0].tones[3].tone_name;\nmsg.params.context.joyScore = msg.response.document_tone.tone_categories[0].tones[3].score.toFixed(3);\nmsg.params.context.sadnessName = msg.response.document_tone.tone_categories[0].tones[4].tone_name;\nmsg.params.context.sadnessScore = msg.response.document_tone.tone_categories[0].tones[4].score.toFixed(3);\n\nmsg.params.context.analyticalName = msg.response.document_tone.tone_categories[1].tones[0].tone_name;\nmsg.params.context.analyticalScore = msg.response.document_tone.tone_categories[1].tones[0].score.toFixed(3);\nmsg.params.context.confidentName = msg.response.document_tone.tone_categories[1].tones[1].tone_name;\nmsg.params.context.confidentScore = msg.response.document_tone.tone_categories[1].tones[1].score.toFixed(3);\nmsg.params.context.tentativeName = msg.response.document_tone.tone_categories[1].tones[2].tone_name;\nmsg.params.context.tentativeScore = msg.response.document_tone.tone_categories[1].tones[2].score.toFixed(3);\n\nmsg.params.context.OpenName = msg.response.document_tone.tone_categories[2].tones[0].tone_name;\nmsg.params.context.OpenScore = msg.response.document_tone.tone_categories[2].tones[0].score.toFixed(3);\nmsg.params.context.conTitle = msg.response.document_tone.tone_categories[2].tones[1].tone_name;\nmsg.params.context.conScore = msg.response.document_tone.tone_categories[2].tones[1].score.toFixed(3);\nmsg.params.context.extName = msg.response.document_tone.tone_categories[2].tones[2].tone_name;\nmsg.params.context.extScore = msg.response.document_tone.tone_categories[2].tones[2].score.toFixed(3);\nmsg.params.context.agreeName = msg.response.document_tone.tone_categories[2].tones[3].tone_name;\nmsg.params.context.agreeScore = msg.response.document_tone.tone_categories[2].tones[3].score.toFixed(3);\nmsg.params.context.emoName = msg.response.document_tone.tone_categories[2].tones[4].tone_name;\nmsg.params.context.emoScore = msg.response.document_tone.tone_categories[2].tones[4].score.toFixed(3);\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 400,
-        "y": 260,
-        "wires": [
-            [
-                "bb6f481f.407f4"
-            ]
-        ]
-    },
-    {
         "id": "1e82810b.cbc8c7",
         "type": "function",
         "z": "e85cff5a.1f786",
@@ -1397,7 +1427,7 @@
         "type": "function",
         "z": "c1e9a4dc.c42cf8",
         "name": "Set Params",
-        "func": "msg.source = \"WebChat\"\nvar workspace_id = msg.req.query.workspace_id;\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\n\nmsg.fromUrl = msg.payload.appUser.devices[0].info.currentUrl;\nvar fname = msg.req.query.fname;\n\n//var user = msg.payload.appUser._id;\n//var input = msg.payload.messages[0].text;\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id    \n   }\n\nif (typeof(msg.actionPayload) !== \"undefined\"){\n   input = msg.actionPayload;  \n  \n}else {\n   input = msg.payload.messages[0].text; \n}\n\nvar test  = JSON.stringify(msg.payload);\nnode.log(test)\n\n\n//Zero out map Json \nvar map = JSON.parse(\"{}\");  \nvar button = JSON.parse(\"{}\");\n\n\ncontext.fname = fname\ncontext.map = map\ncontext.button = button\ncontext.source = msg.source\n\nvar params = {\n     context: context,\n     workspace_id : workspace_id,\n     username : wcs_user_name,\n     password : wcs_password\n}\n\nmsg.payload = input;\nmsg.params = params;\n\nreturn msg;",
+        "func": "msg.source = \"WebChat\"\nvar workspace_id = msg.req.query.workspace_id;\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\n\nmsg.fromUrl = msg.payload.appUser.devices[0].info.currentUrl;\nvar fname = msg.req.query.fname;\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id    \n   }\n\nif (typeof(msg.actionPayload) !== \"undefined\"){\n   input = msg.actionPayload;  \n  \n}else {\n   input = msg.payload.messages[0].text; \n}\n\n//Zero out map Json \nvar map = JSON.parse(\"{}\");  \nvar button = JSON.parse(\"{}\");\n\n\ncontext.fname = fname\ncontext.map = map\ncontext.button = button\ncontext.source = msg.source\n\nvar params = {\n     context: context,\n     workspace_id : workspace_id,\n     username : wcs_user_name,\n     password : wcs_password\n}\n\nmsg.payload = input;\nmsg.params = params;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 590,
@@ -1414,7 +1444,7 @@
         "type": "function",
         "z": "c1e9a4dc.c42cf8",
         "name": "Response Msg",
-        "func": "\nmsg.headers = {\n    'authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFwcF81ODc5YWQ3NWQ2Y2MwMjJkMDAzOWQ4MzkifQ.eyJzY29wZSI6ImFwcCJ9.B3vjbL3IP1nZwndfWF9jr8V9XzsGIiRfQ_Hoq5ya9p8'\n     };\n\nvar Watson_msg = JSON.stringify(msg.payload.output.text);\nvar Watson_context = JSON.stringify(msg.payload.context);\nvar Watson_contextOBJ = msg.payload.context;\n\nvar Myresponse = Watson_msg.substring(2,Watson_msg.length-2);\nnode.log(\"****context**** \" + Watson_context);\n\n// Dennis added because SSML tag was escaping the \" with \\\" and the replace command fixes it!!!!\nMyresponse = Myresponse.replace(/\\\\/g, \"\");\n//Dennis - Remove XML SSML tags from chat systems\nMyresponse = Myresponse.replace(/<[^>]+>/g, \"\");\n\nvar Newmsg = \"\";\nvar response = {};\nvar component = \"\";\nnode.log(\"*********** Output is ************\" + Myresponse);\n//Remove old maps\nif (Myresponse.lastIndexOf(\"InsMap\") >= 0 ) {\n     findindex = Myresponse.lastIndexOf(\"InsMap\");\n     Myresponse = Myresponse.substring(0,findindex);\n     node.log(\"Found a old maps at index:\", findindex);\n     node.log(Myresponse);\n}\n//Found an array of outputs\nvar texts = msg.payload.output.text\n//var texts = Myresponse.split(\"\\\",\\\"\");\nfor (i = 0; i < texts.length; i++) {\n     Newmsg = texts[i]; \n     node.log(\"**********  length ******* \" + texts.length);\n     node.log(\"start with \" + Newmsg);\nvar component = \"\";\nvar mapStr = \"\";\nvar actions = {};\nvar actionsArr = [];\nvar actionsRArr = [];\nvar buttonMTArr = [\"Here's your street view map\", \"Here's your satellite view map\"];\n//simple buttons\nif (Newmsg.lastIndexOf(\"[\") >= 0 ) {\n     component = \"button\";\n     findindex = Newmsg.lastIndexOf(\"[\");\n     node.log(\"Found a buttons at index:\", findindex);\n     findLastindex = Newmsg.lastIndexOf(\"]\");\n     tempStr = Newmsg;\n     Newmsg = Newmsg.substring(0,findindex); // Message without buttons\n     var buttonArr = tempStr.substring(findindex+1, findLastindex).split(\",\");\n    \n     for (a = 0; a < buttonArr.length; a++) { \n        actionsArr.push({\"type\": \"reply\",\"text\": buttonArr[a],\"payload\": buttonArr[a]});\n     }\n     actions = {\"actions\" : actionsArr};\n}\n\n//json map\nnode.log(\"context: \" + Watson_context);\n//var mapjsonStr = Watson_context.match(/\\\"map.*Yes\\\"/);\nmapjsonObj = Watson_contextOBJ.map;\nif (typeof mapjsonObj.values != \"undefined\") {\n//node.log(\"mapjson: \" + mapjsonStr);\n//if (mapjsonStr  !== null){\n    component = \"map\";\n    for (var c in mapjsonObj.values) {\n      mapStr = mapjsonObj.values[c] + \"&size=500x300\";\n      node.log(\"Found Json map str: \" + mapStr);\n      actionsArr.push({\"text\": buttonMTArr[c] +\" \",\"type\":\"link\",\"uri\": mapStr});\n //     actions = {\"actions\" : actionsArr };\n    }\n}\n\n//json button - Note for WCS - can't have a mixed array of Link and Reply. Smooch-limitation\n// Can implement postback buttons, but must handle postback api call. Stubbed at the moment.\n//var buttonjsonStr = Watson_context.match(/\\\"button.*Yes\\\"/);\nvar found_link = 0;\n//node.log(\"buttonjson: \" + buttonjsonStr);\nbuttonjsonObj = Watson_contextOBJ.button;\nif (typeof buttonjsonObj.values != \"undefined\") {\n  \n    for (var c in buttonjsonObj.values) {\n      buttonStr = buttonjsonObj.values[c];\n      if (buttonStr.lastIndexOf(\"|\") >= 0 ) {\n        found_link = 1;\n        buttonItems = buttonStr.split(\"|\");\n        button_title = buttonItems[0];\n        button_url = buttonItems[1];\n        \n        actionsArr.push({\"type\": \"link\",\"text\": button_title,\"uri\": button_url}); \n      }\n      else {\n        button_title = buttonStr;  \n        actionsRArr.push({\"type\": \"reply\",\"text\": button_title,\"payload\": button_title}); \n       //actionsArr.push({\"type\": \"postback\",\"text\": button_title,\"payload\": button_title}); \n      }\n    }  \n    if (found_link > 0) {\n       component = \"buttonLink\"; \n    }else {\n      component = \"buttonReply\";   \n    }\n}\n\n//old maps\nif (Newmsg.lastIndexOf(\"InsMap\") >= 0 ) {\n     findindex = Newmsg.lastIndexOf(\"InsMap\");\n     Newmsg = Newmsg.substring(0,findindex);\n     node.log(\"Found a maps at index:\", findindex);\n     node.log(Newmsg);\n} \n\n// Dennis added because SSML tag was escaping the \" with \\\" and the replace command fixes it!!!!\nNewmsg = Newmsg.replace(/\\\\/g, \"\");\n//Dennis - Remove XML SSML tags from chat systems\nNewmsg = Newmsg.replace(/<[^>]+>/g, \"\");\n\nmsg.url = \"https://api.smooch.io/v1/appusers/\" + msg.user + \"/messages\";\n\nswitch(component) {\n    case 'buttonReply':\n     response = {\n        role : \"appMaker\",\n        type : \"text\",\n        text : Newmsg,\n        email: \"dennisnoto@gmail.com\",\n        actions : actionsRArr\n        };\n        break;\n    case 'buttonLink':\n     response = {\n        role : \"appMaker\",\n        type : \"text\",\n        text : Newmsg,\n        email: \"dennisnoto@gmail.com\",\n        actions : actionsArr\n        };\n        break;\n    case 'map':\n    response = {\n        role : \"appMaker\",\n        type : \"image\",\n        text : Newmsg,\n        email: \"dennisnoto@gmail.com\",\n        mediaUrl: mapStr,\n        mediaType: \"image/jpeg\",\n        actions : actionsArr\n        };\n        break;\n    default:\n    response = {\n        role : \"appMaker\",\n        type : \"text\",\n        text : Newmsg,\n        email: \"dennisnoto@gmail.com\",\n        actions : actionsArr};\n}\n\n if (i != texts.length -1) {\n   response.actions = [];  \n }     \n node.log(\"****First Send: ******* \" + JSON.stringify(response));\n  msg.payload = response;\n  node.send(msg);\n  \n if (actionsRArr.length > 0 &&  component == \"buttonLink\"){\n  response = {\n        role : \"appMaker\",\n        type : \"text\",\n        text : \"\",\n        email: \"dennisnoto@gmail.com\",\n        actions : actionsRArr\n      \n  };\n \n  if (i == texts.length -1) {\n    node.log(\"****Second Send: ******* \" + JSON.stringify(response));\n    msg.payload = response;\n    node.send(msg);  \n  }\n }\n}\n\nreturn null;",
+        "func": "\nmsg.headers = {\n    'authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFwcF81ODc5YWQ3NWQ2Y2MwMjJkMDAzOWQ4MzkifQ.eyJzY29wZSI6ImFwcCJ9.B3vjbL3IP1nZwndfWF9jr8V9XzsGIiRfQ_Hoq5ya9p8'\n     };\n\nvar Watson_msg = JSON.stringify(msg.payload.output.text);\nvar Watson_context = JSON.stringify(msg.payload.context);\nvar Watson_contextOBJ = msg.payload.context;\n\nvar Myresponse = Watson_msg.substring(2,Watson_msg.length-2);\n\n// Dennis added because SSML tag was escaping the \" with \\\" and the replace command fixes it!!!!\nMyresponse = Myresponse.replace(/\\\\/g, \"\");\n//Dennis - Remove XML SSML tags from chat systems\nMyresponse = Myresponse.replace(/<[^>]+>/g, \"\");\n\nvar Newmsg = \"\";\nvar response = {};\nvar component = \"\";\n\n//Remove old maps\nif (Myresponse.lastIndexOf(\"InsMap\") >= 0 ) {\n     findindex = Myresponse.lastIndexOf(\"InsMap\");\n     Myresponse = Myresponse.substring(0,findindex);\n}\n//Found an array of outputs\nvar texts = msg.payload.output.text\n//var texts = Myresponse.split(\"\\\",\\\"\");\nfor (i = 0; i < texts.length; i++) {\n Newmsg = texts[i]; \n var component = \"\";\n var mapStr = \"\";\n var actions = {};\n var actionsArr = [];\n var actionsRArr = [];\n var buttonMTArr = [\"Here's your street view map\", \"Here's your satellite view map\"];\n //simple buttons\n if (Newmsg.lastIndexOf(\"[\") >= 0 ) {\n     component = \"button\";\n     findindex = Newmsg.lastIndexOf(\"[\");\n     findLastindex = Newmsg.lastIndexOf(\"]\");\n     tempStr = Newmsg;\n     Newmsg = Newmsg.substring(0,findindex); // Message without buttons\n     var buttonArr = tempStr.substring(findindex+1, findLastindex).split(\",\");\n    \n     for (a = 0; a < buttonArr.length; a++) { \n        actionsArr.push({\"type\": \"reply\",\"text\": buttonArr[a],\"payload\": buttonArr[a]});\n     }\n     actions = {\"actions\" : actionsArr};\n }\n\n //json map\n //var mapjsonStr = Watson_context.match(/\\\"map.*Yes\\\"/);\n mapjsonObj = Watson_contextOBJ.map;\n if (typeof mapjsonObj.values != \"undefined\") {\n //node.log(\"mapjson: \" + mapjsonStr);\n //if (mapjsonStr  !== null){\n    component = \"map\";\n    for (var c in mapjsonObj.values) {\n      mapStr = mapjsonObj.values[c] + \"&size=500x300\";\n      actionsArr.push({\"text\": buttonMTArr[c] +\" \",\"type\":\"link\",\"uri\": mapStr});\n    }\n }\n\n //json button - Note for WCS - can't have a mixed array of Link and Reply. Smooch-limitation\n // Can implement postback buttons, but must handle postback api call. Stubbed at the moment.\n //var buttonjsonStr = Watson_context.match(/\\\"button.*Yes\\\"/);\n var found_link = 0;\n //node.log(\"buttonjson: \" + buttonjsonStr);\n buttonjsonObj = Watson_contextOBJ.button;\n if (typeof buttonjsonObj.values != \"undefined\") {\n  \n    for (var c in buttonjsonObj.values) {\n      buttonStr = buttonjsonObj.values[c];\n      if (buttonStr.lastIndexOf(\"|\") >= 0 ) {\n        found_link = 1;\n        buttonItems = buttonStr.split(\"|\");\n        button_title = buttonItems[0];\n        button_url = buttonItems[1];\n        \n        actionsArr.push({\"type\": \"link\",\"text\": button_title,\"uri\": button_url}); \n      }\n      else {\n        button_title = buttonStr;  \n        actionsRArr.push({\"type\": \"reply\",\"text\": button_title,\"payload\": button_title}); \n      }\n    }  \n    if (found_link > 0) {\n       component = \"buttonLink\"; \n    }else {\n      component = \"buttonReply\";   \n    }\n }\n\n //old maps\n if (Newmsg.lastIndexOf(\"InsMap\") >= 0 ) {\n     findindex = Newmsg.lastIndexOf(\"InsMap\");\n     Newmsg = Newmsg.substring(0,findindex);\n } \n\n // Dennis added because SSML tag was escaping the \" with \\\" and the replace command fixes it!!!!\n Newmsg = Newmsg.replace(/\\\\/g, \"\");\n //Dennis - Remove XML SSML tags from chat systems\n Newmsg = Newmsg.replace(/<[^>]+>/g, \"\");\n\n node.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + Newmsg)\n\n msg.url = \"https://api.smooch.io/v1/appusers/\" + msg.user + \"/messages\";\n\n switch(component) {\n    case 'buttonReply':\n     response = {\n        role : \"appMaker\",\n        type : \"text\",\n        text : Newmsg,\n        email: \"dennisnoto@gmail.com\",\n        actions : actionsRArr\n        };\n        break;\n    case 'buttonLink':\n     response = {\n        role : \"appMaker\",\n        type : \"text\",\n        text : Newmsg,\n        email: \"dennisnoto@gmail.com\",\n        actions : actionsArr\n        };\n        break;\n    case 'map':\n    response = {\n        role : \"appMaker\",\n        type : \"image\",\n        text : Newmsg,\n        email: \"dennisnoto@gmail.com\",\n        mediaUrl: mapStr,\n        mediaType: \"image/jpeg\",\n        actions : actionsArr\n        };\n        break;\n    default:\n    response = {\n        role : \"appMaker\",\n        type : \"text\",\n        text : Newmsg,\n        email: \"dennisnoto@gmail.com\",\n        actions : actionsArr};\n }\n\n if (i != texts.length -1) {\n   response.actions = [];  \n }     \n\n  msg.payload = response;\n  node.send(msg);\n  \n if (actionsRArr.length > 0 &&  component == \"buttonLink\"){\n  response = {\n        role : \"appMaker\",\n        type : \"text\",\n        text : \"\",\n        email: \"dennisnoto@gmail.com\",\n        actions : actionsRArr\n      \n  };\n \n  if (i == texts.length -1) {\n    msg.payload = response;\n    node.send(msg);  \n  }\n }\n}\n\nreturn null;",
         "outputs": "1",
         "noerr": 0,
         "x": 1280,
@@ -1506,8 +1536,8 @@
         "name": "",
         "active": true,
         "console": "false",
-        "complete": "true",
-        "x": 1410,
+        "complete": "payload",
+        "x": 1430,
         "y": 160,
         "wires": []
     },
@@ -1524,8 +1554,7 @@
         "wires": [
             [
                 "3578e40e.b2c1f4",
-                "91e79f27.32741",
-                "1be53b1d.978c75"
+                "91e79f27.32741"
             ]
         ]
     },
@@ -1582,34 +1611,6 @@
                 "4d6e27c.bb5ed58"
             ]
         ]
-    },
-    {
-        "id": "8303acc1.4a5278",
-        "type": "function",
-        "z": "c1e9a4dc.c42cf8",
-        "name": "Add Tone",
-        "func": "\nnode.log(\"*********Found Tone ********\" + msg.response.document_tone.tone_categories[0].tones[0].tone_id);\nnode.log(\"*********Found Tone **Score*****\" + msg.response.document_tone.tone_categories[0].tones[0].score.toFixed(3));\n\nmsg.params.context.angerName = msg.response.document_tone.tone_categories[0].tones[0].tone_name;\nmsg.params.context.angerScore = msg.response.document_tone.tone_categories[0].tones[0].score.toFixed(3);\nmsg.params.context.disgustName = msg.response.document_tone.tone_categories[0].tones[1].tone_name;\nmsg.params.context.disgustScore = msg.response.document_tone.tone_categories[0].tones[1].score.toFixed(3);\nmsg.params.context.fearName = msg.response.document_tone.tone_categories[0].tones[2].tone_name;\nmsg.params.context.fearScore = msg.response.document_tone.tone_categories[0].tones[2].score.toFixed(3);\nmsg.params.context.joyName = msg.response.document_tone.tone_categories[0].tones[3].tone_name;\nmsg.params.context.joyScore = msg.response.document_tone.tone_categories[0].tones[3].score.toFixed(3);\nmsg.params.context.sadnessName = msg.response.document_tone.tone_categories[0].tones[4].tone_name;\nmsg.params.context.sadnessScore = msg.response.document_tone.tone_categories[0].tones[4].score.toFixed(3);\n\nmsg.params.context.analyticalName = msg.response.document_tone.tone_categories[1].tones[0].tone_name;\nmsg.params.context.analyticalScore = msg.response.document_tone.tone_categories[1].tones[0].score.toFixed(3);\nmsg.params.context.confidentName = msg.response.document_tone.tone_categories[1].tones[1].tone_name;\nmsg.params.context.confidentScore = msg.response.document_tone.tone_categories[1].tones[1].score.toFixed(3);\nmsg.params.context.tentativeName = msg.response.document_tone.tone_categories[1].tones[2].tone_name;\nmsg.params.context.tentativeScore = msg.response.document_tone.tone_categories[1].tones[2].score.toFixed(3);\n\nmsg.params.context.OpenName = msg.response.document_tone.tone_categories[2].tones[0].tone_name;\nmsg.params.context.OpenScore = msg.response.document_tone.tone_categories[2].tones[0].score.toFixed(3);\nmsg.params.context.conTitle = msg.response.document_tone.tone_categories[2].tones[1].tone_name;\nmsg.params.context.conScore = msg.response.document_tone.tone_categories[2].tones[1].score.toFixed(3);\nmsg.params.context.extName = msg.response.document_tone.tone_categories[2].tones[2].tone_name;\nmsg.params.context.extScore = msg.response.document_tone.tone_categories[2].tones[2].score.toFixed(3);\nmsg.params.context.agreeName = msg.response.document_tone.tone_categories[2].tones[3].tone_name;\nmsg.params.context.agreeScore = msg.response.document_tone.tone_categories[2].tones[3].score.toFixed(3);\nmsg.params.context.emoName = msg.response.document_tone.tone_categories[2].tones[4].tone_name;\nmsg.params.context.emoScore = msg.response.document_tone.tone_categories[2].tones[4].score.toFixed(3);\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 780,
-        "y": 280,
-        "wires": [
-            [
-                "331739b5.872f8e"
-            ]
-        ]
-    },
-    {
-        "id": "1be53b1d.978c75",
-        "type": "debug",
-        "z": "c1e9a4dc.c42cf8",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "false",
-        "x": 290,
-        "y": 340,
-        "wires": []
     },
     {
         "id": "2c322e9c.ce95ea",
@@ -1677,8 +1678,8 @@
         "empty-payload": false,
         "default-endpoint": true,
         "service-endpoint": "",
-        "x": 1110,
-        "y": 480,
+        "x": 1022.0000190734863,
+        "y": 426,
         "wires": [
             [
                 "a824ce9a.796de"
@@ -1690,11 +1691,11 @@
         "type": "function",
         "z": "d284a7e7.ca3e08",
         "name": "Response Msg",
-        "func": "/* Example Payload for Google\n{\n  \"speech\": \"...\",  // ASCII characters only\n  \"displayText\": \"...\",\n  \"data\": {\n    \"google\": {\n      \"expect_user_response\": true,\n      \"is_ssml\": true,\n      \"permissions_request\": {\n        \"opt_context\": \"...\",\n        \"permissions\": [\n          \"NAME\",\n          \"DEVICE_COARSE_LOCATION\",\n          \"DEVICE_PRECISE_LOCATION\"\n        ]\n      }\n    }\n  },\n  \"contextOut\": [...],\n}*/\n\nmsg.headers = {\"Content-type\" : \"application/json\"}\nvar input = msg.payload.input.text\nvar texts = msg.payload.output.text\n\nvar myEndSession = true;    \n\ntotalText = \"\"\nfor (i = 0; i < texts.length; i++) {\n    \n    if (texts[i].lastIndexOf(\"[\") >= 0 ) {\n       findindex = texts[i].lastIndexOf(\"[\");\n       texts[i] = texts[i].substring(0,findindex);\n    } \n  totalText = totalText + \" \" + texts[i]\n}\n\nif (msg.tellGoogleNoWorries) \n{totalText = \"Okay, you're information is safe with me.\" + totalText\n  msg.tellGoogleNoWorries = false  \n}\n\n\nif (input.toUpperCase().substring(0,5) == \"LATER\" ||\n    totalText.lastIndexOf(\"wonderful day\") >= 0 ||\n    totalText.lastIndexOf(\"great day\") >= 0\n)\n   {myEndSession = false}\n\n\n\nmyResponse = {\n    \"speech\": totalText,  // ASCII characters only\n    \"displayText\": \"\",\n    \"data\": {\n      \"google\": {\n        \"expect_user_response\": myEndSession,\n        \"is_ssml\": false\n        }\n     }\n}\n\nmsg.payload = myResponse \nnode.send(msg);\n    \n\nreturn null;\n",
+        "func": "/* Example Payload for Google\n{\n  \"speech\": \"...\",  // ASCII characters only\n  \"displayText\": \"...\",\n  \"data\": {\n    \"google\": {\n      \"expect_user_response\": true,\n      \"is_ssml\": true,\n      \"permissions_request\": {\n        \"opt_context\": \"...\",\n        \"permissions\": [\n          \"NAME\",\n          \"DEVICE_COARSE_LOCATION\",\n          \"DEVICE_PRECISE_LOCATION\"\n        ]\n      }\n    }\n  },\n  \"contextOut\": [...],\n}*/\n\nmsg.headers = {\"Content-type\" : \"application/json\"}\nvar input = msg.payload.input.text\nvar texts = msg.payload.output.text\n\nvar myEndSession = true;    \n\ntotalText = \"\"\nfor (i = 0; i < texts.length; i++) {\n    \n    if (texts[i].lastIndexOf(\"[\") >= 0 ) {\n       findindex = texts[i].lastIndexOf(\"[\");\n       texts[i] = texts[i].substring(0,findindex);\n    } \n  totalText = totalText + \" \" + texts[i]\n}\n\nif (msg.tellGoogleNoWorries) \n{totalText = \"Okay, you're information is safe with me.\" + totalText\n  msg.tellGoogleNoWorries = false  \n}\n\n\nif (input.toUpperCase().substring(0,5) == \"LATER\" ||\n    totalText.lastIndexOf(\"wonderful day\") >= 0 ||\n    totalText.lastIndexOf(\"great day\") >= 0\n)\n   {myEndSession = false}\n\n\n\nmyResponse = {\n    \"speech\": totalText,  // ASCII characters only\n    \"displayText\": \"\",\n    \"data\": {\n      \"google\": {\n        \"expect_user_response\": myEndSession,\n        \"is_ssml\": false\n        }\n     }\n}\n\nnode.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + totalText)\nmsg.payload = myResponse \nnode.send(msg);\n    \n\nreturn null;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 1400,
-        "y": 340,
+        "x": 1384.6666259765625,
+        "y": 425.3333330154419,
         "wires": [
             [
                 "4ae751b0.293c08",
@@ -1716,7 +1717,7 @@
         "type": "function",
         "z": "d284a7e7.ca3e08",
         "name": "Set Params",
-        "func": "\nmsg.source = \"GoogleHome\"\nvar workspace_id = msg.req.query.workspace_id\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\nvar fname = msg.req.query.fname;\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id    \n   }\n\ncontext.flowName = \"GoogleHome\"\n\n\nvar params = {\n    context : context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password,\n    source : msg.source\n};\n\nvar additional_context = {};\nvar googleIntent = \"\"\nvar googleIName = \"\"\nvar googleContext = \"\"\nif (typeof msg.payload.originalRequest.data.user.profile !== \"undefined\"){\n     additional_context.fname = msg.payload.originalRequest.data.user.profile.given_name   \n    }\n\nif (typeof msg.payload.originalRequest.data.inputs !== \"undefined\"){\n     googleIntent = msg.payload.originalRequest.data.inputs[0].intent\n    }\n\nif (typeof msg.payload.originalRequest.data.inputs[0].arguments[0] !== \"undefined\"){\n     \n     if (typeof msg.payload.originalRequest.data.inputs[0].arguments[0].name !== \"undefined\"){\n       googleIName =  msg.payload.originalRequest.data.inputs[0].arguments[0].name \n     }\n    }\n\nif (typeof msg.payload.result.contexts[0] !== \"undefined\") {\n    \n     if (msg.payload.result.contexts[0].name.lastIndexOf(\"actions\") >= 0) {\n        \n        if (typeof msg.payload.result.contexts[1] !== \"undefined\"){\n           googleContext = msg.payload.result.contexts[1].name \n        }\n     }\n     else {\n        googleContext = msg.payload.result.contexts[0].name \n     }\n}\n\nmsg.payload = msg.payload.result.resolvedQuery\nmsg.params = params\nmsg.googleIntent = googleIntent\nmsg.googleIName = googleIName\nmsg.googleContext = googleContext\n\nreturn msg;",
+        "func": "\nmsg.source = \"GoogleHome\"\nvar workspace_id = msg.req.query.workspace_id\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\nvar fname = msg.req.query.fname;\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id    \n   }\n\ncontext.flowName = \"GoogleHome\"\n\n\nvar params = {\n    context : context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password,\n    source : msg.source\n};\n\nvar additional_context = {};\nvar googleIntent = \"\"\nvar googleIName = \"\"\nvar googleContext = \"\"\nif (typeof msg.payload.originalRequest.data.user.profile !== \"undefined\"){\n     context.fname = msg.payload.originalRequest.data.user.profile.given_name   \n    }\n\nif (typeof msg.payload.originalRequest.data.inputs !== \"undefined\"){\n     googleIntent = msg.payload.originalRequest.data.inputs[0].intent\n    }\n\nif (typeof msg.payload.originalRequest.data.inputs[0].arguments[0] !== \"undefined\"){\n     \n     if (typeof msg.payload.originalRequest.data.inputs[0].arguments[0].name !== \"undefined\"){\n       googleIName =  msg.payload.originalRequest.data.inputs[0].arguments[0].name \n     }\n    }\n\nif (typeof msg.payload.result.contexts[0] !== \"undefined\") {\n    \n     if (msg.payload.result.contexts[0].name.lastIndexOf(\"actions\") >= 0) {\n        \n        if (typeof msg.payload.result.contexts[1] !== \"undefined\"){\n           googleContext = msg.payload.result.contexts[1].name \n        }\n     }\n     else {\n        googleContext = msg.payload.result.contexts[0].name \n     }\n}\n\nmsg.payload = msg.payload.result.resolvedQuery\nmsg.params = params\nmsg.googleIntent = googleIntent\nmsg.googleIName = googleIName\nmsg.googleContext = googleContext\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 550,
@@ -1735,9 +1736,9 @@
         "name": "",
         "active": true,
         "console": "false",
-        "complete": "true",
-        "x": 1590,
-        "y": 380,
+        "complete": "payload",
+        "x": 1512.0000400543213,
+        "y": 500.6666669845581,
         "wires": []
     },
     {
@@ -1798,7 +1799,7 @@
                 "a20a01a9.8d2d9"
             ],
             [
-                "8788746e.a50348"
+                "6657e485.95345c"
             ]
         ]
     },
@@ -1830,7 +1831,7 @@
         "y": 240,
         "wires": [
             [
-                "8788746e.a50348"
+                "6657e485.95345c"
             ]
         ]
     },
@@ -1860,7 +1861,7 @@
                 "4fd49bd7.df2734"
             ],
             [
-                "8788746e.a50348"
+                "6657e485.95345c"
             ]
         ]
     },
@@ -1877,22 +1878,6 @@
         "wires": [
             [
                 "5bd762da.46b27c"
-            ]
-        ]
-    },
-    {
-        "id": "54ca1854.d2c6b8",
-        "type": "function",
-        "z": "d284a7e7.ca3e08",
-        "name": "Add Tone",
-        "func": "node.log(\"*********Found Tone ********\" + msg.response.document_tone.tone_categories[0].tones[0].tone_id);\nnode.log(\"*********Found Tone **Score*****\" + msg.response.document_tone.tone_categories[0].tones[0].score.toFixed(3));\n\nmsg.params.context.angerName = msg.response.document_tone.tone_categories[0].tones[0].tone_name;\nmsg.params.context.angerScore = msg.response.document_tone.tone_categories[0].tones[0].score.toFixed(3);\nmsg.params.context.disgustName = msg.response.document_tone.tone_categories[0].tones[1].tone_name;\nmsg.params.context.disgustScore = msg.response.document_tone.tone_categories[0].tones[1].score.toFixed(3);\nmsg.params.context.fearName = msg.response.document_tone.tone_categories[0].tones[2].tone_name;\nmsg.params.context.fearScore = msg.response.document_tone.tone_categories[0].tones[2].score.toFixed(3);\nmsg.params.context.joyName = msg.response.document_tone.tone_categories[0].tones[3].tone_name;\nmsg.params.context.joyScore = msg.response.document_tone.tone_categories[0].tones[3].score.toFixed(3);\nmsg.params.context.sadnessName = msg.response.document_tone.tone_categories[0].tones[4].tone_name;\nmsg.params.context.sadnessScore = msg.response.document_tone.tone_categories[0].tones[4].score.toFixed(3);\n\nmsg.params.context.analyticalName = msg.response.document_tone.tone_categories[1].tones[0].tone_name;\nmsg.params.context.analyticalScore = msg.response.document_tone.tone_categories[1].tones[0].score.toFixed(3);\nmsg.params.context.confidentName = msg.response.document_tone.tone_categories[1].tones[1].tone_name;\nmsg.params.context.confidentScore = msg.response.document_tone.tone_categories[1].tones[1].score.toFixed(3);\nmsg.params.context.tentativeName = msg.response.document_tone.tone_categories[1].tones[2].tone_name;\nmsg.params.context.tentativeScore = msg.response.document_tone.tone_categories[1].tones[2].score.toFixed(3);\n\nmsg.params.context.OpenName = msg.response.document_tone.tone_categories[2].tones[0].tone_name;\nmsg.params.context.OpenScore = msg.response.document_tone.tone_categories[2].tones[0].score.toFixed(3);\nmsg.params.context.conTitle = msg.response.document_tone.tone_categories[2].tones[1].tone_name;\nmsg.params.context.conScore = msg.response.document_tone.tone_categories[2].tones[1].score.toFixed(3);\nmsg.params.context.extName = msg.response.document_tone.tone_categories[2].tones[2].tone_name;\nmsg.params.context.extScore = msg.response.document_tone.tone_categories[2].tones[2].score.toFixed(3);\nmsg.params.context.agreeName = msg.response.document_tone.tone_categories[2].tones[3].tone_name;\nmsg.params.context.agreeScore = msg.response.document_tone.tone_categories[2].tones[3].score.toFixed(3);\nmsg.params.context.emoName = msg.response.document_tone.tone_categories[2].tones[4].tone_name;\nmsg.params.context.emoScore = msg.response.document_tone.tone_categories[2].tones[4].score.toFixed(3);\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 960,
-        "y": 480,
-        "wires": [
-            [
-                "405b8d2d.bfbe94"
             ]
         ]
     },
@@ -1946,7 +1931,7 @@
         "type": "function",
         "z": "17eb59dd.9ff326",
         "name": "Set Params",
-        "func": "msg.source = \"Phone\"\nvar workspace_id = \"be10696f-c581-4c7b-a4b7-8cac928c3e56\";\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\nvar input = msg.payload.input.text;\nvar fname = \"Jane\"; \n\nif (input === \"\" ) {\n    input = \"Ask Me Please\"\n}    \n    \nif ((input == \"vgwHangUp\")||(input==\"cgwHangUp\")) {\n    input = \"goodbye from SIP\"\n} \n\nif ((input == \"vgwPostResponseTimeout\")||(input == \"cgwPostResponseTimeout\")) {\n    input = \"silence\"\n} \n\n\n//var context = msg.payload.context;\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id \n   }\n   \ncontext.fname = fname\n\nif (typeof context.vgwIsDTMF !== \"undefined\"){\n  if (context.vgwIsDTMF.trim().toUpperCase() == \"NO\") {\n      context.dtmfCount = 0\n      context.dtmfValue = \"\"\n  }\n  else {if (input.trim() ==\"#\" || input.trim() ==\"*\" ){\n          input = context.dtmfValue\n      }\n      else {\n          context.dtmfCount = context.dtmfCount + 1\n          context.dtmfValue.concat(dtmfValue)\n      }\n  }\n}\n\ncontext.cgwPostResponseTimeoutCount = \"30000\"\ncontext.cgwSessionInactivityTimeout = \"5\"\ncontext.vgwPostResponseTimeoutCount = \"30000\"\ncontext.vgwSessionInactivityTimeout = \"5\"\ncontext.vgwAllowDTMF = \"YES\"\n\nvar params = {\n     context: context,\n     workspace_id : workspace_id,\n     username : wcs_user_name,\n     password : wcs_password,\n     source : msg.source\n}\n\n\nmsg.payload = input;\nmsg.params = params;\nreturn msg;",
+        "func": "msg.source = \"Phone\"\nvar workspace_id = msg.req.query.workspace_id\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\nvar input = msg.payload.input.text;\nvar fname = \"Jane\"; \n\nif (input === \"\" ) {\n    input = \"Ask Me Please\"\n}    \n    \nif ((input == \"vgwHangUp\")||(input==\"cgwHangUp\")) {\n    input = \"goodbye from SIP\"\n} \n\nif ((input == \"vgwPostResponseTimeout\")||(input == \"cgwPostResponseTimeout\")) {\n    input = \"silence\"\n} \n\n\n//var context = msg.payload.context;\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id \n   }\n   \ncontext.fname = fname\n\nif (typeof context.vgwIsDTMF !== \"undefined\"){\n  if (context.vgwIsDTMF.trim().toUpperCase() == \"NO\") {\n      context.dtmfCount = 0\n      context.dtmfValue = \"\"\n  }\n  else {if (input.trim() ==\"#\" || input.trim() ==\"*\" ){\n          input = context.dtmfValue\n      }\n      else {\n          context.dtmfCount = context.dtmfCount + 1\n          context.dtmfValue.concat(dtmfValue)\n      }\n  }\n}\n\ncontext.cgwPostResponseTimeoutCount = \"30000\"\ncontext.cgwSessionInactivityTimeout = \"5\"\ncontext.vgwPostResponseTimeoutCount = \"30000\"\ncontext.vgwSessionInactivityTimeout = \"5\"\ncontext.vgwAllowDTMF = \"YES\"\n\nvar params = {\n     context: context,\n     workspace_id : workspace_id,\n     username : wcs_user_name,\n     password : wcs_password,\n     source : msg.source\n}\n\n\nmsg.payload = input;\nmsg.params = params;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 590,
@@ -1963,7 +1948,7 @@
         "type": "function",
         "z": "17eb59dd.9ff326",
         "name": "Response Msg",
-        "func": "var Watson_msg = JSON.stringify(msg.payload.output.text);\nvar Mymsg = Watson_msg.substring(2,Watson_msg.length-2);\n\n//Going forward, if you want to add buttons for convo for sip, use JSON only. NO []!!!!\n\nnode.log(\"start with \" + Mymsg);\n\nif (Mymsg.lastIndexOf(\"[\") >= 0 ) {\n     findindex = Mymsg.lastIndexOf(\"[\")\n     msg.payload.output.text = [Mymsg.substring(0,findindex-1)]\n     node.log(\"Found a buttons at index: \" + findindex)\n     node.log(msg.payload.output.text)\n} \nif (Mymsg.lastIndexOf(\"InsMap\") >= 0 ) {\n     findindex = Mymsg.lastIndexOf(\"InsMap\")\n     msg.payload.output.text = '[\"' + Mymsg.substring(0,findindex-1) + '\"]'\n     node.log(\"Found a maps at index: \"+ findindex)\n     node.log(msg.payload.output.text)\n} \n\n\nreturn msg;",
+        "func": "var Watson_msg = JSON.stringify(msg.payload.output.text);\nvar Mymsg = Watson_msg.substring(2,Watson_msg.length-2);\n\n//Going forward, if you want to add buttons for convo for sip, use JSON only. NO []!!!!\n\nnode.log(\"start with \" + Mymsg);\n\nif (Mymsg.lastIndexOf(\"[\") >= 0 ) {\n     findindex = Mymsg.lastIndexOf(\"[\")\n     msg.payload.output.text = [Mymsg.substring(0,findindex-1)]\n} \nif (Mymsg.lastIndexOf(\"InsMap\") >= 0 ) {\n     findindex = Mymsg.lastIndexOf(\"InsMap\")\n     msg.payload.output.text = '[\"' + Mymsg.substring(0,findindex-1) + '\"]'\n} \n\nnode.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + msg.payload.output.text)\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 1180,
@@ -1986,22 +1971,6 @@
         "x": 770,
         "y": 60,
         "wires": []
-    },
-    {
-        "id": "1d2de5e5.6a584a",
-        "type": "function",
-        "z": "17eb59dd.9ff326",
-        "name": "Add Tone",
-        "func": "\nnode.log(\"*********Found Tone ********\" + msg.response.document_tone.tone_categories[0].tones[0].tone_id);\nnode.log(\"*********Found Tone **Score*****\" + msg.response.document_tone.tone_categories[0].tones[0].score.toFixed(3));\n\nmsg.params.context.angerName = msg.response.document_tone.tone_categories[0].tones[0].tone_name;\nmsg.params.context.angerScore = msg.response.document_tone.tone_categories[0].tones[0].score.toFixed(3);\nmsg.params.context.disgustName = msg.response.document_tone.tone_categories[0].tones[1].tone_name;\nmsg.params.context.disgustScore = msg.response.document_tone.tone_categories[0].tones[1].score.toFixed(3);\nmsg.params.context.fearName = msg.response.document_tone.tone_categories[0].tones[2].tone_name;\nmsg.params.context.fearScore = msg.response.document_tone.tone_categories[0].tones[2].score.toFixed(3);\nmsg.params.context.joyName = msg.response.document_tone.tone_categories[0].tones[3].tone_name;\nmsg.params.context.joyScore = msg.response.document_tone.tone_categories[0].tones[3].score.toFixed(3);\nmsg.params.context.sadnessName = msg.response.document_tone.tone_categories[0].tones[4].tone_name;\nmsg.params.context.sadnessScore = msg.response.document_tone.tone_categories[0].tones[4].score.toFixed(3);\n\nmsg.params.context.analyticalName = msg.response.document_tone.tone_categories[1].tones[0].tone_name;\nmsg.params.context.analyticalScore = msg.response.document_tone.tone_categories[1].tones[0].score.toFixed(3);\nmsg.params.context.confidentName = msg.response.document_tone.tone_categories[1].tones[1].tone_name;\nmsg.params.context.confidentScore = msg.response.document_tone.tone_categories[1].tones[1].score.toFixed(3);\nmsg.params.context.tentativeName = msg.response.document_tone.tone_categories[1].tones[2].tone_name;\nmsg.params.context.tentativeScore = msg.response.document_tone.tone_categories[1].tones[2].score.toFixed(3);\n\nmsg.params.context.OpenName = msg.response.document_tone.tone_categories[2].tones[0].tone_name;\nmsg.params.context.OpenScore = msg.response.document_tone.tone_categories[2].tones[0].score.toFixed(3);\nmsg.params.context.conTitle = msg.response.document_tone.tone_categories[2].tones[1].tone_name;\nmsg.params.context.conScore = msg.response.document_tone.tone_categories[2].tones[1].score.toFixed(3);\nmsg.params.context.extName = msg.response.document_tone.tone_categories[2].tones[2].tone_name;\nmsg.params.context.extScore = msg.response.document_tone.tone_categories[2].tones[2].score.toFixed(3);\nmsg.params.context.agreeName = msg.response.document_tone.tone_categories[2].tones[3].tone_name;\nmsg.params.context.agreeScore = msg.response.document_tone.tone_categories[2].tones[3].score.toFixed(3);\nmsg.params.context.emoName = msg.response.document_tone.tone_categories[2].tones[4].tone_name;\nmsg.params.context.emoScore = msg.response.document_tone.tone_categories[2].tones[4].score.toFixed(3);\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 680,
-        "y": 240,
-        "wires": [
-            [
-                "f5cbecd2.4fa7f8"
-            ]
-        ]
     },
     {
         "id": "9abff948.b15108",
@@ -2032,7 +2001,7 @@
         "wires": [
             [
                 "67ce6081.1aec98",
-                "1bfd5f60.1d4101"
+                "49458180.53d37"
             ]
         ]
     },
@@ -2085,8 +2054,8 @@
         "name": "",
         "active": false,
         "console": "false",
-        "complete": "true",
-        "x": 1099.2307586669922,
+        "complete": "payload",
+        "x": 1119.2307586669922,
         "y": 188.46153450012207,
         "wires": []
     },
@@ -2101,8 +2070,8 @@
         "empty-payload": false,
         "default-endpoint": true,
         "service-endpoint": "",
-        "x": 770,
-        "y": 160,
+        "x": 642.6667060852051,
+        "y": 160.6666717529297,
         "wires": [
             [
                 "7d5c4c47.719f94"
@@ -2126,28 +2095,12 @@
         ]
     },
     {
-        "id": "b617e45.4dfcb98",
-        "type": "function",
-        "z": "14d2f552.3522fb",
-        "name": "Add Tone",
-        "func": "node.log(\"*********Found Tone ********\" + msg.response.document_tone.tone_categories[0].tones[0].tone_id);\nnode.log(\"*********Found Tone **Score*****\" + msg.response.document_tone.tone_categories[0].tones[0].score.toFixed(3));\n\nmsg.params.context.angerName = msg.response.document_tone.tone_categories[0].tones[0].tone_name;\nmsg.params.context.angerScore = msg.response.document_tone.tone_categories[0].tones[0].score.toFixed(3);\nmsg.params.context.disgustName = msg.response.document_tone.tone_categories[0].tones[1].tone_name;\nmsg.params.context.disgustScore = msg.response.document_tone.tone_categories[0].tones[1].score.toFixed(3);\nmsg.params.context.fearName = msg.response.document_tone.tone_categories[0].tones[2].tone_name;\nmsg.params.context.fearScore = msg.response.document_tone.tone_categories[0].tones[2].score.toFixed(3);\nmsg.params.context.joyName = msg.response.document_tone.tone_categories[0].tones[3].tone_name;\nmsg.params.context.joyScore = msg.response.document_tone.tone_categories[0].tones[3].score.toFixed(3);\nmsg.params.context.sadnessName = msg.response.document_tone.tone_categories[0].tones[4].tone_name;\nmsg.params.context.sadnessScore = msg.response.document_tone.tone_categories[0].tones[4].score.toFixed(3);\n\nmsg.params.context.analyticalName = msg.response.document_tone.tone_categories[1].tones[0].tone_name;\nmsg.params.context.analyticalScore = msg.response.document_tone.tone_categories[1].tones[0].score.toFixed(3);\nmsg.params.context.confidentName = msg.response.document_tone.tone_categories[1].tones[1].tone_name;\nmsg.params.context.confidentScore = msg.response.document_tone.tone_categories[1].tones[1].score.toFixed(3);\nmsg.params.context.tentativeName = msg.response.document_tone.tone_categories[1].tones[2].tone_name;\nmsg.params.context.tentativeScore = msg.response.document_tone.tone_categories[1].tones[2].score.toFixed(3);\n\nmsg.params.context.OpenName = msg.response.document_tone.tone_categories[2].tones[0].tone_name;\nmsg.params.context.OpenScore = msg.response.document_tone.tone_categories[2].tones[0].score.toFixed(3);\nmsg.params.context.conTitle = msg.response.document_tone.tone_categories[2].tones[1].tone_name;\nmsg.params.context.conScore = msg.response.document_tone.tone_categories[2].tones[1].score.toFixed(3);\nmsg.params.context.extName = msg.response.document_tone.tone_categories[2].tones[2].tone_name;\nmsg.params.context.extScore = msg.response.document_tone.tone_categories[2].tones[2].score.toFixed(3);\nmsg.params.context.agreeName = msg.response.document_tone.tone_categories[2].tones[3].tone_name;\nmsg.params.context.agreeScore = msg.response.document_tone.tone_categories[2].tones[3].score.toFixed(3);\nmsg.params.context.emoName = msg.response.document_tone.tone_categories[2].tones[4].tone_name;\nmsg.params.context.emoScore = msg.response.document_tone.tone_categories[2].tones[4].score.toFixed(3);\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 620,
-        "y": 160,
-        "wires": [
-            [
-                "f81a7e29.a14cb8"
-            ]
-        ]
-    },
-    {
         "id": "2f4a8e9a.d0de9a",
         "type": "subflow:f48845d6.67899",
         "z": "3fad3621.99e442",
         "name": "Get Session",
         "x": 424.6154098510742,
-        "y": 86.92308044433594,
+        "y": 116.92308044433594,
         "wires": [
             [
                 "a7a4b8cb.3748f8"
@@ -2159,8 +2112,8 @@
         "type": "subflow:52457267.ef5464",
         "z": "3fad3621.99e442",
         "name": "",
-        "x": 1185.700891494751,
-        "y": 86.49576091766357,
+        "x": 1217.700927734375,
+        "y": 117.49575805664062,
         "wires": [
             [
                 "a2bae10d.ddec8"
@@ -2281,8 +2234,8 @@
         "id": "a824ce9a.796de",
         "type": "subflow:52457267.ef5464",
         "z": "d284a7e7.ca3e08",
-        "x": 1270,
-        "y": 480,
+        "x": 1187.99995803833,
+        "y": 426.00002002716064,
         "wires": [
             [
                 "b7c515f1.9cc36"
@@ -2463,181 +2416,16 @@
         "wires": []
     },
     {
-        "id": "120f9e34.b318b2",
-        "type": "watson-discovery-v1-query-builder",
-        "z": "6e97b3ee.89fce4",
-        "name": "Query Builder",
-        "password": "PcLetpuSahcT",
-        "environment": "7699ffaf-49f1-4b6b-bd29-d4c841355aab",
-        "environmenthidden": "7699ffaf-49f1-4b6b-bd29-d4c841355aab",
-        "collection": "9534ff83-b8e8-4811-a1f2-d808e535a973",
-        "collectionhidden": "9534ff83-b8e8-4811-a1f2-d808e535a973",
-        "nlp_query": false,
-        "nlp_queryhidden": "",
-        "querynlp": "",
-        "querynlphidden": "",
-        "query1": "entities.sentiment.type",
-        "query1hidden": "entities.sentiment.type",
-        "queryvalue1": "wealth",
-        "queryvalue1hidden": "wealth",
-        "query2": "entities.sentiment.type",
-        "query2hidden": "entities.sentiment.type",
-        "queryvalue2": "insurance",
-        "queryvalue2hidden": "insurance",
-        "query3": "entities.sentiment.type",
-        "query3hidden": "entities.sentiment.type",
-        "queryvalue3": "banking",
-        "queryvalue3hidden": "banking",
-        "passages": false,
-        "passageshidden": "",
-        "x": 272,
-        "y": 211.0357208251953,
-        "wires": [
-            [
-                "ccb26825.91e488",
-                "a5ca79c1.ba0e58",
-                "b78819e5.2f9ee"
-            ]
-        ]
-    },
-    {
-        "id": "ccb26825.91e488",
-        "type": "debug",
-        "z": "6e97b3ee.89fce4",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 462.142822265625,
-        "y": 293.5,
-        "wires": []
-    },
-    {
-        "id": "b78819e5.2f9ee",
-        "type": "watson-discovery-v1",
-        "z": "6e97b3ee.89fce4",
-        "name": "Discovery Collection Details",
-        "environmentname": "",
-        "environment_id": " 7699ffaf-49f1-4b6b-bd29-d4c841355aab",
-        "collection_id": " 9534ff83-b8e8-4811-a1f2-d808e535a973",
-        "configurationname": "",
-        "configuration_id": "",
-        "collection_name": "",
-        "count": "",
-        "passages": false,
-        "nlp_query": false,
-        "query": "",
-        "filter": "",
-        "aggregation": "",
-        "return": "",
-        "description": "",
-        "size": "",
-        "discovery-method": "getCollectionDetails",
-        "x": 514.642822265625,
-        "y": 102.5,
-        "wires": [
-            [
-                "e52f282d.fdedb8"
-            ]
-        ]
-    },
-    {
-        "id": "e52f282d.fdedb8",
-        "type": "debug",
-        "z": "6e97b3ee.89fce4",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "collection_details",
-        "x": 757.892822265625,
-        "y": 102.5000228881836,
-        "wires": []
-    },
-    {
-        "id": "214d0f72.015858",
-        "type": "watson-discovery-v1",
-        "z": "6e97b3ee.89fce4",
-        "name": "Discovery",
-        "environmentname": "",
-        "environment_id": " 7699ffaf-49f1-4b6b-bd29-d4c841355aab",
-        "collection_id": " 9534ff83-b8e8-4811-a1f2-d808e535a973",
-        "configurationname": "",
-        "configuration_id": "",
-        "collection_name": "",
-        "count": "3",
-        "passages": false,
-        "nlp_query": false,
-        "query": "",
-        "filter": "",
-        "aggregation": "",
-        "return": "url,title",
-        "description": "",
-        "size": "",
-        "discovery-method": "query",
-        "x": 653.25,
-        "y": 212.75003051757812,
-        "wires": [
-            [
-                "abdc4d10.884698",
-                "514b3a1f.cd7b8c"
-            ]
-        ]
-    },
-    {
         "id": "abdc4d10.884698",
         "type": "debug",
         "z": "6e97b3ee.89fce4",
         "name": "",
         "active": true,
         "console": "false",
-        "complete": "true",
-        "x": 873.5,
-        "y": 303.7500305175781,
+        "complete": "WDSResults",
+        "x": 470,
+        "y": 100,
         "wires": []
-    },
-    {
-        "id": "514b3a1f.cd7b8c",
-        "type": "function",
-        "z": "6e97b3ee.89fce4",
-        "name": "Msg Response",
-        "func": "msg.payload = msg.search_results;\n\n\n\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 878,
-        "y": 213.75003051757812,
-        "wires": [
-            [
-                "c6adfaaf.70e398"
-            ]
-        ]
-    },
-    {
-        "id": "c6adfaaf.70e398",
-        "type": "debug",
-        "z": "6e97b3ee.89fce4",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 1060.25,
-        "y": 294.7500305175781,
-        "wires": []
-    },
-    {
-        "id": "a5ca79c1.ba0e58",
-        "type": "function",
-        "z": "6e97b3ee.89fce4",
-        "name": "Set query string",
-        "func": "//msg.discoveryparams.query = \"text:\"+ msg.req.body.msgdata;\nmsg.discoveryparams.query = \"text:\"+ msg.payload;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 471.25,
-        "y": 212.75003051757812,
-        "wires": [
-            [
-                "214d0f72.015858"
-            ]
-        ]
     },
     {
         "id": "b2b96ef2.fb3bb8",
@@ -2645,16 +2433,16 @@
         "z": "6e97b3ee.89fce4",
         "name": "",
         "topic": "",
-        "payload": "what is going on with banks",
+        "payload": "",
         "payloadType": "str",
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 92.5,
-        "y": 210,
+        "x": 90,
+        "y": 100,
         "wires": [
             [
-                "120f9e34.b318b2"
+                "1ee523f9.033d7c"
             ]
         ]
     },
@@ -2817,47 +2605,15 @@
         "id": "831eec36.2a31d",
         "type": "function",
         "z": "87530aab.adb068",
-        "name": "Test",
-        "func": "if (typeof msg.payload.workspaces === \"undefined\") \n   {msg.switchService = \"Germany\"\n    node.error(\"US WCS failed, sending traffic to Germany for user: \" + msg.user)   \n   }\n else  \n   {msg.switchService = \"US\"} \n\nmsg.payload = msg.savePayload\n\nreturn msg;",
+        "name": "Test&Set WCS",
+        "func": "if (typeof msg.payload.workspaces === \"undefined\") \n   {msg.switchService = \"Germany\"\n    node.error(\"US WCS failed, sending traffic to Germany for user: \" + msg.user) \n    //For example we will use only one workspace, will assume if multiple that we will need a case similar to override workspace subflow\n    msg.params.workspace_id = \"a003413f-2973-4dba-b1ba-550b3fa09a71\";\n    msg.params.username = \"c3a84de4-c0cf-43b6-98a1-8c2bd16fdc1f\";\n    msg.params.password = \"GaZagvcNP3VG\";\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/conversation/api\"\n   }\n else  \n   {msg.switchService = \"US\"\n    // For US we will assume workspace was already set via Set Params and/or Override workspace    \n    //  msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n    msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n    msg.params.password = \"k0gYo1FjJymP\";  \n    msg.params.endpoint = \"https://gateway.watsonplatform.net/conversation/api\"\n   } \n\nmsg.payload = msg.savePayload\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 743,
-        "y": 92.45455169677734,
+        "x": 724.5384693145752,
+        "y": 36.30070209503174,
         "wires": [
             [
-                "f9cd5b4e.9a106"
-            ]
-        ]
-    },
-    {
-        "id": "f9cd5b4e.9a106",
-        "type": "switch",
-        "z": "87530aab.adb068",
-        "name": "Service Switch",
-        "property": "switchService",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "US",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "Germany",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "outputs": 2,
-        "x": 908,
-        "y": 92.45455169677734,
-        "wires": [
-            [
-                "cae7bd67.e6bf98"
-            ],
-            [
-                "404c2e16.964188"
+                "d37a7262.117b5"
             ]
         ]
     },
@@ -2870,7 +2626,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 171.5,
-        "y": 102.45455932617188,
+        "y": 37.069942474365234,
         "wires": [
             [
                 "a75b0ca2.9c8918"
@@ -2878,29 +2634,18 @@
         ]
     },
     {
-        "id": "6b5d678b.113c4",
-        "type": "subflow:87530aab.adb068",
-        "z": "3fad3621.99e442",
-        "name": "Dynamic WCS Router",
-        "x": 966.9969940185547,
-        "y": 163.42800998687744,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "f4f7a034.c36938",
         "type": "inject",
         "z": "5b6fab52.9eae84",
-        "name": "",
+        "name": "Execute",
         "topic": "",
         "payload": "",
         "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 133.5,
-        "y": 54,
+        "x": 135.03846740722656,
+        "y": 53.23076820373535,
         "wires": [
             [
                 "37d5294d.202d4e"
@@ -2932,8 +2677,8 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 521.5,
-        "y": 51,
+        "x": 512.2692337036133,
+        "y": 53.30769348144531,
         "wires": []
     },
     {
@@ -2945,25 +2690,13 @@
         "ret": "obj",
         "url": "https://gateway.watsonplatform.net/conversation/api/v1/workspaces?version=2017-05-26",
         "tls": "",
-        "x": 574.5,
-        "y": 158,
+        "x": 518.3461494445801,
+        "y": 37.23076629638672,
         "wires": [
             [
                 "831eec36.2a31d"
             ]
         ]
-    },
-    {
-        "id": "27751e29.7dd92a",
-        "type": "debug",
-        "z": "2388240a.50e91c",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 634.5,
-        "y": 195,
-        "wires": []
     },
     {
         "id": "93490d5d.b3ca88",
@@ -3368,31 +3101,31 @@
         "id": "a75b0ca2.9c8918",
         "type": "switch",
         "z": "87530aab.adb068",
-        "name": "Test First Turn",
+        "name": "First Turn",
         "property": "checkService",
         "propertyType": "msg",
         "rules": [
             {
                 "t": "eq",
-                "v": "No",
+                "v": "Yes",
                 "vt": "str"
             },
             {
                 "t": "eq",
-                "v": "Yes",
+                "v": "No",
                 "vt": "str"
             }
         ],
         "checkall": "true",
         "outputs": 2,
-        "x": 378.5,
-        "y": 53,
+        "x": 326.9615592956543,
+        "y": 100.69231033325195,
         "wires": [
             [
-                "cae7bd67.e6bf98"
+                "e1afacab.7a71f8"
             ],
             [
-                "e1afacab.7a71f8"
+                "d37a7262.117b5"
             ]
         ]
     },
@@ -3405,11 +3138,10 @@
             "cae7bd67.e6bf98"
         ],
         "x": 344.5,
-        "y": 259,
+        "y": 193.61538314819336,
         "wires": [
             [
-                "a9f87d5b.6414c",
-                "e37b9339.f76fa"
+                "a9f87d5b.6414c"
             ]
         ]
     },
@@ -3418,59 +3150,15 @@
         "type": "function",
         "z": "87530aab.adb068",
         "name": "US Log error",
-        "func": "node.error(\"US WCS failed will try Germany for user \" + msg.user + ' Error: '+ msg.error.message);\nreturn msg;",
+        "func": "node.error(\"US WCS failed will try Germany for user \" + msg.user + ' Error: '+ msg.error.message);\n\nmsg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\nmsg.params.username = \"c3a84de4-c0cf-43b6-98a1-8c2bd16fdc1f\";\nmsg.params.password = \"GaZagvcNP3VG\";\nmsg.params.endpoint = \"https://gateway-fra.watsonplatform.net/conversation/api\"\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 900.5,
-        "y": 262,
+        "x": 742.0384368896484,
+        "y": 192.76921463012695,
         "wires": [
             [
-                "404c2e16.964188"
+                "d37a7262.117b5"
             ]
-        ]
-    },
-    {
-        "id": "cae7bd67.e6bf98",
-        "type": "watson-conversation-ucg-v1",
-        "z": "87530aab.adb068",
-        "name": "Convo US UCG",
-        "workspaceid": "56cfca8a-b459-447f-ab35-e94511f6f7bc",
-        "multiuser": false,
-        "context": false,
-        "default-endpoint": true,
-        "service-endpoint": "https://gateway.watsonplatform.net/conversation/api",
-        "x": 1130.5,
-        "y": 49,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e37b9339.f76fa",
-        "type": "debug",
-        "z": "87530aab.adb068",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 533.5,
-        "y": 305,
-        "wires": []
-    },
-    {
-        "id": "404c2e16.964188",
-        "type": "watson-conversation-ucg-v1",
-        "z": "87530aab.adb068",
-        "name": "Convo Germany UCG",
-        "workspaceid": "a003413f-2973-4dba-b1ba-550b3fa09a71",
-        "multiuser": false,
-        "context": false,
-        "default-endpoint": false,
-        "service-endpoint": "https://gateway-fra.watsonplatform.net/conversation/api",
-        "x": 1132.5,
-        "y": 133,
-        "wires": [
-            []
         ]
     },
     {
@@ -3482,11 +3170,10 @@
             "404c2e16.964188"
         ],
         "x": 328.5,
-        "y": 356,
+        "y": 290.61538314819336,
         "wires": [
             [
-                "b1be0d25.47d3f",
-                "e37b9339.f76fa"
+                "b1be0d25.47d3f"
             ]
         ]
     },
@@ -3498,28 +3185,10 @@
         "func": "node.error(\"Germany WCS failed, Transfer to Agent for user \" + msg.user + ' Error: '+ msg.error.message);\nmsg.payload = \"Transfer to Agent\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1111.5,
-        "y": 357,
+        "x": 906.8845825195312,
+        "y": 291.6153726577759,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "f5adf38a.64667",
-        "type": "watson-conversation-ucg-v1",
-        "z": "3fad3621.99e442",
-        "name": "Convo UCG",
-        "workspaceid": "",
-        "multiuser": false,
-        "context": false,
-        "default-endpoint": true,
-        "service-endpoint": "https://gateway.watsonplatform.net/conversation/api",
-        "x": 1009.2308616638184,
-        "y": 86.92308044433594,
-        "wires": [
-            [
-                "45ecefd5.b04ee8"
-            ]
         ]
     },
     {
@@ -3605,7 +3274,7 @@
         "type": "function",
         "z": "15c6f20.6b9dd0e",
         "name": "Set Params",
-        "func": "\n//var user_name = msg.req.query.user_name\n//var user_id = msg.payload.user_id;\nvar workspace_id = msg.req.query.workspace_id\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\n\nvar fname = msg.req.query.fname\n\n//create a null context and test for session existance\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id \n   }\n \nvar newmsg = msg.req.query.text\nnewmsg = newmsg.replace(/'/g, \"\");  \n\nvar map = JSON.parse(\"{}\");\nvar image = JSON.parse(\"{}\");  \nvar button = JSON.parse(\"{}\");\n\nmsg.payload = newmsg\n\ncontext.fname = fname;\ncontext.map = map;\ncontext.image = image;\ncontext.button = button;\n\n\nif ((newmsg.toUpperCase().substring(0,5) == \"HELLO\") && (newmsg.length > 5)){\nswitch(newmsg.toUpperCase()) {\n    case 'HELLO BANK ASSIST':\n        workspace_id = \"d13cc96b-a323-43a1-b484-29d37679ac27\";\n        break;\n    case 'HELLO INSURE ASSIST':\n        workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n        break;\n    case 'HELLO INSURE CALL CENTER ASSIST':\n        workspace_id = \"faf6e421-43ae-474a-8f9e-e8e10e71e3df\";\n        break;\n    case 'HELLO MONEY ASSIST':\n        workspace_id = \"c2777aef-fe89-4df5-8792-46880d6a0662\";\n        break;\n    default: \n        workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n }\n}\n\nvar params = {\n    context: context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password\n};\n\n// node.log(\"User *** \" + msg.user + \" Said *** \" + newmsg)\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg\n",
+        "func": "\n//var user_name = msg.req.query.user_name\n//var user_id = msg.payload.user_id;\nvar workspace_id = msg.req.query.workspace_id\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\n\nvar fname = msg.req.query.fname\n\n//create a null context and test for session existance\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id \n   }\n \nvar newmsg = msg.req.query.text\nnewmsg = newmsg.replace(/'/g, \"\");  \n\nvar map = JSON.parse(\"{}\");\nvar image = JSON.parse(\"{}\");  \nvar button = JSON.parse(\"{}\");\n\nmsg.payload = newmsg\n\ncontext.fname = fname;\ncontext.map = map;\ncontext.image = image;\ncontext.button = button;\n\nvar params = {\n    context: context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password\n};\n\n// node.log(\"User *** \" + msg.user + \" Said *** \" + newmsg)\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg\n",
         "outputs": 1,
         "noerr": 0,
         "x": 590,
@@ -3622,7 +3291,7 @@
         "type": "function",
         "z": "15c6f20.6b9dd0e",
         "name": "Respone Msg",
-        "func": "var Watson_msg = msg.payload;\nvar Watson_response = JSON.stringify(msg.payload.output.text);\nvar Watson_contextOBJ = msg.payload.context;\nvar belementArr = []\nvar totalText = []\nvar texts = msg.payload.output.text\n\nfor (i = 0; i < texts.length; i++) {\n\n  // Dennis added because SSML tag was escaping the \" with \\\" and the replace command fixes it!!!!\n  texts[i] = texts[i].replace(/\\\\/g, \"\");\n  //Dennis - Remove XML SSML tags from chat systems\n  texts[i] =  texts[i].replace(/<[^>]+>/g, \"\");\n \n  if (texts[i].lastIndexOf(\"InsMap\") >= 0 ) {\n     findindex = texts[i].lastIndexOf(\"InsMap\")\n     texts[i] = texts[i].substring(0,findindex)\n  } \n   totalText.push(texts[i]);\n}  \n\n\n  //simple buttons\n  if (totalText[totalText.length - 1].lastIndexOf(\"[\") >= 0 ) {\n     findindex = totalText[totalText.length - 1].lastIndexOf(\"[\");\n     node.log(\"Found button at index:\", findindex);\n     findLastindex = totalText[totalText.length - 1].lastIndexOf(\"]\");\n     tempStr = totalText[totalText.length - 1];\n     totalText[totalText.length - 1]  = totalText[totalText.length - 1].substring(0,findindex); // Message without buttons\n     var buttonArr = tempStr.substring(findindex+1, findLastindex).split(\",\");\n     for (a = 0; a < buttonArr.length; a++) { \n        belementArr.push({\"type\": \"button\",\"title\": buttonArr[a],\"click\":{\"actions\":[{\"type\":\"publishText\",\"name\":buttonArr[a], \"text\": buttonArr[a]}]}});\n     }\n  }\n\n   node.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + texts[i])\n\n  var found_link = 0;\n  var ielementArr = [{\"type\":\"text\"}]\n  //json map\n  mapjsonObj = Watson_contextOBJ.map;\n  if (typeof mapjsonObj.values != \"undefined\") {\n      for (var c in mapjsonObj.values) {\n        imageStr = mapjsonObj.values[c] + \"&size=700x500\" ;\n        node.log(\"Found Json map str: \" + imageStr);\n       ielementArr.push({\"type\":\"image\",\"url\": imageStr});\n      }\n  }\n  \n  \n  //json image\n  imagejsonObj = Watson_contextOBJ.image;\n  if (typeof imagejsonObj.values != \"undefined\") {\n      for (var c in imagejsonObj.values) {\n        imageStr = imagejsonObj.values[c];\n        node.log(\"Found Json image str: \" + imageStr);\n       ielementArr.push({\"type\":\"image\",\"url\": imageStr});\n      }\n  }\n\n  buttonjsonObj = Watson_contextOBJ.button;\n  if (typeof buttonjsonObj.values != \"undefined\") {\n      for (var c in buttonjsonObj.values) {\n        buttonStr = buttonjsonObj.values[c];\n        if (buttonStr.lastIndexOf(\"|\") >= 0 ) {\n          found_link = 1;\n          buttonItems = buttonStr.split(\"|\");\n          button_title = buttonItems[0];\n          button_url = buttonItems[1];\n        \n          belementArr.push({\"type\": \"button\",\"title\": button_title,\"click\":{\"actions\":[{\"type\":\"link\",\"name\":button_title, \"uri\": button_url}]}}); \n        }\n        else {\n          button_title = buttonStr;  \n          belementArr.push({\"type\": \"button\",\"title\": button_title,\"click\":{\"actions\":[{\"type\":\"publishText\",\"name\":button_title, \"text\": button_title}]}}); \n        }\n      }\n  }\n\n  \n  var content = {\"type\": \"vertical\"}\n  ielementArr[0].text = totalText;\n  content.elements = ielementArr;\n\n  if (belementArr.length > 0)  {\n      content.elements[ielementArr.length] = {\"type\": \"horizontal\", \"elements\" : belementArr}\n  }\n\n  if (ielementArr.length > 1 || belementArr.length > 0) {\n      response = {content : content}; \n  }\n  else {\n      response = {text: totalText};    \n  }\n\n  msg.payload = response;\n\n\nreturn msg;",
+        "func": "var Watson_msg = msg.payload;\nvar Watson_response = JSON.stringify(msg.payload.output.text);\nvar Watson_contextOBJ = msg.payload.context;\nvar belementArr = []\nvar totalText = []\nvar texts = msg.payload.output.text\n\nfor (i = 0; i < texts.length; i++) {\n\n  // Dennis added because SSML tag was escaping the \" with \\\" and the replace command fixes it!!!!\n  texts[i] = texts[i].replace(/\\\\/g, \"\");\n  //Dennis - Remove XML SSML tags from chat systems\n  texts[i] =  texts[i].replace(/<[^>]+>/g, \"\");\n \n  if (texts[i].lastIndexOf(\"InsMap\") >= 0 ) {\n     findindex = texts[i].lastIndexOf(\"InsMap\")\n     texts[i] = texts[i].substring(0,findindex)\n  } \n   totalText.push(texts[i]);\n}  \n\n\n  //simple buttons\n  if (totalText[totalText.length - 1].lastIndexOf(\"[\") >= 0 ) {\n     findindex = totalText[totalText.length - 1].lastIndexOf(\"[\");\n     findLastindex = totalText[totalText.length - 1].lastIndexOf(\"]\");\n     tempStr = totalText[totalText.length - 1];\n     totalText[totalText.length - 1]  = totalText[totalText.length - 1].substring(0,findindex); // Message without buttons\n     var buttonArr = tempStr.substring(findindex+1, findLastindex).split(\",\");\n     for (a = 0; a < buttonArr.length; a++) { \n        belementArr.push({\"type\": \"button\",\"title\": buttonArr[a],\"click\":{\"actions\":[{\"type\":\"publishText\",\"name\":buttonArr[a], \"text\": buttonArr[a]}]}});\n     }\n  }\n\n  var found_link = 0;\n  var ielementArr = [{\"type\":\"text\"}]\n  //json map\n  mapjsonObj = Watson_contextOBJ.map;\n  if (typeof mapjsonObj.values != \"undefined\") {\n      for (var c in mapjsonObj.values) {\n        imageStr = mapjsonObj.values[c] + \"&size=700x500\" ;\n        node.log(\"Found Json map str: \" + imageStr);\n       ielementArr.push({\"type\":\"image\",\"url\": imageStr});\n      }\n  }\n  \n  \n  //json image\n  imagejsonObj = Watson_contextOBJ.image;\n  if (typeof imagejsonObj.values != \"undefined\") {\n      for (var c in imagejsonObj.values) {\n        imageStr = imagejsonObj.values[c];\n       ielementArr.push({\"type\":\"image\",\"url\": imageStr});\n      }\n  }\n\n  buttonjsonObj = Watson_contextOBJ.button;\n  if (typeof buttonjsonObj.values != \"undefined\") {\n      for (var c in buttonjsonObj.values) {\n        buttonStr = buttonjsonObj.values[c];\n        if (buttonStr.lastIndexOf(\"|\") >= 0 ) {\n          found_link = 1;\n          buttonItems = buttonStr.split(\"|\");\n          button_title = buttonItems[0];\n          button_url = buttonItems[1];\n        \n          belementArr.push({\"type\": \"button\",\"title\": button_title,\"click\":{\"actions\":[{\"type\":\"link\",\"name\":button_title, \"uri\": button_url}]}}); \n        }\n        else {\n          button_title = buttonStr;  \n          belementArr.push({\"type\": \"button\",\"title\": button_title,\"click\":{\"actions\":[{\"type\":\"publishText\",\"name\":button_title, \"text\": button_title}]}}); \n        }\n      }\n  }\n\n  node.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + totalText)\n  \n  var content = {\"type\": \"vertical\"}\n  ielementArr[0].text = totalText;\n  content.elements = ielementArr;\n\n  if (belementArr.length > 0)  {\n      content.elements[ielementArr.length] = {\"type\": \"horizontal\", \"elements\" : belementArr}\n  }\n\n  if (ielementArr.length > 1 || belementArr.length > 0) {\n      response = {content : content}; \n  }\n  else {\n      response = {text: totalText};    \n  }\n\n  msg.payload = response;\n\n\nreturn msg;",
         "outputs": "1",
         "noerr": 0,
         "x": 1140,
@@ -3660,24 +3329,6 @@
         "wires": []
     },
     {
-        "id": "1ce052eb.ac9a8d",
-        "type": "watson-conversation-ucg-v1",
-        "z": "15c6f20.6b9dd0e",
-        "name": "Convo UCG",
-        "workspaceid": "",
-        "multiuser": false,
-        "context": false,
-        "default-endpoint": true,
-        "service-endpoint": "https://gateway.watsonplatform.net/conversation/api",
-        "x": 770,
-        "y": 200,
-        "wires": [
-            [
-                "4714084b.dcb8c"
-            ]
-        ]
-    },
-    {
         "id": "4714084b.dcb8c",
         "type": "subflow:52457267.ef5464",
         "z": "15c6f20.6b9dd0e",
@@ -3699,43 +3350,6 @@
         "wires": [
             [
                 "fdcd22bf.a2fd4"
-            ]
-        ]
-    },
-    {
-        "id": "7b56c7e7.db612",
-        "type": "function",
-        "z": "15c6f20.6b9dd0e",
-        "name": "Add Tone",
-        "func": "node.log(\"*********Found Tone ********\" + msg.response.document_tone.tone_categories[0].tones[0].tone_id);\nnode.log(\"*********Found Tone **Score*****\" + msg.response.document_tone.tone_categories[0].tones[0].score.toFixed(3));\n\nmsg.params.context.angerName = msg.response.document_tone.tone_categories[0].tones[0].tone_name;\nmsg.params.context.angerScore = msg.response.document_tone.tone_categories[0].tones[0].score.toFixed(3);\nmsg.params.context.disgustName = msg.response.document_tone.tone_categories[0].tones[1].tone_name;\nmsg.params.context.disgustScore = msg.response.document_tone.tone_categories[0].tones[1].score.toFixed(3);\nmsg.params.context.fearName = msg.response.document_tone.tone_categories[0].tones[2].tone_name;\nmsg.params.context.fearScore = msg.response.document_tone.tone_categories[0].tones[2].score.toFixed(3);\nmsg.params.context.joyName = msg.response.document_tone.tone_categories[0].tones[3].tone_name;\nmsg.params.context.joyScore = msg.response.document_tone.tone_categories[0].tones[3].score.toFixed(3);\nmsg.params.context.sadnessName = msg.response.document_tone.tone_categories[0].tones[4].tone_name;\nmsg.params.context.sadnessScore = msg.response.document_tone.tone_categories[0].tones[4].score.toFixed(3);\n\nmsg.params.context.analyticalName = msg.response.document_tone.tone_categories[1].tones[0].tone_name;\nmsg.params.context.analyticalScore = msg.response.document_tone.tone_categories[1].tones[0].score.toFixed(3);\nmsg.params.context.confidentName = msg.response.document_tone.tone_categories[1].tones[1].tone_name;\nmsg.params.context.confidentScore = msg.response.document_tone.tone_categories[1].tones[1].score.toFixed(3);\nmsg.params.context.tentativeName = msg.response.document_tone.tone_categories[1].tones[2].tone_name;\nmsg.params.context.tentativeScore = msg.response.document_tone.tone_categories[1].tones[2].score.toFixed(3);\n\nmsg.params.context.OpenName = msg.response.document_tone.tone_categories[2].tones[0].tone_name;\nmsg.params.context.OpenScore = msg.response.document_tone.tone_categories[2].tones[0].score.toFixed(3);\nmsg.params.context.conTitle = msg.response.document_tone.tone_categories[2].tones[1].tone_name;\nmsg.params.context.conScore = msg.response.document_tone.tone_categories[2].tones[1].score.toFixed(3);\nmsg.params.context.extName = msg.response.document_tone.tone_categories[2].tones[2].tone_name;\nmsg.params.context.extScore = msg.response.document_tone.tone_categories[2].tones[2].score.toFixed(3);\nmsg.params.context.agreeName = msg.response.document_tone.tone_categories[2].tones[3].tone_name;\nmsg.params.context.agreeScore = msg.response.document_tone.tone_categories[2].tones[3].score.toFixed(3);\nmsg.params.context.emoName = msg.response.document_tone.tone_categories[2].tones[4].tone_name;\nmsg.params.context.emoScore = msg.response.document_tone.tone_categories[2].tones[4].score.toFixed(3);\n\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 600,
-        "y": 200,
-        "wires": [
-            [
-                "1ce052eb.ac9a8d"
-            ]
-        ]
-    },
-    {
-        "id": "e6d49120.3ad41",
-        "type": "watson-tone-analyzer-v3",
-        "z": "15c6f20.6b9dd0e",
-        "name": "Tone",
-        "tones": "all",
-        "sentences": "true",
-        "contentType": "false",
-        "tone-method": "generalTone",
-        "interface-version": "2016-05-19",
-        "inputlang": "en",
-        "default-endpoint": true,
-        "service-endpoint": "https://gateway.watsonplatform.net/tone-analyzer/api",
-        "x": 450,
-        "y": 200,
-        "wires": [
-            [
-                "7b56c7e7.db612"
             ]
         ]
     },
@@ -3803,9 +3417,7 @@
         "x": 200,
         "y": 60,
         "wires": [
-            [
-                "bca89eae.0fd01"
-            ]
+            []
         ]
     },
     {
@@ -3816,7 +3428,7 @@
         "y": 140,
         "wires": [
             [
-                "dd266680.06a1a"
+                "e82d762d.da45d8"
             ]
         ]
     },
@@ -3828,7 +3440,7 @@
         "y": 100,
         "wires": [
             [
-                "9011d15c.9b075"
+                "ea24a25e.9d5e08"
             ]
         ]
     },
@@ -3930,7 +3542,7 @@
         "y": 100,
         "wires": [
             [
-                "e6d49120.3ad41"
+                "c6e62d3f.e943c8"
             ]
         ]
     },
@@ -3952,7 +3564,7 @@
         "y": 100,
         "wires": [
             [
-                "8028d1ba.6d4238"
+                "dc099fad.df4b28"
             ]
         ]
     },
@@ -3964,7 +3576,7 @@
         "y": 120,
         "wires": [
             [
-                "aa4b32b9.b1a0c8"
+                "eaee0d5f.355b8"
             ]
         ]
     },
@@ -3999,8 +3611,8 @@
         "name": "",
         "active": true,
         "console": "false",
-        "complete": "true",
-        "x": 1312.3077487945557,
+        "complete": "payload",
+        "x": 1332.3077487945557,
         "y": 132.30769443511963,
         "wires": []
     },
@@ -4008,15 +3620,15 @@
         "id": "2ca6dad1.471556",
         "type": "inject",
         "z": "5b6fab52.9eae84",
-        "name": "",
+        "name": "Execute",
         "topic": "",
         "payload": "",
         "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 120,
-        "y": 140,
+        "x": 133.07691955566406,
+        "y": 140.00000190734863,
         "wires": [
             [
                 "6e6c02c6.b45bbc"
@@ -4027,12 +3639,12 @@
         "id": "6e6c02c6.b45bbc",
         "type": "function",
         "z": "5b6fab52.9eae84",
-        "name": "Flush Keys",
+        "name": "Flush Redis Keys",
         "func": "var redis = global.get('redis');\nvar options = {enable_offline_queue:false};\n   \nvar redisClient = global.get(\"redisClient\");\nif (typeof redisClient == \"undefined\") {\n  redisClient = new redis('redis://admin:IVKPWZBPOAJYQCRR@bluemix-sandbox-dal-9-portal.7.dblayer.com:27247',options);\n  global.set(\"redisClient\",redisClient);\n  node.log(\"New RedisClient connection in SetSession\")\n}\n\n\nredisClient.on(\"error\", function (err) {\n    node.error(\"Error \" + err);\n//    client.disconnect(); \n});\n\nredisClient.flushdb( function (err, response) {\n   if (err) \n      node.error(\"Error \" + err);\n    else \n      msg.payload = response;\n//   client.disconnect(); \n   node.send(msg);\n});\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 290,
-        "y": 140,
+        "x": 316.1538391113281,
+        "y": 140.0000057220459,
         "wires": [
             [
                 "9b0f555d.5dc378"
@@ -4047,14 +3659,14 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 449.5,
-        "y": 142,
+        "x": 511.80770111083984,
+        "y": 139.69230937957764,
         "wires": []
     },
     {
         "id": "8028d1ba.6d4238",
         "type": "watson-tone-analyzer-v3",
-        "z": "1b19f8b1.08de9f",
+        "z": "3c30ab94.447d3c",
         "name": "Tone",
         "tones": "all",
         "sentences": "true",
@@ -4064,137 +3676,11 @@
         "inputlang": "en",
         "default-endpoint": true,
         "service-endpoint": "https://gateway.watsonplatform.net/tone-analyzer/api",
-        "x": 170,
-        "y": 220,
+        "x": 166.00000381469727,
+        "y": 33.33333396911621,
         "wires": [
             [
                 "9a74bd1c.3dec38"
-            ]
-        ]
-    },
-    {
-        "id": "aa4b32b9.b1a0c8",
-        "type": "watson-tone-analyzer-v3",
-        "z": "5c4d249a.7988f4",
-        "name": "Tone",
-        "tones": "all",
-        "sentences": "true",
-        "contentType": "false",
-        "tone-method": "generalTone",
-        "interface-version": "2016-05-19",
-        "inputlang": "en",
-        "default-endpoint": true,
-        "service-endpoint": "https://gateway.watsonplatform.net/tone-analyzer/api",
-        "x": 1250,
-        "y": 120,
-        "wires": [
-            [
-                "90efc173.916f7"
-            ]
-        ]
-    },
-    {
-        "id": "9011d15c.9b075",
-        "type": "watson-tone-analyzer-v3",
-        "z": "e85cff5a.1f786",
-        "name": "Tone",
-        "tones": "all",
-        "sentences": "true",
-        "contentType": "false",
-        "tone-method": "generalTone",
-        "interface-version": "2016-05-19",
-        "inputlang": "en",
-        "default-endpoint": true,
-        "service-endpoint": "https://gateway.watsonplatform.net/tone-analyzer/api",
-        "x": 270,
-        "y": 260,
-        "wires": [
-            [
-                "25d8baa5.d2ed7e"
-            ]
-        ]
-    },
-    {
-        "id": "dd266680.06a1a",
-        "type": "watson-tone-analyzer-v3",
-        "z": "c1e9a4dc.c42cf8",
-        "name": "Tone",
-        "tones": "all",
-        "sentences": "true",
-        "contentType": "false",
-        "tone-method": "generalTone",
-        "interface-version": "2016-05-19",
-        "inputlang": "en",
-        "default-endpoint": true,
-        "service-endpoint": "https://gateway.watsonplatform.net/tone-analyzer/api",
-        "x": 630,
-        "y": 280,
-        "wires": [
-            [
-                "8303acc1.4a5278"
-            ]
-        ]
-    },
-    {
-        "id": "8788746e.a50348",
-        "type": "watson-tone-analyzer-v3",
-        "z": "d284a7e7.ca3e08",
-        "name": "Tone",
-        "tones": "all",
-        "sentences": "true",
-        "contentType": "false",
-        "tone-method": "generalTone",
-        "interface-version": "2016-05-19",
-        "inputlang": "en",
-        "default-endpoint": true,
-        "service-endpoint": "https://gateway.watsonplatform.net/tone-analyzer/api",
-        "x": 810,
-        "y": 480,
-        "wires": [
-            [
-                "54ca1854.d2c6b8"
-            ]
-        ]
-    },
-    {
-        "id": "1066a348.7e8b2d",
-        "type": "watson-tone-analyzer-v3",
-        "z": "17eb59dd.9ff326",
-        "name": "Tone",
-        "tones": "all",
-        "sentences": "true",
-        "contentType": "false",
-        "tone-method": "generalTone",
-        "interface-version": "2016-05-19",
-        "inputlang": "en",
-        "default-endpoint": true,
-        "service-endpoint": "https://gateway.watsonplatform.net/tone-analyzer/api",
-        "x": 530,
-        "y": 240,
-        "wires": [
-            [
-                "1d2de5e5.6a584a"
-            ]
-        ]
-    },
-    {
-        "id": "1bfd5f60.1d4101",
-        "type": "watson-tone-analyzer-v3",
-        "z": "14d2f552.3522fb",
-        "name": "Tone",
-        "tones": "all",
-        "sentences": "true",
-        "contentType": "false",
-        "tone-method": "generalTone",
-        "interface-version": "2016-05-19",
-        "inputlang": "en",
-        "default-endpoint": true,
-        "service-endpoint": "https://gateway.watsonplatform.net/tone-analyzer/api",
-        "x": 470,
-        "y": 160,
-        "wires": [
-            [
-                "b617e45.4dfcb98"
             ]
         ]
     },
@@ -4241,21 +3727,9 @@
         "name": "",
         "active": true,
         "console": "false",
-        "complete": "true",
-        "x": 1348.461498260498,
+        "complete": "payload",
+        "x": 1368.461498260498,
         "y": 160.7692230939865,
-        "wires": []
-    },
-    {
-        "id": "6a08b025.b4083",
-        "type": "debug",
-        "z": "17eb59dd.9ff326",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 1029.0384411811829,
-        "y": 63.69230842590332,
         "wires": []
     },
     {
@@ -4265,9 +3739,9 @@
         "name": "",
         "active": true,
         "console": "false",
-        "complete": "false",
-        "x": 642.6470813751221,
-        "y": 232.9412031173706,
+        "complete": "true",
+        "x": 768.6470947265625,
+        "y": 56.94120788574219,
         "wires": []
     },
     {
@@ -4278,19 +3752,19 @@
         "active": true,
         "console": "false",
         "complete": "false",
-        "x": 1570.6107635498047,
-        "y": 20,
+        "x": 1604.6107177734375,
+        "y": 31,
         "wires": []
     },
     {
         "id": "858b7538.3af7",
         "type": "subflow:a0e2e197.345df",
         "z": "3fad3621.99e442",
-        "x": 808.84619140625,
-        "y": 86.92308616638184,
+        "x": 822.84619140625,
+        "y": 116.923095703125,
         "wires": [
             [
-                "f5adf38a.64667"
+                "2106aeef.1a05a2"
             ]
         ]
     },
@@ -4302,8 +3776,7 @@
         "y": 118.4615364074707,
         "wires": [
             [
-                "6a08b025.b4083",
-                "1066a348.7e8b2d"
+                "7b7f3ea1.e978c8"
             ]
         ]
     },
@@ -4313,8 +3786,8 @@
         "z": "3fad3621.99e442",
         "name": "",
         "scope": null,
-        "x": 1210.384609222412,
-        "y": 163.07690048217773,
+        "x": 1439,
+        "y": 226,
         "wires": [
             [
                 "e336bd51.ed2658"
@@ -4367,8 +3840,8 @@
         "id": "e336bd51.ed2658",
         "type": "subflow:73d26c58.2475cc",
         "z": "3fad3621.99e442",
-        "x": 1368.8460960388184,
-        "y": 163.0768985748291,
+        "x": 1599.8460693359375,
+        "y": 225.076904296875,
         "wires": [
             [
                 "f9ebd654.0abf38"
@@ -4542,15 +4015,1027 @@
         ]
     },
     {
-        "id": "bca89eae.0fd01",
+        "id": "e5997a86.312588",
+        "type": "watson-conversation-v1",
+        "z": "75456024.34a398",
+        "name": "Convo",
+        "workspaceid": "",
+        "multiuser": false,
+        "context": false,
+        "empty-payload": false,
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/conversation/api",
+        "x": 161.33349609375,
+        "y": 69,
+        "wires": [
+            [
+                "78ff02b2.128ea4"
+            ]
+        ]
+    },
+    {
+        "id": "fc1556b7.8b7e08",
+        "type": "watson-conversation-v1",
+        "z": "15c6f20.6b9dd0e",
+        "name": "Convo",
+        "workspaceid": "",
+        "multiuser": false,
+        "context": false,
+        "empty-payload": false,
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/conversation/api",
+        "x": 780.4358711242676,
+        "y": 200.0000057220459,
+        "wires": [
+            [
+                "4714084b.dcb8c"
+            ]
+        ]
+    },
+    {
+        "id": "d37a7262.117b5",
+        "type": "watson-conversation-v1",
+        "z": "87530aab.adb068",
+        "name": "Convo",
+        "workspaceid": "",
+        "multiuser": false,
+        "context": true,
+        "empty-payload": false,
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/conversation/api",
+        "x": 932.6922187805176,
+        "y": 106.15386390686035,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dc099fad.df4b28",
+        "type": "subflow:3c30ab94.447d3c",
+        "z": "1b19f8b1.08de9f",
+        "x": 330.3333435058594,
+        "y": 220.00000476837158,
+        "wires": [
+            [
+                "1babb086.be4e37"
+            ]
+        ]
+    },
+    {
+        "id": "eaee0d5f.355b8",
+        "type": "subflow:3c30ab94.447d3c",
+        "z": "5c4d249a.7988f4",
+        "x": 727.6666488647461,
+        "y": 240,
+        "wires": [
+            [
+                "580c2a8.ffb35d4"
+            ]
+        ]
+    },
+    {
+        "id": "ea24a25e.9d5e08",
+        "type": "subflow:3c30ab94.447d3c",
+        "z": "e85cff5a.1f786",
+        "x": 386.9999771118164,
+        "y": 260.0000104904175,
+        "wires": [
+            [
+                "bb6f481f.407f4"
+            ]
+        ]
+    },
+    {
+        "id": "e82d762d.da45d8",
+        "type": "subflow:3c30ab94.447d3c",
+        "z": "c1e9a4dc.c42cf8",
+        "x": 764.3333333333331,
+        "y": 280.6666666666666,
+        "wires": [
+            [
+                "331739b5.872f8e"
+            ]
+        ]
+    },
+    {
+        "id": "6657e485.95345c",
+        "type": "subflow:3c30ab94.447d3c",
+        "z": "d284a7e7.ca3e08",
+        "x": 859,
+        "y": 426.6666774749756,
+        "wires": [
+            [
+                "405b8d2d.bfbe94"
+            ]
+        ]
+    },
+    {
+        "id": "7b7f3ea1.e978c8",
+        "type": "subflow:3c30ab94.447d3c",
+        "z": "17eb59dd.9ff326",
+        "x": 686.999979019165,
+        "y": 240.0000057220459,
+        "wires": [
+            [
+                "f5cbecd2.4fa7f8"
+            ]
+        ]
+    },
+    {
+        "id": "c6e62d3f.e943c8",
+        "type": "subflow:3c30ab94.447d3c",
+        "z": "15c6f20.6b9dd0e",
+        "x": 616.3332920074463,
+        "y": 200.00001049041748,
+        "wires": [
+            [
+                "fc1556b7.8b7e08"
+            ]
+        ]
+    },
+    {
+        "id": "49458180.53d37",
+        "type": "subflow:3c30ab94.447d3c",
+        "z": "14d2f552.3522fb",
+        "x": 503.00000762939453,
+        "y": 160.6666717529297,
+        "wires": [
+            [
+                "f81a7e29.a14cb8"
+            ]
+        ]
+    },
+    {
+        "id": "42211b27.44fd74",
+        "type": "inject",
+        "z": "6e97b3ee.89fce4",
+        "name": "Inject",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 90,
+        "y": 220,
+        "wires": [
+            [
+                "e9700224.499d6"
+            ]
+        ]
+    },
+    {
+        "id": "9ae67e78.84806",
+        "type": "http request",
+        "z": "6e97b3ee.89fce4",
+        "name": "WDS Delete Doc",
+        "method": "DELETE",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 470,
+        "y": 220,
+        "wires": [
+            [
+                "d3477a2b.1c4098"
+            ]
+        ]
+    },
+    {
+        "id": "d3477a2b.1c4098",
         "type": "debug",
-        "z": "a0e2e197.345df",
+        "z": "6e97b3ee.89fce4",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 670,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "6cf13348.1d3c74",
+        "type": "inject",
+        "z": "6e97b3ee.89fce4",
+        "name": "Inject",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 440,
+        "y": 354,
+        "wires": [
+            [
+                "f2a4db7e.78818"
+            ]
+        ]
+    },
+    {
+        "id": "f2a4db7e.78818",
+        "type": "function",
+        "z": "6e97b3ee.89fce4",
+        "name": "Build Single JSON Doc",
+        "func": "\n\n/*UCG enriched fields for WDS\n  Type  |   Fields\n--------|-----------------\nTerm    | Key = Term, Text = Definiition\nQA      | Key = Question, Text = Answer\nArticle | Key = Title, Text = Article\n*/\n\ndata = {Key  : \"Dennis Noto\",\n          Text : \"UCG Creator\",\n          Type : \"Term\",\n  }\n\nmsg.document_id = Type + \"-\" + Term\nmsg.payload =  data\nmsg.payload.filename = msg.document_id + \".json\"\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 644,
+        "y": 354,
+        "wires": [
+            [
+                "20794257.7ec3ae"
+            ]
+        ]
+    },
+    {
+        "id": "94cf1ecf.cb5308",
+        "type": "csv",
+        "z": "6e97b3ee.89fce4",
+        "name": "CSV to Array",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "",
+        "multi": "mult",
+        "ret": "\\n",
+        "temp": "",
+        "x": 465,
+        "y": 427,
+        "wires": [
+            [
+                "5ea94d88.580cfc"
+            ]
+        ]
+    },
+    {
+        "id": "81c6f4a.767f088",
+        "type": "inject",
+        "z": "6e97b3ee.89fce4",
+        "name": "Inject",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 85,
+        "y": 427,
+        "wires": [
+            [
+                "5a60f1b4.5b37e8"
+            ]
+        ]
+    },
+    {
+        "id": "5a60f1b4.5b37e8",
+        "type": "file in",
+        "z": "6e97b3ee.89fce4",
+        "name": "",
+        "filename": "/data/investopedia_terms.csv",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 305,
+        "y": 427,
+        "wires": [
+            [
+                "94cf1ecf.cb5308"
+            ]
+        ]
+    },
+    {
+        "id": "5ea94d88.580cfc",
+        "type": "function",
+        "z": "6e97b3ee.89fce4",
+        "name": "Build JSON Doc ",
+        "func": "\nprocessArray = msg.payload\n\n/*UCG enriched fields for WDS\n  Type  |   Fields\n--------|-----------------\nTerm    | Key = Term, Text = Definiition\nQA      | Key = Question, Text = Answer\nArticle | Key = Title, Text = Article\n*/\n//for (i = 0; i < 100; i++) { \nfor (i = 0; i < processArray.length; i++) {\n \n (function(i) { setTimeout(function() {\n            \n                  data = {Key  : processArray[i].col1,\n                          Text : processArray[i].col2,\n                          Type : processArray[i].col3\n                  }\n  \n                  msg.document_id = processArray[i].col4\n                  msg.payload =  data;\n                  msg.payload.filename = msg.document_id + \".json\";\n                  node.send(msg); \n                \n                }, 1000 * i);\n               })(i);\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 668,
+        "y": 426,
+        "wires": [
+            [
+                "20794257.7ec3ae"
+            ]
+        ]
+    },
+    {
+        "id": "85ebbba8.42f1b8",
+        "type": "comment",
+        "z": "6e97b3ee.89fce4",
+        "name": "Now in the Get Answer Subflow",
+        "info": "",
+        "x": 150,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "ced7f006.7291e8",
+        "type": "comment",
+        "z": "6e97b3ee.89fce4",
+        "name": "Used to delete a doc",
+        "info": "",
+        "x": 120,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "6cf321a8.f00278",
+        "type": "comment",
+        "z": "6e97b3ee.89fce4",
+        "name": "Used to auto add docs from a CSV file",
+        "info": "",
+        "x": 163,
+        "y": 342,
+        "wires": []
+    },
+    {
+        "id": "4fd4437c.7ca034",
+        "type": "comment",
+        "z": "6e97b3ee.89fce4",
+        "name": "Used to get Collection, Training Data, and Notices information",
+        "info": "",
+        "x": 233,
+        "y": 724,
+        "wires": []
+    },
+    {
+        "id": "e9700224.499d6",
+        "type": "function",
+        "z": "6e97b3ee.89fce4",
+        "name": "Set Delete Doc",
+        "func": "\nmsg.collection_id = \"a3d865d3-f2b0-4dcb-8573-4c232dcb7fbc\"\nmsg.environment_id = \"d40ba5ee-be86-4b59-8a67-f463f233367d\"\nmsg.doc_id = \"e55f993b-07d9-43ed-841c-91db7da471c5\"\n\nmsg.url = \"https://gateway.watsonplatform.net/discovery/api/v1/environments/\" + msg.environment_id + \"/collections/\" + msg.collection_id + \"/documents/\" + msg.doc_id + \"?version=2017-11-07\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 260,
+        "y": 220,
+        "wires": [
+            [
+                "9ae67e78.84806"
+            ]
+        ]
+    },
+    {
+        "id": "1ee523f9.033d7c",
+        "type": "function",
+        "z": "6e97b3ee.89fce4",
+        "name": "WDS Search",
+        "func": "var watson = global.get('watson');\n\nvar discovery = new watson.DiscoveryV1({\n  username: \"578d5c5e-a713-44ad-bd8b-d3b8ba39c03c\",\n  password: \"NaFdTJluDnem\",\n  version_date: '2017-11-07'\n});\n\nvar params = {\n    natural_language_query: \"What are stocks?\",\n    environment_id: \"d40ba5ee-be86-4b59-8a67-f463f233367d\",\n    collection_id: \"06bca61b-6cad-4573-a618-215ae55b643c\",\n    configuration_id: \"1d573129-7100-4405-b6a0-439cd8af2640\",\n    passages: true, //if you want to enable passages\n    passages_fields : \"Text\",\n    count : 10\n    //sort : \"Term\"\n   //  return: ''\n  //highlight: true //if you want to enable highlight\n\n}\n\ndiscovery.query(params, (error, results) => {\n    if (error) {\n      node.error(error);\n    } else {\n      msg.WDSResults = results; //your query results\n      node.send(msg);\n        \n    }\n});\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 250,
+        "y": 100,
+        "wires": [
+            [
+                "abdc4d10.884698"
+            ]
+        ]
+    },
+    {
+        "id": "c834f012.6e23d8",
+        "type": "inject",
+        "z": "6e97b3ee.89fce4",
+        "name": "Inject",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 94,
+        "y": 830,
+        "wires": [
+            [
+                "353979f7.53af26"
+            ]
+        ]
+    },
+    {
+        "id": "d4e06cf.ec1e31",
+        "type": "function",
+        "z": "6e97b3ee.89fce4",
+        "name": "WDS Training data Info URL",
+        "func": "\nmsg.url = \"https://gateway.watsonplatform.net/discovery/api/v1/environments/\" + msg.environment_id + \"/collections/\" + msg.collection_id + \"/training_data?version=2017-11-07\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 481,
+        "y": 830,
+        "wires": [
+            [
+                "22d38a97.effb1e"
+            ]
+        ]
+    },
+    {
+        "id": "22d38a97.effb1e",
+        "type": "http request",
+        "z": "6e97b3ee.89fce4",
+        "name": "Execute URL",
+        "method": "GET",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 730,
+        "y": 829,
+        "wires": [
+            [
+                "fc734934.852358"
+            ]
+        ]
+    },
+    {
+        "id": "fc734934.852358",
+        "type": "debug",
+        "z": "6e97b3ee.89fce4",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 915,
+        "y": 828,
+        "wires": []
+    },
+    {
+        "id": "739675b8.03d35c",
+        "type": "inject",
+        "z": "6e97b3ee.89fce4",
+        "name": "Inject",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 94.5,
+        "y": 1016,
+        "wires": [
+            [
+                "83632849.dd8f9"
+            ]
+        ]
+    },
+    {
+        "id": "83632849.dd8f9",
+        "type": "function",
+        "z": "6e97b3ee.89fce4",
+        "name": "Get doc by id",
+        "func": "var watson = global.get('watson');\n\nvar discovery = new watson.DiscoveryV1({\n  username: \"578d5c5e-a713-44ad-bd8b-d3b8ba39c03c\",\n  password: \"NaFdTJluDnem\",\n  version_date: '2017-11-07'\n});\n\nvar params = {\n    query: \"_id:Term-International-Accounting-Standards-Committee-IASC\",\n    environment_id: \"d40ba5ee-be86-4b59-8a67-f463f233367d\",\n    collection_id: \"a3d865d3-f2b0-4dcb-8573-4c232dcb7fbc\",\n    configuration_id: \"1d573129-7100-4405-b6a0-439cd8af2640\"\n}\n\ndiscovery.query(params, (error, results) => {\n    if (error) {\n      node.error(error);\n    } else {\n      msg.payload = results; //your query results\n      node.send(msg);\n        \n    }\n});",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 258.5,
+        "y": 1016,
+        "wires": [
+            [
+                "cc370b5d.72e8b8"
+            ]
+        ]
+    },
+    {
+        "id": "cc370b5d.72e8b8",
+        "type": "debug",
+        "z": "6e97b3ee.89fce4",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 445.5,
+        "y": 1016,
+        "wires": []
+    },
+    {
+        "id": "f39832e8.fdb7d8",
+        "type": "function",
+        "z": "6e97b3ee.89fce4",
+        "name": "WDS Collection info URL",
+        "func": "\nmsg.url = \"https://gateway.watsonplatform.net/discovery/api/v1/environments/\" + msg.environment_id + \"/collections/\" + msg.collection_id + \"?version=2017-11-07\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 473.5,
+        "y": 770,
+        "wires": [
+            [
+                "22d38a97.effb1e"
+            ]
+        ]
+    },
+    {
+        "id": "8828eda2.dacf58",
+        "type": "function",
+        "z": "6e97b3ee.89fce4",
+        "name": "WDS Get Notices URL",
+        "func": "\nmsg.url = \"https://gateway.watsonplatform.net/discovery/api/v1/environments/\" + msg.environment_id + \"/collections/\" + msg.collection_id + \"/notices?version=2017-11-07\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 467.5,
+        "y": 892,
+        "wires": [
+            [
+                "22d38a97.effb1e"
+            ]
+        ]
+    },
+    {
+        "id": "353979f7.53af26",
+        "type": "function",
+        "z": "6e97b3ee.89fce4",
+        "name": "Set Params",
+        "func": "msg.collection_id = \"06bca61b-6cad-4573-a618-215ae55b643c\"\nmsg.environment_id = \"d40ba5ee-be86-4b59-8a67-f463f233367d\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 239.5,
+        "y": 830,
+        "wires": [
+            [
+                "d4e06cf.ec1e31",
+                "f39832e8.fdb7d8",
+                "8828eda2.dacf58"
+            ]
+        ]
+    },
+    {
+        "id": "d8993cfe.a959d8",
+        "type": "inject",
+        "z": "6e97b3ee.89fce4",
+        "name": "Inject",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 91.5,
+        "y": 1280,
+        "wires": [
+            [
+                "58f95e40.725f88"
+            ]
+        ]
+    },
+    {
+        "id": "58f95e40.725f88",
+        "type": "function",
+        "z": "6e97b3ee.89fce4",
+        "name": "WDS Delete Training Example URL",
+        "func": "msg.collection_id = \"a3d865d3-f2b0-4dcb-8573-4c232dcb7fbc\"\nmsg.environment_id = \"d40ba5ee-be86-4b59-8a67-f463f233367d\"\nmsg.query_id = \"321177599782e7d8cbe136dc25ec1626616648af\"\nmsg.examples_id = \"034cdf93-e7ce-4bd7-ac98-60b0896202ee\"\nmsg.url = \"https://gateway.watsonplatform.net/discovery/api/v1/environments/\" + msg.environment_id + \"/collections/\" + msg.collection_id + \"/training_data/\" + msg.query_id + \"/examples/\" + msg.examples_id + \"?version=2017-11-07\"\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 313.5,
+        "y": 1280,
+        "wires": [
+            [
+                "b7906220.082db"
+            ]
+        ]
+    },
+    {
+        "id": "b7906220.082db",
+        "type": "http request",
+        "z": "6e97b3ee.89fce4",
+        "name": "Execute URL",
+        "method": "DELETE",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 570.5,
+        "y": 1280,
+        "wires": [
+            [
+                "f1b55e1b.a76528"
+            ]
+        ]
+    },
+    {
+        "id": "f1b55e1b.a76528",
+        "type": "debug",
+        "z": "6e97b3ee.89fce4",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 769.5,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "77767850.bd513",
+        "type": "switch",
+        "z": "75456024.34a398",
+        "name": "Answer Switch",
+        "property": "answerType",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "WCS",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "WDS",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 587.5,
+        "y": 69.07691955566406,
+        "wires": [
+            [],
+            [
+                "831a6062.17367"
+            ]
+        ]
+    },
+    {
+        "id": "78ff02b2.128ea4",
+        "type": "function",
+        "z": "75456024.34a398",
+        "name": "Check WCS Confidence",
+        "func": "msg.answerType = \"\"\nmsg.highIntent = false\nmsg.highEntity = false\nif (typeof msg.payload.intents[0] !== \"undefined\"){ \n    if (msg.payload.intents[0].confidence > .50){\n      \n       msg.highIntent = true\n    }\n}\n\nif (typeof msg.payload.entities[0] !== \"undefined\"){\n    if (msg.payload.entities[0].confidence > .50){\n       msg.highEntity = true\n    }\n}\n\nif (msg.highIntent || msg.highEntity ) {\n  msg.answerType = \"WCS\"\n}\nelse if (!msg.highIntent && !msg.highEntity)   {\n    if (msg.payload.output.text.length > 0){\n        if (msg.payload.output.text[0].toUpperCase().match(/\\b(FUTURE TRAINING|HAVING TROUBLE)\\b/g)) {\n            msg.answerType = \"WDS\"\n        }\n        else {\n            msg.answerType = \"WCS\"\n        }\n    }\n    else {\n        msg.answerType = \"WDS\" \n    }\n}\n\nelse {\n  msg.answerType = \"WDS\"  \n} \n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 363.5,
+        "y": 69.07691955566406,
+        "wires": [
+            [
+                "77767850.bd513",
+                "5ddc4440.2b48e4"
+            ]
+        ]
+    },
+    {
+        "id": "831a6062.17367",
+        "type": "function",
+        "z": "75456024.34a398",
+        "name": "WDS Search",
+        "func": "var watson = global.get('watson');\n\nvar discovery = new watson.DiscoveryV1({\n  username: \"578d5c5e-a713-44ad-bd8b-d3b8ba39c03c\",\n  password: \"NaFdTJluDnem\",\n  version_date: '2017-11-07'\n});\n\nvar params = {\n    natural_language_query: msg.payload.input.text,\n    environment_id: \"d40ba5ee-be86-4b59-8a67-f463f233367d\",\n    collection_id: \"a3d865d3-f2b0-4dcb-8573-4c232dcb7fbc\",\n    configuration_id: \"1d573129-7100-4405-b6a0-439cd8af2640\",\n    passages: false, //if you want to enable passages\n    //passages_fields : \"Text\"\n    //sort : \"Term\"\n   //  return: ''\n  //highlight: true //if you want to enable highlight\n\n}\n\ndiscovery.query(params, (error, results) => {\n    if (error) {\n      node.error(error);\n    } else {\n      msg.WDSResults = results; //your query results\n      msg.test = msg.payload.input.abc\n      node.send(msg);\n    }\n});",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 762.5,
+        "y": 127.07691955566406,
+        "wires": [
+            [
+                "25c719ea.a89abe",
+                "1a41926f.665816"
+            ]
+        ]
+    },
+    {
+        "id": "2106aeef.1a05a2",
+        "type": "subflow:75456024.34a398",
+        "z": "3fad3621.99e442",
+        "x": 1036.5,
+        "y": 116.9615478515625,
+        "wires": [
+            [
+                "45ecefd5.b04ee8"
+            ]
+        ]
+    },
+    {
+        "id": "5ddc4440.2b48e4",
+        "type": "debug",
+        "z": "75456024.34a398",
         "name": "",
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 359.6153846153845,
-        "y": 143.8461538461538,
+        "x": 515.5,
+        "y": 189,
+        "wires": []
+    },
+    {
+        "id": "67c863cf.d22444",
+        "type": "subflow:87530aab.adb068",
+        "z": "75456024.34a398",
+        "x": 137.5,
+        "y": 384,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ececde02.3d2dc8",
+        "type": "comment",
+        "z": "75456024.34a398",
+        "name": "Can replace single Convo with Dynamic Router Subflow",
+        "info": "",
+        "x": 232.5,
+        "y": 327,
+        "wires": []
+    },
+    {
+        "id": "b6cdde19.f645c8",
+        "type": "comment",
+        "z": "75456024.34a398",
+        "name": "Run through WCS first, Test confidence and go to WDS if confidence below 50%",
+        "info": "",
+        "x": 304.5,
+        "y": 27,
+        "wires": []
+    },
+    {
+        "id": "15cfe8da.17eb4f",
+        "type": "comment",
+        "z": "6e97b3ee.89fce4",
+        "name": "Used to get info on a single document",
+        "info": "",
+        "x": 166.5,
+        "y": 964,
+        "wires": []
+    },
+    {
+        "id": "304ad04f.1d415",
+        "type": "comment",
+        "z": "6e97b3ee.89fce4",
+        "name": "Used to delete an example when you get a traing error found in a notice",
+        "info": "",
+        "x": 260.5,
+        "y": 1231,
+        "wires": []
+    },
+    {
+        "id": "25c719ea.a89abe",
+        "type": "function",
+        "z": "75456024.34a398",
+        "name": "Enhance Answer",
+        "func": "if (msg.WDSResults.matching_results > 0){\n    if (typeof msg.WDSResults.results[0].Text !== \"undefined\"){\n        if (msg.WDSResults.results[0].Type == \"Term\") {\n          msg.payload.output.text[0] = \"I found this im my glossary. \" + msg.WDSResults.results[0].Key + \" , \" + msg.WDSResults.results[0].Text\n         \n        }\n        else if (msg.WDSResults.results[0].Type == \"Article\") {\n          msg.payload.output.text[0] = \"I found this article, \" + msg.WDSResults.results[0].Key  + \" that may be helpful. \" + msg.WDSResults.results[0].Text\n        }\n        else {\n          msg.payload.output.text[0] =  msg.WDSResults.results[0].Text\n        }\n    }  \n}\nelse {\n   msg.payload.output.text[0] = \"Sorry I tried many sources to answer your question, can you restate your question?\" \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 977.5,
+        "y": 128,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7a1dbcb3.e1fb34",
+        "type": "function",
+        "z": "75456024.34a398",
+        "name": "Log Error",
+        "func": "var err_msg = \"UCG received an error from \" + msg.error.source.name + ' stating '+ msg.error.message;\nmsg.payload.output.text[0] = err_msg\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1056.5,
+        "y": 207,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1a41926f.665816",
+        "type": "debug",
+        "z": "75456024.34a398",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 769.5,
+        "y": 268,
+        "wires": []
+    },
+    {
+        "id": "9ab56f97.8b3f08",
+        "type": "catch",
+        "z": "75456024.34a398",
+        "name": "",
+        "scope": null,
+        "x": 896.5,
+        "y": 207,
+        "wires": [
+            [
+                "7a1dbcb3.e1fb34"
+            ]
+        ]
+    },
+    {
+        "id": "25f0b61a.a69552",
+        "type": "function",
+        "z": "6e97b3ee.89fce4",
+        "name": "WDS Update Doc",
+        "func": "var watson = global.get('watson');\n\nvar discovery = new watson.DiscoveryV1({\n  username: \"578d5c5e-a713-44ad-bd8b-d3b8ba39c03c\",\n  password: \"NaFdTJluDnem\",\n  version_date: '2017-11-07'\n});\n\ndata = {Term : \"Dennis Noto\",\n        Text : \"The man, the myth, the legend, he is the most masterful innovator of our time, not Steve Jobs, but Dennis Noto!\",\n        Type : \"Term\"\n  }\n\nvar params = {\n    environment_id: \"d40ba5ee-be86-4b59-8a67-f463f233367d\",\n    collection_id: \"a3d865d3-f2b0-4dcb-8573-4c232dcb7fbc\",\n    configuration_id: \"1d573129-7100-4405-b6a0-439cd8af2640\",\n    document_id : \"6e1fab9c-7153-4646-a160-9ae1471d49ab\",\n    file : data\n\n}\n\ndiscovery.updateJsonDocument(params, (error, results) => {\n    if (error) {\n      node.error(error);\n    } else {\n      msg.payload = results;\n      node.send(msg);\n        \n    }\n});",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 265.5,
+        "y": 1111,
+        "wires": [
+            [
+                "19b4083a.91d4d8"
+            ]
+        ]
+    },
+    {
+        "id": "1127bfa5.61d828",
+        "type": "inject",
+        "z": "6e97b3ee.89fce4",
+        "name": "Inject",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 90.5,
+        "y": 1111,
+        "wires": [
+            [
+                "25f0b61a.a69552"
+            ]
+        ]
+    },
+    {
+        "id": "19b4083a.91d4d8",
+        "type": "debug",
+        "z": "6e97b3ee.89fce4",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 464.5,
+        "y": 1111,
+        "wires": []
+    },
+    {
+        "id": "3596ca2d.31b8b6",
+        "type": "comment",
+        "z": "6e97b3ee.89fce4",
+        "name": "Used to update a doc",
+        "info": "",
+        "x": 118.5,
+        "y": 1066,
+        "wires": []
+    },
+    {
+        "id": "20794257.7ec3ae",
+        "type": "function",
+        "z": "6e97b3ee.89fce4",
+        "name": "WDS Update Doc",
+        "func": "var watson = global.get('watson');\n\nvar discovery = new watson.DiscoveryV1({\n  username: \"578d5c5e-a713-44ad-bd8b-d3b8ba39c03c\",\n  password: \"NaFdTJluDnem\",\n  version_date: '2017-11-07'\n});\n\nvar params = {\n    environment_id: \"d40ba5ee-be86-4b59-8a67-f463f233367d\",\n    collection_id: \"06bca61b-6cad-4573-a618-215ae55b643c\",\n    configuration_id: \"1d573129-7100-4405-b6a0-439cd8af2640\",\n    document_id : msg.document_id,\n    file : msg.payload\n}\n\ndiscovery.updateJsonDocument(params, (error, results) => {\n    if (error) {\n      node.error(error);\n    } else {\n      msg.payload = results; //your query results\n      node.send(msg);\n        \n    }\n});",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 878.5,
+        "y": 426,
+        "wires": [
+            [
+                "97116687.b1fab"
+            ]
+        ]
+    },
+    {
+        "id": "97116687.b1fab",
+        "type": "debug",
+        "z": "6e97b3ee.89fce4",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1089.5,
+        "y": 427,
+        "wires": []
+    },
+    {
+        "id": "f3ad2e4f.2c9fb8",
+        "type": "inject",
+        "z": "6e97b3ee.89fce4",
+        "name": "Inject",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 87.5,
+        "y": 607,
+        "wires": [
+            [
+                "6227beba.b8795"
+            ]
+        ]
+    },
+    {
+        "id": "6227beba.b8795",
+        "type": "file in",
+        "z": "6e97b3ee.89fce4",
+        "name": "",
+        "filename": "/data/investopedia_TrainingQueries.csv",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 327.5,
+        "y": 607,
+        "wires": [
+            [
+                "a04b547.f558028"
+            ]
+        ]
+    },
+    {
+        "id": "a04b547.f558028",
+        "type": "csv",
+        "z": "6e97b3ee.89fce4",
+        "name": "CSV to Array",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "",
+        "multi": "mult",
+        "ret": "\\n",
+        "temp": "",
+        "x": 590.5,
+        "y": 607,
+        "wires": [
+            [
+                "c3c928bc.edf9d"
+            ]
+        ]
+    },
+    {
+        "id": "c3c928bc.edf9d",
+        "type": "function",
+        "z": "6e97b3ee.89fce4",
+        "name": "Build JSON Training Data",
+        "func": "msg.collection_id = \"06bca61b-6cad-4573-a618-215ae55b643c\"\nmsg.environment_id = \"d40ba5ee-be86-4b59-8a67-f463f233367d\"\nvar processArray = msg.payload\n\n\nfor (i = 0; i < processArray.length; i++) {\n//for (i = 0; i < 2; i++) { \n (function(i) { setTimeout(function() {\n            \n                  data = {natural_language_query  : processArray[i].Query,\n                              examples : []\n                  }\n                  \n                 \n                  if (processArray[i].ReleventDoc1 != \"NA\" ) {\n                     data.examples.push({\"document_id\" : processArray[i].ReleventDoc1, \"relevance\" : processArray[i].RScore1});\n                  }\n                 \n                  if (processArray[i].ReleventDoc2 != \"NA\" ) {\n                     data.examples.push({\"document_id\" : processArray[i].ReleventDoc2, \"relevance\" : processArray[i].RScore2});\n                  }\n                \n                  if (processArray[i].ReleventDoc3 != \"NA\" ) {\n                     data.examples.push({\"document_id\" : processArray[i].ReleventDoc3, \"relevance\" : processArray[i].RScore3});\n                  }\n                 \n                  if (processArray[i].NonReleventDoc1 != \"NA\" ) {\n                     data.examples.push({\"document_id\" : processArray[i].NonReleventDoc1, \"relevance\" : processArray[i].NRScore1});\n                  }\n                  \n                  if (processArray[i].NonReleventDoc2 != \"NA\" ) {\n                     data.examples.push({\"document_id\" : processArray[i].NonReleventDoc2, \"relevance\" : processArray[i].NRScore2});\n                  }\n                  \n                  if (processArray[i].NonReleventDoc3 != \"NA\" ) {\n                     data.examples.push({\"document_id\" : processArray[i].NonReleventDoc3, \"relevance\" : processArray[i].NRScore3});\n                  }\n                  msg.url = \"https://gateway.watsonplatform.net/discovery/api/v1/environments/\" + msg.environment_id + \"/collections/\" + msg.collection_id + \"/training_data?version=2017-11-07\"\n                  msg.payload =  data;\n                  node.send(msg); \n                \n                }, 1000 * i);\n               })(i);\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 797.5,
+        "y": 607,
+        "wires": [
+            [
+                "9f910eb3.6ef238"
+            ]
+        ]
+    },
+    {
+        "id": "1e3d3279.568576",
+        "type": "debug",
+        "z": "6e97b3ee.89fce4",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 1252.5,
+        "y": 607,
+        "wires": []
+    },
+    {
+        "id": "9f910eb3.6ef238",
+        "type": "http request",
+        "z": "6e97b3ee.89fce4",
+        "name": "Execute URL",
+        "method": "POST",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 1065.5,
+        "y": 607,
+        "wires": [
+            [
+                "1e3d3279.568576"
+            ]
+        ]
+    },
+    {
+        "id": "571bc65e.039598",
+        "type": "function",
+        "z": "6e97b3ee.89fce4",
+        "name": "Build a single Query",
+        "func": "msg.collection_id = \"a3d865d3-f2b0-4dcb-8573-4c232dcb7fbc\"\nmsg.environment_id = \"d40ba5ee-be86-4b59-8a67-f463f233367d\"\n\n\ndata = {natural_language_query  : \"What is a zero coupon bond?\",\n        examples : [\n                              \n                    {\"document_id\" : \"Term-Zero-Coupon-Bond\", \"relevance\" : 100},\n                    {\"document_id\" : \"Term-Bond\", \"relevance\" : 90},\n                    {\"document_id\" : \"Term-Bond-Discount\", \"relevance\" : 0},\n                    {\"document_id\" : \"Term-Corporate-Bond\", \"relevance\" : 0},\n                   ]\n}\n\n\nmsg.url = \"https://gateway.watsonplatform.net/discovery/api/v1/environments/\" + msg.environment_id + \"/collections/\" + msg.collection_id + \"/training_data?version=2017-11-07\"\nmsg.payload =  data;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 789.5,
+        "y": 545,
+        "wires": [
+            [
+                "9f910eb3.6ef238"
+            ]
+        ]
+    },
+    {
+        "id": "e530271c.958fd",
+        "type": "inject",
+        "z": "6e97b3ee.89fce4",
+        "name": "Inject",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 580.5,
+        "y": 543,
+        "wires": [
+            [
+                "571bc65e.039598"
+            ]
+        ]
+    },
+    {
+        "id": "c69bcc46.637de8",
+        "type": "comment",
+        "z": "6e97b3ee.89fce4",
+        "name": "Used to auto add training data from CSV file",
+        "info": "",
+        "x": 190.5,
+        "y": 536,
         "wires": []
     }
 ]

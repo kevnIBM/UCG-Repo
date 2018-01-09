@@ -176,6 +176,7 @@ module.exports = {
 
     functionGlobalContext: {
         redis:require('/usr/src/node-red/node_modules/ioredis'),
+        watson:require('/usr/src/node-red/node_modules/watson-developer-cloud'),
         process: process
         // octalbonescript:require('octalbonescript'),
         // jfive:require("johnny-five"),

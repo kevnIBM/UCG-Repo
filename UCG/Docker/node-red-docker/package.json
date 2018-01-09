@@ -45,7 +45,8 @@
         "node-red-contrib-ucg-mssql":"0.1.8",
         "node-red-contrib-http-request":"0.x",
         "ioredis":"3.1.4",
-        "node-red-node-watson-ucg":"0.0.11"
+        "node-red-node-watson-ucg":"0.0.11",
+        "watson-developer-cloud":"3.x"
 
     },
     "engines": {
