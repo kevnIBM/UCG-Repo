@@ -20,8 +20,10 @@ Steps to use an NFS File storage volume in Bluemix for Kubernetes Persistant Vol
         yum -y install nfs-utils nfs-utils-lib
    Mount nfs
        mkdir /nfs
-       mount -t nfs4 -o hard,intr fsf-dal1001h-fz.adn.networklayer.com:/IBM02SV1339641_2/data01 /nfs
+       mount -t nfs4 -o hard,intr fsf-dal1001h-fz.adn.networklayer.com:/IBM02SV1339641_2/data01 /nfs 
            - mount_point can be found at step 3
+   Add to etc/fstab
+       fsf-dal1001h-fz.adn.networklayer.com:/IBM02SV1339641_2/data01 /nfs nfs4 hard,intr        
    Test to see if mounted
         df -h
 5. create directores and copy files
