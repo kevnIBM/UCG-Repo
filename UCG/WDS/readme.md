@@ -45,3 +45,18 @@ Steps to use Intergration
  2) After the content is loaded, you can upload the training data. I have provided a TrainingQueries.csv touse with the Auto upload training data flow in the Discovery tab, click inject after vars and file are changed.
  3) If all goes well you can use the search flow to ask NP Questions located at the top of the Discovery tab.
 
+ Executing the upload via CURL via your mac
+
+ cd WDS/DataDocs 
+
+ For Training Queries
+
+    curl -F "file=@Articles_TrainingQueries.csv" http://ucg-cluster-dev.us-south.containers.mybluemix.net/LoadWDSTrainingData
+
+ For Content:
+
+    curl -F "file=@Articles.csv" http://ucg-cluster-dev.us-south.containers.mybluemix.net/LoadWDSContent
+
+
+
+
