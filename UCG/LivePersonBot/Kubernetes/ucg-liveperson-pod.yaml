@@ -30,7 +30,7 @@ spec:
         - name: ZK_PORT_2181_TCP_ADDR
           value: "127.0.0.1"
         - name: ucg_domain
-          value: "ucg-clusterv3.us-south.containers.mybluemix.net"
+          value: "ucg-cluster-dev.us-south.containers.mybluemix.net"
         - name: wcs_username
           value: "4acac659-e820-4ef6-8421-e88f517c9c4c"
         - name: wcs_password

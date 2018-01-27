@@ -12,11 +12,12 @@
     <script src="https://chrisjamestest.neocities.org/js/jquery-ui.js"></script>
     <script src="https://chrisjamestest.neocities.org/js/tether.min.js"></script>
     <script src="https://chrisjamestest.neocities.org/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://chrisjamestest.neocities.org/css/jquery-ui.css"> 
-  	<link rel="stylesheet" href="https://chrisjamestest.neocities.org/cssw/tether.min.css"> 
-  	<link rel="stylesheet" href="https://chrisjamestest.neocities.org/css/bootstrap.min.css">
-  <!--    <link rel="stylesheet" type="text/css" href="/stylesheets/lpstyle.css"> -->
-	     <link rel="stylesheet" type="text/css" href="/Users/dennisnoto/Documents/NotoData-Dev/UCG-Repo/UCG/UCG-WebServer/ucg-web-server/public/stylesheets/lpstyle.css"> 
+	<link rel="stylesheet" href="https://chrisjamestest.neocities.org/css/jquery-ui.css">
+	<link rel="stylesheet" href="https://chrisjamestest.neocities.org/cssw/tether.min.css">
+	<link rel="stylesheet" href="https://chrisjamestest.neocities.org/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/lpstyle.css"> 
+  <!--    <link rel="stylesheet" type="text/css" href="/Users/dennisnoto/Documents/NotoData-Dev/UCG-Repo/UCG/UCG-WebServer/ucg-web-server/public/stylesheets/lpstyle.css"> -->
+	
 	
 <!-- JWT DECODE -->
 <script>
@@ -24,23 +25,31 @@
 	
 //BEGIN LivePerson Monitor
 
-window.lpTag=window.lpTag||{},"undefined"==typeof window.lpTag._tagCount?(window.lpTag={site:'80928280'||"",section:lpTag.section||"",tagletSection:lpTag.tagletSection||null,autoStart:lpTag.autoStart!==!1,ovr:lpTag.ovr||{domain : 'lptag-a.liveperson.net',tagjs : 'tags-a.liveperson.net'},_v:"1.7.0",_tagCount:1,protocol:"https:",events:{bind:function(t,e,i){lpTag.defer(function(){lpTag.events.bind(t,e,i)},0)},trigger:function(t,e,i){lpTag.defer(function(){lpTag.events.trigger(t,e,i)},1)}},defer:function(t,e){0==e?(this._defB=this._defB||[],this._defB.push(t)):1==e?(this._defT=this._defT||[],this._defT.push(t)):(this._defL=this._defL||[],this._defL.push(t))},load:function(t,e,i){var n=this;setTimeout(function(){n._load(t,e,i)},0)},_load:function(t,e,i){var n=t;t||(n=this.protocol+"//"+(this.ovr&&this.ovr.domain?this.ovr.domain:"lptag.liveperson.net")+"/tag/tag.js?site="+this.site);var a=document.createElement("script");a.setAttribute("charset",e?e:"UTF-8"),i&&a.setAttribute("id",i),a.setAttribute("src",n),document.getElementsByTagName("head").item(0).appendChild(a)},init:function(){this._timing=this._timing||{},this._timing.start=(new Date).getTime();var t=this;window.attachEvent?window.attachEvent("onload",function(){t._domReady("domReady")}):(window.addEventListener("DOMContentLoaded",function(){t._domReady("contReady")},!1),window.addEventListener("load",function(){t._domReady("domReady")},!1)),"undefined"==typeof window._lptStop&&this.load()},start:function(){this.autoStart=!0},_domReady:function(t){this.isDom||(this.isDom=!0,this.events.trigger("LPT","DOM_READY",{t:t})),this._timing[t]=(new Date).getTime()},vars:lpTag.vars||[],dbs:lpTag.dbs||[],ctn:lpTag.ctn||[],sdes:lpTag.sdes||[],ev:lpTag.ev||[]},lpTag.init()):window.lpTag._tagCount+=1;
+window.lpTag=window.lpTag||{},"undefined"==typeof window.lpTag._tagCount?(window.lpTag={site:'80928280'||"",section:lpTag.section||"",tagletSection:lpTag.tagletSection||null,autoStart:lpTag.autoStart!==!1,ovr:lpTag.ovr||{},_v:"1.8.0",_tagCount:1,protocol:"https:",events:{bind:function(t,e,i){lpTag.defer(function(){lpTag.events.bind(t,e,i)},0)},trigger:function(t,e,i){lpTag.defer(function(){lpTag.events.trigger(t,e,i)},1)}},defer:function(t,e){0==e?(this._defB=this._defB||[],this._defB.push(t)):1==e?(this._defT=this._defT||[],this._defT.push(t)):(this._defL=this._defL||[],this._defL.push(t))},load:function(t,e,i){var n=this;setTimeout(function(){n._load(t,e,i)},0)},_load:function(t,e,i){var n=t;t||(n=this.protocol+"//"+(this.ovr&&this.ovr.domain?this.ovr.domain:"lptag.liveperson.net")+"/tag/tag.js?site="+this.site);var a=document.createElement("script");a.setAttribute("charset",e?e:"UTF-8"),i&&a.setAttribute("id",i),a.setAttribute("src",n),document.getElementsByTagName("head").item(0).appendChild(a)},init:function(){this._timing=this._timing||{},this._timing.start=(new Date).getTime();var t=this;window.attachEvent?window.attachEvent("onload",function(){t._domReady("domReady")}):(window.addEventListener("DOMContentLoaded",function(){t._domReady("contReady")},!1),window.addEventListener("load",function(){t._domReady("domReady")},!1)),"undefined"==typeof window._lptStop&&this.load()},start:function(){this.autoStart=!0},_domReady:function(t){this.isDom||(this.isDom=!0,this.events.trigger("LPT","DOM_READY",{t:t})),this._timing[t]=(new Date).getTime()},vars:lpTag.vars||[],dbs:lpTag.dbs||[],ctn:lpTag.ctn||[],sdes:lpTag.sdes||[],hooks:lpTag.hooks||[],ev:lpTag.ev||[]},lpTag.init()):window.lpTag._tagCount+=1;
 
-//boolean flag for web messaging
-lpTag.sdes.push({"type":"ctmrinfo","info":{customerId: '1'}});
+
+lpTag.sdes.push({"type":"ctmrinfo","info":{customerId: '1', customerType:'test'}});
+
+var tokenResponse = null;
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    console.log(this.responseText.match(/{\s*\"jwt\".*}/)[0]);
+    tokenResponse = this.responseText.match(/{\s*\"jwt\".*}/)[0];
+  }
+};
+xhttp.open('GET', 'http://ucg-clusterv3.us-south.containers.mybluemix.net/signup', true);
+xhttp.send();
 
 // Authentication JSMethod for LiveEngage
 var lpGetAuthenticationToken = function(callback) {
-    console.log("lpGetAuthenticationToken");
-  var token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJVQ0ciLCJnaXZlbl9uYW1lIjoiZGVubmlzIiwiZmFtaWx5X25hbWUiOiJub3RvIiwiZW1haWwiOiJkZW5uaXMubm90b0B1cy5pYm0uY29tIiwibHBfc2RlcyI6W3sidHlwZSI6ImN0bXJpbmZvIiwiaW5mbyI6eyJjdHlwZSI6IklCTS1XYXRzb24ifX1dLCJpc3MiOiJodHRwczovL3d3dy5saXZlcGVyc29uLmNvbSIsImlhdCI6MTUwODUxMzk3NTE3NCwiZXhwIjoxNTQwMDUzOTc1MTc0fQ.YYGqu6Lh-1XsJEa9pn1pUTupOVaLjLzWdquWo78v6nBWpep6zZuWzZTXx4O3tGQmwh2WpvpDoIxrzxm0mZSO80ItXEDeRHO6BcsAri_gRWaR7UWblYiUo7GjTJzw2YN9uZwa6A9lnuCU_CDrsh0aMZVdZj8nsLusH9OKJmzSEUY";           
-    if (token) {
-    console.log("ID token: " + token);
-    console.log("calling web messaging with token...");
-      callback(token);
-    }
+  if (tokenResponse) {
+    var id_token = JSON.parse(tokenResponse).jwt;
+    console.log("got id token! " + id_token);
+    console.log("calling callback with token...");
+    callback(id_token);
+  }
 };
-
-
 </script>
   </head>
   <body>  

@@ -48,7 +48,8 @@
         "node-red-node-watson-ucg":"0.0.11",
         "cluster-service":"2.x",
         "watson-developer-cloud":"3.x",
-        "node-red-contrib-multipart-stream-encoder":"0.x"
+        "node-red-contrib-multipart-stream-encoder":"0.x",
+        "node-red-contrib-csvtojson":"0.x"
 
     },
     "engines": {

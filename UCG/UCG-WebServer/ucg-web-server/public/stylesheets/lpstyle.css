@@ -6,10 +6,10 @@ width: 500px !important;
 border-color: white !important;
 }
 DIV.lp_rich_content_line {
-/*+placement: 48px -25px !important;*/
+/*+placement: 7px 4px !important;*/
 position: relative !important;
-left: 48px !important;
-top: -25px !important;
+left: 7px !important;
+top: 4px !important;
 height: ;
 width: 300px !important;
 }
@@ -91,7 +91,7 @@ font-size: 14px !important;
 height: ;
 width: 400px !important;
 }
-.lp-json-pollock-singel-element{
+.lp-json-pollock-singel-element {
 height: ;
 width: 400px !important;
 }
