@@ -8,7 +8,7 @@ spec:
   selector:
     app: nodered
   type: LoadBalancer
-  externalIPs : ["169.60.13.101"]
+  #externalIPs : ["169.60.13.101"]
   ports:
    - protocol: TCP  
      port: 1880

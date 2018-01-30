@@ -5,10 +5,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - ucg-cluster-dev.us-south.containers.mybluemix.net
-    secretName: ucg-cluster-dev
+    - ucg-clusterdev.us-south.containers.mybluemix.net
+    secretName: ucg-clusterdev
   rules:
-  - host: ucg-cluster-dev.us-south.containers.mybluemix.net
+  - host: ucg-clusterdev.us-south.containers.mybluemix.net
     http:
       paths:
       - path: /
