@@ -68,6 +68,7 @@ router.get('/', function(req, res){
 		'sub': uuidv4()
 	};
 	var milliseconds = (new Date()).getTime();
+	var seconds = milliseconds/1000 | 0;
 	claims.iss = "https://www.google.com";
 	claims.iat = milliseconds;
 	claims.exp = milliseconds + 31540000000;

@@ -18,7 +18,7 @@ In Live Person System
 
 
 3. Create a user Watson
-	- type : Bot
+	- type : HUMAN
 	- Login Name, nick name, name : Watson
 	- Picture url : https://www.ibm.com/developerworks/community/blogs/ibmandgoogle/resource/BLOGS_UPLOADED_IMAGES/IBM_Watson_logo_square.png
 	- login metho : password Hockey1234
