@@ -71,6 +71,7 @@ router.get('/', function(req, res){
 	claims.iss = "https://www.google.com";
 	claims.iat = milliseconds;
 	claims.exp = milliseconds + 31540000000;
+//  claims.sub = "dennisnoto@gmail.com"	
 	jwt.sign(claims, privateKey, {algorithm: 'RS256'}, function(err, token){
 		if(err){
 			console.error('Error!!!', err);

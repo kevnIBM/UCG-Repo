@@ -47,8 +47,8 @@ class MyCoolAgent extends Agent {
                                 "ringId": r.ringId,
                                 "ringState": "ACCEPTED"
                             }, (e, resp) =>{
-                                console.log(resp);
-
+                                console.log('response ',resp);
+                                //console.log('error ',e);
                             } );
                         }
                     });
@@ -110,7 +110,7 @@ class MyCoolAgent extends Agent {
                                   message : watsonAnswer.text[i]
                                 }
                              }, function(err) {
-                                     if (err) {console.log('error from publishEvent-RichContentEvent in MyCoolAgent: ', err)}
+                                     if (err) {console.log('error from publishEvent in MyCoolAgent: ', err)}
                                   });
             
                            }
