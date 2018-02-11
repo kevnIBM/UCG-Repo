@@ -60,7 +60,7 @@ Steps to use Intergration
 For Handling Answers from WDS
 
 UCG_ANSWER_ROUTING - allows WCS engineers to change the answer routing. Set a context var in the conversation start
-Example: UCG_ANSWER_ROUTING = WCS-WDS-WCS
+Example: "UCG_ANSWER_ROUTING": "WCS-WDS-WCS"
 
   Possible Values:
     WCS-WDS     - the default routing(Don't need to set) that uses a canned answer via an enrich function node in the SOE flow that overrides WCS when an irrelevant utterance is detected.
