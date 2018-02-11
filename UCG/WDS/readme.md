@@ -57,6 +57,47 @@ Steps to use Intergration
 
     curl -F "file=@Articles.csv" http://ucg-cluster-dev.us-south.containers.mybluemix.net/LoadWDSContent
 
+For Handling Answers from WDS
 
+UCG_ANSWER_ROUTING - allows WCS engineers to change the answer routing. Set a context var in the conversation start
+Example: UCG_ANSWER_ROUTING = WCS-WDS-WCS
+
+  Possible Values:
+    WCS-WDS     - the default routing(Don't need to set) that uses a canned answer via an enrich function node in the SOE flow that overrides WCS when an irrelevant utterance is detected.
+
+    WCS-WDS-WCS - routes back through WCS after calling WDS with new context vars
+              WDSResults - JSON object with payload from WDS
+
+    Must add the following to WCS:
+
+    1. Add Intent ProcessWDS Answer with utterance "Process WDS Answer"
+    2. Add Dialog node "Handle WDS Ansers from UCG"
+        Add Responses 
+         If Bot recongnizes
+         
+         $WDSResults.results[0].Type == "Article"
+
+        Respond with in JSON editor
+         
+         {"output": {"text": [
+            "I found this article titled , <? $WDSResults.results[0].Key?>, that might interest you.",
+            "UCGWDSANSWER",
+            "Any other questions?"
+          ]}}
+
+        If Bot recognizes
+         $WDSResults.results[0].Type == "Term" 
+
+        Respond with - in JSON editor
+
+         {"output": {"text": [
+            "I found this term, <? $WDSResults.results[0].Key?>, in my glossary.",
+            "UCGWDSANSWER",
+            "Any other questions?"
+          ]}} 
+
+Notes:
+1) The tag "UCGWDSANSWER" is used to place the output array from WDS anywhere in the WCS output array.  
+2) Fields from $WDSResults can be referenced from the context - run an query in WDS and view the JSON output to see possible values. 
 
 
