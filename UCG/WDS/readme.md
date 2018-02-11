@@ -98,6 +98,6 @@ Example: "UCG_ANSWER_ROUTING": "WCS-WDS-WCS"
 
 Notes:
 1) The tag "UCGWDSANSWER" is used to place the output array from WDS anywhere in the WCS output array.  
-2) Fields from $WDSResults can be referenced from the context - run an query in WDS and view the JSON output to see possible values. 
+2) Fields from $WDSResults can be referenced from the context - run a query in WDS and view the JSON output to see possible values. 
 
 
