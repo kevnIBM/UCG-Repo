@@ -110,7 +110,7 @@ class MyCoolAgent extends Agent {
                                   message : watsonAnswer.text[i]
                                 }
                              }, function(err) {
-                                     if (err) {console.log('error from publishEvent in MyCoolAgent: ', err)}
+                                     if (err) {console.log('mycoolagent error from publishEvent in MyCoolAgent: ', err)}
                                   });
             
                            }
@@ -134,7 +134,7 @@ class MyCoolAgent extends Agent {
                                      content: watsonAnswer.content
                                   }
                                 }, function(err) {
-                                     if (err) {console.log('error from publishEvent-RichContentEvent in MyCoolAgent', err)}
+                                     if (err) {console.log('mycoolagent error from publishEvent-RichContentEvent in MyCoolAgent', err)}
                                   }
                                 );
 
