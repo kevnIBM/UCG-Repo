@@ -479,9 +479,6 @@
                 "wires": [
                     {
                         "id": "6a2e837c.7b841c"
-                    },
-                    {
-                        "id": "cb0df277.7218f8"
                     }
                 ]
             }
@@ -778,8 +775,8 @@
         "id": "309ede5e.264572",
         "type": "subflow:2388240a.50e91c",
         "z": "f48845d6.67899",
-        "x": 230.5,
-        "y": 114.01022338867188,
+        "x": 231.92857360839844,
+        "y": 109.01022052764893,
         "wires": [
             []
         ]
@@ -789,8 +786,8 @@
         "type": "subflow:9a3e1887.082ce",
         "z": "f48845d6.67899",
         "name": "",
-        "x": 226.5,
-        "y": 185,
+        "x": 227.92857360839844,
+        "y": 177.85714530944824,
         "wires": [
             []
         ]
@@ -905,8 +902,8 @@
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 84.61540985107422,
-        "y": 116.92308044433594,
+        "x": 97.47254180908203,
+        "y": 117.63736057281494,
         "wires": [
             [
                 "125118f3.9c6aff"
@@ -921,8 +918,8 @@
         "func": "msg.source = \"Load\";\n\nvar workspace_id = msg.req.query.workspace_id;\nvar wcs_user_name = msg.req.query.wcs_username;\nvar wcs_password = msg.req.query.wcs_password;\n\n// Uncomment when New param is added to all front-ends and delete the default\n//var region = msg.req.query.primary_region\nmsg.region = \"US-SOUTH\";\n//Passed params are the primary config, will be used in the dynamic WCS router subflow to switch back\nmsg.primary_workspace_id = workspace_id;\nmsg.primary_wcs_user_name = wcs_user_name;\nmsg.primary_wcs_password = wcs_password;\nmsg.primary_region = msg.region;\n\nvar fname = msg.req.query.fname;\n\n//create a null context and test for session existance\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id \n   }\n \nvar newmsg = msg.req.query.text\nnewmsg = newmsg.replace(/'/g, \"\");  \nmsg.payload = newmsg\n\ncontext.fname = fname\n\nvar params = {\n    context: context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password\n};\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 604.6154098510742,
-        "y": 116.92308044433594,
+        "x": 610.3296813964844,
+        "y": 117.63736915588379,
         "wires": [
             [
                 "d607cfa4.6f61",
@@ -938,8 +935,8 @@
         "func": "var Watson_msg = msg.payload;\nvar Watson_response = JSON.stringify(msg.payload.output.text);\n\nvar texts = msg.payload.output.text\ntotalText = \"\"\nfor (i = 0; i < texts.length; i++) {\n    \n    if (texts[i].lastIndexOf(\"[\") >= 0 ) {\n       findindex = texts[i].lastIndexOf(\"[\");\n       texts[i] = texts[i].substring(0,findindex);\n    } \n \n  // Dennis added because SSML tag was escaping the \" with \\\" and the replace command fixes it!!!!\n   texts[i] = texts[i].replace(/\\\\/g, \"\");\n  //Dennis - Remove XML SSML tags from chat systems\n   texts[i] =  texts[i].replace(/<[^>]+>/g, \"\");\n \n  if (texts[i].lastIndexOf(\"InsMap\") >= 0 ) {\n     findindex = texts[i].lastIndexOf(\"InsMap\")\n     texts[i] = texts[i].substring(0,findindex)\n  } \n  \n  totalText = totalText + \" \" + texts[i]\n}\n\nnode.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + totalText)\n\nmsg.payload = totalText;\n\nreturn msg;",
         "outputs": "1",
         "noerr": 0,
-        "x": 1077.154052734375,
-        "y": 236.3846435546875,
+        "x": 1087.154037475586,
+        "y": 237.0989170074463,
         "wires": [
             [
                 "f9ebd654.0abf38",
@@ -968,8 +965,8 @@
         "type": "http response",
         "z": "3fad3621.99e442",
         "name": "Http Response",
-        "x": 1328.564208984375,
-        "y": 235.71795654296875,
+        "x": 1322.8498992919922,
+        "y": 235.00366020202637,
         "wires": []
     },
     {
@@ -980,8 +977,8 @@
         "url": "/Alexa",
         "method": "post",
         "swaggerDoc": "",
-        "x": 85,
-        "y": 139.44443607330322,
+        "x": 81.42857360839844,
+        "y": 140.15872192382812,
         "wires": [
             [
                 "f433a5aa.f3a5c8"
@@ -1017,8 +1014,8 @@
         ],
         "checkall": "true",
         "outputs": 4,
-        "x": 262.1111135482788,
-        "y": 139.55555725097656,
+        "x": 257.8253936767578,
+        "y": 138.84127044677734,
         "wires": [
             [
                 "fefc0181.ac8d4"
@@ -1038,8 +1035,8 @@
         "func": "msg.source = \"Alexa\"\nvar fname = msg.req.query.fname;\nvar workspace_id = msg.req.query.workspace_id;\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\n\n// Uncomment when New param is added to all front-ends and delete the default\n//var region = msg.req.query.primary_region\nmsg.region = \"US-SOUTH\";\n//Passed params are the primary config, will be used in the dynamic WCS router subflow to switch back\nmsg.primary_workspace_id = workspace_id;\nmsg.primary_wcs_user_name = wcs_user_name;\nmsg.primary_wcs_password = wcs_password;\nmsg.primary_region = msg.region;\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id    \n   }\n\nif (msg.payload.request.type ==\"LaunchRequest\") {\n   var temp_msg = \"Hello\";\n   //Uncomment if you want the convo to start at begining when a Launch is dedected\n   //context = {}\n}\nelse {\n   var temp_msg = msg.payload.request.intent.slots.command.value; \n}\n\n//Zero out maps \nvar map = JSON.parse(\"{}\");  \n\nvar newmsg = temp_msg.replace(\"Watson\", \"\");\nmsg.payload = newmsg;\n\n\nglobal.set(\"last_question\",newmsg);\n\ncontext.fname = fname\ncontext.map = map\n\nvar params = {\n    context : context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password,\n    source : msg.source\n};\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 919.3749771118164,
-        "y": 119.37499237060547,
+        "x": 910.0893135070801,
+        "y": 121.51785087585449,
         "wires": [
             [
                 "a29f3273.fc84b",
@@ -1103,8 +1100,8 @@
         "func": "//var Watson_msg = msg.payload;\n//var Watson_response = JSON.stringify(msg.payload.output.text);\n//var Watson_context = JSON.stringify(msg.payload.context);\nvar Watson_contextOBJ = msg.payload.context;\n//node.log(Watson_response);\n//Myresponse = Watson_response.substring(2,Watson_response.length-2);\n\nvar texts = msg.payload.output.text\n\ntotalText = \"\"\nfor (i = 0; i < texts.length; i++) {\n    \n    if (texts[i].lastIndexOf(\"[\") >= 0 ) {\n       findindex = texts[i].lastIndexOf(\"[\");\n       texts[i] = texts[i].substring(0,findindex);\n    } \n  \n  texts[i] = texts[i].replace(/\\\\/g, \"\");\n  texts[i] = texts[i].replace('=\\\"number\\\" format=\\\"telephone\\\"', '=\\\"digits\\\"');\n  \n  totalText = totalText + \" \" + texts[i]\n}\n\nvar myquestion = global.get(\"last_question\");\n\nvar myEndSession = false;    \n\nif (myquestion.lastIndexOf(\"goodbye\") >= 0 )\n   {myEndSession = true}\n\n\nvar response = {\n    version : \"1.0\",\n    response : { \n       outputSpeech : { \n          //type : \"PlainText\",\n          type : \"SSML\",\n          ssml: \"<speak>\" + totalText + \"</speak>\"\n        },        \n    shouldEndSession : myEndSession,\n   // context: Watson_context\n    }\n};\n\n\n//json map\n//var mapjsonStr = Watson_context.match(/\\\"map.*Yes\\\"/);\nvar mapjsonObj = Watson_contextOBJ.map;\nif (typeof mapjsonObj.values != \"undefined\") {\n//node.log(\"mapjson: \" + mapjsonStr);\n//if (mapjsonStr  !== null){\n    component = \"map\";\n    for (var c in mapjsonObj.values) {\n      mapStr = mapjsonObj.values[c] + \"&size=500x300\";\n    \n    response = {\n      version : \"1.0\",\n      response : { \n         outputSpeech : { \n            type : \"SSML\",\n            ssml: \"<speak>\" + totalText + \" Check your Alexa app for the map\" + \"</speak>\"\n          },        \n      card: {\n        type: \"Standard\",\n        title: \"Google Map\",\n        text: \"\",\n        image: {\n          smallImageUrl: mapjsonObj.values[c] + \"&size=500x300\",\n          largeImageUrl: mapjsonObj.values[c] + \"&size=600x400\"\n        }\n      },\n      shouldEndSession : myEndSession,\n   // context: Watson_context\n      }\n    \n     };   \n    \n   }\n}\n\nnode.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + totalText)\n\nmsg.payload = response\n\nreturn  msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1286.499984741211,
-        "y": 238.99999523162842,
+        "x": 1290.7856750488281,
+        "y": 237.571439743042,
         "wires": [
             [
                 "405b64ad.ffce54",
@@ -1143,7 +1140,7 @@
         "func": "\nvar user_temp = msg.payload.session.user.userId;\nmsg.user =  user_temp.substring(user_temp.length-10, user_temp.length);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 560,
+        "x": 567.8571166992188,
         "y": 120,
         "wires": [
             [
@@ -1820,8 +1817,8 @@
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 78,
-        "y": 119.4444465637207,
+        "x": 87.99998474121094,
+        "y": 107.30158996582031,
         "wires": [
             [
                 "e4cbba6f.d6a58",
@@ -1834,8 +1831,8 @@
         "type": "http response",
         "z": "17eb59dd.9ff326",
         "name": "Http Response",
-        "x": 1430.624984741211,
-        "y": 237.49999475479126,
+        "x": 1440.6249694824219,
+        "y": 225.35713815689087,
         "wires": []
     },
     {
@@ -1843,11 +1840,11 @@
         "type": "function",
         "z": "17eb59dd.9ff326",
         "name": "Set Params",
-        "func": "msg.source = \"Phone\"\nvar workspace_id = msg.req.query.workspace_id\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\n\n// Uncomment when New param is added to all front-ends and delete the default\n//var region = msg.req.query.primary_region\nmsg.region = \"US-SOUTH\";\n//Passed params are the primary config, will be used in the dynamic WCS router subflow to switch back\nmsg.primary_workspace_id = workspace_id;\nmsg.primary_wcs_user_name = wcs_user_name;\nmsg.primary_wcs_password = wcs_password;\nmsg.primary_region = msg.region;\n\nvar input = msg.payload.input.text;\nvar fname = \"Jane\"; \n\nmsg.testPhone = \"\"\nmsg.testPhone = msg.payload.context.vgwSIPToURI.match(/\\b(18447276206|18442310002|18445047115|18552164158|18442011910|18445845275)\\b/g);\nif (msg.testPhone == \"18447276206\" || msg.testPhone == \"18442310002\"){\n    input = \"Ask Me Please\"\n}\nelse {\n   input = \"Hi\" \n}    \n\n\n    \nif ((input == \"vgwHangUp\")||(input==\"cgwHangUp\")) {\n    input = \"goodbye from SIP\"\n} \n\nif ((input == \"vgwPostResponseTimeout\")||(input == \"cgwPostResponseTimeout\")) {\n    input = \"silence\"\n} \n\n\n//var context = msg.payload.context;\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id \n   }\n   \ncontext.fname = fname\n\nif (typeof context.vgwIsDTMF !== \"undefined\"){\n  if (context.vgwIsDTMF.trim().toUpperCase() == \"NO\") {\n      context.dtmfCount = 0\n      context.dtmfValue = \"\"\n  }\n  else {if (input.trim() ==\"#\" || input.trim() ==\"*\" ){\n          input = context.dtmfValue\n      }\n      else {\n          context.dtmfCount = context.dtmfCount + 1\n          context.dtmfValue.concat(dtmfValue)\n      }\n  }\n}\n\ncontext.cgwPostResponseTimeoutCount = \"30000\"\ncontext.cgwSessionInactivityTimeout = \"5\"\ncontext.vgwPostResponseTimeoutCount = \"30000\"\ncontext.vgwSessionInactivityTimeout = \"5\"\ncontext.vgwAllowDTMF = \"YES\"\ncontext.vgwSIPToURI= msg.payload.context.vgwSIPToURI\ncontext.vgwSIPFromURI = msg.payload.context.vgwSIPFromURI\ncontext.vgwSessionID = msg.payload.context.vgwSessionID\ncontext.vgwSIPCallID = msg.payload.context.vgwSIPCallID\ncontext.vgwSIPRequestURI = msg.payload.context.vgwSIPRequestURI\n\nvar params = {\n     context: context,\n     workspace_id : workspace_id,\n     username : wcs_user_name,\n     password : wcs_password,\n     source : msg.source\n}\n\n\nmsg.payload = input;\nmsg.params = params;\nreturn msg;",
+        "func": "msg.source = \"Phone\"\nvar workspace_id = msg.req.query.workspace_id\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\nvar stt_user_name = msg.req.query.stt_username\nvar stt_password = msg.req.query.stt_password\nvar tts_user_name = msg.req.query.tts_username\nvar tts_password = msg.req.query.tts_password\n\n// Uncomment when New param is added to all front-ends and delete the default\n//var region = msg.req.query.primary_region\nmsg.region = \"US-SOUTH\";\n//Passed params are the primary config, will be used in the dynamic WCS router subflow to switch back\nmsg.primary_workspace_id = workspace_id;\nmsg.primary_wcs_user_name = wcs_user_name;\nmsg.primary_wcs_password = wcs_password;\nmsg.primary_region = msg.region;\n\nvar input = msg.payload.input.text;\nvar fname = \"Jane\"; \n\nmsg.testPhone = \"\"\nmsg.testPhone = msg.payload.context.vgwSIPToURI.match(/\\b(18447276206|18442310002|18445047115|18552164158|18442011910|18445845275)\\b/g);\n\nif (input === \"\") {\n  if (msg.testPhone == \"18447276206\" || msg.testPhone == \"18442310002\"){\n    input = \"Ask Me Please\"\n  }\n  else {\n    input = \"Hi\" \n  }    \n\n}\n    \nif ((input == \"vgwHangUp\")||(input==\"cgwHangUp\")) {\n    input = \"goodbye from SIP\"\n} \n\nif ((input == \"vgwPostResponseTimeout\")||(input == \"cgwPostResponseTimeout\")) {\n    input = \"silence\"\n} \n\n\n//var context = msg.payload.context;\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id \n   }\n   \ncontext.fname = fname\n\nif (typeof context.vgwIsDTMF !== \"undefined\"){\n  if (context.vgwIsDTMF.trim().toUpperCase() == \"NO\") {\n      context.dtmfCount = 0\n      context.dtmfValue = \"\"\n  }\n  else {if (input.trim() ==\"#\" || input.trim() ==\"*\" ){\n          input = context.dtmfValue\n      }\n      else {\n          context.dtmfCount = context.dtmfCount + 1\n          context.dtmfValue.concat(dtmfValue)\n      }\n  }\n}\n\ncontext.cgwPostResponseTimeoutCount = \"30000\"\ncontext.cgwSessionInactivityTimeout = \"5\"\ncontext.vgwPostResponseTimeoutCount = \"30000\"\ncontext.vgwSessionInactivityTimeout = \"5\"\ncontext.vgwAllowDTMF = \"YES\"\ncontext.vgwSIPToURI= msg.payload.context.vgwSIPToURI\ncontext.vgwSIPFromURI = msg.payload.context.vgwSIPFromURI\ncontext.vgwSessionID = msg.payload.context.vgwSessionID\ncontext.vgwSIPCallID = msg.payload.context.vgwSIPCallID\ncontext.vgwSIPRequestURI = msg.payload.context.vgwSIPRequestURI\ncontext.stt_user_name = stt_user_name\ncontext.stt_password = stt_password\ncontext.tts_user_name = tts_user_name\ncontext.tts_password = tts_password\nif (typeof msg.req.query.stt_customization_id !== \"undefined\") {\n  context.stt_customization_id = msg.req.query.stt_customization_id\n}\nelse {\n  context.stt_customization_id = \"NA\"  \n}\nif (typeof msg.req.query.tts_customization_id !== \"undefined\") {\n  context.tts_customization_id = msg.req.query.tts_customization_id\n}\nelse {\n  context.tts_customization_id = \"NA\"  \n}\n\n\nvar params = {\n     context: context,\n     workspace_id : workspace_id,\n     username : wcs_user_name,\n     password : wcs_password,\n     source : msg.source\n}\n\n\nmsg.payload = input;\nmsg.params = params;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 600.6249771118164,
-        "y": 120.00000095367432,
+        "x": 610.6249618530273,
+        "y": 107.85714435577393,
         "wires": [
             [
                 "3254107a.45b6f8",
@@ -1860,11 +1857,11 @@
         "type": "function",
         "z": "17eb59dd.9ff326",
         "name": "Response Msg",
-        "func": "var Watson_msg = JSON.stringify(msg.payload.output.text);\nvar Mymsg = Watson_msg.substring(2,Watson_msg.length-2);\n\n//Going forward, if you want to add buttons for convo for sip, use JSON only. NO []!!!!\n\nnode.log(\"start with \" + Mymsg);\n\nif (Mymsg.lastIndexOf(\"[\") >= 0 ) {\n     findindex = Mymsg.lastIndexOf(\"[\")\n     msg.payload.output.text = [Mymsg.substring(0,findindex-1)]\n} \nif (Mymsg.lastIndexOf(\"InsMap\") >= 0 ) {\n     findindex = Mymsg.lastIndexOf(\"InsMap\")\n     msg.payload.output.text = '[\"' + Mymsg.substring(0,findindex-1) + '\"]'\n} \n\nnode.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + msg.payload.output.text)\n\nreturn msg;",
+        "func": "var Watson_msg = JSON.stringify(msg.payload.output.text);\nvar Mymsg = Watson_msg.substring(2,Watson_msg.length-2);\n\n//Going forward, if you want to add buttons for convo for sip, use JSON only. NO []!!!!\n\nnode.log(\"start with \" + Mymsg);\n\nif (Mymsg.lastIndexOf(\"[\") >= 0 ) {\n     findindex = Mymsg.lastIndexOf(\"[\")\n     msg.payload.output.text = [Mymsg.substring(0,findindex-1)]\n} \nif (Mymsg.lastIndexOf(\"InsMap\") >= 0 ) {\n     findindex = Mymsg.lastIndexOf(\"InsMap\")\n     msg.payload.output.text = '[\"' + Mymsg.substring(0,findindex-1) + '\"]'\n} \n\nnode.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + msg.payload.output.text)\n\n//new actions array for VGW\nvar bargeIn = \"No\";\n\nif (typeof msg.payload.context.BargeIn !== 'undefined'){\n   bargeIn = msg.payload.context.BargeIn;\n}\n\n\n\nvar sttConfig = {\n      \"command\": \"vgwActSetSTTConfig\",\n      \"parameters\": {\n              \"credentials\": {\n                \"url\": \"https://stream.watsonplatform.net/speech-to-text/api\",\n                \"username\": msg.payload.context.stt_user_name,\n                \"password\": msg.payload.context.stt_password\n              },\n              \"config\": {\n                  \"x-watson-learning-opt-out\": true,\n                  \"model\": \"en-US_NarrowbandModel\",\n                  \"profanity_filter\": true,\n                  \"customization_id\": msg.payload.context.stt_customization_id,\n                  \"firmup_silence_time\": 1, \n                  \"max_alternatives\":6,\n                  \"smart_formatting\": true\n              }\n          }\n        }\nif (sttConfig.parameters.config.customization_id == \"NA\") {\n    delete sttConfig.parameters.config.customization_id\n}\n\nvar ttsConfig = {\n        \"command\": \"vgwActSetTTSConfig\",\n        \"parameters\": {\n              \"credentials\": {\n                \"url\":  \"https://stream.watsonplatform.net/text-to-speech/api\",\n                \"username\": msg.payload.context.tts_user_name,\n                \"password\": msg.payload.context.tts_password\n              },\n              \"config\": {\n                  \"x-watson-learning-opt-out\": true,\n                  \"customization_id\": msg.payload.context.tts_customization_id,                  \n                  \"voice\": \"en-US_MichaelVoice\"\n              },\n              \"jitterBufferDelay\": 200,\n              \"cacheTimeToLive\": 336\n            }\n        }\nif (ttsConfig.parameters.config.customization_id == \"NA\") {\n    delete ttsConfig.parameters.config.customization_id\n}\n\nvar dtmfConfig = {\n        \"command\": \"vgwActCollectDtmf\",\n           \"parameters\": {\n              \"dtmfCount\": 10 //example for a phone number, set based on what you want to wait for\n            }\n        }\n\n\nvar playText = {\n        \"command\":\"vgwActPlayText\",\n            \"parameters\": {\n                \"text\" : msg.payload.output.text\n            }\n        }\n\nvgAction = []\nvgAction.push(sttConfig)\nvgAction.push(ttsConfig)\n//vgAction.push(dtmfConfig) \n\nif (bargeIn === \"No\") {\n vgAction.push({\"command\":\"vgwActDisableSTTDuringPlayback\"})\n} \nvgAction.push(playText)\n\nmsg.payload.output.vgwActionSequence = vgAction;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1180,
-        "y": 240,
+        "x": 1189.999984741211,
+        "y": 227.8571434020996,
         "wires": [
             [
                 "bb72b47.dae0048",
@@ -1880,8 +1877,8 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 770,
-        "y": 60,
+        "x": 779.9999847412109,
+        "y": 47.85714340209961,
         "wires": []
     },
     {
@@ -2005,7 +2002,7 @@
         "type": "subflow:52457267.ef5464",
         "z": "3fad3621.99e442",
         "name": "",
-        "x": 881.700927734375,
+        "x": 895.9866714477539,
         "y": 236.49575805664062,
         "wires": [
             [
@@ -2368,8 +2365,8 @@
         "id": "abe832fb.671d4",
         "type": "subflow:39871438.0ff45c",
         "z": "f48845d6.67899",
-        "x": 226.5,
-        "y": 247,
+        "x": 227.92857360839844,
+        "y": 248.42856979370117,
         "wires": [
             []
         ]
@@ -2915,7 +2912,7 @@
         "type": "function",
         "z": "be024f13.40d248",
         "name": "Redis GET",
-        "func": "var redis = global.get('redis');\nvar options = {enable_offline_queue:false};\n\nvar redisClient = global.get(\"redisClient\");\n\nif (typeof redisClient == \"undefined\") {\n  redisClient = new redis('redis://admin:IVKPWZBPOAJYQCRR@bluemix-sandbox-dal-9-portal.7.dblayer.com:27247',options);\n  global.set(\"redisClient\",redisClient);\n  node.log(\"New RedisClient connection in GetSession\")\n}\n\nredisClient.on(\"error\", function (err) {\n    node.error(\"Error \" + err);\n//    client.disconnect(); \n});\n\n redisClient.get(msg.user,function (err,result) {\n  if (err) \n      node.error(\"Error \" + err);\n    else {\n      msg.payload = result;\n      if (msg.payload === null){\n          msg.payload = \"{}\";}\n//      node.log(\"payload \" + JSON.stringify(msg.payload))\n      node.send(msg);\n    }\n//  client.disconnect();\n});\n\n",
+        "func": "var redis = global.get('redis');\nvar options = {enable_offline_queue:false};\n\nvar redisClient = global.get(\"redisClient\");\n\nif (typeof redisClient == \"undefined\") {\n  redisClient = new redis('redis://admin:XFRLCLICWCFQXPXA@sl-us-south-1-portal.5.dblayer.com:35110',options);\n// redisClient = new redis('redis://admin:IVKPWZBPOAJYQCRR@bluemix-sandbox-dal-9-portal.7.dblayer.com:27247',options);\n  global.set(\"redisClient\",redisClient);\n  node.log(\"New RedisClient connection in GetSession\")\n}\n\nredisClient.on(\"error\", function (err) {\n    node.error(\"Error \" + err);\n//    client.disconnect(); \n});\n\n redisClient.get(msg.user,function (err,result) {\n  if (err) \n      node.error(\"Error \" + err);\n    else {\n      msg.payload = result;\n      if (msg.payload === null){\n          msg.payload = \"{}\";}\n//      node.log(\"payload \" + JSON.stringify(msg.payload))\n      node.send(msg);\n    }\n//  client.disconnect();\n});\n\n",
         "outputs": 1,
         "noerr": 0,
         "x": 346.5,
@@ -2931,7 +2928,7 @@
         "type": "function",
         "z": "99f74819.77fb08",
         "name": "Redis Set",
-        "func": "var redis = global.get('redis');\nvar options = {enable_offline_queue:false};\n   \nvar redisClient = global.get(\"redisClient\");\nif (typeof redisClient == \"undefined\") {\n  redisClient = new redis('redis://admin:IVKPWZBPOAJYQCRR@bluemix-sandbox-dal-9-portal.7.dblayer.com:27247',options);\n  global.set(\"redisClient\",redisClient);\n  node.log(\"New RedisClient connection in SetSession\")\n}\n\n\nredisClient.on(\"error\", function (err) {\n    node.error(\"Error \" + err);\n//    client.disconnect(); \n});\n\nredisClient.set(msg.payload.convoUser,JSON.stringify(msg.payload), function (err, response) {\n   if (err) \n      node.error(\"Error \" + err);\n    else \n      msg.payload = response;\n//   client.disconnect(); \n   node.send(msg);\n});",
+        "func": "var redis = global.get('redis');\nvar options = {enable_offline_queue:false};\n   \nvar redisClient = global.get(\"redisClient\");\nif (typeof redisClient == \"undefined\") {\n  redisClient = new redis('redis://admin:XFRLCLICWCFQXPXA@sl-us-south-1-portal.5.dblayer.com:35110',options);\n//  redisClient = new redis('redis://admin:IVKPWZBPOAJYQCRR@bluemix-sandbox-dal-9-portal.7.dblayer.com:27247',options);\n  global.set(\"redisClient\",redisClient);\n  node.log(\"New RedisClient connection in SetSession\")\n}\n\n\nredisClient.on(\"error\", function (err) {\n    node.error(\"Error \" + err);\n//    client.disconnect(); \n});\n\nredisClient.set(msg.payload.convoUser,JSON.stringify(msg.payload), function (err, response) {\n   if (err) \n      node.error(\"Error \" + err);\n    else \n      msg.payload = response;\n//   client.disconnect(); \n   node.send(msg);\n});",
         "outputs": 1,
         "noerr": 0,
         "x": 181.5,
@@ -3014,8 +3011,8 @@
             "5b6b2ab4.c3115c",
             "156fdf98.a6a1f8"
         ],
-        "x": 431.1666564941406,
-        "y": 193.82370948791504,
+        "x": 454.0237922668457,
+        "y": 191.68085861206055,
         "wires": [
             [
                 "a9f87d5b.6414c"
@@ -3220,8 +3217,8 @@
         "func": "\nmsg.user = msg.payload.context.vgwSessionID\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 240,
-        "y": 120,
+        "x": 249.99998474121094,
+        "y": 107.85714340209961,
         "wires": [
             [
                 "11d0ef84.6383a8"
@@ -3233,8 +3230,8 @@
         "type": "subflow:f48845d6.67899",
         "z": "17eb59dd.9ff326",
         "name": "",
-        "x": 411.4285659790039,
-        "y": 120.08928298950195,
+        "x": 421.4285583496094,
+        "y": 110.80356788635254,
         "wires": [
             [
                 "6f0e4576.42ac84"
@@ -3245,8 +3242,8 @@
         "id": "2c2b72a8.c3ee7e",
         "type": "subflow:52457267.ef5464",
         "z": "17eb59dd.9ff326",
-        "x": 981.2499771118164,
-        "y": 240.6249942779541,
+        "x": 991.2499618530273,
+        "y": 228.4821376800537,
         "wires": [
             [
                 "23a8e29.7be259e"
@@ -3258,7 +3255,7 @@
         "type": "function",
         "z": "a0e2e197.345df",
         "name": "Find Workspace",
-        "func": "\nif (msg.payload.trim().toUpperCase().substring(0,6) == \"ASK ME\"){\n    msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n    msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n    msg.params.password = \"k0gYo1FjJymP\";\n}\n//msg.payload = msg.payload.replace(/\\s+$/g,'')\nif ((msg.payload.toUpperCase().substring(0,5) == \"HELLO\") && (msg.payload.length > 5)){\n\n msg.testHello = msg.payload.toUpperCase().match(/\\b(BANK|INSURE|CALL CENTER|MONEY|METLIFE|FIDELITY|REGIONS|REGIONS TEST|LIBERTY|QUICKEN)\\b/g);\n if (msg.testHello !== null)\n   {msg.testHello = msg.testHello[0]}\n switch(msg.testHello) {\n    case 'BANK':\n        msg.params.workspace_id = \"d13cc96b-a323-43a1-b484-29d37679ac27\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'INSURE':\n        msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'CALL CENTER':\n        msg.params.workspace_id = \"faf6e421-43ae-474a-8f9e-e8e10e71e3df\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'MONEY':\n        msg.params.workspace_id = \"c2777aef-fe89-4df5-8792-46880d6a0662\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'QUICKEN':\n        msg.params.workspace_id = \"20918e28-1c00-4611-8e88-60642ea77ebc\";\n        msg.params.username = \"0b41c42f-545b-4bb0-92a8-1824844b4e33\";\n        msg.params.password = \"S6zRVMYapwPy\";\n        break;    \n    case 'METLIFE':\n        msg.params.workspace_id = \"5fd7c1c7-9ea2-4fc8-b6fa-7920e10aad5a\";\n        msg.params.username = \"7d18e2e6-310b-4efc-9370-d9a8289e17dd\";\n        msg.params.password = \"UEVfKB4CLIyF\";\n        break;\n    case 'FIDELITY':\n        msg.params.workspace_id = \"1555159e-fa59-4d8d-bfba-b10a19144e22\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n     case 'REGIONS':\n        msg.params.workspace_id = \"321e996d-efee-42a0-8aed-3dc93006a026\";\n        msg.params.username = \"f40d2d94-d2e7-4dd1-a718-b57d93203aaa\";\n        msg.params.password = \"cYuHIo2dCmwf\";\n        break;\n     case 'REGIONS TEST':\n        msg.params.workspace_id = \"de1089d8-46e6-4a7d-b5ed-03c5338b7b0a\";\n        msg.params.username = \"271cc33b-4cf3-480c-8798-f4b3e980df00\";\n        msg.params.password = \"BlnizADsfAh8\";\n        break;\n    case 'LIBERTY':\n        msg.params.workspace_id = \"893ec9b6-bfc8-426a-8fd1-592a2e6ebaa8\";\n        msg.params.username = \"6c6eb782-c2ea-4b14-8912-072ac57eee3a\";\n        msg.params.password = \"Au5euZDUZBvO\";\n        break;\n    default: \n }\n}\n// check for date and compute age context vars\nif (msg.payload.lastIndexOf('/') >= 0 ) {\n     var myindex = msg.payload.lastIndexOf('/')\n     var dateString = msg.payload\n     \n     var d = new Date(dateString)\n     var now = new Date()\n     var years = now.getFullYear() - d.getFullYear()\n\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var age = years + days /365\n    \n     msg.params.context.age = Math.round(age *100)/100\n \n     var d = new Date(dateString)\n     var now = new Date()\n     now.setMonth(\"12\")\n     now.setDate(\"31\")\n     var years = now.getFullYear() - d.getFullYear()\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var ageEOY = years + days /365\n     msg.params.context.ageEOY = Math.round(ageEOY * 100)/100\n     \n     var d = new Date(dateString)\n     var now = new Date()\n     now.setMonth(\"01\")\n     now.setDate(\"01\")\n     var years = now.getFullYear() - d.getFullYear()\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var ageBOY = years + days /365\n     msg.params.context.ageBOY = Math.round(ageBOY * 100)/100\n}\n\nreturn msg;",
+        "func": "\nif (msg.payload.trim().toUpperCase().substring(0,6) == \"ASK ME\"){\n    msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n    msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n    msg.params.password = \"k0gYo1FjJymP\";\n}\n//msg.payload = msg.payload.replace(/\\s+$/g,'')\nif ((msg.payload.toUpperCase().substring(0,5) == \"HELLO\") && (msg.payload.length > 5)){\n\n msg.testHello = msg.payload.toUpperCase().match(/\\b(BANK|INSURE|CALL CENTER|MONEY|HEALTH|METLIFE|FIDELITY|REGIONS|REGIONS TEST|LIBERTY|QUICKEN)\\b/g);\n if (msg.testHello !== null)\n   {msg.testHello = msg.testHello[0]}\n switch(msg.testHello) {\n    case 'BANK':\n        msg.params.workspace_id = \"d13cc96b-a323-43a1-b484-29d37679ac27\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'INSURE':\n        msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'CALL CENTER':\n        msg.params.workspace_id = \"faf6e421-43ae-474a-8f9e-e8e10e71e3df\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'MONEY':\n        msg.params.workspace_id = \"c2777aef-fe89-4df5-8792-46880d6a0662\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'HEALTH':\n        msg.params.workspace_id = \"17727c7a-6339-4bb8-a967-ccd8b12eed76\";\n        msg.params.username = \"e78c76ea-d8aa-4ed6-9fec-292455f3eb17\";\n        msg.params.password = \"UHJz4sZqu5Vq\";\n        break;    \n    case 'QUICKEN':\n        msg.params.workspace_id = \"20918e28-1c00-4611-8e88-60642ea77ebc\";\n        msg.params.username = \"0b41c42f-545b-4bb0-92a8-1824844b4e33\";\n        msg.params.password = \"S6zRVMYapwPy\";\n        break;    \n    case 'METLIFE':\n        msg.params.workspace_id = \"5fd7c1c7-9ea2-4fc8-b6fa-7920e10aad5a\";\n        msg.params.username = \"7d18e2e6-310b-4efc-9370-d9a8289e17dd\";\n        msg.params.password = \"UEVfKB4CLIyF\";\n        break;\n    case 'FIDELITY':\n        msg.params.workspace_id = \"1555159e-fa59-4d8d-bfba-b10a19144e22\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n     case 'REGIONS':\n        msg.params.workspace_id = \"321e996d-efee-42a0-8aed-3dc93006a026\";\n        msg.params.username = \"f40d2d94-d2e7-4dd1-a718-b57d93203aaa\";\n        msg.params.password = \"cYuHIo2dCmwf\";\n        break;\n     case 'REGIONS TEST':\n        msg.params.workspace_id = \"de1089d8-46e6-4a7d-b5ed-03c5338b7b0a\";\n        msg.params.username = \"271cc33b-4cf3-480c-8798-f4b3e980df00\";\n        msg.params.password = \"BlnizADsfAh8\";\n        break;\n    case 'LIBERTY':\n        msg.params.workspace_id = \"893ec9b6-bfc8-426a-8fd1-592a2e6ebaa8\";\n        msg.params.username = \"6c6eb782-c2ea-4b14-8912-072ac57eee3a\";\n        msg.params.password = \"Au5euZDUZBvO\";\n        break;\n    default: \n }\n}\n// check for date and compute age context vars\nif (msg.payload.lastIndexOf('/') >= 0 ) {\n     var myindex = msg.payload.lastIndexOf('/')\n     var dateString = msg.payload\n     \n     var d = new Date(dateString)\n     var now = new Date()\n     var years = now.getFullYear() - d.getFullYear()\n\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var age = years + days /365\n    \n     msg.params.context.age = Math.round(age *100)/100\n \n     var d = new Date(dateString)\n     var now = new Date()\n     now.setMonth(\"12\")\n     now.setDate(\"31\")\n     var years = now.getFullYear() - d.getFullYear()\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var ageEOY = years + days /365\n     msg.params.context.ageEOY = Math.round(ageEOY * 100)/100\n     \n     var d = new Date(dateString)\n     var now = new Date()\n     now.setMonth(\"01\")\n     now.setDate(\"01\")\n     var years = now.getFullYear() - d.getFullYear()\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var ageBOY = years + days /365\n     msg.params.context.ageBOY = Math.round(ageBOY * 100)/100\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 200,
@@ -3347,8 +3344,8 @@
         "z": "17eb59dd.9ff326",
         "name": "Front-End must pass in user_id,wcs_username,wcs_password,workspace_id,text,fname",
         "info": "",
-        "x": 368.125,
-        "y": 387.49999237060547,
+        "x": 378.12498474121094,
+        "y": 375.3571357727051,
         "wires": []
     },
     {
@@ -3357,8 +3354,8 @@
         "z": "17eb59dd.9ff326",
         "name": "Using new SAAS VG, we control config and session",
         "info": "",
-        "x": 251.25,
-        "y": 45.625,
+        "x": 261.24998474121094,
+        "y": 33.48214340209961,
         "wires": []
     },
     {
@@ -3477,7 +3474,7 @@
         "type": "function",
         "z": "5b6fab52.9eae84",
         "name": "Flush Redis Keys",
-        "func": "var redis = global.get('redis');\nvar options = {enable_offline_queue:false};\n   \nvar redisClient = global.get(\"redisClient\");\nif (typeof redisClient == \"undefined\") {\n  redisClient = new redis('redis://admin:IVKPWZBPOAJYQCRR@bluemix-sandbox-dal-9-portal.7.dblayer.com:27247',options);\n  global.set(\"redisClient\",redisClient);\n  node.log(\"New RedisClient connection in SetSession\")\n}\n\n\nredisClient.on(\"error\", function (err) {\n    node.error(\"Error \" + err);\n//    client.disconnect(); \n});\n\nredisClient.flushdb( function (err, response) {\n   if (err) \n      node.error(\"Error \" + err);\n    else \n      msg.payload = response;\n//   client.disconnect(); \n   node.send(msg);\n});\n",
+        "func": "var redis = global.get('redis');\nvar options = {enable_offline_queue:false};\n   \nvar redisClient = global.get(\"redisClient\");\nif (typeof redisClient == \"undefined\") {\n  redisClient = new redis('redis://admin:XFRLCLICWCFQXPXA@sl-us-south-1-portal.5.dblayer.com:35110',options);\n//  redisClient = new redis('redis://admin:IVKPWZBPOAJYQCRR@bluemix-sandbox-dal-9-portal.7.dblayer.com:27247',options);\n  global.set(\"redisClient\",redisClient);\n  node.log(\"New RedisClient connection in SetSession\")\n}\n\n\nredisClient.on(\"error\", function (err) {\n    node.error(\"Error \" + err);\n//    client.disconnect(); \n});\n\nredisClient.flushdb( function (err, response) {\n   if (err) \n      node.error(\"Error \" + err);\n    else \n      msg.payload = response;\n//   client.disconnect(); \n   node.send(msg);\n});\n",
         "outputs": 1,
         "noerr": 0,
         "x": 316.1538391113281,
@@ -3564,9 +3561,9 @@
         "name": "",
         "active": true,
         "console": "false",
-        "complete": "payload.output.text",
-        "x": 1442.2115325927734,
-        "y": 158.89422035217285,
+        "complete": "true",
+        "x": 1392.2115173339844,
+        "y": 146.75136375427246,
         "wires": []
     },
     {
@@ -3609,8 +3606,8 @@
         "id": "1c65d777.c58401",
         "type": "subflow:a0e2e197.345df",
         "z": "17eb59dd.9ff326",
-        "x": 815.2197875976562,
-        "y": 119.17581844329834,
+        "x": 825.2197723388672,
+        "y": 107.03296184539795,
         "wires": [
             [
                 "7b7f3ea1.e978c8"
@@ -3767,8 +3764,8 @@
         "z": "17eb59dd.9ff326",
         "name": "",
         "scope": null,
-        "x": 1055.817367553711,
-        "y": 314.32690048217773,
+        "x": 1065.8173522949219,
+        "y": 302.18404388427734,
         "wires": [
             [
                 "c9d32cbc.517e38"
@@ -3779,8 +3776,8 @@
         "id": "c9d32cbc.517e38",
         "type": "subflow:73d26c58.2475cc",
         "z": "17eb59dd.9ff326",
-        "x": 1228.269271850586,
-        "y": 314.182674407959,
+        "x": 1238.2692565917969,
+        "y": 302.0398178100586,
         "wires": [
             []
         ]
@@ -3897,8 +3894,8 @@
         "id": "7b7f3ea1.e978c8",
         "type": "subflow:3c30ab94.447d3c",
         "z": "17eb59dd.9ff326",
-        "x": 610.9999771118164,
-        "y": 239.9999942779541,
+        "x": 620.9999618530273,
+        "y": 227.8571376800537,
         "wires": [
             [
                 "4febfac6.ceb984"
@@ -4366,8 +4363,8 @@
         ],
         "checkall": "true",
         "outputs": 2,
-        "x": 759.3301620483398,
-        "y": 69.73051929473877,
+        "x": 760.7586822509766,
+        "y": 71.87337303161621,
         "wires": [
             [],
             [
@@ -4383,12 +4380,11 @@
         "func": "msg.answerType = \"WCS\" \nmsg.highIntent = false\nmsg.highEntity = false\nvar savIntentConf = 0\nvar savEntityConf = 0\nvar intentFound = false\nvar entityFound = false\nmsg.USE_WCS_ANSWER = false\nmsg.USE_WDS_ANSWER = false\nmsg.UCG_ANSWER_ROUTING = \"WCS-WDS\"\n/*\nUCG_ANSWER_ROUTING\n  This will be used to allow engineers to change the answer routing via a context var.\n  Possible Values:\n    WCS-WDS     - the default routing that uses a canned answer that replaces WCS's output.text array\n    WCS-WDS-WCS - routes back through WCS after calling WDS with new context vars\n              WDSResults - JSON object with payload from WDS\n              answerType - either WCS or WDS to indicate what where the answer came from.\n\nUSE_WDS_ANSWER\n   Used to override flow to send utterance to WDS for an answer\n\nUSE_WCS_ANSWER\n   Used to ensure that flow retains answer from WCS, thus by passing confidence/anything else checks\n  \n  WCS engineers need to set context var USE_WCS_ANSWER if the dialog condition statement:\n     1) does not use an intent or entity, like using tone score to give back an answer\n     2) use true to force node answer and a low confidence match comes back for an intent or entity\n\n*/\nif (typeof msg.payload.context !== \"undefined\"){ \n    if (typeof msg.payload.context.USE_WCS_ANSWER !== \"undefined\"){ \n        msg.USE_WCS_ANSWER = true\n        delete msg.payload.context.USE_WCS_ANSWER\n    }\n    if (typeof msg.payload.context.USE_WDS_ANSWER !== \"undefined\"){ \n        msg.USE_WDS_ANSWER = true\n        delete msg.payload.context.USE_WDS_ANSWER\n    }\n    if (typeof msg.payload.context.UCG_ANSWER_ROUTING !== \"undefined\"){ \n        msg.UCG_ANSWER_ROUTING = msg.payload.context.UCG_ANSWER_ROUTING\n    }\n    \n}    \n\nif (typeof msg.payload.intents[0] !== \"undefined\"){ \n    if (msg.payload.intents[0].confidence > .50){\n      \n         msg.highIntent = true\n    }\n    savIntentConf = msg.payload.intents[0].confidence\n    intentFound = true\n        \n    }\n\nif (typeof msg.payload.entities[0] !== \"undefined\"){\n    if (msg.payload.entities[0].confidence > .50){\n        msg.highEntity = true\n    }\n    savEntityConf = msg.payload.entities[0].confidence\n    entityFound = true\n}\n\n//if (!msg.USE_WCS_ANSWER) {\n // if (msg.highIntent || msg.highEntity ) {\n //   msg.answerType = \"WCS\"\n // }\n if (msg.payload.output.text.length > 0) {\n        // Anything else dialog node - make sure no intent or entity\n        if (msg.payload.output.text[0].toUpperCase().match(/\\b(FUTURE TRAINING|HAVING TROUBLE|HAVEN'T BEEN TRAINED)\\b/g))  {\n                msg.answerType = \"WDS\"\n        }\n        else {msg.answerType = \"WCS\"\n            \n        }\n    \n    /* Going to comment out for now because getting in the way of good answers\n       // Low intent conf     \n        if (intentFound) {\n            if (savIntentConf < .50 ) {\n                msg.answerType = \"WDS\"\n            }\n        }\n        // Low entity conf    \n        if (entityFound) {\n            if (savEntityConf < .50 ) {\n                msg.answerType = \"WDS\"\n            }\n        }\n    */    \n    }\n  else {\n        msg.answerType = \"WDS\" \n  }\n//}\n//else {\n//  msg.answerType = \"WCS\"   \n//}\nif (msg.USE_WCS_ANSWER) {\n  msg.answerType = \"WCS\"   \n} \nif (msg.USE_WDS_ANSWER) {\n  msg.answerType = \"WDS\"   \n}    \n\nmsg.params.context.answerType =  msg.answerType\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 525.6090774536133,
-        "y": 72.9658145904541,
+        "x": 526.323356628418,
+        "y": 72.25152778625488,
         "wires": [
             [
-                "77767850.bd513",
-                "6c3a6b3f.da50a4"
+                "77767850.bd513"
             ]
         ]
     },
@@ -4400,11 +4396,12 @@
         "func": "var watson = global.get('watson');\n\nvar discovery = new watson.DiscoveryV1({\n  username: \"578d5c5e-a713-44ad-bd8b-d3b8ba39c03c\",\n  password: \"NaFdTJluDnem\",\n  version_date: '2017-11-07'\n});\n\nvar params = {\n    natural_language_query: msg.payload.input.text,\n    environment_id: \"d40ba5ee-be86-4b59-8a67-f463f233367d\",\n    collection_id: \"35835dcf-e873-4a43-9034-786210ffebf2\",\n    configuration_id: \"1d573129-7100-4405-b6a0-439cd8af2640\",\n    passages: true, //if you want to enable passages\n    passages_fields : \"Text\"\n    //sort : \"Term\"\n   //  return: ''\n  //highlight: true //if you want to enable highlight\n\n}\n\ndiscovery.query(params, (error, results) => {\n    if (error) {\n      node.error(error);\n    } else {\n      msg.WDSResults = results; //your query results\n      msg.test = msg.payload.input.abc\n      node.send(msg);\n    }\n});",
         "outputs": 1,
         "noerr": 0,
-        "x": 723.7167205810547,
-        "y": 155.03683280944824,
+        "x": 721.5738906860352,
+        "y": 159.32255268096924,
         "wires": [
             [
-                "e56baa7a.49625"
+                "e56baa7a.49625",
+                "5aa7c031.7e98c"
             ]
         ]
     },
@@ -4412,11 +4409,12 @@
         "id": "2106aeef.1a05a2",
         "type": "subflow:75456024.34a398",
         "z": "3fad3621.99e442",
-        "x": 700.5,
-        "y": 235.9615478515625,
+        "x": 709.7856216430664,
+        "y": 235.96155738830566,
         "wires": [
             [
-                "45ecefd5.b04ee8"
+                "45ecefd5.b04ee8",
+                "4af9f5ec.8d8fcc"
             ]
         ]
     },
@@ -4424,8 +4422,8 @@
         "id": "67c863cf.d22444",
         "type": "subflow:87530aab.adb068",
         "z": "75456024.34a398",
-        "x": 193.33333587646484,
-        "y": 215.99999618530273,
+        "x": 191.1904754638672,
+        "y": 221.71429061889648,
         "wires": [
             []
         ]
@@ -4743,8 +4741,8 @@
         "id": "326e5d72.f93f62",
         "type": "subflow:75456024.34a398",
         "z": "c1e9a4dc.c42cf8",
-        "x": 901.5,
-        "y": 281,
+        "x": 909.3571548461914,
+        "y": 280.28571796417236,
         "wires": [
             [
                 "5c740e25.6d45b8"
@@ -4755,8 +4753,8 @@
         "id": "4febfac6.ceb984",
         "type": "subflow:75456024.34a398",
         "z": "17eb59dd.9ff326",
-        "x": 790.6428680419922,
-        "y": 240.00000381469727,
+        "x": 800.6428527832031,
+        "y": 227.85714721679688,
         "wires": [
             [
                 "2c2b72a8.c3ee7e",
@@ -4834,8 +4832,8 @@
         "func": "/* New param to added to all front-ends - wcs_region = USSOUTH, GERMANY\nWill be used to set the url\nUSSOUTH - https://gateway.watsonplatform.net/conversation/api\nGERMANY - https://gateway-fra.watsonplatform.net/conversation/api\n*/\nvar watson = global.get('watson');\nmsg.params.input = {\n      text: msg.payload\n    };\n\nif (msg.region === \"US-SOUTH\"){ \n    msg.params.endpoint = \"https://gateway.watsonplatform.net/conversation/api\"\n}\nelse if (msg.region === \"GERMANY\"){\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/conversation/api\"\n}\n\nvar conversation = new watson.ConversationV1({\n  username : msg.params.username,\n  password : msg.params.password,\n  workspace_id : msg.params.workspace_id,\n  url : msg.params.endpoint,\n  version_date: '2017-05-26'\n});\n\nvar myTM = setTimeout(function() { node.error(\"WCS message API reached 15 second time out\", msg)}, 15000 );\n\nconversation.message(msg.params,function(err, response) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.payload = response;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 155.7375259399414,
-        "y": 74.87828063964844,
+        "x": 157.1660919189453,
+        "y": 74.16399717330933,
         "wires": [
             [
                 "c8aa104.1b48f7"
@@ -5433,8 +5431,8 @@
         "id": "c8aa104.1b48f7",
         "type": "subflow:16730253.13013e",
         "z": "75456024.34a398",
-        "x": 310.666748046875,
-        "y": 73.59477996826172,
+        "x": 310.66673278808594,
+        "y": 72.88049507141113,
         "wires": [
             [
                 "78ff02b2.128ea4"
@@ -5571,7 +5569,7 @@
         "type": "function",
         "z": "75456024.34a398",
         "name": "WCS for WDS",
-        "func": "/* New param to added to all front-ends - wcs_region = USSOUTH, GERMANY\nWill be used to set the url\nUSSOUTH - https://gateway.watsonplatform.net/conversation/api\nGERMANY - https://gateway-fra.watsonplatform.net/conversation/api\n*/\nvar watson = global.get('watson');\nmsg.params.input = {\n      text: \"Process WDS Answer\"\n    };\n\nif (msg.region === \"US-SOUTH\"){ \n    msg.params.endpoint = \"https://gateway.watsonplatform.net/conversation/api\"\n}\nelse if (msg.region === \"GERMANY\"){\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/conversation/api\"\n}\n\nvar conversation = new watson.ConversationV1({\n  username : msg.params.username,\n  password : msg.params.password,\n   workspace_id : msg.params.workspace_id,\n  url : msg.params.endpoint,\n  version_date: '2017-05-26'\n});\n\nvar myTM = setTimeout(function() { node.error(\"WCS message API reached 15 second time out\", msg)}, 15000 );\n\nconversation.message(msg.params,function(err, response) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.payload = response;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);",
+        "func": "/* New param to added to all front-ends - wcs_region = USSOUTH, GERMANY\nWill be used to set the url\nUSSOUTH - https://gateway.watsonplatform.net/conversation/api\nGERMANY - https://gateway-fra.watsonplatform.net/conversation/api\n*/\nvar watson = global.get('watson');\nmsg.params.input = {\n      text: \"Process WDS Answer\"\n    };\n\nif (msg.region === \"US-SOUTH\"){ \n    msg.params.endpoint = \"https://gateway.watsonplatform.net/conversation/api\"\n}\nelse if (msg.region === \"GERMANY\"){\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/conversation/api\"\n}\n\nvar conversation = new watson.ConversationV1({\n  username : msg.params.username,\n  password : msg.params.password,\n  workspace_id : msg.params.workspace_id,\n  url : msg.params.endpoint,\n  version_date: '2017-05-26'\n});\n\nvar myTM = setTimeout(function() { node.error(\"WCS message API reached 15 second time out\", msg)}, 15000 );\n\nconversation.message(msg.params,function(err, response) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.payload = response;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);",
         "outputs": 1,
         "noerr": 0,
         "x": 1199.046257019043,
@@ -5590,20 +5588,8 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 1396.6126499176025,
-        "y": 293.5327453613281,
-        "wires": []
-    },
-    {
-        "id": "6c3a6b3f.da50a4",
-        "type": "debug",
-        "z": "75456024.34a398",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 622.6471176147461,
-        "y": 257.0588216781616,
+        "x": 808.6126708984375,
+        "y": 377.5327453613281,
         "wires": []
     },
     {
@@ -5617,9 +5603,7 @@
         "x": 1382.6469268798828,
         "y": 209.41176509857178,
         "wires": [
-            [
-                "5aa7c031.7e98c"
-            ]
+            []
         ]
     },
     {
@@ -5995,18 +5979,6 @@
         "wires": []
     },
     {
-        "id": "cb0df277.7218f8",
-        "type": "debug",
-        "z": "75456024.34a398",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 246.5,
-        "y": 366,
-        "wires": []
-    },
-    {
         "id": "1390cf47.3c47b1",
         "type": "debug",
         "z": "17eb59dd.9ff326",
@@ -6014,8 +5986,8 @@
         "active": true,
         "console": "false",
         "complete": "false",
-        "x": 847.5,
-        "y": 371,
+        "x": 857.4999847412109,
+        "y": 358.8571434020996,
         "wires": []
     },
     {
@@ -6026,8 +5998,154 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 302.5,
-        "y": 258,
+        "x": 312.49998474121094,
+        "y": 245.8571434020996,
+        "wires": []
+    },
+    {
+        "id": "4af9f5ec.8d8fcc",
+        "type": "debug",
+        "z": "3fad3621.99e442",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 839.5,
+        "y": 473,
+        "wires": []
+    },
+    {
+        "id": "e906d92d.83697",
+        "type": "switch",
+        "z": "5b6fab52.9eae84",
+        "name": "Universal",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "a",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "b",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "c",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 3,
+        "x": 75.19831848144531,
+        "y": 464.6825485229492,
+        "wires": [
+            [
+                "c271b181.018ba"
+            ],
+            [
+                "44c0b667.43de1"
+            ],
+            [
+                "f5448311.706e88"
+            ]
+        ]
+    },
+    {
+        "id": "fbc45a0d.ecdaa",
+        "type": "function",
+        "z": "5b6fab52.9eae84",
+        "name": "Gateway",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 408.7699089050293,
+        "y": 464.6825656890869,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f5448311.706e88",
+        "type": "watson-conversation-v1",
+        "z": "5b6fab52.9eae84",
+        "name": "Conversation",
+        "workspaceid": "",
+        "multiuser": false,
+        "context": true,
+        "empty-payload": false,
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/conversation/api",
+        "x": 233.92852783203125,
+        "y": 502.0635528564453,
+        "wires": [
+            [
+                "fbc45a0d.ecdaa"
+            ]
+        ]
+    },
+    {
+        "id": "c271b181.018ba",
+        "type": "natural-language-understanding",
+        "z": "5b6fab52.9eae84",
+        "name": "Connection",
+        "categories": false,
+        "concepts": false,
+        "maxconcepts": "8",
+        "doc-emotion": false,
+        "doc-emotion-target": "",
+        "doc-sentiment": false,
+        "doc-sentiment-target": "",
+        "entity": false,
+        "entity-emotion": false,
+        "entity-sentiment": false,
+        "maxentities": "50",
+        "keyword": false,
+        "keyword-emotion": false,
+        "keyword-sentiment": false,
+        "maxkeywords": "50",
+        "metadata": false,
+        "relation": false,
+        "semantic": false,
+        "semantic-entities": false,
+        "semantic-keywords": false,
+        "maxsemantics": "50",
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/natural-language-understanding/api",
+        "x": 233.9285888671875,
+        "y": 427.9364824295044,
+        "wires": [
+            [
+                "fbc45a0d.ecdaa"
+            ]
+        ]
+    },
+    {
+        "id": "44c0b667.43de1",
+        "type": "visual-recognition-util-v3",
+        "z": "5b6fab52.9eae84",
+        "name": "     Cognitive  ",
+        "apikey": "",
+        "image-feature": "",
+        "x": 234.48411178588867,
+        "y": 464.6825485229492,
+        "wires": [
+            [
+                "fbc45a0d.ecdaa"
+            ]
+        ]
+    },
+    {
+        "id": "57e44375.c4c024",
+        "type": "comment",
+        "z": "5b6fab52.9eae84",
+        "name": "Display only - UCG Logo",
+        "info": "",
+        "x": 143.05555725097656,
+        "y": 371.6666793823242,
         "wires": []
     }
 ]

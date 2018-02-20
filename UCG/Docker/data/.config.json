@@ -2,7 +2,7 @@
  "nodes": {
   "node-red": {
    "name": "node-red",
-   "version": "0.17.5",
+   "version": "0.18.3",
    "local": false,
    "nodes": {
     "sentiment": {
@@ -349,12 +349,32 @@
      "local": false,
      "module": "node-red",
      "file": "/usr/src/node-red/node_modules/node-red/nodes/core/storage/50-file.js"
+    },
+    "sort": {
+     "name": "sort",
+     "types": [
+      "sort"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red",
+     "file": "/usr/src/node-red/node_modules/node-red/nodes/core/logic/18-sort.js"
+    },
+    "batch": {
+     "name": "batch",
+     "types": [
+      "batch"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red",
+     "file": "/usr/src/node-red/node_modules/node-red/nodes/core/logic/19-batch.js"
     }
    }
   },
   "node-red-node-base64": {
    "name": "node-red-node-base64",
-   "version": "0.0.8",
+   "version": "0.1.1",
    "local": false,
    "nodes": {
     "base64": {
@@ -406,7 +426,7 @@
   },
   "node-red-node-msgpack": {
    "name": "node-red-node-msgpack",
-   "version": "1.0.1",
+   "version": "1.1.3",
    "local": false,
    "nodes": {
     "msgpack": {
@@ -423,7 +443,7 @@
   },
   "node-red-node-random": {
    "name": "node-red-node-random",
-   "version": "0.0.8",
+   "version": "0.1.0",
    "local": false,
    "nodes": {
     "random": {
@@ -440,7 +460,7 @@
   },
   "node-red-node-rbe": {
    "name": "node-red-node-rbe",
-   "version": "0.1.14",
+   "version": "0.2.1",
    "local": false,
    "nodes": {
     "rbe": {
@@ -493,7 +513,7 @@
   },
   "node-red-node-watson": {
    "name": "node-red-node-watson",
-   "version": "0.5.23",
+   "version": "0.6.5",
    "local": false,
    "nodes": {
     "watson-conversation-v1": {
@@ -912,7 +932,7 @@
   },
   "node-red-contrib-scx-ibmiotapp": {
    "name": "node-red-contrib-scx-ibmiotapp",
-   "version": "0.0.47",
+   "version": "0.0.48",
    "local": false,
    "nodes": {
     "ibmiotapp": {
@@ -999,6 +1019,53 @@
      "local": false,
      "module": "node-red-node-watson-ucg",
      "file": "/usr/src/node-red/node_modules/node-red-node-watson-ucg/services/conversation/v1.js"
+    }
+   }
+  },
+  "node-red-contrib-multipart-stream-encoder": {
+   "name": "node-red-contrib-multipart-stream-encoder",
+   "version": "0.0.1",
+   "local": false,
+   "nodes": {
+    "multipart-encoder": {
+     "name": "multipart-encoder",
+     "types": [
+      "multipart-encoder"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-contrib-multipart-stream-encoder",
+     "file": "/usr/src/node-red/node_modules/node-red-contrib-multipart-stream-encoder/multipart_encoder.js"
+    }
+   }
+  },
+  "node-red-contrib-csvtojson": {
+   "name": "node-red-contrib-csvtojson",
+   "version": "0.0.2",
+   "local": false,
+   "nodes": {
+    "cvstojsonEx": {
+     "name": "cvstojsonEx",
+     "types": [
+      "csv to json ext"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-contrib-csvtojson",
+     "file": "/usr/src/node-red/node_modules/node-red-contrib-csvtojson/csvtojson_ex.js"
+    }
+   }
+  }
+ },
+ "users": {
+  "_": {
+   "editor": {
+    "view": {
+     "view-grid-size": "20",
+     "view-node-status": true,
+     "view-show-tips": true,
+     "view-snap-grid": false,
+     "view-show-grid": false
     }
    }
   }
