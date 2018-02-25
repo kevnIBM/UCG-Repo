@@ -28,7 +28,7 @@ Steps to use an NFS File storage volume in Bluemix for Kubernetes Persistant Vol
         df -h
 5. create directores and copy files
      - create directory for data and code
-       cd /mnt
+       cd /nfs
        mkdir data - for nodered 
        mkdir code - liveperson
 

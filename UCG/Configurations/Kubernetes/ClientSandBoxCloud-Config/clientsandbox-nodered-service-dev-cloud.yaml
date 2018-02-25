@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: clientsandbox-nodered
+  labels:
+     app: clientsandbox-nodered
+spec:
+  selector:
+    app: clientsandbox-nodered
+  type: LoadBalancer
+  #externalIPs : ["169.60.13.101"]
+  ports:
+   - protocol: TCP  
+     port: 9000
+     targetPort: 1880

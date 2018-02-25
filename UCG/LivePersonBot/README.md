@@ -70,12 +70,21 @@ In Live Person System
 
 In Kubernetes Custer
 
-1. Set up an nfs share and authorize the cluster workers, see https://github.com/dennisnotojr/UCG-Repo/tree/master/UCG/Configurations/Kubernetes readme
+1. Set up an nfs share and authorize the cluster workers, see https://github.com/dennisnotojr/UCG-Repo/tree/master/UCG/Configurations/Kubernetes/readme.md
 
 2. create volume and volume-claim
-   ./kubectl create -f volume-code.yaml
-   ./kubectl create -f volume-claim-code.yaml
+   ./kubectl create -f volume-ucg-liveperson-code.yaml
+   ./kubectl create -f volume-claim-ucg-liveperson-code.yaml
 
 3. create LivePerson Pod
-   ./kubectl create -f liveperson-pod.yaml
+   ./kubectl create -f ucg-liveperson-deployment.yaml
 
+4. Add UCG LivePerson WCS workspace changes: 
+  
+  Import liveperson-intents.csv into WCS intents and create dialog nodes for each:
+  
+  "contact-agent" intent with many sample utterances in the csv
+   - Dialog node with answer that contains "transfer you to" example : "One moment, I’ll transfer you to a $Company claims representative now so they can further assist you"
+
+  "watson-join-convo-again" intent with utterance "watson join convo again"
+    - Dialog node with answer - example - "I'm back to answer your questions, what's on your mind?"" 
