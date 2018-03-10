@@ -41,7 +41,8 @@
         "cluster-service":"2.x",
         "watson-developer-cloud":"3.x",
         "node-red-contrib-multipart-stream-encoder":"0.x",
-        "node-red-contrib-csvtojson":"0.x"
+        "node-red-contrib-csvtojson":"0.x",
+        "request":"2.x"
 
     },
     "engines": {

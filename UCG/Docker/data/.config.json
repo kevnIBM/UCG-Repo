@@ -513,7 +513,7 @@
   },
   "node-red-node-watson": {
    "name": "node-red-node-watson",
-   "version": "0.6.5",
+   "version": "0.6.6",
    "local": false,
    "nodes": {
     "watson-conversation-v1": {
@@ -915,7 +915,7 @@
   },
   "node-red-contrib-http-request": {
    "name": "node-red-contrib-http-request",
-   "version": "0.1.11",
+   "version": "0.1.13",
    "local": false,
    "nodes": {
     "www-request": {
@@ -932,7 +932,7 @@
   },
   "node-red-contrib-scx-ibmiotapp": {
    "name": "node-red-contrib-scx-ibmiotapp",
-   "version": "0.0.48",
+   "version": "0.0.49",
    "local": false,
    "nodes": {
     "ibmiotapp": {
