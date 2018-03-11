@@ -32,7 +32,7 @@ services:
       - '80:80'
       - '443:443'
     volumes:
-      - /Users/dennisnoto/Documents/NotoData-Dev/Carla/carla-docker/htdocs:/opt/htdocs
+      - /Users/dennisnoto/Documents/NotoData-Dev/UCG-Repo/UCG/Carla/carla-docker/htdocs:/opt/htdocs
 volumes:
   data:
     driver: local
