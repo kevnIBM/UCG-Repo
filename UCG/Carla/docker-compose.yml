@@ -1,0 +1,41 @@
+version: '2'
+
+services:
+  nodered:
+    logging:
+      driver: json-file
+      options: 
+         max-size : "100m"
+         max-file : "10"
+    image: 'dennisnotojr/node-red-docker-node8-nr-18-data-mapped:version-3'
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - NODE_OPTIONS=--max_old_space_size=1024 
+    ports:
+      - '1880:1880'
+    volumes:
+      - /Users/dennisnoto/Documents/NotoData-Dev/UCG-Repo/UCG/Docker/data:/data
+  carla:
+    logging:
+      driver: json-file
+      options: 
+        max-size : "100m"
+        max-file : "10"
+    image: dennisnotojr/carla-apache-2-php-7-data-mapped:version-1
+    restart: always
+    depends_on:
+      - nodered
+    environment:
+      - WEB_DOCUMENT_ROOT=/opt/htdocs/  
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - /Users/dennisnoto/Documents/NotoData-Dev/Carla/carla-docker/htdocs:/opt/htdocs
+volumes:
+  data:
+    driver: local
+  htdocs:
+    driver: local 
+  

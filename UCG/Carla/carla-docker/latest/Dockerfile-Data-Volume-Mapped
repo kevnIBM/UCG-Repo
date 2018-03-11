@@ -1,0 +1,6 @@
+#++++++++++++++++++++++++++++++++++++++
+# Apline PHP-Apache Docker container
+#++++++++++++++++++++++++++++++++++++++
+
+FROM webdevops/php-apache:alpine-php7
+

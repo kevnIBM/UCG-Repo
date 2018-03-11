@@ -1,0 +1,9 @@
+#++++++++++++++++++++++++++++++++++++++
+# Apline PHP-Apache Docker container
+#++++++++++++++++++++++++++++++++++++++
+
+FROM webdevops/php-apache:alpine-php7
+
+#Copy Carla zip into html direcory
+COPY carla-release-v3-2/  /usr/local/apache2/htdocs/
+
