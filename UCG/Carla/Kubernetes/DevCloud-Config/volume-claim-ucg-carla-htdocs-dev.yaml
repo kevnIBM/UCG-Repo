@@ -1,0 +1,12 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+ name: ucg-carla-htdocs-dev
+ annotations:
+   volume.beta.kubernetes.io/storage-class: ""
+spec:
+ accessModes:
+   - ReadWriteMany
+ resources:
+   requests:
+     storage: "100Gi"

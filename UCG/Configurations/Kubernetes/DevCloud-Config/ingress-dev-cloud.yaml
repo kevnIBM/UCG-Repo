@@ -15,5 +15,7 @@ spec:
         backend:
           serviceName: nodered
           servicePort: 1880
-
-
+      - path: /carla
+        backend:
+          serviceName: ucg-carla
+          servicePort: 80
