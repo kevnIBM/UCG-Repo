@@ -1,0 +1,37 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ucg-carla
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ucg-carla
+    spec:
+      containers:
+      - name: ucg-carla
+        image: dennisnotojr/carla-apache-2-php-7-data-mapped:version-1
+        ports: 
+         - containerPort: 80
+           protocol: TCP
+         - containerPort: 443
+           protocol: TCP
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: 2
+            memory: 2048Mi
+          requests:  
+            cpu: 0.5
+            memory: 512Mi
+        env:
+        - name: WEB_DOCUMENT_ROOT
+          value: "/opt/htdocs/"
+        volumeMounts:
+        - name: htdocs
+          mountPath: /opt/htdocs
+      volumes:
+      - name: htdocs
+        persistentVolumeClaim:
+         claimName: ucg-carla-htdocs-prod
