@@ -1,0 +1,111 @@
+UCG Bank Assist Convos
+
+Omni-Channel access via in-home speakers
+Alexa - "Open Watson Bank Assist"
+GoogleHome - "OK Google, Let me talk to Watson Insurance Assist"
+
+
+Persona
+Jane is a Canadian traveling abroad in the US and she gets an alert on a fraudulent transaction. Convo opens with a conversation about the transactions and quickly moves into canceling the card and getting a new one. Now what does Jane do? She asks Watson about her debt card only to find that she does not have enough money. Watson helps to transfer money from Savings and informs her that she can use her debt card in the US.  Watson also picks up the convo on foreign fees assessed on her current credit card, so Watson suggests others that waive the fees!! Along the way she can find her way to the local US branch to take out cash or get her new card.
+
+Suspicious Transaction Convo
+----------------------------
+
+"I see a funky transaction on my account" or “I received an alert on a suspicious transaction”
+“No I do not”
+“No Way, this is ridiculous”
+“Work with Watson”
+Press Yes OR  Alexa - “Yes, please ”
+Press Visit Branch OR Alexa - “Please find the nearest branch”
+“Very cool” - Example of showing google maps
+
+“Can I use my debt card in the US”
+“No way”
+“Yes, Please”
+Press Savings OR Alexa - “Savings”
+Press Checking  OR Alexa - "Checking"
+Type any number OR Alexa “1,000 dollars”
+“Yes, Please”
+
+"Will I have to pay a fee for taking cash out"
+    
+"Does my credit card charge foreign fees"
+"Sure"  
+“Absolutely”
+“Spain in Sept” or “Italy in September” 
+“That would be great”
+
+"I’m scared of using mobile banking" - Example of showing a video on mobile
+Very cool
+
+"What is an adjustable rate mortgage" - Example of WDS call
+
+Thank you 
+Goodbye
+
+Mortgage Convo
+---------------
+"I want to know about my mortgage"
+"Sure, why not?""
+"I'd like to lower my payment"  
+"Yes please"
+"2 PM"
+"720 236 2541"
+Lest go with Lindsey
+
+Thank you 
+Good bye
+
+Persona 
+Jane is a 22-year old prepaid card holder. Firmly in the “I don’t want to be banked” generation and not loyal to any financial institution. She is a very mobile heavy user, preferring to do just about everything on her mobile phone. She is a very recent graduate and is just beginning to have a higher, steady income than in the past. She now has some capacity to save, but her old habits of living check-to-check has limited her practice for starting to save. 
+
+Overview 
+In the prepaid space, will have lower amounts of money involved and idea is to help the user better manage their funds.  Could be to save more, show them where they are spending it, alert them when not reaching savings goals, etc.  Ultimately in prepaid – need the user engaged to keep loading / spending / loading again for the prepaid card to survive.
+
+Recommendations Convo
+---------------------
+
+“Do you have any recommendations for me?”
+“Yes, please”
+“Do I really need it”
+“Sure”
+ 500
+“Absolutely”
+“What does bill pay cost”
+“That would be great”
+“Yes, please”
+"Nope"
+
+Out-of-money Convo
+-------------------
+
+“I got a text that I am out of money”
+“How far below zero will I go”
+“Yeah”
+“Sure”
+“tell me more about discounts”
+“What does it cost”
+Yes
+“Thank you, Watson”
+“Goodbye”
+
+
+Other questions
+---------------
+“Where is the nearest branch?”  
+“Is my information safe with you?”
+“Tell me about online access?”
+“What are my current account balances?”
+“I want to transfer money” ->  Type “2,000 from Checking”  -> “Mortgage”
+
+For fun and only fun :
+  “Who Created you?” or “Who is your Master?”
+“BYE”
+
+
+Boring questions
+----------------
+Am I responsible for fraudulent charges?
+Does it cost to withdraw money?
+I lost my phone?
+I forgot my password?

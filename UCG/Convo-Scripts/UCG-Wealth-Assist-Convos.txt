@@ -1,0 +1,152 @@
+UCG Wealth Assist Convos 
+
+Type or say the utterance.  Type/Button are actions on the mobile app
+
+1. Persona Tom (Internal Facing) 
+
+Tom is an experienced financial advisor. He is a visiting a client in Valley Forge, PA and finds out his flight home is cancelled. He decides to take advantage of the extra time to meet with another client. He asks Watson to uncover clients nearby and reasons to meet with them. Tom decides to meet his client, Jane Wilson, for lunch. He arrives at the restaurant a few minutes early and asks Watson to prepare his client review package. Watson also gives Tom additional information about Jane’s life and coaching tips on how to best communicate with her. After a successful lunch with Jane, Tom returns to Watson to quickly debrief Watson on the topics he discussed and new information he uncovered. Watson collects Tom’s list of future activities and uploads the tasks into Salesforce. Watson even prepares Tom’s notes for supervisory review. 
+
+Finding Clients Nearby 
+----------------------
+
+What clients are nearby that I should visit?  
+Yes, Jane  
+Button: Now  Preparing for Meeting with Client  
+I need to prepare for my meeting with Jane  
+Button: Yes  >> (This should bring up a checkbox of the items on the typical report you would like to  review with the client. For demo purposes, keep them all selected.)  
+Button: Continue  
+Button: Yes  
+Copy of a retirement account rollover form  
+Copy of a life insurance basic questionnaire form  
+Button: No  
+Button: Yes  
+Button: Client Report  Summarizing Meeting Notes after Meeting with Jane  
+I want to summarize my meeting notes  
+Interview me  
+Button: Good  
+Button: Yes  
+Yes, she is going to up her life insurance but wasn't ready to commit yet. I will reach out to her about it in a week.  
+Yes, it’s fine  
+Yes, she’d like to get quarterly performance reports  
+Yes, I reviewed the form but she’s not interested  
+Button: Yes  
+Yes, she’s pregnant and contemplating taking a year off  
+Button: No  
+Agreed to call her next Monday at 9am in regard to life insurance, and whether to reset  her overall financial plan.  
+Review performance report at the end of next quarter  
+Button: No  
+Button: Yes  
+Button: Yes  
+No thanks
+  
+Persona Jackie (Consumer Facing)  
+Jackie has been married for 18 months and is thinking about her current lifestyle and spending habits. She wants to make sure she is budgeting well as she ponders future plans to buy a home, have kids, and stop working for a few years. She reaches out to Watson to discuss money management, and he guides her through creating a new budget to be prepared for her financial future.  
+
+Learning more about managing her money  
+--------------------------------------
+
+I want to talk about money management  
+Budgeting  
+Button: Y es  >> (At this point, you would take a picture of your credit card, but for demo purposes we  will assume you already did)  
+Continue  
+Button: No  
+Button: No  
+Absolutely  
+500 dollars  
+200  
+Button: Investment Account  
+I’m nervous about staying on track  
+Button: Yes  
+Yes please  
+No thank you  
+
+Persona Patricia (Consumer Facing)  
+
+Patricia, a retired school teacher who just turned 70 is playing bridge with the girls and one of them mentions “RMDs.” Patricia has no idea what they are talking about and feeling too intimidated to express her ignorance to her friends or even her financial advisors, she asks Watson. Watson helps Patricia learn about required minimum distributions and gives her personalized direction. Knowing that Patricia’s needs to initiate her RMD withdrawals, Watson completes the authorization form by asking Patricia a series of simple questions. 
+
+Learning more about RMDs
+------------------------
+
+What are required minimum distributions  
+Yes, I’m a retired schoolteacher  
+Button: Yes  
+Yes please  
+What if I don’t take a withdrawal  
+Online  
+Button: No  
+Button: 2017  
+That would be great  
+Button: Monthly  
+July first twenty seventeen  
+Button: Regular mail  
+Button: 10%  
+Button: Continue  
+Absolutely  
+Button: Yes  
+Button: Yes  
+Button: 1:00 PM  
+Okay  
+Button: Broadway  
+Cool  
+No thanks 
+
+
+Luke Persona (Consumer Facing)  
+* Luke recently proposed to his girlfriend of 5 years. Watson detected the life event after seeing a major withdrawal from his investment account and a big spend at Tiffany’s. Watson reaches out to confirm the intent of this sizable withdrawal. After confirming Luke’s engagement, Watson suggests discussing his financial goals and plans. As he considers honeymoon plans, buying a big screen TV, and ensuring his retirement, Watson walks him through a realistic plan to meet his goals on time.  Setting 
+
+Financial Goals
+----------------
+  
+I just got engaged  
+Sounds good  
+Button: Financial goals  
+Absolutely  
+Button: V acation  
+July 18th 2018  
+Type: 15000  
+6000  
+Button: Yes  
+Button: Big Purchase  
+6 months from now  
+3000  
+1500  
+Button: Yes  
+Button: Retirement  
+2050  
+About 3 million  
+75000 dollars  
+Button: No  
+Only $1907?! I’m highly confident I can do that!  
+Button: No  
+No thanks 
+
+Vikki Persona (Consumer Facing)
+
+Vikki is divorced with 3 children, and recently became a grandmother. She just celebrated her 50th birthday and Watson prompts her to sign in to her financial app. Watson wishes her a happy birthday and suggests they discuss retirement. Vikki expresses concern about her retirement savings, so Watson runs analytics to assess her readiness for retirement, educates her on various options and asks her a few simple questions to open the new IRA account for her.  
+
+Assessing Retirement Readiness  
+------------------------------
+
+I’m afraid that I’m not ready for retirement  
+Button: Continue  
+Sounds good  
+Button: Yes  
+300,000  
+Button: No  
+67 if I can do it  
+Button: Same  
+That’s why I’m worried, just 70%  
+Absolutely  
+Button: Yes  
+I’d like to see a comparison of the two  
+Button: No  
+Button: Traditional  
+Sounds good  
+Button: Yes  
+Button: Yes  
+Button: Yes  
+Button: Yes  
+No thanks  
+
+
+

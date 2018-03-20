@@ -25,7 +25,7 @@ Main Directory
 
 Run-time notes 
 
-For Omni-Channel front-ends, set username and password to ' ', workspace to the Carla workspace_id and add carla as param
+For Omni-Channel front-ends, set username and password to ' ', workspace to the Carla workspace_id and add carla_host=<host ip or kubernetes domain> as param
 
 In the "Get Answer" subflow, edit the Carla function node:
 	Alter the Url var:
@@ -37,11 +37,11 @@ In the "Get Answer" subflow, edit the Carla function node:
 Example calling UCG Load flow 
 
 - On-prem
-  http://localhost:1880/load?user_id=testmeplease15&wcs_username=' '&wcs_password=' '&workspace_id=54141f49-ffa2-4f6b-887c-aac6aea5d42d&text='status of my claim'&fname=dennis&carla
+  http://localhost:1880/load?user_id=testmeplease15&wcs_username=' '&wcs_password=' '&workspace_id=54141f49-ffa2-4f6b-887c-aac6aea5d42d&text='status of my claim'&fname=dennis&carla_host=localhost
 
 - In Kubernetes cluster
 
-  http://ucg-clusterdev.us-south.containers.mybluemix.net/load?user_id=testmeplease15&wcs_username=' '&wcs_password=' '&workspace_id=54141f49-ffa2-4f6b-887c-aac6aea5d42d&text='status of my claim'&fname=dennis&carla
+  http://ucg-clusterdev.us-south.containers.mybluemix.net/load?user_id=testmeplease15&wcs_username=' '&wcs_password=' '&workspace_id=54141f49-ffa2-4f6b-887c-aac6aea5d42d&text='status of my claim'&fname=dennis&carla_host=ucg-clusterdev.us-south.containers.mybluemix.net
 
 
 

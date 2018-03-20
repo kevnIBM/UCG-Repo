@@ -1,0 +1,62 @@
+UCG Insure Assist Convos
+
+Omni-Channel access via in-home speakers
+Alexa - Open Watson Insure Assist
+GoogleHome - "OK Google, Let me talk to Watson Insurance Assist"
+
+Persona
+Jane, 40 year old mother with one teenage daughter. She is a homeowner with a replacement cost Home owners policy valued at $565,000 and a million dollar umbrella policy.   A tree fell on her home last week and it has been 7 days since an adjuster had been out there.  She is calling for an update on her claim. 
+
+Status on my Claim Convo
+------------------------
+
+"Can I get a status on my claim?"
+"Yes, I am" 
+"Yea, what a mess" sigh…
+"Nope, never got it!"
+“What is my deductible  and limits”
+“How do Claims work?”
+"OK"
+“That would be great”
+
+"What is an umbrella insurance policy?" - Example of WDS
+      Can you give me an example of how an umbrella policy works? - Example of WDS
+
+"I’m confused about keeping track of my stuff" - Example of playing a movie on mobile
+      "I'm afraid to hire a contractor, what should I do?"  - Example of playing a movie on mobile - longer
+
+"Great video Watson"
+
+“Please schedule call”
+“1 PM Tomorrow”
+
+"Thank you, Watson"
+“goodbye”
+
+Do I have Coverage Convo
+------------------------
+
+"Do I have enough insurance coverage?"
+"Life insurance"
+"Yes, I do"
+"term policy with ABC insurance"
+"10 years"
+"50000 of coverage at 100 per month”
+"Nope"
+"No, my assets don't amount to much"
+"Awesome"
+"That would be great"
+“2 PM Today”
+"Thank you, Watson"
+“goodbye”
+
+For fun here are other questions you can ask
+--------------------------------------------
+What is my deductible
+What  is my coverage
+How do claims work
+Schedule a call with my claims rep
+I need to call my claim rep immediately
+I forgot my password
+I lost my mobile phone
+Who creating you
