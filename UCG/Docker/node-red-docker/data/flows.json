@@ -474,19 +474,19 @@
         "info": "",
         "in": [
             {
-                "x": 47.92173194885254,
-                "y": 74.29412078857422,
+                "x": 32.92173194885254,
+                "y": 96.29412078857422,
                 "wires": [
                     {
-                        "id": "6a2e837c.7b841c"
+                        "id": "a58cef8d.b2d3b8"
                     }
                 ]
             }
         ],
         "out": [
             {
-                "x": 1484.5320510864258,
-                "y": 63.48297119140625,
+                "x": 1630.1986694335938,
+                "y": 207.98296451568604,
                 "wires": [
                     {
                         "id": "77767850.bd513",
@@ -1357,7 +1357,7 @@
         "method": "post",
         "swaggerDoc": "",
         "x": 85,
-        "y": 188.00000286102295,
+        "y": 200,
         "wires": [
             [
                 "3578e40e.b2c1f4",
@@ -1408,8 +1408,8 @@
         "ret": "txt",
         "url": "",
         "tls": "",
-        "x": 1721.2499885559082,
-        "y": 279.9999952316284,
+        "x": 1702.25,
+        "y": 280,
         "wires": [
             [
                 "7bdb68df.47d5b8"
@@ -4363,8 +4363,8 @@
         ],
         "checkall": "true",
         "outputs": 2,
-        "x": 760.7586822509766,
-        "y": 71.87337303161621,
+        "x": 665.4253540039062,
+        "y": 213.3733606338501,
         "wires": [
             [],
             [
@@ -4376,12 +4376,12 @@
         "id": "78ff02b2.128ea4",
         "type": "function",
         "z": "75456024.34a398",
-        "name": "Check WCS Confidence",
+        "name": "Check Confidence",
         "func": "msg.answerType = \"WCS\" \nmsg.highIntent = false\nmsg.highEntity = false\nvar savIntentConf = 0\nvar savEntityConf = 0\nvar intentFound = false\nvar entityFound = false\nmsg.USE_WCS_ANSWER = false\nmsg.USE_WDS_ANSWER = false\nmsg.UCG_ANSWER_ROUTING = \"WCS-WDS\"\n/*\nUCG_ANSWER_ROUTING\n  This will be used to allow engineers to change the answer routing via a context var.\n  Possible Values:\n    WCS-WDS     - the default routing that uses a canned answer that replaces WCS's output.text array\n    WCS-WDS-WCS - routes back through WCS after calling WDS with new context vars\n              WDSResults - JSON object with payload from WDS\n              answerType - either WCS or WDS to indicate what where the answer came from.\n\nUSE_WDS_ANSWER\n   Used to override flow to send utterance to WDS for an answer\n\nUSE_WCS_ANSWER\n   Used to ensure that flow retains answer from WCS, thus by passing confidence/anything else checks\n  \n  WCS engineers need to set context var USE_WCS_ANSWER if the dialog condition statement:\n     1) does not use an intent or entity, like using tone score to give back an answer\n     2) use true to force node answer and a low confidence match comes back for an intent or entity\n\n*/\nif (typeof msg.payload.context !== \"undefined\"){ \n    if (typeof msg.payload.context.USE_WCS_ANSWER !== \"undefined\"){ \n        msg.USE_WCS_ANSWER = true\n        delete msg.payload.context.USE_WCS_ANSWER\n    }\n    if (typeof msg.payload.context.USE_WDS_ANSWER !== \"undefined\"){ \n        msg.USE_WDS_ANSWER = true\n        delete msg.payload.context.USE_WDS_ANSWER\n    }\n    if (typeof msg.payload.context.UCG_ANSWER_ROUTING !== \"undefined\"){ \n        msg.UCG_ANSWER_ROUTING = msg.payload.context.UCG_ANSWER_ROUTING\n    }\n    \n}    \n// vars that can be used to evaluate confidence. Holding for now. Using regex on WCS output from the anything else dialog node\nif (typeof msg.payload.intents[0] !== \"undefined\"){ \n    if (msg.payload.intents[0].confidence > .50){\n      \n         msg.highIntent = true\n    }\n    savIntentConf = msg.payload.intents[0].confidence\n    intentFound = true\n        \n    }\n\nif (typeof msg.payload.entities[0] !== \"undefined\"){\n    if (msg.payload.entities[0].confidence > .50){\n        msg.highEntity = true\n    }\n    savEntityConf = msg.payload.entities[0].confidence\n    entityFound = true\n}\n\nif (msg.payload.output.text.length > 0) {\n        // Anything else dialog node - make sure no intent or entity\n        if (msg.payload.output.text[0].toUpperCase().match(/\\b(FUTURE TRAINING|HAVING TROUBLE|HAVEN'T BEEN TRAINED)\\b/g))  {\n                msg.answerType = \"WDS\"\n        }\n        else { msg.answerType = \"WCS\"\n            \n        }\n}\nelse {\n        msg.answerType = \"WDS\" \n}\n\nif (msg.USE_WCS_ANSWER) {\n  msg.answerType = \"WCS\"   \n} \n\nif (msg.USE_WDS_ANSWER) {\n  msg.answerType = \"WDS\"   \n}    \n\nmsg.params.context.answerType =  msg.answerType\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 526.323356628418,
-        "y": 72.25152778625488,
+        "x": 858.3233642578125,
+        "y": 96.25152587890625,
         "wires": [
             [
                 "77767850.bd513"
@@ -4396,12 +4396,11 @@
         "func": "var watson = global.get('watson');\n\nvar discovery = new watson.DiscoveryV1({\n  username: \"578d5c5e-a713-44ad-bd8b-d3b8ba39c03c\",\n  password: \"NaFdTJluDnem\",\n  version_date: '2017-11-07'\n});\n\nvar params = {\n    natural_language_query: msg.payload.input.text,\n    environment_id: \"d40ba5ee-be86-4b59-8a67-f463f233367d\",\n    collection_id: \"35835dcf-e873-4a43-9034-786210ffebf2\",\n    configuration_id: \"1d573129-7100-4405-b6a0-439cd8af2640\",\n    passages: true, //if you want to enable passages\n    passages_fields : \"Text\"\n    //sort : \"Term\"\n   //  return: ''\n  //highlight: true //if you want to enable highlight\n\n}\n\ndiscovery.query(params, (error, results) => {\n    if (error) {\n      node.error(error);\n    } else {\n      msg.WDSResults = results; //your query results\n      msg.test = msg.payload.input.abc\n      node.send(msg);\n    }\n});",
         "outputs": 1,
         "noerr": 0,
-        "x": 710,
-        "y": 160,
+        "x": 816.6666870117188,
+        "y": 286.4999933242798,
         "wires": [
             [
-                "e56baa7a.49625",
-                "5aa7c031.7e98c"
+                "e56baa7a.49625"
             ]
         ]
     },
@@ -4422,8 +4421,8 @@
         "id": "67c863cf.d22444",
         "type": "subflow:87530aab.adb068",
         "z": "75456024.34a398",
-        "x": 191.1904754638672,
-        "y": 221.71429061889648,
+        "x": 122.19047546386719,
+        "y": 281.71429443359375,
         "wires": [
             []
         ]
@@ -4432,20 +4431,20 @@
         "id": "ececde02.3d2dc8",
         "type": "comment",
         "z": "75456024.34a398",
-        "name": "Can replace single Convo with Dynamic Router Subflow",
+        "name": "Can replace WCS with Dynamic Router Subflow",
         "info": "",
-        "x": 241.5,
-        "y": 170.3333396911621,
+        "x": 188.5,
+        "y": 331.3333435058594,
         "wires": []
     },
     {
         "id": "b6cdde19.f645c8",
         "type": "comment",
         "z": "75456024.34a398",
-        "name": "Run through WCS first, Test confidence and go to WDS if confidence below 50%",
+        "name": "Run through WCS/Carla first, Test confidence and go to WDS if necessary",
         "info": "",
-        "x": 325,
-        "y": 27.5,
+        "x": 308,
+        "y": 25.5,
         "wires": []
     },
     {
@@ -4476,8 +4475,8 @@
         "func": "if (msg.WDSResults.matching_results > 0){\n    if (typeof msg.WDSResults.results[0].Text !== \"undefined\"){\n        msg.newOutput = []\n        msg.arrayOutput = []\n        \n        msg.testOutput = msg.WDSResults.results[0].Text.split(\"\\r\")\n        if (msg.testOutput.length > 1) {\n            msg.arrayOutput = msg.testOutput\n        }\n        else {\n            msg.arrayOutput.push(msg.WDSResults.results[0].Text)\n        }\n        \n        if (msg.WDSResults.results[0].Type == \"Term\") {\n            msg.newOutput.push(\"I found this definition in my glossary for \" + msg.WDSResults.results[0].Key + \". \")\n        }\n        else if (msg.WDSResults.results[0].Type == \"Article\") {\n            msg.newOutput.push(\"I found this article entitled  \" + msg.WDSResults.results[0].Key + \".\")  \n        }\n        else {\n            \n        }\n        \n        for (i = 0; i < msg.arrayOutput.length; i++) {\n             msg.newOutput.push(msg.arrayOutput[i])\n        }\n        msg.newOutput.push(\"Do you have more questions for me?\")\n        msg.payload.output.text = msg.newOutput\n    }  \n}\nelse {\n   msg.payload.output.text[0] = \"Sorry, I tried many sources to answer your question, can you restate your question?\" \n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1022.1664772033691,
-        "y": 117.0411024093628,
+        "x": 1128.833164215088,
+        "y": 250.54109573364258,
         "wires": [
             []
         ]
@@ -4832,8 +4831,8 @@
         "func": "/* New param to added to all front-ends - wcs_region = USSOUTH, GERMANY\nWill be used to set the url\nUSSOUTH - https://gateway.watsonplatform.net/conversation/api\nGERMANY - https://gateway-fra.watsonplatform.net/conversation/api\n*/\nvar watson = global.get('watson');\nmsg.params.input = {\n      text: msg.payload\n    };\n\nif (msg.region === \"US-SOUTH\"){ \n    msg.params.endpoint = \"https://gateway.watsonplatform.net/conversation/api\"\n}\nelse if (msg.region === \"GERMANY\"){\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/conversation/api\"\n}\n\nvar conversation = new watson.ConversationV1({\n  username : msg.params.username,\n  password : msg.params.password,\n  workspace_id : msg.params.workspace_id,\n  url : msg.params.endpoint,\n  version_date: '2017-05-26'\n});\n\nvar myTM = setTimeout(function() { node.error(\"WCS message API reached 15 second time out\", msg)}, 15000 );\n\nconversation.message(msg.params,function(err, response) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.payload = response;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 150,
-        "y": 80,
+        "x": 482,
+        "y": 71,
         "wires": [
             [
                 "c8aa104.1b48f7"
@@ -5308,7 +5307,7 @@
         "type": "function",
         "z": "16730253.13013e",
         "name": "Check Actions",
-        "func": "\n/* UCG Action JSON Object - type server is for open Whisk\n\"UCGactions\": [\n    {\n      \"name\":\"<actionName>\",\n      \"type\":\"client | server\",\n      \"parameters\": {\n        \"<parameter_name>\":\"<parameter_value>\",\n        \"<parameter_name>\":\"<parameter_value>\"\n      },\n      \"result_variable\": \"<result_variable_name>\",\n      \"credentials\": \"<reference_to_credentials>\"\n    }\n  ]\n*/\n\nmsg.savePayload = msg.payload\n\nif (typeof msg.payload.context !== \"undefined\"){ \n    if (typeof msg.payload.context.UCGactions !== \"undefined\"){ \n        \n       msg.UCGActions =  msg.payload.context.UCGactions\n       delete msg.payload.context.UCGactions\n       \n       for (i = 0; i < msg.UCGActions.length; i++) {\n \n        (function(i) { setTimeout(function() {\n            \n           if (msg.UCGActions[i].type == \"client\") {\n               msg.doAction = msg.UCGActions[i].name\n               msg.UCGAction = msg.UCGActions[i]\n               node.send(msg);\n                  \n            }\n                \n         }, 300 * i);\n        })(i);\n       }  \n    }\n} \n\n\nreturn msg;",
+        "func": "\n/* UCG Action JSON Object\n\"UCGactions\": [\n    {\n      \"name\":\"<UCGactionName>\",\n      \"parameters\": {\n        \"<parameter_name>\":\"<parameter_value>\",\n        \"<parameter_name>\":\"<parameter_value>\"\n      },\n      \"result_variable\": \"<result_variable_name>\",\n    }\n  ]\n*/\n\nmsg.savePayload = msg.payload\n\nif (typeof msg.payload.context !== \"undefined\"){ \n    if (typeof msg.payload.context.UCGactions !== \"undefined\"){ \n        \n       msg.UCGActions =  msg.payload.context.UCGactions\n       delete msg.payload.context.UCGactions\n       \n       for (i = 0; i < msg.UCGActions.length; i++) {\n \n        (function(i) { setTimeout(function() {\n               msg.doAction = msg.UCGActions[i].name\n               msg.UCGAction = msg.UCGActions[i]\n               node.send(msg);\n                \n         }, 300 * i);\n        })(i);\n       }  \n    }\n} \n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 197.54907989501953,
@@ -5337,6 +5336,7 @@
             }
         ],
         "checkall": "true",
+        "repair": false,
         "outputs": 2,
         "x": 408.1961975097656,
         "y": 130.7843246459961,
@@ -5396,8 +5396,8 @@
         "id": "c8aa104.1b48f7",
         "type": "subflow:16730253.13013e",
         "z": "75456024.34a398",
-        "x": 310.66673278808594,
-        "y": 72.88049507141113,
+        "x": 669.6667404174805,
+        "y": 96.8804931640625,
         "wires": [
             [
                 "78ff02b2.128ea4"
@@ -5502,8 +5502,8 @@
         ],
         "checkall": "true",
         "outputs": 2,
-        "x": 867.44482421875,
-        "y": 153.35375785827637,
+        "x": 974.1115112304688,
+        "y": 286.85375118255615,
         "wires": [
             [
                 "25c719ea.a89abe"
@@ -5521,8 +5521,8 @@
         "func": "\n\nif (typeof msg.WDSResults.results[0].Text !== \"undefined\"){\n        msg.newOutput = []\n        msg.arrayOutput = []\n        \n        msg.testOutput = msg.WDSResults.results[0].Text.split(\"\\r\")\n        if (msg.testOutput.length > 1) {\n            msg.arrayOutput = msg.testOutput\n        }\n        else {\n            msg.arrayOutput.push(msg.WDSResults.results[0].Text)\n        }\n}\nmsg.WDSResults.output = msg.arrayOutput\nmsg.params.context.WDSResults = msg.WDSResults\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1006.1377487182617,
-        "y": 211.7402000427246,
+        "x": 1112.8044357299805,
+        "y": 345.2401933670044,
         "wires": [
             [
                 "ba2d0095.8d8fd8"
@@ -5537,8 +5537,8 @@
         "func": "/* New param to added to all front-ends - wcs_region = USSOUTH, GERMANY\nWill be used to set the url\nUSSOUTH - https://gateway.watsonplatform.net/conversation/api\nGERMANY - https://gateway-fra.watsonplatform.net/conversation/api\n*/\nvar watson = global.get('watson');\nmsg.params.input = {\n      text: \"Process WDS Answer\"\n    };\n\nif (msg.region === \"US-SOUTH\"){ \n    msg.params.endpoint = \"https://gateway.watsonplatform.net/conversation/api\"\n}\nelse if (msg.region === \"GERMANY\"){\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/conversation/api\"\n}\n\nvar conversation = new watson.ConversationV1({\n  username : msg.params.username,\n  password : msg.params.password,\n  workspace_id : msg.params.workspace_id,\n  url : msg.params.endpoint,\n  version_date: '2017-05-26'\n});\n\nvar myTM = setTimeout(function() { node.error(\"WCS message API reached 15 second time out\", msg)}, 15000 );\n\nconversation.message(msg.params,function(err, response) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.payload = response;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);",
         "outputs": 1,
         "noerr": 0,
-        "x": 1199.046257019043,
-        "y": 211.28268432617188,
+        "x": 1305.7129440307617,
+        "y": 344.78267765045166,
         "wires": [
             [
                 "a6f4e402.de9dd8"
@@ -5553,8 +5553,8 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 808.6126708984375,
-        "y": 377.5327453613281,
+        "x": 362.6126708984375,
+        "y": 229.53274536132812,
         "wires": []
     },
     {
@@ -5565,8 +5565,8 @@
         "func": "var testArray = msg.payload.output.text\nmsg.fixOutput = []\nfor (i = 0; i < testArray.length; i++) {\n    if (testArray[i]== \"UCGWDSANSWER\"){\n        for (j = 0; j < msg.WDSResults.output.length; j++) {\n           msg.fixOutput.push(msg.WDSResults.output[j])\n        }\n    }\n    else {\n       msg.fixOutput.push(testArray[i]) \n    }\n}\nmsg.payload.output.text = msg.fixOutput\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1382.6469268798828,
-        "y": 209.41176509857178,
+        "x": 1489.3136138916016,
+        "y": 342.91175842285156,
         "wires": [
             []
         ]
@@ -6194,6 +6194,82 @@
         "wires": [
             [
                 "ccea10b3.40dd48"
+            ]
+        ]
+    },
+    {
+        "id": "945eca5f.f99078",
+        "type": "comment",
+        "z": "16730253.13013e",
+        "name": "Used to add third party actions invoked by WCS context UCGAction",
+        "info": "This is an excellent place to add client\nbackoffice actions to get data to enrich \nthe answer from WCS.",
+        "x": 271.5,
+        "y": 33,
+        "wires": []
+    },
+    {
+        "id": "e82aabde.69cef",
+        "type": "function",
+        "z": "75456024.34a398",
+        "name": "CARLA",
+        "func": "/* \nCarla Info\n\nFor Omni-Channel front-ends, set username and password to ' ', workspace to the Carla workspace_id and add carla_host=<host ip or kubernetes domain> as param\n\n\nExample call to UCG Load flow via postman for testing....\n\n- On-prem\n  http://localhost:1880/load?user_id=testmeplease15&wcs_username=' '&wcs_password=' '&workspace_id=JPMC-workspace-CARLA&text='status of my claim'&fname=dennis&carla_host=ucg-clusterdev.us-south.containers.mybluemix.net\n\n*/\n\nvar request = global.get(\"request\");\n\nvar options = {\n  url: \"http://\" + msg.carla_host + \"/carla/ConversationAPI/api/v1/workspaces/message/?workspace_id=\" + msg.params.workspace_id,\n  headers: {\n    'Content-type': 'application/json'\n  },\n  body : {\"input\": {\"text\": msg.payload },\n          \"context\": msg.params.context\n  },\n  json : true\n};\n\n\nvar myTM = setTimeout(function() { node.error(\"APi call to \" + url + \" reached 15 second time out\", msg)}, 15000 );\n\n\nrequest.post(options,function (err, response, body) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.statusCode = response && response.statusCode; // Print the response status code if a response was received;\n      msg.payload = body;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 480.5,
+        "y": 129,
+        "wires": [
+            [
+                "c8aa104.1b48f7"
+            ]
+        ]
+    },
+    {
+        "id": "a58cef8d.b2d3b8",
+        "type": "function",
+        "z": "75456024.34a398",
+        "name": "Carla Check",
+        "func": "\nif (typeof msg.req.query.carla_host !== \"undefined\") {\n    msg.answerType = \"carla\"  \n    msg.carla_host = msg.req.query.carla_host\n}\nelse {\n    msg.answerType = \"wcs\"   \n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 170.5,
+        "y": 96,
+        "wires": [
+            [
+                "c858cb4c.f6538",
+                "5aa7c031.7e98c"
+            ]
+        ]
+    },
+    {
+        "id": "c858cb4c.f6538",
+        "type": "switch",
+        "z": "75456024.34a398",
+        "name": "",
+        "property": "answerType",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "wcs",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "carla",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 331.5,
+        "y": 96,
+        "wires": [
+            [
+                "6a2e837c.7b841c"
+            ],
+            [
+                "e82aabde.69cef"
             ]
         ]
     }

@@ -474,19 +474,19 @@
         "info": "",
         "in": [
             {
-                "x": 47.92173194885254,
-                "y": 74.29412078857422,
+                "x": 32.92173194885254,
+                "y": 96.29412078857422,
                 "wires": [
                     {
-                        "id": "4ed6700f.7be268"
+                        "id": "a58cef8d.b2d3b8"
                     }
                 ]
             }
         ],
         "out": [
             {
-                "x": 1484.5320510864258,
-                "y": 63.48297119140625,
+                "x": 1630.1986694335938,
+                "y": 207.98296451568604,
                 "wires": [
                     {
                         "id": "77767850.bd513",
@@ -512,7 +512,7 @@
         "in": [
             {
                 "x": 52.52941131591797,
-                "y": 80.41175842285156,
+                "y": 130.41175842285156,
                 "wires": [
                     {
                         "id": "e7f48a58.728088"
@@ -522,8 +522,8 @@
         ],
         "out": [
             {
-                "x": 1310,
-                "y": 87,
+                "x": 1080,
+                "y": 136,
                 "wires": [
                     {
                         "id": "ccea10b3.40dd48",
@@ -859,8 +859,8 @@
         "name": "Http Response",
         "statusCode": "",
         "headers": {},
-        "x": 1304.9722709655762,
-        "y": 217.66665935516357,
+        "x": 1302.4722747802734,
+        "y": 220.1666555404663,
         "wires": []
     },
     {
@@ -902,8 +902,8 @@
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 97.47254180908203,
-        "y": 117.63736057281494,
+        "x": 85,
+        "y": 117.63735961914062,
         "wires": [
             [
                 "125118f3.9c6aff"
@@ -1035,7 +1035,7 @@
         "func": "msg.source = \"Alexa\"\nvar fname = msg.req.query.fname;\nvar workspace_id = msg.req.query.workspace_id;\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\n\n// Uncomment when New param is added to all front-ends and delete the default\n//var region = msg.req.query.primary_region\nmsg.region = \"US-SOUTH\";\n//Passed params are the primary config, will be used in the dynamic WCS router subflow to switch back\nmsg.primary_workspace_id = workspace_id;\nmsg.primary_wcs_user_name = wcs_user_name;\nmsg.primary_wcs_password = wcs_password;\nmsg.primary_region = msg.region;\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id    \n   }\n\nif (msg.payload.request.type ==\"LaunchRequest\") {\n   var temp_msg = \"Hello\";\n   //Uncomment if you want the convo to start at begining when a Launch is dedected\n   //context = {}\n}\nelse {\n   var temp_msg = msg.payload.request.intent.slots.command.value; \n}\n\n//Zero out maps \nvar map = JSON.parse(\"{}\");  \n\nvar newmsg = temp_msg.replace(\"Watson\", \"\");\nmsg.payload = newmsg;\n\n\nglobal.set(\"last_question\",newmsg);\n\ncontext.fname = fname\ncontext.map = map\n\nvar params = {\n    context : context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password,\n    source : msg.source\n};\n\nmsg.payload = newmsg\nmsg.params = params\n\nreturn msg\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 910.0893135070801,
+        "x": 910.0892715454102,
         "y": 121.51785087585449,
         "wires": [
             [
@@ -1140,8 +1140,8 @@
         "func": "\nvar user_temp = msg.payload.session.user.userId;\nmsg.user =  user_temp.substring(user_temp.length-10, user_temp.length);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 567.8571166992188,
-        "y": 120,
+        "x": 567.8571014404297,
+        "y": 121,
         "wires": [
             [
                 "84b2e08e.78d8a8"
@@ -1357,7 +1357,7 @@
         "method": "post",
         "swaggerDoc": "",
         "x": 85,
-        "y": 188.00000286102295,
+        "y": 200,
         "wires": [
             [
                 "3578e40e.b2c1f4",
@@ -1408,8 +1408,8 @@
         "ret": "txt",
         "url": "",
         "tls": "",
-        "x": 1721.2499885559082,
-        "y": 279.9999952316284,
+        "x": 1702.25,
+        "y": 280,
         "wires": [
             [
                 "7bdb68df.47d5b8"
@@ -1616,7 +1616,7 @@
         "type": "function",
         "z": "d284a7e7.ca3e08",
         "name": "Response Msg",
-        "func": "/* Example Payload for Google\n{\n  \"speech\": \"...\",  // ASCII characters only\n  \"displayText\": \"...\",\n  \"data\": {\n    \"google\": {\n      \"expect_user_response\": true,\n      \"is_ssml\": true,\n      \"permissions_request\": {\n        \"opt_context\": \"...\",\n        \"permissions\": [\n          \"NAME\",\n          \"DEVICE_COARSE_LOCATION\",\n          \"DEVICE_PRECISE_LOCATION\"\n        ]\n      }\n    }\n  },\n  \"contextOut\": [...],\n}*/\n\nmsg.headers = {\"Content-type\" : \"application/json\"}\nvar input = msg.payload.input.text\nvar texts = msg.payload.output.text\n\nvar myEndSession = true;    \n\ntotalText = \"\"\nfor (i = 0; i < texts.length; i++) {\n    \n    if (texts[i].lastIndexOf(\"[\") >= 0 ) {\n       findindex = texts[i].lastIndexOf(\"[\");\n       texts[i] = texts[i].substring(0,findindex);\n    } \n  totalText = totalText + \" \" + texts[i]\n}\n\nif (msg.tellGoogleNoWorries) \n{totalText = \"Okay, you're information is safe with me.\" + totalText\n  msg.tellGoogleNoWorries = false  \n}\n\n\nif (input.toUpperCase().substring(0,5) == \"LATER\" ||\n    totalText.lastIndexOf(\"wonderful day\") >= 0 ||\n    totalText.lastIndexOf(\"great day\") >= 0\n)\n   {myEndSession = false}\n\n\n\nmyResponse = {\n    \"speech\": totalText,  // ASCII characters only\n    \"displayText\": \"\",\n    \"data\": {\n      \"google\": {\n        \"expect_user_response\": myEndSession,\n        \"is_ssml\": false\n        }\n     }\n}\n\nnode.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + totalText)\nmsg.payload = myResponse \nnode.send(msg);\n    \n\nreturn null;\n",
+        "func": "/* Example Payload for Google\n{\n  \"speech\": \"...\",  // ASCII characters only\n  \"displayText\": \"...\",\n  \"data\": {\n    \"google\": {\n      \"expect_user_response\": true,\n      \"is_ssml\": true,\n      \"permissions_request\": {\n        \"opt_context\": \"...\",\n        \"permissions\": [\n          \"NAME\",\n          \"DEVICE_COARSE_LOCATION\",\n          \"DEVICE_PRECISE_LOCATION\"\n        ]\n      }\n    }\n  },\n  \"contextOut\": [...],\n}*/\n\nmsg.headers = {\"Content-type\" : \"application/json\"}\nvar input = msg.payload.input.text\nvar texts = msg.payload.output.text\n\nvar myEndSession = true;    \n\ntotalText = \"\"\nfor (i = 0; i < texts.length; i++) {\n    \n    if (texts[i].lastIndexOf(\"[\") >= 0 ) {\n       findindex = texts[i].lastIndexOf(\"[\");\n       texts[i] = texts[i].substring(0,findindex);\n    } \n  totalText = totalText + \" \" + texts[i]\n}\n\nif (msg.tellGoogleNoWorries) \n{totalText = \"Okay, you're information is safe with me.\" + totalText\n  msg.tellGoogleNoWorries = false  \n}\n\n\nif (input.toUpperCase().substring(0,5) == \"LATER\" ||\n    totalText.lastIndexOf(\"wonderful day\") >= 0 ||\n    totalText.lastIndexOf(\"great day\") >= 0\n)\n   {myEndSession = false}\n\n\n\nmyResponse = {\n    \"speech\": totalText,  // ASCII characters only\n    \"displayText\": \"\",\n    \"data\": {\n      \"google\": {\n        \"expect_user_response\": myEndSession,\n        \"is_ssml\": true\n        }\n     }\n}\n\nnode.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + totalText)\nmsg.payload = myResponse \nnode.send(msg);\n    \n\nreturn null;\n",
         "outputs": 1,
         "noerr": 0,
         "x": 1437.7916297912598,
@@ -2015,8 +2015,8 @@
         "type": "subflow:f48845d6.67899",
         "z": "1b19f8b1.08de9f",
         "name": "",
-        "x": 466.25,
-        "y": 100.00000095367432,
+        "x": 450,
+        "y": 100,
         "wires": [
             [
                 "60377fd8.b60ca"
@@ -2028,8 +2028,8 @@
         "type": "subflow:52457267.ef5464",
         "z": "1b19f8b1.08de9f",
         "name": "",
-        "x": 853.3749771118164,
-        "y": 220.9999942779541,
+        "x": 850,
+        "y": 220,
         "wires": [
             [
                 "b035f29b.cd81a"
@@ -2041,7 +2041,7 @@
         "type": "subflow:f48845d6.67899",
         "z": "5c4d249a.7988f4",
         "x": 738.1249771118164,
-        "y": 119.9999942779541,
+        "y": 121.24999046325684,
         "wires": [
             [
                 "837fbb5a.054098"
@@ -2630,8 +2630,8 @@
         "context": false,
         "default-endpoint": true,
         "service-endpoint": "",
-        "x": 890,
-        "y": 320,
+        "x": 870,
+        "y": 300,
         "wires": [
             [
                 "e0ccd4d4.d60bd",
@@ -2751,8 +2751,8 @@
         "func": "msg.call_id = \"3333333\"; //msg.payload.context.vgwSessionID;\nvar userToUser = msg.payload.context.vgwSIPCustomInviteHeader;\n//vgwSIPCustomInviteHeader: \"0430333333313938382D323431322D343263662D393364642D666131316565326263643537;encoding=hex\"\nvar conversationId = msg.payload.context.conversation_id;\nglobal.set(\"conversationId\", conversationId);\nglobal.set(\"input\", msg.payload.input.text);\n\nvar callIdHex = userToUser.toString().substring(2, 74);\nvar greetingCode = hex2a(userToUser.toString().substring(74, 78));\nvar callId = hex2a(callIdHex);\nnode.warn(\"callId: \" + callId);\nnode.warn(\"greetingCode: \" + greetingCode);\n\nmsg.call_id = callId;\nmsg.headers = {\"Content-Type\": \"application/json\"}\n//node.warn(\"msg.call_id: \" + msg.call_id);\n//node.warn(\"msg: \" + msg);\n\nmsg.url = \"https://MiddleWareApps.CATO.FDVS.1DC.COM/FDVS/Services/Hydration/WEBAPI/api/WatsonHydrate?call_id=\" + msg.call_id;\nreturn msg;\n// Need better way to do this - too resource intensive - Den/Etay\nfunction hex2a(hexx) {\n    //node.warn(\"hexx: \" + hexx);\n    var hex = hexx.toString();//force conversion\n    var str = '';\n    for (var i = 0; i < hex.length; i += 2)\n    {\n        //node.log(\"hexx val: \" + hex.substr(i, 2));\n        str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));\n        \n    }\n    return str;\n}",
         "outputs": 1,
         "noerr": 0,
-        "x": 240.16666412353516,
-        "y": 287.7777557373047,
+        "x": 230,
+        "y": 260,
         "wires": [
             [
                 "5527b8e0.dd3f58",
@@ -2899,8 +2899,8 @@
         "func": "\nmsg.params.context.xxx = \"xxxx\"\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 684.4444732666016,
-        "y": 269.99998474121094,
+        "x": 690,
+        "y": 220,
         "wires": [
             [
                 "f445b5e8.04bcc"
@@ -3230,8 +3230,8 @@
         "type": "subflow:f48845d6.67899",
         "z": "17eb59dd.9ff326",
         "name": "",
-        "x": 421.4285583496094,
-        "y": 110.80356788635254,
+        "x": 425.4285583496094,
+        "y": 107.8035659790039,
         "wires": [
             [
                 "6f0e4576.42ac84"
@@ -3406,8 +3406,8 @@
         "id": "23df69e2.9c5cde",
         "type": "subflow:a0e2e197.345df",
         "z": "5c4d249a.7988f4",
-        "x": 1154.3749809265137,
-        "y": 118.75,
+        "x": 1144.374984741211,
+        "y": 121.24999809265137,
         "wires": [
             [
                 "eaee0d5f.355b8"
@@ -4363,8 +4363,8 @@
         ],
         "checkall": "true",
         "outputs": 2,
-        "x": 760.7586822509766,
-        "y": 71.87337303161621,
+        "x": 665.4253540039062,
+        "y": 213.3733606338501,
         "wires": [
             [],
             [
@@ -4376,12 +4376,12 @@
         "id": "78ff02b2.128ea4",
         "type": "function",
         "z": "75456024.34a398",
-        "name": "Check WCS Confidence",
-        "func": "msg.answerType = \"WCS\" \nmsg.highIntent = false\nmsg.highEntity = false\nvar savIntentConf = 0\nvar savEntityConf = 0\nvar intentFound = false\nvar entityFound = false\nmsg.USE_WCS_ANSWER = false\nmsg.USE_WDS_ANSWER = false\nmsg.UCG_ANSWER_ROUTING = \"WCS-WDS\"\n/*\nUCG_ANSWER_ROUTING\n  This will be used to allow engineers to change the answer routing via a context var.\n  Possible Values:\n    WCS-WDS     - the default routing that uses a canned answer that replaces WCS's output.text array\n    WCS-WDS-WCS - routes back through WCS after calling WDS with new context vars\n              WDSResults - JSON object with payload from WDS\n              answerType - either WCS or WDS to indicate what where the answer came from.\n\nUSE_WDS_ANSWER\n   Used to override flow to send utterance to WDS for an answer\n\nUSE_WCS_ANSWER\n   Used to ensure that flow retains answer from WCS, thus by passing confidence/anything else checks\n  \n  WCS engineers need to set context var USE_WCS_ANSWER if the dialog condition statement:\n     1) does not use an intent or entity, like using tone score to give back an answer\n     2) use true to force node answer and a low confidence match comes back for an intent or entity\n\n*/\nif (typeof msg.payload.context !== \"undefined\"){ \n    if (typeof msg.payload.context.USE_WCS_ANSWER !== \"undefined\"){ \n        msg.USE_WCS_ANSWER = true\n        delete msg.payload.context.USE_WCS_ANSWER\n    }\n    if (typeof msg.payload.context.USE_WDS_ANSWER !== \"undefined\"){ \n        msg.USE_WDS_ANSWER = true\n        delete msg.payload.context.USE_WDS_ANSWER\n    }\n    if (typeof msg.payload.context.UCG_ANSWER_ROUTING !== \"undefined\"){ \n        msg.UCG_ANSWER_ROUTING = msg.payload.context.UCG_ANSWER_ROUTING\n    }\n    \n}    \n\nif (typeof msg.payload.intents[0] !== \"undefined\"){ \n    if (msg.payload.intents[0].confidence > .50){\n      \n         msg.highIntent = true\n    }\n    savIntentConf = msg.payload.intents[0].confidence\n    intentFound = true\n        \n    }\n\nif (typeof msg.payload.entities[0] !== \"undefined\"){\n    if (msg.payload.entities[0].confidence > .50){\n        msg.highEntity = true\n    }\n    savEntityConf = msg.payload.entities[0].confidence\n    entityFound = true\n}\n\n//if (!msg.USE_WCS_ANSWER) {\n // if (msg.highIntent || msg.highEntity ) {\n //   msg.answerType = \"WCS\"\n // }\n if (msg.payload.output.text.length > 0) {\n        // Anything else dialog node - make sure no intent or entity\n        if (msg.payload.output.text[0].toUpperCase().match(/\\b(FUTURE TRAINING|HAVING TROUBLE|HAVEN'T BEEN TRAINED)\\b/g))  {\n                msg.answerType = \"WDS\"\n        }\n        else {msg.answerType = \"WCS\"\n            \n        }\n    \n    /* Going to comment out for now because getting in the way of good answers\n       // Low intent conf     \n        if (intentFound) {\n            if (savIntentConf < .50 ) {\n                msg.answerType = \"WDS\"\n            }\n        }\n        // Low entity conf    \n        if (entityFound) {\n            if (savEntityConf < .50 ) {\n                msg.answerType = \"WDS\"\n            }\n        }\n    */    \n    }\n  else {\n        msg.answerType = \"WDS\" \n  }\n//}\n//else {\n//  msg.answerType = \"WCS\"   \n//}\nif (msg.USE_WCS_ANSWER) {\n  msg.answerType = \"WCS\"   \n} \nif (msg.USE_WDS_ANSWER) {\n  msg.answerType = \"WDS\"   \n}    \n\nmsg.params.context.answerType =  msg.answerType\n\nreturn msg;",
+        "name": "Check Confidence",
+        "func": "msg.answerType = \"WCS\" \nmsg.highIntent = false\nmsg.highEntity = false\nvar savIntentConf = 0\nvar savEntityConf = 0\nvar intentFound = false\nvar entityFound = false\nmsg.USE_WCS_ANSWER = false\nmsg.USE_WDS_ANSWER = false\nmsg.UCG_ANSWER_ROUTING = \"WCS-WDS\"\n/*\nUCG_ANSWER_ROUTING\n  This will be used to allow engineers to change the answer routing via a context var.\n  Possible Values:\n    WCS-WDS     - the default routing that uses a canned answer that replaces WCS's output.text array\n    WCS-WDS-WCS - routes back through WCS after calling WDS with new context vars\n              WDSResults - JSON object with payload from WDS\n              answerType - either WCS or WDS to indicate what where the answer came from.\n\nUSE_WDS_ANSWER\n   Used to override flow to send utterance to WDS for an answer\n\nUSE_WCS_ANSWER\n   Used to ensure that flow retains answer from WCS, thus by passing confidence/anything else checks\n  \n  WCS engineers need to set context var USE_WCS_ANSWER if the dialog condition statement:\n     1) does not use an intent or entity, like using tone score to give back an answer\n     2) use true to force node answer and a low confidence match comes back for an intent or entity\n\n*/\nif (typeof msg.payload.context !== \"undefined\"){ \n    if (typeof msg.payload.context.USE_WCS_ANSWER !== \"undefined\"){ \n        msg.USE_WCS_ANSWER = true\n        delete msg.payload.context.USE_WCS_ANSWER\n    }\n    if (typeof msg.payload.context.USE_WDS_ANSWER !== \"undefined\"){ \n        msg.USE_WDS_ANSWER = true\n        delete msg.payload.context.USE_WDS_ANSWER\n    }\n    if (typeof msg.payload.context.UCG_ANSWER_ROUTING !== \"undefined\"){ \n        msg.UCG_ANSWER_ROUTING = msg.payload.context.UCG_ANSWER_ROUTING\n    }\n    \n}    \n// vars that can be used to evaluate confidence. Holding for now. Using regex on WCS output from the anything else dialog node\nif (typeof msg.payload.intents[0] !== \"undefined\"){ \n    if (msg.payload.intents[0].confidence > .50){\n      \n         msg.highIntent = true\n    }\n    savIntentConf = msg.payload.intents[0].confidence\n    intentFound = true\n        \n    }\n\nif (typeof msg.payload.entities[0] !== \"undefined\"){\n    if (msg.payload.entities[0].confidence > .50){\n        msg.highEntity = true\n    }\n    savEntityConf = msg.payload.entities[0].confidence\n    entityFound = true\n}\n\nif (msg.payload.output.text.length > 0) {\n        // Anything else dialog node - make sure no intent or entity\n        if (msg.payload.output.text[0].toUpperCase().match(/\\b(FUTURE TRAINING|HAVING TROUBLE|HAVEN'T BEEN TRAINED)\\b/g))  {\n                msg.answerType = \"WDS\"\n        }\n        else { msg.answerType = \"WCS\"\n            \n        }\n}\nelse {\n        msg.answerType = \"WDS\" \n}\n\nif (msg.USE_WCS_ANSWER) {\n  msg.answerType = \"WCS\"   \n} \n\nif (msg.USE_WDS_ANSWER) {\n  msg.answerType = \"WDS\"   \n}    \n\nmsg.params.context.answerType =  msg.answerType\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 526.323356628418,
-        "y": 72.25152778625488,
+        "x": 858.3233642578125,
+        "y": 96.25152587890625,
         "wires": [
             [
                 "77767850.bd513"
@@ -4396,12 +4396,11 @@
         "func": "var watson = global.get('watson');\n\nvar discovery = new watson.DiscoveryV1({\n  username: \"578d5c5e-a713-44ad-bd8b-d3b8ba39c03c\",\n  password: \"NaFdTJluDnem\",\n  version_date: '2017-11-07'\n});\n\nvar params = {\n    natural_language_query: msg.payload.input.text,\n    environment_id: \"d40ba5ee-be86-4b59-8a67-f463f233367d\",\n    collection_id: \"35835dcf-e873-4a43-9034-786210ffebf2\",\n    configuration_id: \"1d573129-7100-4405-b6a0-439cd8af2640\",\n    passages: true, //if you want to enable passages\n    passages_fields : \"Text\"\n    //sort : \"Term\"\n   //  return: ''\n  //highlight: true //if you want to enable highlight\n\n}\n\ndiscovery.query(params, (error, results) => {\n    if (error) {\n      node.error(error);\n    } else {\n      msg.WDSResults = results; //your query results\n      msg.test = msg.payload.input.abc\n      node.send(msg);\n    }\n});",
         "outputs": 1,
         "noerr": 0,
-        "x": 721.5738906860352,
-        "y": 159.32255268096924,
+        "x": 816.6666870117188,
+        "y": 286.4999933242798,
         "wires": [
             [
-                "e56baa7a.49625",
-                "5aa7c031.7e98c"
+                "e56baa7a.49625"
             ]
         ]
     },
@@ -4422,8 +4421,8 @@
         "id": "67c863cf.d22444",
         "type": "subflow:87530aab.adb068",
         "z": "75456024.34a398",
-        "x": 191.1904754638672,
-        "y": 221.71429061889648,
+        "x": 122.19047546386719,
+        "y": 281.71429443359375,
         "wires": [
             []
         ]
@@ -4432,20 +4431,20 @@
         "id": "ececde02.3d2dc8",
         "type": "comment",
         "z": "75456024.34a398",
-        "name": "Can replace single Convo with Dynamic Router Subflow",
+        "name": "Can replace WCS with Dynamic Router Subflow",
         "info": "",
-        "x": 241.5,
-        "y": 170.3333396911621,
+        "x": 188.5,
+        "y": 331.3333435058594,
         "wires": []
     },
     {
         "id": "b6cdde19.f645c8",
         "type": "comment",
         "z": "75456024.34a398",
-        "name": "Run through WCS first, Test confidence and go to WDS if confidence below 50%",
+        "name": "Run through WCS/Carla first, Test confidence and go to WDS if necessary",
         "info": "",
-        "x": 325,
-        "y": 27.5,
+        "x": 308,
+        "y": 25.5,
         "wires": []
     },
     {
@@ -4476,8 +4475,8 @@
         "func": "if (msg.WDSResults.matching_results > 0){\n    if (typeof msg.WDSResults.results[0].Text !== \"undefined\"){\n        msg.newOutput = []\n        msg.arrayOutput = []\n        \n        msg.testOutput = msg.WDSResults.results[0].Text.split(\"\\r\")\n        if (msg.testOutput.length > 1) {\n            msg.arrayOutput = msg.testOutput\n        }\n        else {\n            msg.arrayOutput.push(msg.WDSResults.results[0].Text)\n        }\n        \n        if (msg.WDSResults.results[0].Type == \"Term\") {\n            msg.newOutput.push(\"I found this definition in my glossary for \" + msg.WDSResults.results[0].Key + \". \")\n        }\n        else if (msg.WDSResults.results[0].Type == \"Article\") {\n            msg.newOutput.push(\"I found this article entitled  \" + msg.WDSResults.results[0].Key + \".\")  \n        }\n        else {\n            \n        }\n        \n        for (i = 0; i < msg.arrayOutput.length; i++) {\n             msg.newOutput.push(msg.arrayOutput[i])\n        }\n        msg.newOutput.push(\"Do you have more questions for me?\")\n        msg.payload.output.text = msg.newOutput\n    }  \n}\nelse {\n   msg.payload.output.text[0] = \"Sorry, I tried many sources to answer your question, can you restate your question?\" \n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1022.1664772033691,
-        "y": 117.0411024093628,
+        "x": 1128.833164215088,
+        "y": 250.54109573364258,
         "wires": [
             []
         ]
@@ -4704,8 +4703,8 @@
         "type": "subflow:75456024.34a398",
         "z": "1b19f8b1.08de9f",
         "name": "",
-        "x": 654.6250076293945,
-        "y": 219.37500381469727,
+        "x": 650,
+        "y": 220,
         "wires": [
             [
                 "1f55c4cb.9fa1e3",
@@ -4832,10 +4831,12 @@
         "func": "/* New param to added to all front-ends - wcs_region = USSOUTH, GERMANY\nWill be used to set the url\nUSSOUTH - https://gateway.watsonplatform.net/conversation/api\nGERMANY - https://gateway-fra.watsonplatform.net/conversation/api\n*/\nvar watson = global.get('watson');\nmsg.params.input = {\n      text: msg.payload\n    };\n\nif (msg.region === \"US-SOUTH\"){ \n    msg.params.endpoint = \"https://gateway.watsonplatform.net/conversation/api\"\n}\nelse if (msg.region === \"GERMANY\"){\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/conversation/api\"\n}\n\nvar conversation = new watson.ConversationV1({\n  username : msg.params.username,\n  password : msg.params.password,\n  workspace_id : msg.params.workspace_id,\n  url : msg.params.endpoint,\n  version_date: '2017-05-26'\n});\n\nvar myTM = setTimeout(function() { node.error(\"WCS message API reached 15 second time out\", msg)}, 15000 );\n\nconversation.message(msg.params,function(err, response) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.payload = response;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 157.1660919189453,
-        "y": 74.16399717330933,
+        "x": 482,
+        "y": 71,
         "wires": [
-            []
+            [
+                "c8aa104.1b48f7"
+            ]
         ]
     },
     {
@@ -5281,44 +5282,11 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 125.19608306884766,
-        "y": 286.27450942993164,
+        "x": 124.19610214233398,
+        "y": 287.27450942993164,
         "wires": [
             [
-                "4976d8b0.8f02f8"
-            ]
-        ]
-    },
-    {
-        "id": "4976d8b0.8f02f8",
-        "type": "function",
-        "z": "5b6fab52.9eae84",
-        "name": "Get Doc",
-        "func": "msg.headers = {\"Content-type\" : \"application/json\"}\n\nmsg.payload = {selector: {\n     convoUser: {$eq: \"QuickenLoansProfile\"}     },\n     sort: [{convoUser:\"desc\"},{convoTS: \"desc\"}],  \n     limit: 5\n}\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 306.96078300476074,
-        "y": 285.8823833465576,
-        "wires": [
-            [
-                "c26c17d0.889778"
-            ]
-        ]
-    },
-    {
-        "id": "c26c17d0.889778",
-        "type": "http request",
-        "z": "5b6fab52.9eae84",
-        "name": "Read Cloudant",
-        "method": "POST",
-        "ret": "obj",
-        "url": "https://bdea5362-c793-408b-9b0a-698c42002903-bluemix.cloudant.com/session/_find",
-        "tls": "",
-        "x": 492.25490951538086,
-        "y": 286.07845306396484,
-        "wires": [
-            [
-                "5aaf0386.5598e4"
+                "1f3d50d1.e05b4f"
             ]
         ]
     },
@@ -5330,7 +5298,7 @@
         "active": true,
         "console": "false",
         "complete": "false",
-        "x": 686.9608573913574,
+        "x": 630.9608764648438,
         "y": 287.2549133300781,
         "wires": []
     },
@@ -5339,11 +5307,11 @@
         "type": "function",
         "z": "16730253.13013e",
         "name": "Check Actions",
-        "func": "\n/* UCG Action JSON Object - type server is for open Whisk\n\"UCGactions\": [\n    {\n      \"name\":\"<actionName>\",\n      \"type\":\"client | server\",\n      \"parameters\": {\n        \"<parameter_name>\":\"<parameter_value>\",\n        \"<parameter_name>\":\"<parameter_value>\"\n      },\n      \"result_variable\": \"<result_variable_name>\",\n      \"credentials\": \"<reference_to_credentials>\"\n    }\n  ]\n*/\n\nmsg.savePayload = msg.payload\n\nif (typeof msg.payload.context !== \"undefined\"){ \n    if (typeof msg.payload.context.UCGactions !== \"undefined\"){ \n        \n       msg.UCGActions =  msg.payload.context.UCGactions\n       delete msg.payload.context.UCGactions\n       \n       for (i = 0; i < msg.UCGActions.length; i++) {\n \n        (function(i) { setTimeout(function() {\n            \n           if (msg.UCGActions[i].type == \"client\") {\n               msg.doAction = msg.UCGActions[i].name\n               msg.UCGAction = msg.UCGActions[i]\n               node.send(msg);\n                  \n            }\n                \n         }, 300 * i);\n        })(i);\n       }  \n    }\n} \n\n\nreturn msg;",
+        "func": "\n/* UCG Action JSON Object\n\"UCGactions\": [\n    {\n      \"name\":\"<UCGactionName>\",\n      \"parameters\": {\n        \"<parameter_name>\":\"<parameter_value>\",\n        \"<parameter_name>\":\"<parameter_value>\"\n      },\n      \"result_variable\": \"<result_variable_name>\",\n    }\n  ]\n*/\n\nmsg.savePayload = msg.payload\n\nif (typeof msg.payload.context !== \"undefined\"){ \n    if (typeof msg.payload.context.UCGactions !== \"undefined\"){ \n        \n       msg.UCGActions =  msg.payload.context.UCGactions\n       delete msg.payload.context.UCGactions\n       \n       for (i = 0; i < msg.UCGActions.length; i++) {\n \n        (function(i) { setTimeout(function() {\n               msg.doAction = msg.UCGActions[i].name\n               msg.UCGAction = msg.UCGActions[i]\n               node.send(msg);\n                \n         }, 300 * i);\n        })(i);\n       }  \n    }\n} \n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 197.54907899744353,
-        "y": 80.1960970093221,
+        "x": 197.54907989501953,
+        "y": 130.19609832763672,
         "wires": [
             [
                 "a772042b.0f792"
@@ -5368,12 +5336,13 @@
             }
         ],
         "checkall": "true",
+        "repair": false,
         "outputs": 2,
-        "x": 405.19620513916016,
-        "y": 80.78432321548462,
+        "x": 408.1961975097656,
+        "y": 130.7843246459961,
         "wires": [
             [
-                "2391adf1.58de3a"
+                "b93edaf0.8e795"
             ],
             []
         ]
@@ -5386,8 +5355,8 @@
         "func": "\n\nmsg.payload = {selector: {\n     convoUser: {$eq: \"QuickenLoansProfile\"}     },\n     sort: [{convoUser:\"desc\"},{convoTS: \"desc\"}],  \n     limit: 5\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 641.0785266651824,
-        "y": 55.68628112007576,
+        "x": 124.07855224609375,
+        "y": 284.6862564086914,
         "wires": [
             [
                 "3ff9e0be.28ba58"
@@ -5403,12 +5372,10 @@
         "ret": "obj",
         "url": "https://bdea5362-c793-408b-9b0a-698c42002903-bluemix.cloudant.com/session/_find",
         "tls": "",
-        "x": 851.6667556762695,
-        "y": 55.294151306152344,
+        "x": 340.666748046875,
+        "y": 284.29412841796875,
         "wires": [
-            [
-                "ccea10b3.40dd48"
-            ]
+            []
         ]
     },
     {
@@ -5419,8 +5386,8 @@
         "func": "myAnswer = msg.payload\nmsg.payload = msg.savePayload\n\nmsg.payload.context[msg.UCGAction.result_variable] = myAnswer.docs[0]\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1082.8433456420898,
-        "y": 55.098082542419434,
+        "x": 900.8433227539062,
+        "y": 58.09808349609375,
         "wires": [
             []
         ]
@@ -5429,8 +5396,8 @@
         "id": "c8aa104.1b48f7",
         "type": "subflow:16730253.13013e",
         "z": "75456024.34a398",
-        "x": 310.66673278808594,
-        "y": 72.88049507141113,
+        "x": 669.6667404174805,
+        "y": 96.8804931640625,
         "wires": [
             [
                 "78ff02b2.128ea4"
@@ -5535,8 +5502,8 @@
         ],
         "checkall": "true",
         "outputs": 2,
-        "x": 867.44482421875,
-        "y": 153.35375785827637,
+        "x": 974.1115112304688,
+        "y": 286.85375118255615,
         "wires": [
             [
                 "25c719ea.a89abe"
@@ -5554,8 +5521,8 @@
         "func": "\n\nif (typeof msg.WDSResults.results[0].Text !== \"undefined\"){\n        msg.newOutput = []\n        msg.arrayOutput = []\n        \n        msg.testOutput = msg.WDSResults.results[0].Text.split(\"\\r\")\n        if (msg.testOutput.length > 1) {\n            msg.arrayOutput = msg.testOutput\n        }\n        else {\n            msg.arrayOutput.push(msg.WDSResults.results[0].Text)\n        }\n}\nmsg.WDSResults.output = msg.arrayOutput\nmsg.params.context.WDSResults = msg.WDSResults\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1006.1377487182617,
-        "y": 211.7402000427246,
+        "x": 1112.8044357299805,
+        "y": 345.2401933670044,
         "wires": [
             [
                 "ba2d0095.8d8fd8"
@@ -5570,8 +5537,8 @@
         "func": "/* New param to added to all front-ends - wcs_region = USSOUTH, GERMANY\nWill be used to set the url\nUSSOUTH - https://gateway.watsonplatform.net/conversation/api\nGERMANY - https://gateway-fra.watsonplatform.net/conversation/api\n*/\nvar watson = global.get('watson');\nmsg.params.input = {\n      text: \"Process WDS Answer\"\n    };\n\nif (msg.region === \"US-SOUTH\"){ \n    msg.params.endpoint = \"https://gateway.watsonplatform.net/conversation/api\"\n}\nelse if (msg.region === \"GERMANY\"){\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/conversation/api\"\n}\n\nvar conversation = new watson.ConversationV1({\n  username : msg.params.username,\n  password : msg.params.password,\n  workspace_id : msg.params.workspace_id,\n  url : msg.params.endpoint,\n  version_date: '2017-05-26'\n});\n\nvar myTM = setTimeout(function() { node.error(\"WCS message API reached 15 second time out\", msg)}, 15000 );\n\nconversation.message(msg.params,function(err, response) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.payload = response;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);",
         "outputs": 1,
         "noerr": 0,
-        "x": 1199.046257019043,
-        "y": 211.28268432617188,
+        "x": 1305.7129440307617,
+        "y": 344.78267765045166,
         "wires": [
             [
                 "a6f4e402.de9dd8"
@@ -5586,8 +5553,8 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 808.6126708984375,
-        "y": 377.5327453613281,
+        "x": 362.6126708984375,
+        "y": 229.53274536132812,
         "wires": []
     },
     {
@@ -5598,8 +5565,8 @@
         "func": "var testArray = msg.payload.output.text\nmsg.fixOutput = []\nfor (i = 0; i < testArray.length; i++) {\n    if (testArray[i]== \"UCGWDSANSWER\"){\n        for (j = 0; j < msg.WDSResults.output.length; j++) {\n           msg.fixOutput.push(msg.WDSResults.output[j])\n        }\n    }\n    else {\n       msg.fixOutput.push(testArray[i]) \n    }\n}\nmsg.payload.output.text = msg.fixOutput\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1382.6469268798828,
-        "y": 209.41176509857178,
+        "x": 1489.3136138916016,
+        "y": 342.91175842285156,
         "wires": [
             []
         ]
@@ -5655,7 +5622,7 @@
         "type": "function",
         "z": "19f40361.5ecea5",
         "name": "Set Params",
-        "func": "msg.source = \"GoogleHome\"\nvar workspace_id = msg.req.query.workspace_id\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\n\n// Uncomment when New param is added to all front-ends and delete the default\n//var region = msg.req.query.primary_region\nmsg.region = \"US-SOUTH\";\n//Passed params are the primary config, will be used in the dynamic WCS router subflow to switch back\nmsg.primary_workspace_id = workspace_id;\nmsg.primary_wcs_user_name = wcs_user_name;\nmsg.primary_wcs_password = wcs_password;\nmsg.primary_region = msg.region;\n\nvar fname = msg.req.query.fname;\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id    \n   }\n\ncontext.flowName = \"GoogleHome\"\n\n\nvar params = {\n    context : context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password,\n    source : msg.source\n};\n\nvar additional_context = {};\nvar googleIntent = \"\"\nvar googleIName = \"\"\nvar googleContext = \"\"\nif (typeof msg.payload.originalRequest.data.user.profile !== \"undefined\"){\n     context.fname = msg.payload.originalRequest.data.user.profile.givenName   \n    }\n\nif (typeof msg.payload.originalRequest.data.inputs !== \"undefined\"){\n     googleIntent = msg.payload.originalRequest.data.inputs[0].intent\n    }\n/*\nif (typeof msg.payload.originalRequest.data.inputs[0].arguments[0] !== \"undefined\"){\n     \n     if (typeof msg.payload.originalRequest.data.inputs[0].arguments[0].name !== \"undefined\"){\n       googleIName =  msg.payload.originalRequest.data.inputs[0].arguments[0].name \n     }\n    }\n*/\nif (typeof msg.payload.result.contexts[0] !== \"undefined\") {\n    \n     if (msg.payload.result.contexts[0].name.lastIndexOf(\"actions\") >= 0) {\n        \n        if (typeof msg.payload.result.contexts[1] !== \"undefined\"){\n           googleContext = msg.payload.result.contexts[1].name \n        }\n     }\n     else {\n        googleContext = msg.payload.result.contexts[0].name \n     }\n}\n\nmsg.payload = msg.payload.result.resolvedQuery\nmsg.params = params\nmsg.googleIntent = googleIntent\nmsg.googleIName = googleIName\nmsg.googleContext = googleContext\n\nreturn msg;",
+        "func": "msg.source = \"GoogleHome\"\nvar workspace_id = msg.req.query.workspace_id\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\n\n// Uncomment when New param is added to all front-ends and delete the default\n//var region = msg.req.query.primary_region\nmsg.region = \"US-SOUTH\";\n//Passed params are the primary config, will be used in the dynamic WCS router subflow to switch back\nmsg.primary_workspace_id = workspace_id;\nmsg.primary_wcs_user_name = wcs_user_name;\nmsg.primary_wcs_password = wcs_password;\nmsg.primary_region = msg.region;\n\nvar fname = msg.req.query.fname;\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id    \n   }\n\ncontext.flowName = \"GoogleHome\"\n\n\nvar params = {\n    context : context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password,\n    source : msg.source\n};\n\nvar additional_context = {};\nvar googleIntent = \"\"\nvar googleIName = \"\"\nvar googleContext = \"\"\nif (typeof msg.payload.originalDetectIntentRequest.payload.user.profile !== \"undefined\"){\n     context.fname = msg.payload.originalDetectIntentRequest.payload.user.profile.givenName   \n    }\n\nif (typeof msg.payload.originalDetectIntentRequest.payload.inputs !== \"undefined\"){\n     googleIntent = msg.payload.originalDetectIntentRequest.payload.inputs[0].intent\n    }\n\nif (typeof msg.payload.queryResult.intent !== \"undefined\"){\n     \n       googleIName =  msg.payload.queryResult.intent.name \n    }\n\nif (typeof msg.payload.queryResult.outputContexts[0] !== \"undefined\") {\n    \n     if (msg.payload.queryResult.outputContexts[0].name.lastIndexOf(\"actions\") >= 0) {\n        \n        if (typeof msg.payload.queryResult.outputContexts[1] !== \"undefined\"){\n           googleContext = msg.payload.queryResult.outputContexts[1].name \n        }\n     }\n     else {\n        googleContext = msg.payload.queryResult.outputContexts[0].name \n     }\n}\n\nmsg.payload = msg.payload.originalDetectIntentRequest.payload.inputs[0].rawInputs[0].query\nmsg.params = params\nmsg.googleIntent = googleIntent\nmsg.googleIName = googleIName\nmsg.googleContext = googleContext\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 682.9999771118164,
@@ -5717,6 +5684,7 @@
             }
         ],
         "checkall": "true",
+        "repair": false,
         "outputs": 6,
         "x": 273.625,
         "y": 406.99999618530273,
@@ -5746,7 +5714,7 @@
         "type": "function",
         "z": "19f40361.5ecea5",
         "name": "Ask Permission",
-        "func": "\nmsg.headers = {\"Content-type\" : \"application/json\"}\n\nmyResponse = {\n  \"conversationToken\": \"{\\\"state\\\":null,\\\"data\\\":{}}\",\n  \"expectUserResponse\": true,\n  \"expectedInputs\": [\n    {\n      \"inputPrompt\": {\n        \"initialPrompts\": [\n          {\n            \"textToSpeech\": \"PLACEHOLDER_FOR_PERMISSION\"\n          }\n        ],\n        \"noInputPrompts\": []\n      },\n      \"possibleIntents\": [\n        {\n          \"intent\": \"actions.intent.PERMISSION\",\n          \"inputValueData\": {\n            \"@type\": \"type.googleapis.com/google.actions.v2.PermissionValueSpec\",\n            \"optContext\": \"To deliver your order\",\n            \"permissions\": [\n              \"NAME\",\n              \"DEVICE_PRECISE_LOCATION\"\n            ]\n          }\n        }\n      ]\n    }\n  ]\n}\n\n\n\nmsg.payload = myResponse \nnode.send(msg);\n\nreturn null;",
+        "func": "\nmsg.headers = {\"Content-type\" : \"application/json\"}\n\n\nmyResponse = {\n  \"conversationToken\": \"{\\\"state\\\":null,\\\"data\\\":{}}\",\n  \"expectUserResponse\": true,\n  \"expectedInputs\": [\n    {\n      \"inputPrompt\": {\n        \"initialPrompts\": [\n          {\n            \"textToSpeech\": \"PLACEHOLDER_FOR_PERMISSION\"\n          }\n        ],\n        \"noInputPrompts\": []\n      },\n      \"possibleIntents\": [\n        {\n          \"intent\": \"actions.intent.PERMISSION\",\n          \"inputValueData\": {\n            \"@type\": \"type.googleapis.com/google.actions.v2.PermissionValueSpec\",\n            \"optContext\": \"Before we get started.\",\n            \"permissions\": [\n              \"NAME\",\n              \"DEVICE_PRECISE_LOCATION\"\n            ]\n          }\n        }\n      ]\n    }\n  ]\n}\n/*\nmyResponse = {\n    \"speech\": \"Send Permission Request\",  // ASCII characters only\n    \"displayText\": \"\",\n    \"data\": {\n      \"google\": {\n        \"expect_user_response\": false,\n        \"is_ssml\": false,\n        \"permissions_request\": {\n        \"opt_context\": \"Before we get started.\",\n        \"permissions\": [\"NAME\", \"DEVICE_COARSE_LOCATION\", \"DEVICE_PRECISE_LOCATION\"]\n         }\n        }\n     }\n}\n*/\n\nmsg.payload = myResponse \nnode.send(msg);\n\nreturn null;",
         "outputs": 1,
         "noerr": 0,
         "x": 763.75,
@@ -5792,6 +5760,7 @@
             }
         ],
         "checkall": "true",
+        "repair": false,
         "outputs": 2,
         "x": 608,
         "y": 420.125,
@@ -5809,7 +5778,7 @@
         "type": "function",
         "z": "19f40361.5ecea5",
         "name": "Get User",
-        "func": "\nmsg.user = msg.payload.sessionId\nreturn msg;",
+        "func": "\nmsg.user = msg.payload.session\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 321.75,
@@ -5956,8 +5925,8 @@
         "id": "7d2401a6.911418",
         "type": "subflow:f48845d6.67899",
         "z": "19f40361.5ecea5",
-        "x": 485.5,
-        "y": 138,
+        "x": 486.9285659790039,
+        "y": 140.1428565979004,
         "wires": [
             [
                 "2a1eec1.ac5c614"
@@ -6038,8 +6007,8 @@
         ],
         "checkall": "true",
         "outputs": 3,
-        "x": 75.19831848144531,
-        "y": 464.6825485229492,
+        "x": 65,
+        "y": 893.682538986206,
         "wires": [
             [
                 "c271b181.018ba"
@@ -6060,8 +6029,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 408.7699089050293,
-        "y": 464.6825656890869,
+        "x": 398.571590423584,
+        "y": 893.6825561523438,
         "wires": [
             []
         ]
@@ -6077,8 +6046,8 @@
         "empty-payload": false,
         "default-endpoint": true,
         "service-endpoint": "https://gateway.watsonplatform.net/conversation/api",
-        "x": 233.92852783203125,
-        "y": 502.0635528564453,
+        "x": 223.73020935058594,
+        "y": 931.0635433197021,
         "wires": [
             [
                 "fbc45a0d.ecdaa"
@@ -6113,8 +6082,8 @@
         "maxsemantics": "50",
         "default-endpoint": true,
         "service-endpoint": "https://gateway.watsonplatform.net/natural-language-understanding/api",
-        "x": 233.9285888671875,
-        "y": 427.9364824295044,
+        "x": 223.7302703857422,
+        "y": 856.9364728927612,
         "wires": [
             [
                 "fbc45a0d.ecdaa"
@@ -6128,8 +6097,8 @@
         "name": "     Cognitive  ",
         "apikey": "",
         "image-feature": "",
-        "x": 234.48411178588867,
-        "y": 464.6825485229492,
+        "x": 224.28579330444336,
+        "y": 893.682538986206,
         "wires": [
             [
                 "fbc45a0d.ecdaa"
@@ -6142,31 +6111,15 @@
         "z": "5b6fab52.9eae84",
         "name": "Display only - UCG Logo",
         "info": "",
-        "x": 143.05555725097656,
-        "y": 371.6666793823242,
+        "x": 132.85723876953125,
+        "y": 800.666669845581,
         "wires": []
     },
     {
-        "id": "630a48ef.c6867",
-        "type": "function",
-        "z": "5b6fab52.9eae84",
-        "name": "",
-        "func": "var request = global.get(\"request\");\n\nvar myUrl = `http://localhost:1880/load?user_id=\"testme\"&wcs_username=4acac659-e820-4ef6-8421-e88f517c9c4c&wcs_password=k0gYo1FjJymP&workspace_id=d13cc96b-a323-43a1-b484-29d37679ac27&text=\\'hello\\'&fname=dennis`\nvar myTM = setTimeout(function() { node.error(\"WCS message API reached 15 second time out\", msg)}, 15000 );\n\nrequest.post(myUrl,function (err, response, body) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.statusCode = response && response.statusCode; // Print the response status code if a response was received;\n      msg.payload = body;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 258.5,
-        "y": 608,
-        "wires": [
-            [
-                "c520e384.c00f2"
-            ]
-        ]
-    },
-    {
-        "id": "4ad621ee.e30808",
+        "id": "55249030.7da4a",
         "type": "inject",
         "z": "5b6fab52.9eae84",
-        "name": "",
+        "name": "Execute",
         "topic": "",
         "payload": "",
         "payloadType": "date",
@@ -6174,16 +6127,32 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 108.5,
-        "y": 603,
+        "x": 126.5,
+        "y": 349,
         "wires": [
             [
-                "630a48ef.c6867"
+                "ec7cf462.8b82b8"
             ]
         ]
     },
     {
-        "id": "c520e384.c00f2",
+        "id": "ec7cf462.8b82b8",
+        "type": "function",
+        "z": "5b6fab52.9eae84",
+        "name": "Http Request to Load",
+        "func": "var request = global.get(\"request\");\n\nvar myUrl = `http://ucg-clusterdev.us-south.containers.mybluemix.net/load?user_id=\"testme\"&wcs_username=4acac659-e820-4ef6-8421-e88f517c9c4c&wcs_password=k0gYo1FjJymP&workspace_id=d13cc96b-a323-43a1-b484-29d37679ac27&text=\\'hello\\'&fname=dennis`\n\nvar myTM = setTimeout(function() { node.error(\"APi call to \" + url + \" reached 15 second time out\", msg)}, 15000 );\n\nrequest.post(myUrl,function (err, response, body) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.statusCode = response && response.statusCode; // Print the response status code if a response was received;\n      msg.payload = body;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 328.5,
+        "y": 349,
+        "wires": [
+            [
+                "b5daf80b.9f2e3"
+            ]
+        ]
+    },
+    {
+        "id": "b5daf80b.9f2e3",
         "type": "debug",
         "z": "5b6fab52.9eae84",
         "name": "",
@@ -6192,39 +6161,116 @@
         "console": false,
         "tostatus": false,
         "complete": "true",
-        "x": 465.5,
-        "y": 598,
+        "x": 512.5,
+        "y": 348,
         "wires": []
     },
     {
-        "id": "4ed6700f.7be268",
+        "id": "1f3d50d1.e05b4f",
         "type": "function",
-        "z": "75456024.34a398",
-        "name": "CARLA",
-        "func": "\nvar request = global.get(\"request\");\n\n/* Change the IP to the host computer IP if on-prem or to the domain name of the Kubernetes cluster if cloud \n\n*/\nvar options = {\n  url: \"http://192.168.1.131/carla/ConversationAPI/api/v1/workspaces/message/?workspace_id=\" + msg.params.workspace_id,\n  headers: {\n    'Content-type': 'application/json'\n  },\n  body : {\"input\": {\"text\": msg.payload },\n          \"context\": msg.params.context\n  },\n  json : true\n};\n\n\nvar myTM = setTimeout(function() { node.error(\"APi call to \" + url + \" reached 15 second time out\", msg)}, 15000 );\n\n\nrequest.post(options,function (err, response, body) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.statusCode = response && response.statusCode; // Print the response status code if a response was received;\n      msg.payload = body;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);",
+        "z": "5b6fab52.9eae84",
+        "name": "Get Cloudant Doc using request NPM",
+        "func": "\nvar request = global.get(\"request\");\n\nvar username = \"bdea5362-c793-408b-9b0a-698c42002903-bluemix\"\nvar password = \"25f67caf633c1b844fa50e70b7edd82bea2ff8a31b9f9d06dc8af766e5374cf2\"\n\nvar options = {\n  url: \"https://\" + username + \":\" + password + \"@bdea5362-c793-408b-9b0a-698c42002903-bluemix.cloudant.com/session/_find\",\n  headers: {\n    'Content-type': 'application/json'\n  },\n  body : {selector: {\n     convoUser: {$eq: 'QuickenLoansProfile'}     },\n     sort: [{convoUser:'desc'},{convoTS: 'desc'}],  \n     limit: 5\n    },\n  json : true\n};\n\n\nvar myTM = setTimeout(function() { node.error(\"APi call to \" + url + \" reached 15 second time out\", msg)}, 15000 );\n\n\nrequest.post(options,function (err, response, body) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.statusCode = response && response.statusCode; // Print the response status code if a response was received;\n      msg.payload = body;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);",
         "outputs": 1,
         "noerr": 0,
-        "x": 157.5,
-        "y": 120,
+        "x": 385.5000190734863,
+        "y": 287,
         "wires": [
             [
-                "c8aa104.1b48f7",
-                "8236815.e21b7"
+                "5aaf0386.5598e4"
             ]
         ]
     },
     {
-        "id": "8236815.e21b7",
-        "type": "debug",
+        "id": "b93edaf0.8e795",
+        "type": "function",
+        "z": "16730253.13013e",
+        "name": "GetProfile Action",
+        "func": "\nvar request = global.get(\"request\");\n\nvar username = \"bdea5362-c793-408b-9b0a-698c42002903-bluemix\"\nvar password = \"25f67caf633c1b844fa50e70b7edd82bea2ff8a31b9f9d06dc8af766e5374cf2\"\n\nvar options = {\n  url: \"https://\" + username + \":\" + password + \"@bdea5362-c793-408b-9b0a-698c42002903-bluemix.cloudant.com/session/_find\",\n  headers: {\n    'Content-type': 'application/json'\n  },\n  body : {selector: {\n     convoUser: {$eq: 'QuickenLoansProfile'}     },\n     sort: [{convoUser:'desc'},{convoTS: 'desc'}],  \n     limit: 5\n    },\n  json : true\n};\n\n\nvar myTM = setTimeout(function() { node.error(\"APi call to \" + url + \" reached 15 second time out\", msg)}, 15000 );\n\n\nrequest.post(options,function (err, response, body) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.statusCode = response && response.statusCode; // Print the response status code if a response was received;\n      msg.payload = body;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 665.5,
+        "y": 58,
+        "wires": [
+            [
+                "ccea10b3.40dd48"
+            ]
+        ]
+    },
+    {
+        "id": "945eca5f.f99078",
+        "type": "comment",
+        "z": "16730253.13013e",
+        "name": "Used to add third party actions invoked by WCS context UCGAction",
+        "info": "This is an excellent place to add client\nbackoffice actions to get data to enrich \nthe answer from WCS.",
+        "x": 271.5,
+        "y": 33,
+        "wires": []
+    },
+    {
+        "id": "e82aabde.69cef",
+        "type": "function",
+        "z": "75456024.34a398",
+        "name": "CARLA",
+        "func": "/* \nCarla Info\n\nFor Omni-Channel front-ends, set username and password to ' ', workspace to the Carla workspace_id and add carla_host=<host ip or kubernetes domain> as param\n\n\nExample call to UCG Load flow via postman for testing....\n\n- On-prem\n  http://localhost:1880/load?user_id=testmeplease15&wcs_username=' '&wcs_password=' '&workspace_id=JPMC-workspace-CARLA&text='status of my claim'&fname=dennis&carla_host=ucg-clusterdev.us-south.containers.mybluemix.net\n\n*/\n\nvar request = global.get(\"request\");\n\nvar options = {\n  url: \"http://\" + msg.carla_host + \"/carla/ConversationAPI/api/v1/workspaces/message/?workspace_id=\" + msg.params.workspace_id,\n  headers: {\n    'Content-type': 'application/json'\n  },\n  body : {\"input\": {\"text\": msg.payload },\n          \"context\": msg.params.context\n  },\n  json : true\n};\n\n\nvar myTM = setTimeout(function() { node.error(\"APi call to \" + url + \" reached 15 second time out\", msg)}, 15000 );\n\n\nrequest.post(options,function (err, response, body) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.statusCode = response && response.statusCode; // Print the response status code if a response was received;\n      msg.payload = body;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 480.5,
+        "y": 129,
+        "wires": [
+            [
+                "c8aa104.1b48f7"
+            ]
+        ]
+    },
+    {
+        "id": "a58cef8d.b2d3b8",
+        "type": "function",
+        "z": "75456024.34a398",
+        "name": "Carla Check",
+        "func": "\nif (typeof msg.req.query.carla_host !== \"undefined\") {\n    msg.answerType = \"carla\"  \n    msg.carla_host = msg.req.query.carla_host\n}\nelse {\n    msg.answerType = \"wcs\"   \n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 170.5,
+        "y": 96,
+        "wires": [
+            [
+                "c858cb4c.f6538",
+                "5aa7c031.7e98c"
+            ]
+        ]
+    },
+    {
+        "id": "c858cb4c.f6538",
+        "type": "switch",
         "z": "75456024.34a398",
         "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "x": 457.5,
-        "y": 266,
-        "wires": []
+        "property": "answerType",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "wcs",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "carla",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 331.5,
+        "y": 96,
+        "wires": [
+            [
+                "6a2e837c.7b841c"
+            ],
+            [
+                "e82aabde.69cef"
+            ]
+        ]
     }
 ]
