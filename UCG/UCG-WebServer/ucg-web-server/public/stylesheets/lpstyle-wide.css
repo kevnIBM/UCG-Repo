@@ -1,0 +1,100 @@
+.lp_maximized.lpmx {
+height: 800px !important;
+width: 900px !important;
+}
+.lp-json-pollock-element-button {
+border-color: white !important;
+}
+DIV.lp_rich_content_line {
+/*+placement: 7px 4px !important;*/
+position: relative !important;
+left: 7px !important;
+top: 4px !important;
+height: ;
+width: 300px !important;
+}
+.lp-json-pollock-layout .lp-json-pollock-element-text {
+color: #F9F9F9 !important;
+background-color: #165EA3 !important;
+/*+border-radius: 5px !important;*/
+-moz-border-radius: 5px !important;
+-webkit-border-radius: 5px !important;
+-khtml-border-radius: 5px !important;
+border-radius: 5px !important;
+height: ;
+font-size: 14px !important;
+width: 700px !important;
+}
+.lp_header-buttons-container {
+/*+placement: -3px -14px !important;*/
+position: relative !important;
+left: -3px !important;
+top: -14px !important;
+}
+BUTTON {
+color: white !important;
+background-color: #040960 !important;
+/*+border-radius: 22px !important;*/
+-moz-border-radius: 22px !important;
+-webkit-border-radius: 22px !important;
+-khtml-border-radius: 22px !important;
+border-radius: 22px !important;
+margin-top: 15px !important;
+font-weight: bold !important;
+height: ;
+}
+.lp-json-pollock-element-button BUTTON {
+height: ;
+width: 131px !important;
+}
+DIV.lp-json-pollock-layout {
+border-color: rgba(236, 234, 234, 0) rgba(240, 238, 238, 0) rgba(239, 238, 238, 0) rgba(236, 234, 234, 0) !important;
+}
+.lp_title_text {
+font-size: 14px !important;
+}
+#LP_EndChatAction_1 {
+background-color: #A19C9C !important;
+}
+.lp_send_button {
+/*+placement: 798px -50px !important;*/
+position: relative !important;
+left: 798px !important;
+top: -50px !important;
+background-color: white !important;
+}
+.lp_input_area {
+width: 780px !important;
+}
+.lp_actions_bar_container {
+border-color: white !important;
+}
+#LP_EndChatAction_1 {
+margin-top: 0 !important;
+}
+.lp_actions_button {
+/*+placement: anchor-top-right 6px -3px !important;*/
+position: absolute !important;
+right: 6px !important;
+top: -3px !important;
+background-color: white !important;
+}
+.lp_input_area .lpview_form_textarea {
+font-size: 16px !important;
+/*+placement: 13px 1px !important;*/
+position: relative !important;
+left: 13px !important;
+top: 1px !important;
+}
+DIV.lp_title {
+color: #FBFBFB !important;
+font-size: 14px !important;
+}
+.lp-json-pollock-element-image {
+height: ;
+width: 400px !important;
+}
+.lp-json-pollock-singel-element {
+height: ;
+width: 400px !important;
+}
