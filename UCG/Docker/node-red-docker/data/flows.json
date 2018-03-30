@@ -449,15 +449,15 @@
                 "y": 78.78787422180176,
                 "wires": [
                     {
-                        "id": "fa644420.8bc528"
+                        "id": "f4c9c699.95c13"
                     }
                 ]
             }
         ],
         "out": [
             {
-                "x": 521.4545040130615,
-                "y": 76.96968746185303,
+                "x": 626.4544677734375,
+                "y": 78.96968841552734,
                 "wires": [
                     {
                         "id": "a6969534.87cf68",
@@ -3483,25 +3483,6 @@
         "wires": []
     },
     {
-        "id": "8028d1ba.6d4238",
-        "type": "watson-tone-analyzer-v3",
-        "z": "3c30ab94.447d3c",
-        "name": "Tone",
-        "tones": "all",
-        "sentences": "true",
-        "contentType": "false",
-        "tone-method": "generalTone",
-        "interface-version": "2016-05-19",
-        "inputlang": "en",
-        "default-endpoint": true,
-        "service-endpoint": "https://gateway.watsonplatform.net/tone-analyzer/api",
-        "x": 186.0000228881836,
-        "y": 77.87878036499023,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "761db850.dd9db8",
         "type": "debug",
         "z": "e85cff5a.1f786",
@@ -4385,8 +4366,7 @@
         "y": 235.96155738830566,
         "wires": [
             [
-                "45ecefd5.b04ee8",
-                "4af9f5ec.8d8fcc"
+                "45ecefd5.b04ee8"
             ]
         ]
     },
@@ -6251,7 +6231,7 @@
         "type": "function",
         "z": "3fad3621.99e442",
         "name": "NLU",
-        "func": "var watson = global.get('watson');\n/*\nif (msg.region === \"US-SOUTH\"){ \n    msg.params.endpoint = \"https://gateway.watsonplatform.net/natural-language-understanding/api\"\n}\nelse if (msg.region === \"GERMANY\"){\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/natural-language-understanding/api\"\n}\n*/\n\nvar options = {\n      html: msg.payload,\n      features: {\n        categories: {},\n        concepts: {},\n        keywords: {},\n        entities: {\n          model : \"10:11e54715-f346-498e-80c6-3a86b00a2478\"  \n        },\n        emotion: {},\n        relations: {}\n      }\n}      \n\n\nvar nlu = new watson.NaturalLanguageUnderstandingV1({\n  username : \"59145f72-7325-407d-868b-fff7c5d8b6db\",\n  password : \"nUVcOPmOgtTf\",\n  url : \"https://gateway.watsonplatform.net/natural-language-understanding/api\",\n  version_date: '2017-03-16'\n});\n\n\nvar myTM = setTimeout(function() { node.error(\"NLU message API reached 15 second time out\", msg)}, 15000 );\n\nnlu.analyze(options,function(err, response) {\n    if (err) {\n      var errStr = err.error\n      if (errStr.lastIndexOf(\"not enough text\") >= 0){\n        clearTimeout(myTM)  \n      }\n      else { \n        node.error(err);\n      } \n    } else {\n      msg.NLU = response;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);\n",
+        "func": "var watson = global.get('watson');\n/*\nif (msg.region === \"US-SOUTH\"){ \n    msg.params.endpoint = \"https://gateway.watsonplatform.net/natural-language-understanding/api\"\n}\nelse if (msg.region === \"GERMANY\"){\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/natural-language-understanding/api\"\n}\n*/\n\nvar options = {\n      html: msg.payload,\n      features: {\n        categories: {},\n        concepts: {},\n        keywords: {},\n        entities: {\n          model : \"10:11e54715-f346-498e-80c6-3a86b00a2478\"  \n        },\n        emotion: {},\n        relations: {},\n        sentiment: {}\n      }\n}      \n\n\nvar nlu = new watson.NaturalLanguageUnderstandingV1({\n  username : \"59145f72-7325-407d-868b-fff7c5d8b6db\",\n  password : \"nUVcOPmOgtTf\",\n  url : \"https://gateway.watsonplatform.net/natural-language-understanding/api\",\n  version_date: '2017-03-16'\n});\n\n\nvar myTM = setTimeout(function() { node.error(\"NLU message API reached 15 second time out\", msg)}, 15000 );\n\nnlu.analyze(options,function(err, response) {\n    if (err) {\n      var errStr = err.error\n      if (errStr.lastIndexOf(\"not enough text\") >= 0){\n        clearTimeout(myTM)  \n      }\n      else { \n        node.error(err);\n      } \n    } else {\n      msg.NLU = response;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);\n",
         "outputs": 1,
         "noerr": 0,
         "x": 222.27273178100586,
@@ -6268,7 +6248,7 @@
         "z": "3fad3621.99e442",
         "name": "Start",
         "topic": "",
-        "payload": "hello",
+        "payload": "I'm afraid to look at my account",
         "payloadType": "str",
         "repeat": "",
         "crontab": "",
@@ -6304,8 +6284,8 @@
         "func": "var watson = global.get('watson');\n/*\nif (msg.region === \"US-SOUTH\"){ \n    msg.params.endpoint = \"https://gateway.watsonplatform.net/natural-language-understanding/api\"\n}\nelse if (msg.region === \"GERMANY\"){\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/natural-language-understanding/api\"\n}\n*/\n\nvar options = {\n      html: msg.payload,\n      features: {\n        categories: {},\n        concepts: {},\n        keywords: {},\n        entities: {\n          model : \"10:11e54715-f346-498e-80c6-3a86b00a2478\"  \n        },\n        emotion: {},\n        relations: {}\n      }\n}      \n\n\nvar nlu = new watson.NaturalLanguageUnderstandingV1({\n  username : \"59145f72-7325-407d-868b-fff7c5d8b6db\",\n  password : \"nUVcOPmOgtTf\",\n  url : \"https://gateway.watsonplatform.net/natural-language-understanding/api\",\n  version_date: '2017-03-16'\n});\n\n\nvar myTM = setTimeout(function() { node.error(\"NLU message API reached 15 second time out\", msg)}, 15000 );\n\nnlu.analyze(options,function(err, response) {\n    if (err) {\n      var errStr = err.error\n      if (errStr.lastIndexOf(\"not enough text\") >= 0){\n        clearTimeout(myTM)  \n      }\n      else { \n        node.error(err);\n      } \n    } else {\n      msg.NLU = response;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 185.90912628173828,
-        "y": 121.81816482543945,
+        "x": 307.90911865234375,
+        "y": 79.81816101074219,
         "wires": [
             [
                 "a6969534.87cf68"
@@ -6317,11 +6297,11 @@
         "type": "function",
         "z": "3c30ab94.447d3c",
         "name": "add Context",
-        "func": "\nif (typeof msg.response !== \"undefined\") {\n  msg.params.context.angerName = msg.response.document_tone.tone_categories[0].tones[0].tone_name;\n  msg.params.context.angerScore = msg.response.document_tone.tone_categories[0].tones[0].score.toFixed(3);\n  msg.params.context.disgustName = msg.response.document_tone.tone_categories[0].tones[1].tone_name;\n  msg.params.context.disgustScore = msg.response.document_tone.tone_categories[0].tones[1].score.toFixed(3);\n  msg.params.context.fearName = msg.response.document_tone.tone_categories[0].tones[2].tone_name;\n  msg.params.context.fearScore = msg.response.document_tone.tone_categories[0].tones[2].score.toFixed(3);\n  msg.params.context.joyName = msg.response.document_tone.tone_categories[0].tones[3].tone_name;\n  msg.params.context.joyScore = msg.response.document_tone.tone_categories[0].tones[3].score.toFixed(3);\n  msg.params.context.sadnessName = msg.response.document_tone.tone_categories[0].tones[4].tone_name;\n  msg.params.context.sadnessScore = msg.response.document_tone.tone_categories[0].tones[4].score.toFixed(3);\n\n  msg.params.context.analyticalName = msg.response.document_tone.tone_categories[1].tones[0].tone_name;\n  msg.params.context.analyticalScore = msg.response.document_tone.tone_categories[1].tones[0].score.toFixed(3);\n  msg.params.context.confidentName = msg.response.document_tone.tone_categories[1].tones[1].tone_name;\n  msg.params.context.confidentScore = msg.response.document_tone.tone_categories[1].tones[1].score.toFixed(3);\n  msg.params.context.tentativeName = msg.response.document_tone.tone_categories[1].tones[2].tone_name;\n  msg.params.context.tentativeScore = msg.response.document_tone.tone_categories[1].tones[2].score.toFixed(3);\n\n  msg.params.context.OpenName = msg.response.document_tone.tone_categories[2].tones[0].tone_name;\n  msg.params.context.OpenScore = msg.response.document_tone.tone_categories[2].tones[0].score.toFixed(3);\n  msg.params.context.conTitle = msg.response.document_tone.tone_categories[2].tones[1].tone_name;\n  msg.params.context.conScore = msg.response.document_tone.tone_categories[2].tones[1].score.toFixed(3);\n  msg.params.context.extName = msg.response.document_tone.tone_categories[2].tones[2].tone_name;\n  msg.params.context.extScore = msg.response.document_tone.tone_categories[2].tones[2].score.toFixed(3);\n  msg.params.context.agreeName = msg.response.document_tone.tone_categories[2].tones[3].tone_name;\n  msg.params.context.agreeScore = msg.response.document_tone.tone_categories[2].tones[3].score.toFixed(3);\n  msg.params.context.emoName = msg.response.document_tone.tone_categories[2].tones[4].tone_name;\n  msg.params.context.emoScore = msg.response.document_tone.tone_categories[2].tones[4].score.toFixed(3);\n}\n\nif (typeof msg.NLU !== \"undefined\") {\n  msg.params.context.NLU = msg.NLU\n}  \nreturn msg;",
+        "func": "\nif (typeof msg.Tone !== \"undefined\") {\n  msg.params.context.angerName = msg.Tone.document_tone.tone_categories[0].tones[0].tone_name;\n  msg.params.context.angerScore = msg.Tone.document_tone.tone_categories[0].tones[0].score.toFixed(3);\n  msg.params.context.disgustName = msg.Tone.document_tone.tone_categories[0].tones[1].tone_name;\n  msg.params.context.disgustScore = msg.Tone.document_tone.tone_categories[0].tones[1].score.toFixed(3);\n  msg.params.context.fearName = msg.Tone.document_tone.tone_categories[0].tones[2].tone_name;\n  msg.params.context.fearScore = msg.Tone.document_tone.tone_categories[0].tones[2].score.toFixed(3);\n  msg.params.context.joyName = msg.Tone.document_tone.tone_categories[0].tones[3].tone_name;\n  msg.params.context.joyScore = msg.Tone.document_tone.tone_categories[0].tones[3].score.toFixed(3);\n  msg.params.context.sadnessName = msg.Tone.document_tone.tone_categories[0].tones[4].tone_name;\n  msg.params.context.sadnessScore = msg.Tone.document_tone.tone_categories[0].tones[4].score.toFixed(3);\n\n  msg.params.context.analyticalName = msg.Tone.document_tone.tone_categories[1].tones[0].tone_name;\n  msg.params.context.analyticalScore = msg.Tone.document_tone.tone_categories[1].tones[0].score.toFixed(3);\n  msg.params.context.confidentName = msg.Tone.document_tone.tone_categories[1].tones[1].tone_name;\n  msg.params.context.confidentScore = msg.Tone.document_tone.tone_categories[1].tones[1].score.toFixed(3);\n  msg.params.context.tentativeName = msg.Tone.document_tone.tone_categories[1].tones[2].tone_name;\n  msg.params.context.tentativeScore = msg.Tone.document_tone.tone_categories[1].tones[2].score.toFixed(3);\n\n  msg.params.context.OpenName = msg.Tone.document_tone.tone_categories[2].tones[0].tone_name;\n  msg.params.context.OpenScore = msg.Tone.document_tone.tone_categories[2].tones[0].score.toFixed(3);\n  msg.params.context.conTitle = msg.Tone.document_tone.tone_categories[2].tones[1].tone_name;\n  msg.params.context.conScore = msg.Tone.document_tone.tone_categories[2].tones[1].score.toFixed(3);\n  msg.params.context.extName = msg.Tone.document_tone.tone_categories[2].tones[2].tone_name;\n  msg.params.context.extScore = msg.Tone.document_tone.tone_categories[2].tones[2].score.toFixed(3);\n  msg.params.context.agreeName = msg.Tone.document_tone.tone_categories[2].tones[3].tone_name;\n  msg.params.context.agreeScore = msg.Tone.document_tone.tone_categories[2].tones[3].score.toFixed(3);\n  msg.params.context.emoName = msg.Tone.document_tone.tone_categories[2].tones[4].tone_name;\n  msg.params.context.emoScore = msg.Tone.document_tone.tone_categories[2].tones[4].score.toFixed(3);\n}\n\nif (typeof msg.NLU !== \"undefined\") {\n  msg.params.context.NLU = msg.NLU\n}  \nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 379.54544830322266,
-        "y": 76.36362171173096,
+        "x": 487.5454406738281,
+        "y": 79.36361694335938,
         "wires": [
             []
         ]
@@ -6334,7 +6314,8 @@
         "y": 236.36363697052002,
         "wires": [
             [
-                "2106aeef.1a05a2"
+                "2106aeef.1a05a2",
+                "4af9f5ec.8d8fcc"
             ]
         ]
     },
@@ -6352,10 +6333,26 @@
         "id": "c0924d24.790e8",
         "type": "comment",
         "z": "3c30ab94.447d3c",
-        "name": "Choose between Tone or full NLU Analysis",
+        "name": "Choose between Tone or full NLU Analysis or both",
         "info": "",
-        "x": 250.45457458496094,
+        "x": 280.45457458496094,
         "y": 223.63637924194336,
         "wires": []
+    },
+    {
+        "id": "f4c9c699.95c13",
+        "type": "function",
+        "z": "3c30ab94.447d3c",
+        "name": "Tone",
+        "func": "var watson = global.get('watson');\n/*\nif (msg.region === \"US-SOUTH\"){ \n    msg.params.endpoint = \"https://gateway.watsonplatform.net/tone-analyzer/api\"\n}\nelse if (msg.region === \"GERMANY\"){\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/tone-analyzer/api\"\n}\n*/\n\nvar options = {\n    tone_input: msg.payload,\n    content_type: 'text/plain'\n}      \n\n\nvar toneAnalyzer = new watson.ToneAnalyzerV3({\n  username : \"06dc591b-7cc4-4b0b-b26c-48fe37388579\",\n  password : \"uogdSsVA2Q1a\",\n  url : \"https://gateway.watsonplatform.net/tone-analyzer/api\",\n  version_date: '2016-05-19'\n});\n\n\nvar myTM = setTimeout(function() { node.error(\"Tone message API reached 15 second time out\", msg)}, 15000 );\n\ntoneAnalyzer.tone(options,function(err, response) {\n    if (err) {\n      var errStr = err.error\n      if (errStr.lastIndexOf(\"not enough text\") >= 0){\n        clearTimeout(myTM)  \n      }\n      else { \n        node.error(err);\n      } \n    } else {\n      msg.Tone = response;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 147.5,
+        "y": 80,
+        "wires": [
+            [
+                "fa644420.8bc528"
+            ]
+        ]
     }
 ]
