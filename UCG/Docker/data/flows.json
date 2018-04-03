@@ -6354,5 +6354,55 @@
                 "fa644420.8bc528"
             ]
         ]
+    },
+    {
+        "id": "bbb8f827.5963a8",
+        "type": "function",
+        "z": "5b6fab52.9eae84",
+        "name": "RSA",
+        "func": "var nodersa = global.get('nodersa');\n\nvar key = new nodersa({b: 512});\n\nvar text = 'Hello RSA!';\nmsg.encrypted = key.encrypt(text, 'base64');\nconsole.log('encrypted: ', msg.encrypted);\nmsg.decrypted = key.decrypt(msg.encrypted, 'utf8');\nconsole.log('decrypted: ', msg.decrypted);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 298.5,
+        "y": 418,
+        "wires": [
+            [
+                "430f86f8.2c8b2"
+            ]
+        ]
+    },
+    {
+        "id": "fcc4fe1f.e98a48",
+        "type": "inject",
+        "z": "5b6fab52.9eae84",
+        "name": "Execute",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 124.5,
+        "y": 417,
+        "wires": [
+            [
+                "bbb8f827.5963a8"
+            ]
+        ]
+    },
+    {
+        "id": "430f86f8.2c8b2",
+        "type": "debug",
+        "z": "5b6fab52.9eae84",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 433.5,
+        "y": 417,
+        "wires": []
     }
 ]

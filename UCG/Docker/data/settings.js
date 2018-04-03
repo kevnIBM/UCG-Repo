@@ -178,6 +178,7 @@ module.exports = {
         redis:require('/usr/src/node-red/node_modules/ioredis'),
         watson:require('/usr/src/node-red/node_modules/watson-developer-cloud'),
         request:require('/usr/src/node-red/node_modules/request'),
+        nodersa:require('/usr/src/node-red/node_modules/node-rsa'),
         process: process
         // octalbonescript:require('octalbonescript'),
         // jfive:require("johnny-five"),
