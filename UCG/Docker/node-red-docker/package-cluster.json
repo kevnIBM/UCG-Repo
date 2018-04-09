@@ -43,7 +43,10 @@
         "node-red-contrib-multipart-stream-encoder":"0.x",
         "node-red-contrib-csvtojson":"0.x",
         "request":"2.x",
-        "node-rsa": "0.4.x"
+        "node-rsa": "0.4.x",
+        "crypto-js": "3.x",
+        "node-red-dashboard": "2.x",
+        "node-red-contrib-fast-csv": "0.x"
 
     },
     "engines": {

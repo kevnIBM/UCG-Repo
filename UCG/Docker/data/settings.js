@@ -179,6 +179,7 @@ module.exports = {
         watson:require('/usr/src/node-red/node_modules/watson-developer-cloud'),
         request:require('/usr/src/node-red/node_modules/request'),
         nodersa:require('/usr/src/node-red/node_modules/node-rsa'),
+        cryptojs:require('/usr/src/node-red/node_modules/crypto-js'),
         process: process
         // octalbonescript:require('octalbonescript'),
         // jfive:require("johnny-five"),
