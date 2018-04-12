@@ -830,8 +830,7 @@
         "y": 100.0694408416748,
         "wires": [
             [
-                "cbea3e01.242f1",
-                "c125793b.82fa78"
+                "cbea3e01.242f1"
             ]
         ]
     },
@@ -951,8 +950,8 @@
         "type": "http response",
         "z": "3fad3621.99e442",
         "name": "Http Response",
-        "x": 1322.8498992919922,
-        "y": 235.00366020202637,
+        "x": 1295.1575927734375,
+        "y": 257.31136322021484,
         "wires": []
     },
     {
@@ -1765,6 +1764,7 @@
             }
         ],
         "checkall": "true",
+        "repair": false,
         "outputs": 2,
         "x": 580,
         "y": 380,
@@ -3240,7 +3240,7 @@
         "type": "function",
         "z": "a0e2e197.345df",
         "name": "Find Workspace",
-        "func": "\nif (msg.payload.trim().toUpperCase().substring(0,6) == \"ASK ME\"){\n    msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n    msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n    msg.params.password = \"k0gYo1FjJymP\";\n}\n//msg.payload = msg.payload.replace(/\\s+$/g,'')\nif ((msg.payload.toUpperCase().substring(0,5) == \"HELLO\") && (msg.payload.length > 5)){\n\n msg.testHello = msg.payload.toUpperCase().match(/\\b(BANK|INSURE|CALL CENTER|MONEY|HEALTH|METLIFE|FIDELITY|REGIONS|REGIONS TEST|LIBERTY|QUICKEN)\\b/g);\n if (msg.testHello !== null)\n   {msg.testHello = msg.testHello[0]}\n switch(msg.testHello) {\n    case 'BANK':\n        msg.params.workspace_id = \"d13cc96b-a323-43a1-b484-29d37679ac27\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'INSURE':\n        msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'CALL CENTER':\n        msg.params.workspace_id = \"faf6e421-43ae-474a-8f9e-e8e10e71e3df\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'MONEY':\n        msg.params.workspace_id = \"c2777aef-fe89-4df5-8792-46880d6a0662\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'HEALTH':\n        msg.params.workspace_id = \"17727c7a-6339-4bb8-a967-ccd8b12eed76\";\n        msg.params.username = \"e78c76ea-d8aa-4ed6-9fec-292455f3eb17\";\n        msg.params.password = \"UHJz4sZqu5Vq\";\n        break;    \n    case 'QUICKEN':\n        msg.params.workspace_id = \"20918e28-1c00-4611-8e88-60642ea77ebc\";\n        msg.params.username = \"0b41c42f-545b-4bb0-92a8-1824844b4e33\";\n        msg.params.password = \"S6zRVMYapwPy\";\n        break;    \n    case 'METLIFE':\n        msg.params.workspace_id = \"5fd7c1c7-9ea2-4fc8-b6fa-7920e10aad5a\";\n        msg.params.username = \"7d18e2e6-310b-4efc-9370-d9a8289e17dd\";\n        msg.params.password = \"UEVfKB4CLIyF\";\n        break;\n    case 'FIDELITY':\n        msg.params.workspace_id = \"1555159e-fa59-4d8d-bfba-b10a19144e22\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n     case 'REGIONS':\n        msg.params.workspace_id = \"321e996d-efee-42a0-8aed-3dc93006a026\";\n        msg.params.username = \"f40d2d94-d2e7-4dd1-a718-b57d93203aaa\";\n        msg.params.password = \"cYuHIo2dCmwf\";\n        break;\n     case 'REGIONS TEST':\n        msg.params.workspace_id = \"de1089d8-46e6-4a7d-b5ed-03c5338b7b0a\";\n        msg.params.username = \"271cc33b-4cf3-480c-8798-f4b3e980df00\";\n        msg.params.password = \"BlnizADsfAh8\";\n        break;\n    case 'LIBERTY':\n        msg.params.workspace_id = \"893ec9b6-bfc8-426a-8fd1-592a2e6ebaa8\";\n        msg.params.username = \"6c6eb782-c2ea-4b14-8912-072ac57eee3a\";\n        msg.params.password = \"Au5euZDUZBvO\";\n        break;\n    default: \n }\n}\n// check for date and compute age context vars\nif (msg.payload.lastIndexOf('/') >= 0 ) {\n     var myindex = msg.payload.lastIndexOf('/')\n     var dateString = msg.payload\n     \n     var d = new Date(dateString)\n     var now = new Date()\n     var years = now.getFullYear() - d.getFullYear()\n\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var age = years + days /365\n    \n     msg.params.context.age = Math.round(age *100)/100\n \n     var d = new Date(dateString)\n     var now = new Date()\n     now.setMonth(\"12\")\n     now.setDate(\"31\")\n     var years = now.getFullYear() - d.getFullYear()\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var ageEOY = years + days /365\n     msg.params.context.ageEOY = Math.round(ageEOY * 100)/100\n     \n     var d = new Date(dateString)\n     var now = new Date()\n     now.setMonth(\"01\")\n     now.setDate(\"01\")\n     var years = now.getFullYear() - d.getFullYear()\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var ageBOY = years + days /365\n     msg.params.context.ageBOY = Math.round(ageBOY * 100)/100\n}\n\nreturn msg;",
+        "func": "\nif (msg.payload.trim().toUpperCase().substring(0,6) == \"ASK ME\"){\n    msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n    msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n    msg.params.password = \"k0gYo1FjJymP\";\n}\n//msg.payload = msg.payload.replace(/\\s+$/g,'')\nif ((msg.payload.toUpperCase().substring(0,5) == \"HELLO\") && (msg.payload.length > 5)){\n\n msg.testHello = msg.payload.toUpperCase().match(/\\b(BANK|INSURE|CALL CENTER|MONEY|HEALTH|METLIFE|FIDELITY|REGIONS|REGIONS TEST|LIBERTY|QUICKEN|BOB)\\b/g);\n if (msg.testHello !== null)\n   {msg.testHello = msg.testHello[0]}\n switch(msg.testHello) {\n    case 'BANK':\n        msg.params.workspace_id = \"d13cc96b-a323-43a1-b484-29d37679ac27\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'INSURE':\n        msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'CALL CENTER':\n        msg.params.workspace_id = \"faf6e421-43ae-474a-8f9e-e8e10e71e3df\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'MONEY':\n        msg.params.workspace_id = \"c2777aef-fe89-4df5-8792-46880d6a0662\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'HEALTH':\n        msg.params.workspace_id = \"17727c7a-6339-4bb8-a967-ccd8b12eed76\";\n        msg.params.username = \"e78c76ea-d8aa-4ed6-9fec-292455f3eb17\";\n        msg.params.password = \"UHJz4sZqu5Vq\";\n        break;    \n    case 'QUICKEN':\n        msg.params.workspace_id = \"20918e28-1c00-4611-8e88-60642ea77ebc\";\n        msg.params.username = \"0b41c42f-545b-4bb0-92a8-1824844b4e33\";\n        msg.params.password = \"S6zRVMYapwPy\";\n        break;    \n    case 'METLIFE':\n        msg.params.workspace_id = \"5fd7c1c7-9ea2-4fc8-b6fa-7920e10aad5a\";\n        msg.params.username = \"7d18e2e6-310b-4efc-9370-d9a8289e17dd\";\n        msg.params.password = \"UEVfKB4CLIyF\";\n        break;\n    case 'FIDELITY':\n        msg.params.workspace_id = \"1555159e-fa59-4d8d-bfba-b10a19144e22\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n     case 'REGIONS':\n        msg.params.workspace_id = \"321e996d-efee-42a0-8aed-3dc93006a026\";\n        msg.params.username = \"f40d2d94-d2e7-4dd1-a718-b57d93203aaa\";\n        msg.params.password = \"cYuHIo2dCmwf\";\n        break;\n     case 'REGIONS TEST':\n        msg.params.workspace_id = \"de1089d8-46e6-4a7d-b5ed-03c5338b7b0a\";\n        msg.params.username = \"271cc33b-4cf3-480c-8798-f4b3e980df00\";\n        msg.params.password = \"BlnizADsfAh8\";\n        break;\n    case 'LIBERTY':\n        msg.params.workspace_id = \"893ec9b6-bfc8-426a-8fd1-592a2e6ebaa8\";\n        msg.params.username = \"6c6eb782-c2ea-4b14-8912-072ac57eee3a\";\n        msg.params.password = \"Au5euZDUZBvO\";\n        break;\n    case 'BOB':\n        msg.params.workspace_id = \"daf66f17-1b7c-40aa-afe5-a5eb322821cc\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    default: \n }\n}\n// check for date and compute age context vars\nif (msg.payload.lastIndexOf('/') >= 0 ) {\n     var myindex = msg.payload.lastIndexOf('/')\n     var dateString = msg.payload\n     \n     var d = new Date(dateString)\n     var now = new Date()\n     var years = now.getFullYear() - d.getFullYear()\n\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var age = years + days /365\n    \n     msg.params.context.age = Math.round(age *100)/100\n \n     var d = new Date(dateString)\n     var now = new Date()\n     now.setMonth(\"12\")\n     now.setDate(\"31\")\n     var years = now.getFullYear() - d.getFullYear()\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var ageEOY = years + days /365\n     msg.params.context.ageEOY = Math.round(ageEOY * 100)/100\n     \n     var d = new Date(dateString)\n     var now = new Date()\n     now.setMonth(\"01\")\n     now.setDate(\"01\")\n     var years = now.getFullYear() - d.getFullYear()\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var ageBOY = years + days /365\n     msg.params.context.ageBOY = Math.round(ageBOY * 100)/100\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 200,
@@ -3383,7 +3383,8 @@
         "y": 100,
         "wires": [
             [
-                "dc099fad.df4b28"
+                "dc099fad.df4b28",
+                "c125793b.82fa78"
             ]
         ]
     },
@@ -4347,7 +4348,7 @@
         "type": "function",
         "z": "75456024.34a398",
         "name": "WDS Search",
-        "func": "var watson = global.get('watson');\n\nvar discovery = new watson.DiscoveryV1({\n  username: \"578d5c5e-a713-44ad-bd8b-d3b8ba39c03c\",\n  password: \"NaFdTJluDnem\",\n  version_date: '2017-11-07'\n});\n\nvar params = {\n    natural_language_query: msg.payload.input.text,\n    environment_id: \"d40ba5ee-be86-4b59-8a67-f463f233367d\",\n    collection_id: \"35835dcf-e873-4a43-9034-786210ffebf2\",\n    configuration_id: \"1d573129-7100-4405-b6a0-439cd8af2640\",\n    passages: true, //if you want to enable passages\n    passages_fields : \"Text\"\n    //sort : \"Term\"\n   //  return: ''\n  //highlight: true //if you want to enable highlight\n\n}\n\ndiscovery.query(params, (error, results) => {\n    if (error) {\n      node.error(error);\n    } else {\n      msg.WDSResults = results; //your query results\n      msg.test = msg.payload.input.abc\n      node.send(msg);\n    }\n});",
+        "func": "var watson = global.get('watson');\n\nvar discovery = new watson.DiscoveryV1({\n  username: \"578d5c5e-a713-44ad-bd8b-d3b8ba39c03c\",\n  password: \"NaFdTJluDnem\",\n  version_date: '2017-11-07'\n});\n\nvar params = {\n    natural_language_query: msg.payload.input.text,\n    environment_id: \"d40ba5ee-be86-4b59-8a67-f463f233367d\",\n    collection_id: \"35835dcf-e873-4a43-9034-786210ffebf2\",\n    configuration_id: \"1d573129-7100-4405-b6a0-439cd8af2640\",\n    passages: true, //if you want to enable passages\n    passages_fields : \"Text\"\n    //sort : \"Term\"\n   //  return: ''\n  //highlight: true //if you want to enable highlight\n\n}\n\ndiscovery.query(params, (error, results) => {\n    if (error) {\n      node.error(error);\n    } else {\n      msg.WDSResults = results; //your query results\n      node.send(msg);\n    }\n});",
         "outputs": 1,
         "noerr": 0,
         "x": 816.6666870117188,
@@ -4868,7 +4869,7 @@
         "type": "function",
         "z": "3fad3621.99e442",
         "name": "List workspaces",
-        "func": "var watson = global.get('watson');\nmsg.region = \"GERMANY\"\nmsg.primary_wcs_user_name = \"4acac659-e820-4ef6-8421-e88f517c9c4c\"\nmsg.primary_wcs_password = \"k0gYo1FjJymP\"\nmsg.params = {}\n\nif (msg.region === \"US-SOUTH\"){ \n    msg.params.username = msg.primary_wcs_user_name\n    msg.params.password = msg.primary_wcs_password\n    msg.params.endpoint = \"https://gateway.watsonplatform.net/conversation/api\"\n   \n}\nelse if (msg.region === \"GERMANY\"){\n    msg.params.username = \"c3a84de4-c0cf-43b6-98a1-8c2bd16fdc1f\";\n    msg.params.password = \"GaZagvcNP3VG\";\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/conversation/api\"\n}\n\nvar conversation = new watson.ConversationV1({\n  username : msg.params.username,\n  password : msg.params.password,\n  url : msg.params.endpoint,\n  version_date: '2017-05-26'\n});\n\nvar myTM = setTimeout(function() { node.error(\"We timed out\", msg)}, 15000 );\n\nconversation.listWorkspaces(msg.params,function(err, response) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.payload = response;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);\n",
+        "func": "try {\n\n  var watson = global.get('watson');\n  msg.region = \"GERMANY\"\n  msg.primary_wcs_user_name = \"4acac659-e820-4ef6-8421-e88f517c9c4c\"\n  msg.primary_wcs_password = \"k0gYo1FjJymP\"\n  msg.params = {}\n\n  if (msg.region === \"US-SOUTH\"){ \n    msg.params.username = msg.primary_wcs_user_name\n    msg.params.password = msg.primary_wcs_password\n    msg.params.endpoint = \"https://gateway.watsonplatform.net/conversation/api\"\n   \n  }\n  else if (msg.region === \"GERMANY\"){\n    msg.params.username = \"c3a84de4-c0cf-43b6-98a1-8c2bd16fdc1f\";\n    msg.params.password = \"GaZagvcNP3VG\";\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/conversation/api\"\n  }\n//a = butthead;\n  var conversation = new watson.ConversationV1({\n    username : msg.params.username,\n    password : msg.params.password,\n    url : msg.params.endpoint,\n    version_date: '2017-05-26'\n  });\n\n  var myTM = setTimeout(function() { node.error(\"We timed out\", msg)}, 15000 );\n\n  conversation.listWorkspaces(msg.params,function(err, response) {\n   \n      if (err) {\n        node.error(err, msg);\n      } else {\n        try {\n       \n          msg.payload = response;\n          node.send(msg);\n          clearTimeout(myTM)\n         // console.log(JSON.stringify(response, null, 2));\n       \n        }\n       catch (e) {\n         node.error(e + \" :stack: \" + e.stack, msg); \n       }\n     }\n   }\n  );\n}\n\ncatch (e) {\n    node.error(e + \" :stack: \" + e.stack, msg); \n} ",
         "outputs": 1,
         "noerr": 0,
         "x": 251.24999237060547,
@@ -5301,37 +5302,6 @@
         ]
     },
     {
-        "id": "2391adf1.58de3a",
-        "type": "function",
-        "z": "16730253.13013e",
-        "name": "GetProfile Action",
-        "func": "\n\nmsg.payload = {selector: {\n     convoUser: {$eq: \"QuickenLoansProfile\"}     },\n     sort: [{convoUser:\"desc\"},{convoTS: \"desc\"}],  \n     limit: 5\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 124.07855224609375,
-        "y": 284.6862564086914,
-        "wires": [
-            [
-                "3ff9e0be.28ba58"
-            ]
-        ]
-    },
-    {
-        "id": "3ff9e0be.28ba58",
-        "type": "http request",
-        "z": "16730253.13013e",
-        "name": "Read Cloudant",
-        "method": "POST",
-        "ret": "obj",
-        "url": "https://bdea5362-c793-408b-9b0a-698c42002903-bluemix.cloudant.com/session/_find",
-        "tls": "",
-        "x": 340.666748046875,
-        "y": 284.29412841796875,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "ccea10b3.40dd48",
         "type": "function",
         "z": "16730253.13013e",
@@ -5547,7 +5517,7 @@
         "type": "function",
         "z": "19f40361.5ecea5",
         "name": "Response Msg",
-        "func": "/* Example Payload for Google\n{\n  \"speech\": \"...\",  // ASCII characters only\n  \"displayText\": \"...\",\n  \"data\": {\n    \"google\": {\n      \"expect_user_response\": true,\n      \"is_ssml\": true,\n      \"permissions_request\": {\n        \"opt_context\": \"...\",\n        \"permissions\": [\n          \"NAME\",\n          \"DEVICE_COARSE_LOCATION\",\n          \"DEVICE_PRECISE_LOCATION\"\n        ]\n      }\n    }\n  },\n  \"contextOut\": [...],\n}*/\n\nmsg.headers = {\"Content-type\" : \"application/json\"}\nvar input = msg.payload.input.text\nvar texts = msg.payload.output.text\n\nvar myEndSession = true;    \n\ntotalText = \"\"\nfor (i = 0; i < texts.length; i++) {\n    \n    if (texts[i].lastIndexOf(\"[\") >= 0 ) {\n       findindex = texts[i].lastIndexOf(\"[\");\n       texts[i] = texts[i].substring(0,findindex);\n    } \n  totalText = totalText + \" \" + texts[i]\n}\n\nif (msg.tellGoogleNoWorries) \n{totalText = \"Okay, you're information is safe with me.\" + totalText\n  msg.tellGoogleNoWorries = false  \n}\n\n\nif (input.toUpperCase().substring(0,5) == \"LATER\" ||\n    totalText.lastIndexOf(\"wonderful day\") >= 0 ||\n    totalText.lastIndexOf(\"great day\") >= 0\n)\n   {myEndSession = false}\n\n\n\nmyResponse = {\n    \"speech\": totalText,  // ASCII characters only\n    \"displayText\": \"\",\n    \"data\": {\n      \"google\": {\n        \"expect_user_response\": myEndSession,\n        \"is_ssml\": false\n        }\n     }\n}\n\nnode.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + totalText)\nmsg.payload = myResponse \nnode.send(msg);\n    \n\nreturn null;\n",
+        "func": "/* Example Payload for Google\n{\n  \"speech\": \"...\",  // ASCII characters only\n  \"displayText\": \"...\",\n  \"data\": {\n    \"google\": {\n      \"expect_user_response\": true,\n      \"is_ssml\": true,\n      \"permissions_request\": {\n        \"opt_context\": \"...\",\n        \"permissions\": [\n          \"NAME\",\n          \"DEVICE_COARSE_LOCATION\",\n          \"DEVICE_PRECISE_LOCATION\"\n        ]\n      }\n    }\n  },\n  \"contextOut\": [...],\n}\n\n \"fulfillmentText\": \"This is a text response\",\n  \"fulfillmentMessages\": [\n    {\n      \"card\": {\n        \"title\": \"card title\",\n        \"subtitle\": \"card text\",\n        \"imageUri\": \"https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png\",\n        \"buttons\": [\n          {\n            \"text\": \"button text\",\n            \"postback\": \"https://assistant.google.com/\"\n          }\n        ]\n      }\n    }\n  ],\n  \"source\": \"example.com\",\n  \"payload\": {\n    \"google\": {\n      \"expectUserResponse\": true,\n      \"richResponse\": {\n        \"items\": [\n          {\n            \"simpleResponse\": {\n              \"textToSpeech\": \"this is a simple response\"\n            }\n          }\n        ]\n      }\n    },\n   \n  },\n  \"outputContexts\": [\n    {\n      \"name\": \"projects/${PROJECT_ID}/agent/sessions/${SESSION_ID}/contexts/context name\",\n      \"lifespanCount\": 5,\n      \"parameters\": {\n        \"param\": \"param value\"\n      }\n    }\n  ],\n  \"followupEventInput\": {\n    \"name\": \"event name\",\n    \"languageCode\": \"en-US\",\n    \"parameters\": {\n      \"param\": \"param value\"\n    }\n  }\n}\n*/\n\n\nmsg.headers = {\"Content-type\" : \"application/json\"}\nvar input = msg.payload.input.text\nvar texts = msg.payload.output.text\n\nvar myEndSession = true;    \n\ntotalText = \"\"\nfor (i = 0; i < texts.length; i++) {\n    \n    if (texts[i].lastIndexOf(\"[\") >= 0 ) {\n       findindex = texts[i].lastIndexOf(\"[\");\n       texts[i] = texts[i].substring(0,findindex);\n    } \n  totalText = totalText + \" \" + texts[i]\n}\n\nif (msg.tellGoogleNoWorries) \n{totalText = \"Okay, you're information is safe with me.\" + totalText\n  msg.tellGoogleNoWorries = false  \n}\n\n\nif (input.toUpperCase().substring(0,5) == \"LATER\" ||\n    totalText.lastIndexOf(\"wonderful day\") >= 0 ||\n    totalText.lastIndexOf(\"great day\") >= 0\n)\n   {myEndSession = false}\n\n\n/*\nmyResponse = {\n    \"speech\": totalText,  // ASCII characters only\n    \"displayText\": \"\",\n    \"data\": {\n      \"google\": {\n        \"expect_user_response\": myEndSession,\n        \"is_ssml\": false\n        }\n     }\n}\n*/\n\nmyResponse = {\n \"fulfillmentText\": totalText,\n  \"payload\": {\n    \"google\": {\n      \"expectUserResponse\": myEndSession,\n      \"richResponse\": {\n        \"items\": [\n          {\n            \"simpleResponse\": {\n              \"textToSpeech\": totalText\n            }\n          }\n        ]\n      }\n    }\n  }\n}\n\n\n\n\n\n\nnode.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + totalText)\nmsg.payload = myResponse \nnode.send(msg);\n    \n\nreturn null;\n",
         "outputs": 1,
         "noerr": 0,
         "x": 1465.7916297912598,
@@ -5575,7 +5545,7 @@
         "type": "function",
         "z": "19f40361.5ecea5",
         "name": "Set Params",
-        "func": "msg.source = \"GoogleHome\"\nvar workspace_id = msg.req.query.workspace_id\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\n\n// Uncomment when New param is added to all front-ends and delete the default\n//var region = msg.req.query.primary_region\nmsg.region = \"US-SOUTH\";\n//Passed params are the primary config, will be used in the dynamic WCS router subflow to switch back\nmsg.primary_workspace_id = workspace_id;\nmsg.primary_wcs_user_name = wcs_user_name;\nmsg.primary_wcs_password = wcs_password;\nmsg.primary_region = msg.region;\n\nvar fname = msg.req.query.fname;\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id    \n   }\n\ncontext.flowName = \"GoogleHome\"\n\n\nvar params = {\n    context : context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password,\n    source : msg.source\n};\n\nvar additional_context = {};\nvar googleIntent = \"\"\nvar googleIName = \"\"\nvar googleContext = \"\"\nif (typeof msg.payload.originalDetectIntentRequest.payload.user.profile !== \"undefined\"){\n     context.fname = msg.payload.originalDetectIntentRequest.payload.user.profile.givenName   \n    }\n\nif (typeof msg.payload.originalDetectIntentRequest.payload.inputs !== \"undefined\"){\n     googleIntent = msg.payload.originalDetectIntentRequest.payload.inputs[0].intent\n    }\n\nif (typeof msg.payload.queryResult.intent !== \"undefined\"){\n     \n       googleIName =  msg.payload.queryResult.intent.name \n    }\n\nif (typeof msg.payload.queryResult.outputContexts[0] !== \"undefined\") {\n    \n     if (msg.payload.queryResult.outputContexts[0].name.lastIndexOf(\"actions\") >= 0) {\n        \n        if (typeof msg.payload.queryResult.outputContexts[1] !== \"undefined\"){\n           googleContext = msg.payload.queryResult.outputContexts[1].name \n        }\n     }\n     else {\n        googleContext = msg.payload.queryResult.outputContexts[0].name \n     }\n}\n\nmsg.payload = msg.payload.originalDetectIntentRequest.payload.inputs[0].rawInputs[0].query\nmsg.params = params\nmsg.googleIntent = googleIntent\nmsg.googleIName = googleIName\nmsg.googleContext = googleContext\n\nreturn msg;",
+        "func": "msg.source = \"GoogleHome\"\nvar workspace_id = msg.req.query.workspace_id\nvar wcs_user_name = msg.req.query.wcs_username\nvar wcs_password = msg.req.query.wcs_password\n\n// Uncomment when New param is added to all front-ends and delete the default\n//var region = msg.req.query.primary_region\nmsg.region = \"US-SOUTH\";\n//Passed params are the primary config, will be used in the dynamic WCS router subflow to switch back\nmsg.primary_workspace_id = workspace_id;\nmsg.primary_wcs_user_name = wcs_user_name;\nmsg.primary_wcs_password = wcs_password;\nmsg.primary_region = msg.region;\n\nvar fname = msg.req.query.fname;\n\nvar context = {}\n\nif (typeof msg.session !== \"undefined\") \n   {context = msg.session.convoPayload.context\n    wcs_user_name = msg.session.wcs_user_name\n    wcs_password  = msg.session.wcs_password\n    workspace_id  = msg.session.workspace_id    \n   }\n\ncontext.flowName = \"GoogleHome\"\n\n\nvar params = {\n    context : context,\n    workspace_id : workspace_id,\n    username : wcs_user_name,\n    password : wcs_password,\n    source : msg.source\n};\n\nvar additional_context = {};\nvar googleIntent = \"\"\nvar googleIName = \"\"\nvar googleContext = \"\"\nif (typeof msg.payload.originalDetectIntentRequest.payload.user.profile !== \"undefined\"){\n     context.fname = msg.payload.originalDetectIntentRequest.payload.user.profile.givenName   \n    }\n\nif (typeof msg.payload.originalDetectIntentRequest.payload.inputs !== \"undefined\"){\n     googleIntent = msg.payload.originalDetectIntentRequest.payload.inputs[0].intent\n    }\n\nif (typeof msg.payload.queryResult.action !== \"undefined\"){\n     \n       googleIName =  msg.payload.queryResult.action \n    }\n\nif (typeof msg.payload.queryResult.outputContexts[0] !== \"undefined\") {\n    \n     if (msg.payload.queryResult.outputContexts[0].name.lastIndexOf(\"actions\") >= 0) {\n        \n        if (typeof msg.payload.queryResult.outputContexts[1] !== \"undefined\"){\n           googleContext = msg.payload.queryResult.outputContexts[1].name \n        }\n     }\n     else {\n        googleContext = msg.payload.queryResult.outputContexts[0].name \n     }\n}\n\nmsg.payload = msg.payload.originalDetectIntentRequest.payload.inputs[0].rawInputs[0].query\nmsg.params = params\nmsg.googleIntent = googleIntent\nmsg.googleIName = googleIName\nmsg.googleContext = googleContext\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 682.9999771118164,
@@ -5667,7 +5637,7 @@
         "type": "function",
         "z": "19f40361.5ecea5",
         "name": "Ask Permission",
-        "func": "\nmsg.headers = {\"Content-type\" : \"application/json\"}\n\n\nmyResponse = {\n  \"conversationToken\": \"{\\\"state\\\":null,\\\"data\\\":{}}\",\n  \"expectUserResponse\": true,\n  \"expectedInputs\": [\n    {\n      \"inputPrompt\": {\n        \"initialPrompts\": [\n          {\n            \"textToSpeech\": \"PLACEHOLDER_FOR_PERMISSION\"\n          }\n        ],\n        \"noInputPrompts\": []\n      },\n      \"possibleIntents\": [\n        {\n          \"intent\": \"actions.intent.PERMISSION\",\n          \"inputValueData\": {\n            \"@type\": \"type.googleapis.com/google.actions.v2.PermissionValueSpec\",\n            \"optContext\": \"Before we get started.\",\n            \"permissions\": [\n              \"NAME\",\n              \"DEVICE_PRECISE_LOCATION\"\n            ]\n          }\n        }\n      ]\n    }\n  ]\n}\n/*\nmyResponse = {\n    \"speech\": \"Send Permission Request\",  // ASCII characters only\n    \"displayText\": \"\",\n    \"data\": {\n      \"google\": {\n        \"expect_user_response\": false,\n        \"is_ssml\": false,\n        \"permissions_request\": {\n        \"opt_context\": \"Before we get started.\",\n        \"permissions\": [\"NAME\", \"DEVICE_COARSE_LOCATION\", \"DEVICE_PRECISE_LOCATION\"]\n         }\n        }\n     }\n}\n*/\n\nmsg.payload = myResponse \nnode.send(msg);\n\nreturn null;",
+        "func": "\nmsg.headers = {\"Content-type\" : \"application/json\"}\n/*\nmyResponse = {\n  'data': {\n    'google': {\n      'expectUserResponse': true,\n      'systemIntent': {\n        'intent': 'actions.intent.PERMISSION',\n        'data': {\n          '@type': 'type.googleapis.com/google.actions.v2.PermissionValueSpec',\n          'optContext': 'Before we get started.',\n          'permissions': [\n            'NAME',\n            'DEVICE_PRECISE_LOCATION'\n          ]\n        }\n      }\n    }\n  }\n}\n*/\n\nmyResponse = {\n \"fulfillmentText\": \"Send permission\",\n  \"payload\": {\n    \"google\": {\n      \"expectUserResponse\": true,\n      \"systemIntent\": {\n        \"intent\": \"actions.intent.PERMISSION\",\n        \"data\": {\n          \"@type\": \"type.googleapis.com/google.actions.v2.PermissionValueSpec\",\n          \"optContext\": \"Before we get started.\",\n          \"permissions\": [\n            \"NAME\",\n            \"DEVICE_PRECISE_LOCATION\"\n          ]\n        }\n      },\n      \"richResponse\": {\n        \"items\": [\n          {\n            \"simpleResponse\": {\n              \"textToSpeech\": \"Send permission\"\n            }\n          }\n        ]\n      }\n    }\n  }\n}\n\n\nmsg.payload = myResponse \nnode.send(msg);\n\nreturn null;",
         "outputs": 1,
         "noerr": 0,
         "x": 763.75,
@@ -5768,11 +5738,13 @@
         "id": "7edbd2b5.e01c14",
         "type": "debug",
         "z": "19f40361.5ecea5",
-        "name": "",
+        "name": "After Set Params",
         "active": true,
-        "console": "false",
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
         "complete": "true",
-        "x": 812.3749771118164,
+        "x": 852.3749771118164,
         "y": 77,
         "wires": []
     },
@@ -5820,19 +5792,21 @@
         "active": true,
         "console": "false",
         "complete": "false",
-        "x": 1207.3137314740343,
-        "y": 563.4583318373734,
+        "x": 1223.313720703125,
+        "y": 568.4583129882812,
         "wires": []
     },
     {
         "id": "1a979a7c.7298ce",
         "type": "debug",
         "z": "19f40361.5ecea5",
-        "name": "",
+        "name": "After Input",
         "active": true,
-        "console": "false",
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
         "complete": "true",
-        "x": 257.5,
+        "x": 277.5,
         "y": 224.125,
         "wires": []
     },
@@ -5858,7 +5832,8 @@
         "y": 484,
         "wires": [
             [
-                "ed8bc9a7.c4cd9"
+                "ed8bc9a7.c4cd9",
+                "45708447.a75724"
             ]
         ]
     },
@@ -6356,23 +6331,37 @@
         ]
     },
     {
-        "id": "bbb8f827.5963a8",
+        "id": "dc7d80f5.8aa9d",
         "type": "function",
         "z": "5b6fab52.9eae84",
         "name": "RSA",
-        "func": "var nodersa = global.get('nodersa');\n\nvar key = new nodersa({b: 512});\n\nvar text = 'Hello RSA!';\nmsg.encrypted = key.encrypt(text, 'base64');\nconsole.log('encrypted: ', msg.encrypted);\nmsg.decrypted = key.decrypt(msg.encrypted, 'utf8');\nconsole.log('decrypted: ', msg.decrypted);\n\nreturn msg;",
+        "func": "var nodersa = global.get('nodersa');\n\n//var key = new nodersa({b: 512});\n\n//var text = 'Hello RSA!';\n//msg.encrypted = key.encrypt(text, 'base64');\n//console.log('encrypted: ', msg.encrypted);\n//msg.decrypted = key.decrypt(msg.encrypted, 'utf8');\n//console.log('decrypted: ', msg.decrypted);\n\nvar key = new nodersa(); \nkey.generateKeyPair(2048, 65537);\nmsg.privatekey = key.exportKey('pkcs8-private-pem');\nmsg.publickey = key.exportKey('pkcs8-public-pem');\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 298.5,
-        "y": 418,
+        "x": 263.5,
+        "y": 420,
         "wires": [
             [
-                "430f86f8.2c8b2"
+                "a443dc5c.06759"
             ]
         ]
     },
     {
-        "id": "fcc4fe1f.e98a48",
+        "id": "a443dc5c.06759",
+        "type": "debug",
+        "z": "5b6fab52.9eae84",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 401.5,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "dbd2f4ab.333f9",
         "type": "inject",
         "z": "5b6fab52.9eae84",
         "name": "Execute",
@@ -6383,26 +6372,12 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 124.5,
-        "y": 417,
+        "x": 117.5,
+        "y": 419,
         "wires": [
             [
-                "bbb8f827.5963a8"
+                "dc7d80f5.8aa9d"
             ]
         ]
-    },
-    {
-        "id": "430f86f8.2c8b2",
-        "type": "debug",
-        "z": "5b6fab52.9eae84",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "x": 433.5,
-        "y": 417,
-        "wires": []
     }
 ]

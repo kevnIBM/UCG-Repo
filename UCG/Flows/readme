@@ -1,9 +1,0 @@
-This Directory is for NodeRed Flows
-
-When finished developing the Flow in NodeRed, Please flow the following standards
-  1) Please make sure every new version has an enhancement issue with a targeted milestone
-  2) Export the Flow formatted or put through a json formatter so it contains multiple lines.
-        - Any flows that have only one line will be deleted.
-  2) Please test the flows via the required front-end
-  3) Please notate any changes to the front-end configuration that the flow requires
-        - At the moment all front-ends have different development interfaces. Please just indicate changes via the issue comment.
