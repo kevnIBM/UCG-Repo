@@ -50,6 +50,32 @@ Do I have Coverage Convo
 "Thank you, Watson"
 “goodbye”
 
+Persona
+There was a huge hail storm in the Dallas area over the weekend, damaging Jane’s home. Jane gives FlexRate a call to start the claim process.
+
+Start Claim Process 
+-------------------
+There was a hail storm over the weekend and my house was damaged
+Yes, that would be great.
+Yep, have been forever.
+Yes, it is.
+12323455677
+7370 Talon trail, Parker,Colorado,80138
+Yes, it is
+It happened on Saturday, May 6
+Oh yeah – big time!
+It’s all outside the house
+The roof and almost all of the windows.
+No, not yet
+The roof on my gazebo.
+Nope
+An email would be great.
+dallasfan@gmail.com – Type this!!!
+Just so you know, I need to make repairs to the windows as soon as possible.
+That’s all, thanks!
+
+
+
 For fun here are other questions you can ask
 --------------------------------------------
 What is my deductible

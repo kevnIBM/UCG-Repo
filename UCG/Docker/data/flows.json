@@ -82,7 +82,8 @@
         "id": "5b6fab52.9eae84",
         "type": "tab",
         "label": "General",
-        "disabled": false
+        "disabled": false,
+        "info": ""
     },
     {
         "id": "bf65cfa5.bbe868",
@@ -563,6 +564,13 @@
         "port": "",
         "encyption": true,
         "database": ""
+    },
+    {
+        "id": "3fa2cfbc.11c598",
+        "type": "websocket-listener",
+        "z": "",
+        "path": "wss://stream.watsonplatform.net/speech-to-text/api/v1/recognize?watson-token=3OnZK%2BU5YNhjAKnKdJbshXbVZq2HkSbopPSsayLOgW%2BLfX0owwpNX%2FPEcSKxF9XDpj8BFIV2wgdMrQ2SrK1xpReXAcZLVucpWIcGE3txcFrp09kFq5LV%2BrDu2VFeb4zOTutmOS2sUG80eWvS2rk%2FoJwG%2BwHbsJce8csSSXGZSk2lPa65Ce1Fj%2FCPuq5sX8JPX9QRB2LvkqXNm8UFxV1qJXDPbk7cTnEeMPrQd4UNiAKekO35vAdO3HP2oOllVqasLbTLZEI%2BeihGYN4XnyJhx7ukLSBbovmhV2e6v35Qpo1O9FY8ZCrbCNtsUusGEMJwhFQiZw9mO7%2FMHFXhMo7G9mGbsd%2BlvBZCnHWm%2Fawms0f%2BPTk0Ow9pWfc%2B80Qoz8tlciDh5wWX%2BMdcFDPEpyLElvI72FourOyC%2Bw6e%2FWMrDyogHtYfepUVgA%2BXaNsQYMxdMv%2FT%2BGevR%2FTkpeBqwMgkouBwy58g2291iHEqfGgEbsTn2ALSuSAC7p7Bu0d1edXBkCTpp%2BOP8Q338d%2FzSiqTNOwzgT9hKAVYd7%2B6vZjhZbR57puz9bu6XNHfaVqbujgfnpCimwr8cH%2BLm9DOQ1ahUen0S0RvpC9z4kwX0euq7Cy6ksr1E5M%2B2HJt3XUHPn0vOPsoUKkljGBwuV5Io0Y5w6TKsy3ACIF6606LznancnERgVTn0E3ewrcyAOeYU9MlJhOWsAk1xKsJIIIT1jIBM932zwuzWAESFJaTl0KGwVNX8Z49w8xT65ZITQ3Gv7rDSVJP7zYCtvx0ASilMQ6fJSACWTt%2BmTQa%2Fbf51%2BNBiobA9Bb5mMXG0pn0IxAk7vzUek1fiJtE5lK4dxeAKtTnfq3mUtnZ5U9Y8%2Fa8GhFBj4KI5gB6G9xX8mh%2BFD%2BO3ZPBK4q%2B9TaRmezJejifJ5mrkx47dal1XufmaLZ7dYVEBm5cIosT888a2ZsPpI9OqxKyIwBoi6BH76fF1e6tsWuJpm6L7%2BUsMayffHr%2FDSRuYyk%3D&inactivity_timeout=-1&interm_results=true&speaker_labels=true&smart_formatting=true",
+        "wholemsg": "false"
     },
     {
         "id": "c8620933.bc367",
@@ -1974,8 +1982,8 @@
         "type": "subflow:f48845d6.67899",
         "z": "3fad3621.99e442",
         "name": "Get Session",
-        "x": 427.74041748046875,
-        "y": 116.92308044433594,
+        "x": 433.7404251098633,
+        "y": 84.92308044433594,
         "wires": [
             [
                 "a7a4b8cb.3748f8"
@@ -2049,6 +2057,7 @@
         "id": "a9e362d4.a71038",
         "type": "subflow:f48845d6.67899",
         "z": "e85cff5a.1f786",
+        "name": "",
         "x": 748.75,
         "y": 100.62500095367432,
         "wires": [
@@ -2615,8 +2624,8 @@
         "context": false,
         "default-endpoint": true,
         "service-endpoint": "",
-        "x": 870,
-        "y": 300,
+        "x": 869.2307815551758,
+        "y": 327.6923017501831,
         "wires": [
             [
                 "e0ccd4d4.d60bd",
@@ -2826,8 +2835,8 @@
         "ret": "obj",
         "url": "",
         "tls": "",
-        "x": 448.8888931274414,
-        "y": 338.33334827423096,
+        "x": 449.6581268310547,
+        "y": 351.4102735519409,
         "wires": [
             [
                 "84cd2460.39758",
@@ -2884,8 +2893,8 @@
         "func": "\nmsg.params.context.xxx = \"xxxx\"\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 690,
-        "y": 220,
+        "x": 691.5384902954102,
+        "y": 216.15385246276855,
         "wires": [
             [
                 "f445b5e8.04bcc"
@@ -2897,7 +2906,7 @@
         "type": "function",
         "z": "be024f13.40d248",
         "name": "Redis GET",
-        "func": "var redis = global.get('redis');\nvar options = {enable_offline_queue:false};\n\nvar redisClient = global.get(\"redisClient\");\n\nif (typeof redisClient == \"undefined\") {\n  redisClient = new redis('redis://admin:XFRLCLICWCFQXPXA@sl-us-south-1-portal.5.dblayer.com:35110',options);\n// redisClient = new redis('redis://admin:IVKPWZBPOAJYQCRR@bluemix-sandbox-dal-9-portal.7.dblayer.com:27247',options);\n  global.set(\"redisClient\",redisClient);\n  node.log(\"New RedisClient connection in GetSession\")\n}\n\nredisClient.on(\"error\", function (err) {\n    node.error(\"Error \" + err);\n//    client.disconnect(); \n});\n\n redisClient.get(msg.user,function (err,result) {\n  if (err) \n      node.error(\"Error \" + err);\n    else {\n      msg.payload = result;\n      if (msg.payload === null){\n          msg.payload = \"{}\";}\n//      node.log(\"payload \" + JSON.stringify(msg.payload))\n      node.send(msg);\n    }\n//  client.disconnect();\n});\n\n",
+        "func": "var redis = global.get('redis');\n\nvar options = {enable_offline_queue:false};\n\nvar redisClient = global.get(\"redisClient\");\n\nif (typeof redisClient == \"undefined\") {\n  redisClient = new redis('redis://admin:XFRLCLICWCFQXPXA@sl-us-south-1-portal.5.dblayer.com:35110',options);\n// redisClient = new redis('redis://admin:IVKPWZBPOAJYQCRR@bluemix-sandbox-dal-9-portal.7.dblayer.com:27247',options);\n  global.set(\"redisClient\",redisClient);\n  node.log(\"New RedisClient connection in GetSession\")\n}\n\nredisClient.on(\"error\", function (err) {\n    node.error(\"Error \" + err);\n//    client.disconnect(); \n});\n\n redisClient.get(msg.user,function (err,result) {\n  if (err) \n      node.error(\"Error \" + err);\n    else {\n      msg.payload = result;\n      if (msg.payload === null){\n          msg.payload = \"{}\";}\n//      node.log(\"payload \" + JSON.stringify(msg.payload))\n      node.send(msg);\n    }\n//  client.disconnect();\n});\n\n",
         "outputs": 1,
         "noerr": 0,
         "x": 346.5,
@@ -3120,7 +3129,7 @@
         "type": "function",
         "z": "15c6f20.6b9dd0e",
         "name": "Respone Msg",
-        "func": "var Watson_msg = msg.payload;\nvar Watson_response = JSON.stringify(msg.payload.output.text);\nvar Watson_contextOBJ = msg.payload.context;\nvar belementArr = []\nvar totalText = []\nvar texts = msg.payload.output.text\n\nfor (i = 0; i < texts.length; i++) {\n\n  // Dennis added because SSML tag was escaping the \" with \\\" and the replace command fixes it!!!!\n  texts[i] = texts[i].replace(/\\\\/g, \"\");\n  //Dennis - Remove XML SSML tags from chat systems\n  texts[i] =  texts[i].replace(/<[^>]+>/g, \"\");\n \n  if (texts[i].lastIndexOf(\"InsMap\") >= 0 ) {\n     findindex = texts[i].lastIndexOf(\"InsMap\")\n     texts[i] = texts[i].substring(0,findindex)\n  } \n   totalText.push(texts[i]);\n}  \n\n\n  //simple buttons\n  if (totalText[totalText.length - 1].lastIndexOf(\"[\") >= 0 ) {\n     findindex = totalText[totalText.length - 1].lastIndexOf(\"[\");\n     findLastindex = totalText[totalText.length - 1].lastIndexOf(\"]\");\n     tempStr = totalText[totalText.length - 1];\n     totalText[totalText.length - 1]  = totalText[totalText.length - 1].substring(0,findindex); // Message without buttons\n     var buttonArr = tempStr.substring(findindex+1, findLastindex).split(\",\");\n     for (a = 0; a < buttonArr.length; a++) { \n        belementArr.push({\"type\": \"button\",\"title\": buttonArr[a],\"click\":{\"actions\":[{\"type\":\"publishText\",\"name\":buttonArr[a], \"text\": buttonArr[a]}]}});\n     }\n  }\n\n  var found_link = 0;\n  var ielementArr = [{\"type\":\"text\"}]\n  //json map\n  mapjsonObj = Watson_contextOBJ.map;\n  if (typeof mapjsonObj.values != \"undefined\") {\n      for (var c in mapjsonObj.values) {\n        imageStr = mapjsonObj.values[c] + \"&size=700x500\" ;\n        node.log(\"Found Json map str: \" + imageStr);\n       ielementArr.push({\"type\":\"image\",\"url\": imageStr});\n      }\n  }\n  \n  \n  //json image\n  imagejsonObj = Watson_contextOBJ.image;\n  if (typeof imagejsonObj.values != \"undefined\") {\n      for (var c in imagejsonObj.values) {\n        imageStr = imagejsonObj.values[c];\n       ielementArr.push({\"type\":\"image\",\"url\": imageStr});\n      }\n  }\n\n  buttonjsonObj = Watson_contextOBJ.button;\n  if (typeof buttonjsonObj.values != \"undefined\") {\n      for (var c in buttonjsonObj.values) {\n        buttonStr = buttonjsonObj.values[c];\n        if (buttonStr.lastIndexOf(\"|\") >= 0 ) {\n          found_link = 1;\n          buttonItems = buttonStr.split(\"|\");\n          button_title = buttonItems[0];\n          button_url = buttonItems[1];\n        \n          belementArr.push({\"type\": \"button\",\"title\": button_title,\"click\":{\"actions\":[{\"type\":\"link\",\"name\":button_title, \"uri\": button_url}]}}); \n        }\n        else {\n          button_title = buttonStr;  \n          belementArr.push({\"type\": \"button\",\"title\": button_title,\"click\":{\"actions\":[{\"type\":\"publishText\",\"name\":button_title, \"text\": button_title}]}}); \n        }\n      }\n  }\n\n  node.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + totalText)\n  \n  var content = {\"type\": \"vertical\"}\n  ielementArr[0].text = totalText;\n  content.elements = ielementArr;\n\n  if (belementArr.length > 0)  {\n      content.elements[ielementArr.length] = {\"type\": \"horizontal\", \"elements\" : belementArr}\n  }\n\n  if (ielementArr.length > 1 || belementArr.length > 0) {\n      response = {content : content}; \n  }\n  else {\n      response = {text: totalText};    \n  }\n\n  msg.payload = response;\n\n\nreturn msg;",
+        "func": "var Watson_msg = msg.payload;\nvar Watson_response = JSON.stringify(msg.payload.output.text);\nvar Watson_contextOBJ = msg.payload.context;\nvar belementArr = []\nvar totalText = []\nvar texts = msg.payload.output.text\n\nfor (i = 0; i < texts.length; i++) {\n\n  // Dennis added because SSML tag was escaping the \" with \\\" and the replace command fixes it!!!!\n  texts[i] = texts[i].replace(/\\\\/g, \"\");\n  //Dennis - Remove XML SSML tags from chat systems\n  texts[i] =  texts[i].replace(/<[^>]+>/g, \"\");\n \n  if (texts[i].lastIndexOf(\"InsMap\") >= 0 ) {\n     findindex = texts[i].lastIndexOf(\"InsMap\")\n     texts[i] = texts[i].substring(0,findindex)\n  } \n   totalText.push(texts[i]);\n}  \n\n\n  //simple buttons\n  if (totalText[totalText.length - 1].lastIndexOf(\"[\") >= 0 ) {\n     findindex = totalText[totalText.length - 1].lastIndexOf(\"[\");\n     findLastindex = totalText[totalText.length - 1].lastIndexOf(\"]\");\n     tempStr = totalText[totalText.length - 1];\n     totalText[totalText.length - 1]  = totalText[totalText.length - 1].substring(0,findindex); // Message without buttons\n     var buttonArr = tempStr.substring(findindex+1, findLastindex).split(\",\");\n     for (a = 0; a < buttonArr.length; a++) { \n        //belementArr.push({\"type\": \"button\",\"title\": buttonArr[a],\"click\":{\"actions\":[{\"type\":\"publishText\",\"name\":buttonArr[a], \"text\": buttonArr[a]}]}});\n        //Live person change RichContent Text json\n        belementArr.push({\"type\": \"button\",\"title\": buttonArr[a],\"click\":{\"actions\":[{\"type\":\"publishText\", \"text\": buttonArr[a]}]}});\n     }\n  }\n\n  var found_link = 0;\n  var ielementArr = [{\"type\":\"text\"}]\n  //json map\n  mapjsonObj = Watson_contextOBJ.map;\n  if (typeof mapjsonObj.values != \"undefined\") {\n      for (var c in mapjsonObj.values) {\n        imageStr = mapjsonObj.values[c] + \"&size=700x500\" ;\n        node.log(\"Found Json map str: \" + imageStr);\n       ielementArr.push({\"type\":\"image\",\"url\": imageStr});\n      }\n  }\n  \n  \n  //json image\n  imagejsonObj = Watson_contextOBJ.image;\n  if (typeof imagejsonObj.values != \"undefined\") {\n      for (var c in imagejsonObj.values) {\n        imageStr = imagejsonObj.values[c];\n       ielementArr.push({\"type\":\"image\",\"url\": imageStr});\n      }\n  }\n\n  buttonjsonObj = Watson_contextOBJ.button;\n  if (typeof buttonjsonObj.values != \"undefined\") {\n      for (var c in buttonjsonObj.values) {\n        buttonStr = buttonjsonObj.values[c];\n        if (buttonStr.lastIndexOf(\"|\") >= 0 ) {\n          found_link = 1;\n          buttonItems = buttonStr.split(\"|\");\n          button_title = buttonItems[0];\n          button_url = buttonItems[1];\n        \n          //belementArr.push({\"type\": \"button\",\"title\": button_title,\"click\":{\"actions\":[{\"type\":\"link\",\"name\":button_title, \"uri\": button_url}]}}); \n          //Live person change RichContent Text json\n          belementArr.push({\"type\": \"button\",\"title\": button_title,\"click\":{\"actions\":[{\"type\":\"link\", \"uri\": button_url}]}});\n        }\n        else {\n          button_title = buttonStr;  \n          //belementArr.push({\"type\": \"button\",\"title\": button_title,\"click\":{\"actions\":[{\"type\":\"publishText\",\"name\":button_title, \"text\": button_title}]}});\n          //Live person change RichContent Text json\n          belementArr.push({\"type\": \"button\",\"title\": button_title,\"click\":{\"actions\":[{\"type\":\"publishText\", \"text\": button_title}]}});\n        }\n      }\n  }\n\n  node.log(\"User ** \" + msg.user + \" Says ** \" +  msg.payload.input.text +  \" ** Response ** \" + totalText)\n  \n  var content = {\"type\": \"vertical\"}\n  ielementArr[0].text = totalText;\n  content.elements = ielementArr;\n\n  if (belementArr.length > 0)  {\n      content.elements[ielementArr.length] = {\"type\": \"horizontal\", \"elements\" : belementArr}\n  }\n\n  if (ielementArr.length > 1 || belementArr.length > 0) {\n      response = {content : content}; \n  }\n  else {\n      response = {text: totalText};    \n  }\n\n  msg.payload = response;\n\n\nreturn msg;",
         "outputs": "1",
         "noerr": 0,
         "x": 1140,
@@ -3240,7 +3249,7 @@
         "type": "function",
         "z": "a0e2e197.345df",
         "name": "Find Workspace",
-        "func": "\nif (msg.payload.trim().toUpperCase().substring(0,6) == \"ASK ME\"){\n    msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n    msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n    msg.params.password = \"k0gYo1FjJymP\";\n}\n//msg.payload = msg.payload.replace(/\\s+$/g,'')\nif ((msg.payload.toUpperCase().substring(0,5) == \"HELLO\") && (msg.payload.length > 5)){\n\n msg.testHello = msg.payload.toUpperCase().match(/\\b(BANK|INSURE|CALL CENTER|MONEY|HEALTH|METLIFE|FIDELITY|REGIONS|REGIONS TEST|LIBERTY|QUICKEN|BOB)\\b/g);\n if (msg.testHello !== null)\n   {msg.testHello = msg.testHello[0]}\n switch(msg.testHello) {\n    case 'BANK':\n        msg.params.workspace_id = \"d13cc96b-a323-43a1-b484-29d37679ac27\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'INSURE':\n        msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'CALL CENTER':\n        msg.params.workspace_id = \"faf6e421-43ae-474a-8f9e-e8e10e71e3df\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'MONEY':\n        msg.params.workspace_id = \"c2777aef-fe89-4df5-8792-46880d6a0662\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'HEALTH':\n        msg.params.workspace_id = \"17727c7a-6339-4bb8-a967-ccd8b12eed76\";\n        msg.params.username = \"e78c76ea-d8aa-4ed6-9fec-292455f3eb17\";\n        msg.params.password = \"UHJz4sZqu5Vq\";\n        break;    \n    case 'QUICKEN':\n        msg.params.workspace_id = \"20918e28-1c00-4611-8e88-60642ea77ebc\";\n        msg.params.username = \"0b41c42f-545b-4bb0-92a8-1824844b4e33\";\n        msg.params.password = \"S6zRVMYapwPy\";\n        break;    \n    case 'METLIFE':\n        msg.params.workspace_id = \"5fd7c1c7-9ea2-4fc8-b6fa-7920e10aad5a\";\n        msg.params.username = \"7d18e2e6-310b-4efc-9370-d9a8289e17dd\";\n        msg.params.password = \"UEVfKB4CLIyF\";\n        break;\n    case 'FIDELITY':\n        msg.params.workspace_id = \"1555159e-fa59-4d8d-bfba-b10a19144e22\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n     case 'REGIONS':\n        msg.params.workspace_id = \"321e996d-efee-42a0-8aed-3dc93006a026\";\n        msg.params.username = \"f40d2d94-d2e7-4dd1-a718-b57d93203aaa\";\n        msg.params.password = \"cYuHIo2dCmwf\";\n        break;\n     case 'REGIONS TEST':\n        msg.params.workspace_id = \"de1089d8-46e6-4a7d-b5ed-03c5338b7b0a\";\n        msg.params.username = \"271cc33b-4cf3-480c-8798-f4b3e980df00\";\n        msg.params.password = \"BlnizADsfAh8\";\n        break;\n    case 'LIBERTY':\n        msg.params.workspace_id = \"893ec9b6-bfc8-426a-8fd1-592a2e6ebaa8\";\n        msg.params.username = \"6c6eb782-c2ea-4b14-8912-072ac57eee3a\";\n        msg.params.password = \"Au5euZDUZBvO\";\n        break;\n    case 'BOB':\n        msg.params.workspace_id = \"daf66f17-1b7c-40aa-afe5-a5eb322821cc\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    default: \n }\n}\n// check for date and compute age context vars\nif (msg.payload.lastIndexOf('/') >= 0 ) {\n     var myindex = msg.payload.lastIndexOf('/')\n     var dateString = msg.payload\n     \n     var d = new Date(dateString)\n     var now = new Date()\n     var years = now.getFullYear() - d.getFullYear()\n\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var age = years + days /365\n    \n     msg.params.context.age = Math.round(age *100)/100\n \n     var d = new Date(dateString)\n     var now = new Date()\n     now.setMonth(\"12\")\n     now.setDate(\"31\")\n     var years = now.getFullYear() - d.getFullYear()\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var ageEOY = years + days /365\n     msg.params.context.ageEOY = Math.round(ageEOY * 100)/100\n     \n     var d = new Date(dateString)\n     var now = new Date()\n     now.setMonth(\"01\")\n     now.setDate(\"01\")\n     var years = now.getFullYear() - d.getFullYear()\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var ageBOY = years + days /365\n     msg.params.context.ageBOY = Math.round(ageBOY * 100)/100\n}\n\nreturn msg;",
+        "func": "\nif (msg.payload.trim().toUpperCase().substring(0,6) == \"ASK ME\"){\n    msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n    msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n    msg.params.password = \"k0gYo1FjJymP\";\n}\n//msg.payload = msg.payload.replace(/\\s+$/g,'')\nif ((msg.payload.toUpperCase().substring(0,5) == \"HELLO\") && (msg.payload.length > 5)){\n\n msg.testHello = msg.payload.toUpperCase().match(/\\b(BANK|INSURE|CALL CENTER|MONEY|HEALTH|METLIFE|FIDELITY|REGIONS|REGIONS TEST|LIBERTY|QUICKEN|BOB|AUTO)\\b/g);\n if (msg.testHello !== null)\n   {msg.testHello = msg.testHello[0]}\n switch(msg.testHello) {\n    case 'BANK':\n        msg.params.workspace_id = \"d13cc96b-a323-43a1-b484-29d37679ac27\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'INSURE':\n        msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'CALL CENTER':\n        msg.params.workspace_id = \"faf6e421-43ae-474a-8f9e-e8e10e71e3df\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'MONEY':\n        msg.params.workspace_id = \"c2777aef-fe89-4df5-8792-46880d6a0662\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'HEALTH':\n        msg.params.workspace_id = \"17727c7a-6339-4bb8-a967-ccd8b12eed76\";\n        msg.params.username = \"e78c76ea-d8aa-4ed6-9fec-292455f3eb17\";\n        msg.params.password = \"UHJz4sZqu5Vq\";\n        break;    \n    case 'QUICKEN':\n        msg.params.workspace_id = \"20918e28-1c00-4611-8e88-60642ea77ebc\";\n        msg.params.username = \"0b41c42f-545b-4bb0-92a8-1824844b4e33\";\n        msg.params.password = \"S6zRVMYapwPy\";\n        break;    \n    case 'METLIFE':\n        msg.params.workspace_id = \"5fd7c1c7-9ea2-4fc8-b6fa-7920e10aad5a\";\n        msg.params.username = \"7d18e2e6-310b-4efc-9370-d9a8289e17dd\";\n        msg.params.password = \"UEVfKB4CLIyF\";\n        break;\n    case 'FIDELITY':\n        msg.params.workspace_id = \"1555159e-fa59-4d8d-bfba-b10a19144e22\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n     case 'REGIONS':\n        msg.params.workspace_id = \"321e996d-efee-42a0-8aed-3dc93006a026\";\n        msg.params.username = \"f40d2d94-d2e7-4dd1-a718-b57d93203aaa\";\n        msg.params.password = \"cYuHIo2dCmwf\";\n        break;\n     case 'REGIONS TEST':\n        msg.params.workspace_id = \"de1089d8-46e6-4a7d-b5ed-03c5338b7b0a\";\n        msg.params.username = \"271cc33b-4cf3-480c-8798-f4b3e980df00\";\n        msg.params.password = \"BlnizADsfAh8\";\n        break;\n    case 'LIBERTY':\n        msg.params.workspace_id = \"893ec9b6-bfc8-426a-8fd1-592a2e6ebaa8\";\n        msg.params.username = \"6c6eb782-c2ea-4b14-8912-072ac57eee3a\";\n        msg.params.password = \"Au5euZDUZBvO\";\n        break;\n    case 'BOB':\n        msg.params.workspace_id = \"daf66f17-1b7c-40aa-afe5-a5eb322821cc\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'AUTO':\n        msg.params.workspace_id = \"f58b0d8e-3003-45f7-959c-9b95ffe801c6\";\n        msg.params.username = \"8d079349-f054-4d66-b7cc-85fdc4deb9e1\";\n        msg.params.password = \"6v5xxnI76yPF\";\n        break;\n    default: \n }\n}\n// check for date and compute age context vars\nif (msg.payload.lastIndexOf('/') >= 0 ) {\n     var myindex = msg.payload.lastIndexOf('/')\n     var dateString = msg.payload\n     \n     var d = new Date(dateString)\n     var now = new Date()\n     var years = now.getFullYear() - d.getFullYear()\n\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var age = years + days /365\n    \n     msg.params.context.age = Math.round(age *100)/100\n \n     var d = new Date(dateString)\n     var now = new Date()\n     now.setMonth(\"12\")\n     now.setDate(\"31\")\n     var years = now.getFullYear() - d.getFullYear()\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var ageEOY = years + days /365\n     msg.params.context.ageEOY = Math.round(ageEOY * 100)/100\n     \n     var d = new Date(dateString)\n     var now = new Date()\n     now.setMonth(\"01\")\n     now.setDate(\"01\")\n     var years = now.getFullYear() - d.getFullYear()\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var ageBOY = years + days /365\n     msg.params.context.ageBOY = Math.round(ageBOY * 100)/100\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 200,
@@ -4332,11 +4341,11 @@
         "type": "function",
         "z": "75456024.34a398",
         "name": "Check Confidence",
-        "func": "msg.answerType = \"WCS\" \nmsg.highIntent = false\nmsg.highEntity = false\nvar savIntentConf = 0\nvar savEntityConf = 0\nvar intentFound = false\nvar entityFound = false\nmsg.USE_WCS_ANSWER = false\nmsg.USE_WDS_ANSWER = false\nmsg.UCG_ANSWER_ROUTING = \"WCS-WDS\"\n/*\nUCG_ANSWER_ROUTING\n  This will be used to allow engineers to change the answer routing via a context var.\n  Possible Values:\n    WCS-WDS     - the default routing that uses a canned answer that replaces WCS's output.text array\n    WCS-WDS-WCS - routes back through WCS after calling WDS with new context vars\n              WDSResults - JSON object with payload from WDS\n              answerType - either WCS or WDS to indicate what where the answer came from.\n\nUSE_WDS_ANSWER\n   Used to override flow to send utterance to WDS for an answer\n\nUSE_WCS_ANSWER\n   Used to ensure that flow retains answer from WCS, thus by passing confidence/anything else checks\n  \n  WCS engineers need to set context var USE_WCS_ANSWER if the dialog condition statement:\n     1) does not use an intent or entity, like using tone score to give back an answer\n     2) use true to force node answer and a low confidence match comes back for an intent or entity\n\n*/\nif (typeof msg.payload.context !== \"undefined\"){ \n    if (typeof msg.payload.context.USE_WCS_ANSWER !== \"undefined\"){ \n        msg.USE_WCS_ANSWER = true\n        delete msg.payload.context.USE_WCS_ANSWER\n    }\n    if (typeof msg.payload.context.USE_WDS_ANSWER !== \"undefined\"){ \n        msg.USE_WDS_ANSWER = true\n        delete msg.payload.context.USE_WDS_ANSWER\n    }\n    if (typeof msg.payload.context.UCG_ANSWER_ROUTING !== \"undefined\"){ \n        msg.UCG_ANSWER_ROUTING = msg.payload.context.UCG_ANSWER_ROUTING\n    }\n    \n}    \n// vars that can be used to evaluate confidence. Holding for now. Using regex on WCS output from the anything else dialog node\nif (typeof msg.payload.intents[0] !== \"undefined\"){ \n    if (msg.payload.intents[0].confidence > .50){\n      \n         msg.highIntent = true\n    }\n    savIntentConf = msg.payload.intents[0].confidence\n    intentFound = true\n        \n    }\n\nif (typeof msg.payload.entities[0] !== \"undefined\"){\n    if (msg.payload.entities[0].confidence > .50){\n        msg.highEntity = true\n    }\n    savEntityConf = msg.payload.entities[0].confidence\n    entityFound = true\n}\n\nif (msg.payload.output.text.length > 0) {\n        // Anything else dialog node - make sure no intent or entity\n        if (msg.payload.output.text[0].toUpperCase().match(/\\b(FUTURE TRAINING|HAVING TROUBLE|HAVEN'T BEEN TRAINED)\\b/g))  {\n                msg.answerType = \"WDS\"\n        }\n        else { msg.answerType = \"WCS\"\n            \n        }\n}\nelse {\n        msg.answerType = \"WDS\" \n}\n\nif (msg.USE_WCS_ANSWER) {\n  msg.answerType = \"WCS\"   \n} \n\nif (msg.USE_WDS_ANSWER) {\n  msg.answerType = \"WDS\"   \n}    \n\nmsg.params.context.answerType =  msg.answerType\n\nreturn msg;",
+        "func": "msg.answerType = \"WCS\" \nmsg.highIntent = false\nmsg.highEntity = false\nvar savIntentConf = 0\nvar savEntityConf = 0\nvar intentFound = false\nvar entityFound = false\nmsg.USE_WCS_ANSWER = false\nmsg.USE_WDS_ANSWER = false\nmsg.UCG_ANSWER_ROUTING = \"WCS-WDS\"\n/*\nUCG_ANSWER_ROUTING\n  This will be used to allow engineers to change the answer routing via a context var.\n  Possible Values:\n    WCS-WDS     - the default routing that uses a canned answer that replaces WCS's output.text array\n    WCS-WDS-WCS - routes back through WCS after calling WDS with new context vars\n              WDSResults - JSON object with payload from WDS\n              answerType - either WCS or WDS to indicate what where the answer came from.\n\nUSE_WDS_ANSWER\n   Used to override flow to send utterance to WDS for an answer\n\nUSE_WCS_ANSWER\n   Used to ensure that flow retains answer from WCS, thus by passing confidence/anything else checks\n  \n  WCS engineers need to set context var USE_WCS_ANSWER if the dialog condition statement:\n     1) does not use an intent or entity, like using tone score to give back an answer\n     2) use true to force node answer and a low confidence match comes back for an intent or entity\n\n*/\nif (typeof msg.payload.context !== \"undefined\"){ \n    if (typeof msg.payload.context.USE_WCS_ANSWER !== \"undefined\"){ \n        msg.USE_WCS_ANSWER = true\n        delete msg.payload.context.USE_WCS_ANSWER\n    }\n    if (typeof msg.payload.context.USE_WDS_ANSWER !== \"undefined\"){ \n        msg.USE_WDS_ANSWER = true\n        delete msg.payload.context.USE_WDS_ANSWER\n    }\n    if (typeof msg.payload.context.UCG_ANSWER_ROUTING !== \"undefined\"){ \n        msg.UCG_ANSWER_ROUTING = msg.payload.context.UCG_ANSWER_ROUTING\n    }\n    \n}    \n// vars that can be used to evaluate confidence. Holding for now. Using regex on WCS output from the anything else dialog node\nif (typeof msg.payload.intents[0] !== \"undefined\"){ \n    if (msg.payload.intents[0].confidence > .50){\n      \n         msg.highIntent = true\n    }\n    savIntentConf = msg.payload.intents[0].confidence\n    intentFound = true\n        \n    }\n\nif (typeof msg.payload.entities[0] !== \"undefined\"){\n    if (msg.payload.entities[0].confidence > .50){\n        msg.highEntity = true\n    }\n    savEntityConf = msg.payload.entities[0].confidence\n    entityFound = true\n}\n\nif (msg.payload.output.text.length > 2) {\n        // Anything else dialog node - make sure no intent or entity\n        if (msg.payload.output.text[0].toUpperCase().match(/\\b(FUTURE TRAINING|HAVING TROUBLE|HAVEN'T BEEN TRAINED)\\b/g))  {\n                msg.answerType = \"WDS\"\n        }\n        else { msg.answerType = \"WCS\"\n            \n        }\n}\n\n\nif (msg.USE_WCS_ANSWER) {\n  msg.answerType = \"WCS\"   \n} \n\nif (msg.USE_WDS_ANSWER) {\n  msg.answerType = \"WDS\"   \n}    \n\nmsg.params.context.answerType =  msg.answerType\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 858.3233642578125,
-        "y": 96.25152587890625,
+        "x": 860.3233642578125,
+        "y": 96.25152969360352,
         "wires": [
             [
                 "77767850.bd513"
@@ -4351,8 +4360,8 @@
         "func": "var watson = global.get('watson');\n\nvar discovery = new watson.DiscoveryV1({\n  username: \"578d5c5e-a713-44ad-bd8b-d3b8ba39c03c\",\n  password: \"NaFdTJluDnem\",\n  version_date: '2017-11-07'\n});\n\nvar params = {\n    natural_language_query: msg.payload.input.text,\n    environment_id: \"d40ba5ee-be86-4b59-8a67-f463f233367d\",\n    collection_id: \"35835dcf-e873-4a43-9034-786210ffebf2\",\n    configuration_id: \"1d573129-7100-4405-b6a0-439cd8af2640\",\n    passages: true, //if you want to enable passages\n    passages_fields : \"Text\"\n    //sort : \"Term\"\n   //  return: ''\n  //highlight: true //if you want to enable highlight\n\n}\n\ndiscovery.query(params, (error, results) => {\n    if (error) {\n      node.error(error);\n    } else {\n      msg.WDSResults = results; //your query results\n      node.send(msg);\n    }\n});",
         "outputs": 1,
         "noerr": 0,
-        "x": 816.6666870117188,
-        "y": 286.4999933242798,
+        "x": 821.3333320617676,
+        "y": 287.16664600372314,
         "wires": [
             [
                 "e56baa7a.49625"
@@ -4363,8 +4372,8 @@
         "id": "2106aeef.1a05a2",
         "type": "subflow:75456024.34a398",
         "z": "3fad3621.99e442",
-        "x": 709.7856216430664,
-        "y": 235.96155738830566,
+        "x": 719.1189804077148,
+        "y": 240.62822914123535,
         "wires": [
             [
                 "45ecefd5.b04ee8"
@@ -4785,11 +4794,12 @@
         "func": "/* New param to added to all front-ends - wcs_region = USSOUTH, GERMANY\nWill be used to set the url\nUSSOUTH - https://gateway.watsonplatform.net/conversation/api\nGERMANY - https://gateway-fra.watsonplatform.net/conversation/api\n*/\nvar watson = global.get('watson');\nmsg.params.input = {\n      text: msg.payload\n    };\n\nif (msg.region === \"US-SOUTH\"){ \n    msg.params.endpoint = \"https://gateway.watsonplatform.net/conversation/api\"\n}\nelse if (msg.region === \"GERMANY\"){\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/conversation/api\"\n}\n\nvar conversation = new watson.ConversationV1({\n  username : msg.params.username,\n  password : msg.params.password,\n  workspace_id : msg.params.workspace_id,\n  url : msg.params.endpoint,\n  version_date: '2017-05-26'\n});\n\nvar myTM = setTimeout(function() { node.error(\"WCS message API reached 15 second time out\", msg)}, 15000 );\n\nconversation.message(msg.params,function(err, response) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.payload = response;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 482,
-        "y": 71,
+        "x": 481.33332443237305,
+        "y": 66.99999237060547,
         "wires": [
             [
-                "c8aa104.1b48f7"
+                "c8aa104.1b48f7",
+                "5aa7c031.7e98c"
             ]
         ]
     },
@@ -4952,6 +4962,7 @@
         },
         "partHeaders": {},
         "destination": "single",
+        "highWaterMark": 16384,
         "x": 1514.521198272705,
         "y": 545.2918138504028,
         "wires": [
@@ -5140,6 +5151,8 @@
         "type": "json",
         "z": "6e97b3ee.89fce4",
         "name": "",
+        "property": "payload",
+        "action": "",
         "pretty": false,
         "x": 1307.22216796875,
         "y": 504.8888854980469,
@@ -5476,8 +5489,8 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 362.6126708984375,
-        "y": 229.53274536132812,
+        "x": 657.9459838867188,
+        "y": 26.199411392211914,
         "wires": []
     },
     {
@@ -6163,8 +6176,7 @@
         "y": 96,
         "wires": [
             [
-                "c858cb4c.f6538",
-                "5aa7c031.7e98c"
+                "c858cb4c.f6538"
             ]
         ]
     },
@@ -6285,8 +6297,8 @@
         "id": "dd34a77.fc3fad8",
         "type": "subflow:3c30ab94.447d3c",
         "z": "3fad3621.99e442",
-        "x": 533.1818199157715,
-        "y": 236.36363697052002,
+        "x": 524.5151748657227,
+        "y": 254.36363220214844,
         "wires": [
             [
                 "2106aeef.1a05a2",
@@ -6378,6 +6390,195 @@
             [
                 "dc7d80f5.8aa9d"
             ]
+        ]
+    },
+    {
+        "id": "764f38af.53ac3",
+        "type": "inject",
+        "z": "5b6fab52.9eae84",
+        "name": "Start",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 115.5,
+        "y": 544,
+        "wires": [
+            [
+                "81892e83.e06bf8"
+            ]
+        ]
+    },
+    {
+        "id": "cafa788b.d3afb8",
+        "type": "function",
+        "z": "5b6fab52.9eae84",
+        "name": "S2T Websocket",
+        "func": "var WebSocketClient = global.get('websocket').client;\n var fs = global.get('fs');\n \nvar client = new WebSocketClient();\n \nclient.on('connectFailed', function(error) {\n    console.log('Connect Error: ' + error.toString());\n});\n \nclient.on('connect', function(connection) {\n    console.log('WebSocket Client Connected');\n    connection.on('error', function(error) {\n        console.log(\"Connection Error: \" + error.toString());\n    });\n    connection.on('close', function() {\n        console.log('echo-protocol Connection Closed');\n    });\n    connection.on('message', function(message) {\n        if (message.type === 'utf8') {\n            console.log(\"Received: '\" + message.utf8Data + \"'\");\n            msg.payload = JSON.parse(message.utf8Data)\n            \n            try {\n            node.send(msg); \n            \n            }\n            catch (e) {\n               node.error(e + \" :stack: \" + e.stack, msg); \n            }\n        }\n    });\n    var message = {\n      'action': 'start',\n      'content-type': 'audio/wav',\n      'speaker_labels' : true,\n      'interim_results': true,\n      'max-alternatives': 3,\n      'smart_formatting': true\n\n    };\n   connection.send(JSON.stringify(message));\n\n  // Prepare and send the audio file.\n  connection.send(msg.payload);\n\n  connection.send(JSON.stringify({action: 'stop'}));\n    \n});\n//var token =  \"RwkHg7Pp1ce4hPNPQ6Yb6T%2Bmf8a3XcRJttUcP%2FE0YOO1d44KdjmoF8G4xTxUIbNbf0y6RG7CTUEv3t3KbQ1QUZ0ljf8g90krjKBmuWu6euszN6Xil5noxuN4F%2BdaylAHOHY8aag5%2F9gE%2FmJDY%2B46eU%2FTur3XlIF8MLGja9N8I2Q%2Bs0bPVWy%2Fjo3Mp0VtEifvrZeRo4EW%2BmsmaRBPqaAliUUZfbJwvZzqXw%2FpGcogknq%2BRRI2NIOB6RpaDfxfF5FPbF29omvfCbtrJCefHlHlf%2FlgEHHPS%2BSRqASHbw0wjrIgsgGfZTymhXio5mNDp950V3TKi95DZFHrtVAgM2zoy6ONR6GRO8Uvg4748stFBPFatNafIe5wPyV9k6A37s3JyCMjxPsh5lsJcjeC7qRdWqz8O20Py%2FHojwbw%2FUBXdWsD8QsicFGyHkKo20sD%2B4Kw4TcyXuduUZDPfu3txB1nc1t4qDKiySxVgIv7NJZiXtR%2BRQFJnw75yEdDqIavwyw4aEctnuARo36O%2FqTt8A5UtAysboCVTJSo7uy%2BOHV%2Bk7ja5t1GO6GmfEZfIPc5DcYuELxI55rgcFneYL7f4EknlnCIPCs%2F0%2FKgQ9dCfQue6VEA9p%2BSmg7AbtZczsQSQd6iO68f5rd7W1Ct%2B4OZe6E7MYxaLAFE171daxsKv7ekYfnSgJE%2FaXtl72pOqWWbLMLgw1YjIxbOSyBdzFjs7QvAdiL0bajuME%2FxrYrpk5IxfwPduKQA%2BrkLwr%2Bxg6uoJZgtXJdo6tl6SwT5A3KJnZPMiaab0O%2BHExw99HEaY0LYdKC4eR8BqCFvvjFLalvUWHh715q3IQ7MIZNqmZ0fosXd%2FMz4MKFA3Eep0MM1fqz2zsPHs6wA%2FSibEl0eMKDhbQYGhxDwfnLjLMfE3J7cUVtWQp578KGi7HD3DhaSFgdzeYI1RDQwaRkkwApQ39%2B8GZUn1zIG1vjFCxn%2F%2FNx13cAnfskKKMa%2BmD%2BaYCTshFXHXKU%3D\";\nclient.connect(\"wss://stream.watsonplatform.net/speech-to-text/api/v1/recognize\"+ \"?watson-token=\" + msg.S2T_token);\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 705.166675567627,
+        "y": 545.3333339691162,
+        "wires": [
+            [
+                "d1572c1f.47b3d8",
+                "4708dd04.99a004"
+            ]
+        ]
+    },
+    {
+        "id": "4708dd04.99a004",
+        "type": "debug",
+        "z": "5b6fab52.9eae84",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 904.3333778381348,
+        "y": 811.7121365070343,
+        "wires": []
+    },
+    {
+        "id": "81892e83.e06bf8",
+        "type": "file in",
+        "z": "5b6fab52.9eae84",
+        "name": "",
+        "filename": "/data/testaudio.wav",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "x": 310.6666488647461,
+        "y": 545.6666879653931,
+        "wires": [
+            [
+                "b04d7e4b.07ba"
+            ]
+        ]
+    },
+    {
+        "id": "b04d7e4b.07ba",
+        "type": "function",
+        "z": "5b6fab52.9eae84",
+        "name": "Get Token",
+        "func": "var request = global.get(\"request\");\n\nvar username = \"57664062-7e3f-44ba-9509-86693059b908\"\nvar password = \"S3mjUCoKlBUW\"\n\nvar options = {\n  url: \"https://\" + username + \":\" + password + \"@stream.watsonplatform.net/authorization/api/v1/token?url=https://stream.watsonplatform.net/speech-to-text/api\",\n  headers: {\n    'Content-type': 'application/json'\n  },\n  \n};\n\n\nvar myTM = setTimeout(function() { node.error(\"APi call to \" + url + \" reached 15 second time out\", msg)}, 15000 );\n\n\nrequest.post(options,function (err, response, body) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.statusCode = response && response.statusCode; // Print the response status code if a response was received;\n      //msg.payload = body;\n      msg.S2T_token = body;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 523.8333015441895,
+        "y": 545.500020980835,
+        "wires": [
+            [
+                "cafa788b.d3afb8"
+            ]
+        ]
+    },
+    {
+        "id": "e5b46864.4efff",
+        "type": "comment",
+        "z": "5b6fab52.9eae84",
+        "name": "S2T Diarization via websocket",
+        "info": "",
+        "x": 148.75,
+        "y": 492.49999999999994,
+        "wires": []
+    },
+    {
+        "id": "d1572c1f.47b3d8",
+        "type": "function",
+        "z": "5b6fab52.9eae84",
+        "name": "Process Interim Results",
+        "func": "var sendmsg = false;\n\nif (typeof msg.payload.results !== \"undefined\"){\n    \n    if (msg.payload.results[0].final === true) {\n        \n        if (typeof msg.payload.results[0].alternatives !== \"undefined\"){\n            msg.S2T_transcript = msg.payload.results[0].alternatives[0].transcript\n            msg.S2T_transcript_confidence = msg.payload.results[0].alternatives[0].confidence\n        }    \n    }\n}\n\nif (typeof msg.payload.speaker_labels !== \"undefined\"){\n\n        if (typeof msg.payload.speaker_labels[0] !== \"undefined\"){\n            \n            msg.S2T_speaker = msg.payload.speaker_labels[msg.payload.speaker_labels.length - 1].speaker\n            msg.S2T_spearker_confidence = msg.payload.speaker_labels[msg.payload.speaker_labels.length - 1].confidence\n            \n            if (msg.payload.speaker_labels[0].final === false) {\n              sendmsg = true\n            }\n            \n            //msg.payload = 'Speaker ' + msg.S2T_speaker + ' said, \"' + msg.S2T_transcript + '\"'\n            \n            msg.payload = JSON.stringify({'speaker' :  msg.S2T_speaker.toString(),\n                           'transcript' : msg.S2T_transcript \n                          })\n        }\n\n}    \n\nif (sendmsg === true) {\n    return msg;\n} \n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 937.0832901000977,
+        "y": 544.999960899353,
+        "wires": [
+            [
+                "ad0cafa7.1ac3d8"
+            ]
+        ]
+    },
+    {
+        "id": "d3b5f76e.5c0848",
+        "type": "http in",
+        "z": "5b6fab52.9eae84",
+        "name": "Process S2T",
+        "url": "/processS2T",
+        "method": "get",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 106.24999237060547,
+        "y": 709.9999885559082,
+        "wires": [
+            [
+                "42cd1be3.b1039c",
+                "81892e83.e06bf8"
+            ]
+        ]
+    },
+    {
+        "id": "98ccc76d.fac0e8",
+        "type": "function",
+        "z": "5b6fab52.9eae84",
+        "name": "Get Audio file",
+        "func": "\nmsg.payload = msg.req.files[0].buffer\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 292.9166717529297,
+        "y": 630.8333587646484,
+        "wires": [
+            [
+                "b04d7e4b.07ba",
+                "42cd1be3.b1039c"
+            ]
+        ]
+    },
+    {
+        "id": "42cd1be3.b1039c",
+        "type": "function",
+        "z": "5b6fab52.9eae84",
+        "name": "Start Msg",
+        "func": "msg.payload = \"Start Processing Audio to S2T via Diarization\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 555.4166641235352,
+        "y": 624.1666717529297,
+        "wires": [
+            [
+                "ad0cafa7.1ac3d8"
+            ]
+        ]
+    },
+    {
+        "id": "ad0cafa7.1ac3d8",
+        "type": "multipart-encoder",
+        "z": "5b6fab52.9eae84",
+        "name": "Steam Response",
+        "statusCode": "",
+        "ignoreMessages": false,
+        "outputOneNew": false,
+        "outputIfSingle": true,
+        "outputIfAll": false,
+        "globalHeaders": {
+            "Content-Type": "multipart/x-mixed-replace;boundary=--myboundary",
+            "Connection": "keep-alive",
+            "Expires": "Fri, 01 Jan 1990 00:00:00 GMT",
+            "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+            "Pragma": "no-cache"
+        },
+        "partHeaders": {
+            "Content-Type": "text/html; charset=UTF-8"
+        },
+        "destination": "single",
+        "highWaterMark": 16384,
+        "x": 1196.2499656677246,
+        "y": 632.5000247955322,
+        "wires": [
+            []
         ]
     }
 ]
