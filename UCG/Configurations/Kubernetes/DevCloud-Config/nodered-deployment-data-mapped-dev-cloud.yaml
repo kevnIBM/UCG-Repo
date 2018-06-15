@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: nodered
-        image: dennisnotojr/node-red-docker-node8-nr-18-data-mapped:version-4
+        image: dennisnotojr/node-red-docker-node8-nr-18-data-mapped:version-6
         ports: 
          - containerPort: 1880
            protocol: TCP
