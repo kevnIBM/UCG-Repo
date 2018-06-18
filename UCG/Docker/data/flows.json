@@ -573,6 +573,95 @@
         "wholemsg": "false"
     },
     {
+        "id": "f7db9de8.c5d4d8",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
         "id": "c8620933.bc367",
         "type": "function",
         "z": "e6126968.dddaa",
@@ -1007,8 +1096,8 @@
         ],
         "checkall": "true",
         "outputs": 4,
-        "x": 257.8253936767578,
-        "y": 138.84127044677734,
+        "x": 273.4504165649414,
+        "y": 140.09128189086914,
         "wires": [
             [
                 "fefc0181.ac8d4"
@@ -1061,8 +1150,8 @@
         ],
         "checkall": "true",
         "outputs": 3,
-        "x": 405.3332824707031,
-        "y": 247.11111450195312,
+        "x": 402.20829010009766,
+        "y": 244.61112022399902,
         "wires": [
             [
                 "fefc0181.ac8d4"
@@ -1081,8 +1170,8 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 1071.2360649108887,
-        "y": 45,
+        "x": 1027.4861030578613,
+        "y": 44.374998569488525,
         "wires": []
     },
     {
@@ -1982,8 +2071,8 @@
         "type": "subflow:f48845d6.67899",
         "z": "3fad3621.99e442",
         "name": "Get Session",
-        "x": 433.7404251098633,
-        "y": 84.92308044433594,
+        "x": 431.74041748046875,
+        "y": 116.92308044433594,
         "wires": [
             [
                 "a7a4b8cb.3748f8"
@@ -3249,7 +3338,7 @@
         "type": "function",
         "z": "a0e2e197.345df",
         "name": "Find Workspace",
-        "func": "\nif (msg.payload.trim().toUpperCase().substring(0,6) == \"ASK ME\"){\n    msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n    msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n    msg.params.password = \"k0gYo1FjJymP\";\n}\n//msg.payload = msg.payload.replace(/\\s+$/g,'')\nif ((msg.payload.toUpperCase().substring(0,5) == \"HELLO\") && (msg.payload.length > 5)){\n\n msg.testHello = msg.payload.toUpperCase().match(/\\b(BANK|INSURE|CALL CENTER|MONEY|HEALTH|METLIFE|FIDELITY|REGIONS|REGIONS TEST|LIBERTY|QUICKEN|BOB|AUTO)\\b/g);\n if (msg.testHello !== null)\n   {msg.testHello = msg.testHello[0]}\n switch(msg.testHello) {\n    case 'BANK':\n        msg.params.workspace_id = \"d13cc96b-a323-43a1-b484-29d37679ac27\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'INSURE':\n        msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'CALL CENTER':\n        msg.params.workspace_id = \"faf6e421-43ae-474a-8f9e-e8e10e71e3df\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'MONEY':\n        msg.params.workspace_id = \"c2777aef-fe89-4df5-8792-46880d6a0662\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'HEALTH':\n        msg.params.workspace_id = \"17727c7a-6339-4bb8-a967-ccd8b12eed76\";\n        msg.params.username = \"e78c76ea-d8aa-4ed6-9fec-292455f3eb17\";\n        msg.params.password = \"UHJz4sZqu5Vq\";\n        break;    \n    case 'QUICKEN':\n        msg.params.workspace_id = \"20918e28-1c00-4611-8e88-60642ea77ebc\";\n        msg.params.username = \"0b41c42f-545b-4bb0-92a8-1824844b4e33\";\n        msg.params.password = \"S6zRVMYapwPy\";\n        break;    \n    case 'METLIFE':\n        msg.params.workspace_id = \"5fd7c1c7-9ea2-4fc8-b6fa-7920e10aad5a\";\n        msg.params.username = \"7d18e2e6-310b-4efc-9370-d9a8289e17dd\";\n        msg.params.password = \"UEVfKB4CLIyF\";\n        break;\n    case 'FIDELITY':\n        msg.params.workspace_id = \"1555159e-fa59-4d8d-bfba-b10a19144e22\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n     case 'REGIONS':\n        msg.params.workspace_id = \"321e996d-efee-42a0-8aed-3dc93006a026\";\n        msg.params.username = \"f40d2d94-d2e7-4dd1-a718-b57d93203aaa\";\n        msg.params.password = \"cYuHIo2dCmwf\";\n        break;\n     case 'REGIONS TEST':\n        msg.params.workspace_id = \"de1089d8-46e6-4a7d-b5ed-03c5338b7b0a\";\n        msg.params.username = \"271cc33b-4cf3-480c-8798-f4b3e980df00\";\n        msg.params.password = \"BlnizADsfAh8\";\n        break;\n    case 'LIBERTY':\n        msg.params.workspace_id = \"893ec9b6-bfc8-426a-8fd1-592a2e6ebaa8\";\n        msg.params.username = \"6c6eb782-c2ea-4b14-8912-072ac57eee3a\";\n        msg.params.password = \"Au5euZDUZBvO\";\n        break;\n    case 'BOB':\n        msg.params.workspace_id = \"daf66f17-1b7c-40aa-afe5-a5eb322821cc\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'AUTO':\n        msg.params.workspace_id = \"f58b0d8e-3003-45f7-959c-9b95ffe801c6\";\n        msg.params.username = \"8d079349-f054-4d66-b7cc-85fdc4deb9e1\";\n        msg.params.password = \"6v5xxnI76yPF\";\n        break;\n    default: \n }\n}\n// check for date and compute age context vars\nif (msg.payload.lastIndexOf('/') >= 0 ) {\n     var myindex = msg.payload.lastIndexOf('/')\n     var dateString = msg.payload\n     \n     var d = new Date(dateString)\n     var now = new Date()\n     var years = now.getFullYear() - d.getFullYear()\n\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var age = years + days /365\n    \n     msg.params.context.age = Math.round(age *100)/100\n \n     var d = new Date(dateString)\n     var now = new Date()\n     now.setMonth(\"12\")\n     now.setDate(\"31\")\n     var years = now.getFullYear() - d.getFullYear()\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var ageEOY = years + days /365\n     msg.params.context.ageEOY = Math.round(ageEOY * 100)/100\n     \n     var d = new Date(dateString)\n     var now = new Date()\n     now.setMonth(\"01\")\n     now.setDate(\"01\")\n     var years = now.getFullYear() - d.getFullYear()\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var ageBOY = years + days /365\n     msg.params.context.ageBOY = Math.round(ageBOY * 100)/100\n}\n\nreturn msg;",
+        "func": "\nif (msg.payload.trim().toUpperCase().substring(0,6) == \"ASK ME\"){\n    msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n    msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n    msg.params.password = \"k0gYo1FjJymP\";\n}\n//msg.payload = msg.payload.replace(/\\s+$/g,'')\nif ((msg.payload.toUpperCase().substring(0,5) == \"HELLO\") && (msg.payload.length > 5)){\n\n msg.testHello = msg.payload.toUpperCase().match(/\\b(BANK|INSURE|CALL CENTER|MONEY|HEALTH|METLIFE|FIDELITY|REGIONS|REGIONS TEST|LIBERTY|QUICKEN|BOB|AUTO|RENT)\\b/g);\n if (msg.testHello !== null)\n   {msg.testHello = msg.testHello[0]}\n switch(msg.testHello) {\n    case 'BANK':\n        msg.params.workspace_id = \"d13cc96b-a323-43a1-b484-29d37679ac27\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'INSURE':\n        msg.params.workspace_id = \"54141f49-ffa2-4f6b-887c-aac6aea5d42d\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'CALL CENTER':\n        msg.params.workspace_id = \"faf6e421-43ae-474a-8f9e-e8e10e71e3df\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'MONEY':\n        msg.params.workspace_id = \"c2777aef-fe89-4df5-8792-46880d6a0662\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'HEALTH':\n        msg.params.workspace_id = \"17727c7a-6339-4bb8-a967-ccd8b12eed76\";\n        msg.params.username = \"e78c76ea-d8aa-4ed6-9fec-292455f3eb17\";\n        msg.params.password = \"UHJz4sZqu5Vq\";\n        break;    \n    case 'QUICKEN':\n        msg.params.workspace_id = \"20918e28-1c00-4611-8e88-60642ea77ebc\";\n        msg.params.username = \"0b41c42f-545b-4bb0-92a8-1824844b4e33\";\n        msg.params.password = \"S6zRVMYapwPy\";\n        break;    \n    case 'METLIFE':\n        msg.params.workspace_id = \"5fd7c1c7-9ea2-4fc8-b6fa-7920e10aad5a\";\n        msg.params.username = \"7d18e2e6-310b-4efc-9370-d9a8289e17dd\";\n        msg.params.password = \"UEVfKB4CLIyF\";\n        break;\n    case 'FIDELITY':\n        msg.params.workspace_id = \"1555159e-fa59-4d8d-bfba-b10a19144e22\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n     case 'REGIONS':\n        msg.params.workspace_id = \"321e996d-efee-42a0-8aed-3dc93006a026\";\n        msg.params.username = \"f40d2d94-d2e7-4dd1-a718-b57d93203aaa\";\n        msg.params.password = \"cYuHIo2dCmwf\";\n        break;\n     case 'REGIONS TEST':\n        msg.params.workspace_id = \"de1089d8-46e6-4a7d-b5ed-03c5338b7b0a\";\n        msg.params.username = \"271cc33b-4cf3-480c-8798-f4b3e980df00\";\n        msg.params.password = \"BlnizADsfAh8\";\n        break;\n    case 'LIBERTY':\n        msg.params.workspace_id = \"893ec9b6-bfc8-426a-8fd1-592a2e6ebaa8\";\n        msg.params.username = \"6c6eb782-c2ea-4b14-8912-072ac57eee3a\";\n        msg.params.password = \"Au5euZDUZBvO\";\n        break;\n    case 'BOB':\n        msg.params.workspace_id = \"daf66f17-1b7c-40aa-afe5-a5eb322821cc\";\n        msg.params.username = \"4acac659-e820-4ef6-8421-e88f517c9c4c\";\n        msg.params.password = \"k0gYo1FjJymP\";\n        break;\n    case 'AUTO':\n        msg.params.workspace_id = \"f58b0d8e-3003-45f7-959c-9b95ffe801c6\";\n        msg.params.username = \"8d079349-f054-4d66-b7cc-85fdc4deb9e1\";\n        msg.params.password = \"6v5xxnI76yPF\";\n        break;\n    case 'RENT':\n        msg.params.workspace_id = \"de5f494c-587f-4fd8-a8eb-66e7cffbcf24\";\n        msg.params.username = \"417a90c9-d997-4309-962d-f914a0f52b51\";\n        msg.params.password = \"IoLpkuwc7LAq\";\n        break;    \n    default: \n }\n}\n// check for date and compute age context vars\nif (msg.payload.lastIndexOf('/') >= 0 ) {\n     var myindex = msg.payload.lastIndexOf('/')\n     var dateString = msg.payload\n     \n     var d = new Date(dateString)\n     var now = new Date()\n     var years = now.getFullYear() - d.getFullYear()\n\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var age = years + days /365\n    \n     msg.params.context.age = Math.round(age *100)/100\n \n     var d = new Date(dateString)\n     var now = new Date()\n     now.setMonth(\"12\")\n     now.setDate(\"31\")\n     var years = now.getFullYear() - d.getFullYear()\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var ageEOY = years + days /365\n     msg.params.context.ageEOY = Math.round(ageEOY * 100)/100\n     \n     var d = new Date(dateString)\n     var now = new Date()\n     now.setMonth(\"01\")\n     now.setDate(\"01\")\n     var years = now.getFullYear() - d.getFullYear()\n     d.setFullYear(d.getFullYear() + years)\n     var days = (now.getTime() - d.getTime()) / (3600 * 24 * 1000.00)\n     var ageBOY = years + days /365\n     msg.params.context.ageBOY = Math.round(ageBOY * 100)/100\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 200,
@@ -3574,7 +3663,8 @@
         "y": 107.03296184539795,
         "wires": [
             [
-                "7b7f3ea1.e978c8"
+                "7b7f3ea1.e978c8",
+                "4db2c7f7.b138"
             ]
         ]
     },
@@ -4341,7 +4431,7 @@
         "type": "function",
         "z": "75456024.34a398",
         "name": "Check Confidence",
-        "func": "msg.answerType = \"WCS\" \nmsg.highIntent = false\nmsg.highEntity = false\nvar savIntentConf = 0\nvar savEntityConf = 0\nvar intentFound = false\nvar entityFound = false\nmsg.USE_WCS_ANSWER = false\nmsg.USE_WDS_ANSWER = false\nmsg.UCG_ANSWER_ROUTING = \"WCS-WDS\"\n/*\nUCG_ANSWER_ROUTING\n  This will be used to allow engineers to change the answer routing via a context var.\n  Possible Values:\n    WCS-WDS     - the default routing that uses a canned answer that replaces WCS's output.text array\n    WCS-WDS-WCS - routes back through WCS after calling WDS with new context vars\n              WDSResults - JSON object with payload from WDS\n              answerType - either WCS or WDS to indicate what where the answer came from.\n\nUSE_WDS_ANSWER\n   Used to override flow to send utterance to WDS for an answer\n\nUSE_WCS_ANSWER\n   Used to ensure that flow retains answer from WCS, thus by passing confidence/anything else checks\n  \n  WCS engineers need to set context var USE_WCS_ANSWER if the dialog condition statement:\n     1) does not use an intent or entity, like using tone score to give back an answer\n     2) use true to force node answer and a low confidence match comes back for an intent or entity\n\n*/\nif (typeof msg.payload.context !== \"undefined\"){ \n    if (typeof msg.payload.context.USE_WCS_ANSWER !== \"undefined\"){ \n        msg.USE_WCS_ANSWER = true\n        delete msg.payload.context.USE_WCS_ANSWER\n    }\n    if (typeof msg.payload.context.USE_WDS_ANSWER !== \"undefined\"){ \n        msg.USE_WDS_ANSWER = true\n        delete msg.payload.context.USE_WDS_ANSWER\n    }\n    if (typeof msg.payload.context.UCG_ANSWER_ROUTING !== \"undefined\"){ \n        msg.UCG_ANSWER_ROUTING = msg.payload.context.UCG_ANSWER_ROUTING\n    }\n    \n}    \n// vars that can be used to evaluate confidence. Holding for now. Using regex on WCS output from the anything else dialog node\nif (typeof msg.payload.intents[0] !== \"undefined\"){ \n    if (msg.payload.intents[0].confidence > .50){\n      \n         msg.highIntent = true\n    }\n    savIntentConf = msg.payload.intents[0].confidence\n    intentFound = true\n        \n    }\n\nif (typeof msg.payload.entities[0] !== \"undefined\"){\n    if (msg.payload.entities[0].confidence > .50){\n        msg.highEntity = true\n    }\n    savEntityConf = msg.payload.entities[0].confidence\n    entityFound = true\n}\n\nif (msg.payload.output.text.length > 2) {\n        // Anything else dialog node - make sure no intent or entity\n        if (msg.payload.output.text[0].toUpperCase().match(/\\b(FUTURE TRAINING|HAVING TROUBLE|HAVEN'T BEEN TRAINED)\\b/g))  {\n                msg.answerType = \"WDS\"\n        }\n        else { msg.answerType = \"WCS\"\n            \n        }\n}\n\n\nif (msg.USE_WCS_ANSWER) {\n  msg.answerType = \"WCS\"   \n} \n\nif (msg.USE_WDS_ANSWER) {\n  msg.answerType = \"WDS\"   \n}    \n\nmsg.params.context.answerType =  msg.answerType\n\nreturn msg;",
+        "func": "msg.answerType = \"WCS\" \nmsg.highIntent = false\nmsg.highEntity = false\nvar savIntentConf = 0\nvar savEntityConf = 0\nvar intentFound = false\nvar entityFound = false\nmsg.USE_WCS_ANSWER = false\nmsg.USE_WDS_ANSWER = false\nmsg.UCG_ANSWER_ROUTING = \"WCS-WDS\"\n/*\nUCG_ANSWER_ROUTING\n  This will be used to allow engineers to change the answer routing via a context var.\n  Possible Values:\n    WCS-WDS     - the default routing that uses a canned answer that replaces WCS's output.text array\n    WCS-WDS-WCS - routes back through WCS after calling WDS with new context vars\n              WDSResults - JSON object with payload from WDS\n              answerType - either WCS or WDS to indicate what where the answer came from.\n\nUSE_WDS_ANSWER\n   Used to override flow to send utterance to WDS for an answer\n\nUSE_WCS_ANSWER\n   Used to ensure that flow retains answer from WCS, thus by passing confidence/anything else checks\n  \n  WCS engineers need to set context var USE_WCS_ANSWER if the dialog condition statement:\n     1) does not use an intent or entity, like using tone score to give back an answer\n     2) use true to force node answer and a low confidence match comes back for an intent or entity\n\n*/\n\nif (typeof msg.payload.context !== \"undefined\"){ \n    if (typeof msg.payload.context.USE_WCS_ANSWER !== \"undefined\"){ \n        msg.USE_WCS_ANSWER = true\n        delete msg.payload.context.USE_WCS_ANSWER\n    }\n    if (typeof msg.payload.context.USE_WDS_ANSWER !== \"undefined\"){ \n        msg.USE_WDS_ANSWER = true\n        delete msg.payload.context.USE_WDS_ANSWER\n    }\n    if (typeof msg.payload.context.UCG_ANSWER_ROUTING !== \"undefined\"){ \n        msg.UCG_ANSWER_ROUTING = msg.payload.context.UCG_ANSWER_ROUTING\n    }\n    \n}    \n// vars that can be used to evaluate confidence. Holding for now. Using regex on WCS output from the anything else dialog node\nif (typeof msg.payload.intents[0] !== \"undefined\"){ \n    if (msg.payload.intents[0].confidence > .50){\n      \n         msg.highIntent = true\n    }\n    savIntentConf = msg.payload.intents[0].confidence\n    intentFound = true\n        \n    }\n\nif (typeof msg.payload.entities[0] !== \"undefined\"){\n    if (msg.payload.entities[0].confidence > .50){\n        msg.highEntity = true\n    }\n    savEntityConf = msg.payload.entities[0].confidence\n    entityFound = true\n}\n\nif (msg.payload.output.text[0].length > 2) {\n        // Anything else dialog node - make sure no intent or entity\n        if (msg.payload.output.text[0].toUpperCase().match(/\\b(FUTURE TRAINING|HAVING TROUBLE|HAVEN'T BEEN TRAINED)\\b/g))  {\n                msg.answerType = \"WDS\"\n        }\n        else { msg.answerType = \"WCS\"\n            \n        }\n}\n\n\nif (msg.USE_WCS_ANSWER) {\n  msg.answerType = \"WCS\"   \n} \n\nif (msg.USE_WDS_ANSWER) {\n  msg.answerType = \"WDS\"   \n}    \n\nmsg.params.context.answerType =  msg.answerType\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 860.3233642578125,
@@ -4372,11 +4462,12 @@
         "id": "2106aeef.1a05a2",
         "type": "subflow:75456024.34a398",
         "z": "3fad3621.99e442",
-        "x": 719.1189804077148,
-        "y": 240.62822914123535,
+        "x": 723.1189880371094,
+        "y": 236.62823486328125,
         "wires": [
             [
-                "45ecefd5.b04ee8"
+                "45ecefd5.b04ee8",
+                "4af9f5ec.8d8fcc"
             ]
         ]
     },
@@ -4791,15 +4882,14 @@
         "type": "function",
         "z": "75456024.34a398",
         "name": "WCS",
-        "func": "/* New param to added to all front-ends - wcs_region = USSOUTH, GERMANY\nWill be used to set the url\nUSSOUTH - https://gateway.watsonplatform.net/conversation/api\nGERMANY - https://gateway-fra.watsonplatform.net/conversation/api\n*/\nvar watson = global.get('watson');\nmsg.params.input = {\n      text: msg.payload\n    };\n\nif (msg.region === \"US-SOUTH\"){ \n    msg.params.endpoint = \"https://gateway.watsonplatform.net/conversation/api\"\n}\nelse if (msg.region === \"GERMANY\"){\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/conversation/api\"\n}\n\nvar conversation = new watson.ConversationV1({\n  username : msg.params.username,\n  password : msg.params.password,\n  workspace_id : msg.params.workspace_id,\n  url : msg.params.endpoint,\n  version_date: '2017-05-26'\n});\n\nvar myTM = setTimeout(function() { node.error(\"WCS message API reached 15 second time out\", msg)}, 15000 );\n\nconversation.message(msg.params,function(err, response) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.payload = response;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);\n",
+        "func": "/* New param to added to all front-ends - wcs_region = USSOUTH, GERMANY\nWill be used to set the url\nUSSOUTH - https://gateway.watsonplatform.net/assistant/api\nGERMANY - https://gateway-fra.watsonplatform.net/assistant/api\n*/\nvar watson = global.get('watson');\nmsg.params.input = {\n      text: msg.payload\n    };\n\nif (msg.region === \"US-SOUTH\"){ \n   // msg.params.endpoint = \"https://gateway.watsonplatform.net/conversation/api\"\n    msg.params.endpoint = \"https://gateway.watsonplatform.net/assistant/api\"\n}\nelse if (msg.region === \"GERMANY\"){\n  //  msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/conversation/api\"\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/assistant/api\"\n}\n\n//var conversation = new watson.ConversationV1({\nvar conversation = new watson.AssistantV1({\n  username : msg.params.username,\n  password : msg.params.password,\n  workspace_id : msg.params.workspace_id,\n  url : msg.params.endpoint,\n // version_date: '2017-05-26'\n  version: '2018-02-16'\n});\n\nvar myTM = setTimeout(function() { node.error(\"WCS message API reached 15 second time out\", msg)}, 15000 );\n\nconversation.message(msg.params,function(err, response) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.payload = response;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);\n",
         "outputs": 1,
         "noerr": 0,
         "x": 481.33332443237305,
         "y": 66.99999237060547,
         "wires": [
             [
-                "c8aa104.1b48f7",
-                "5aa7c031.7e98c"
+                "c8aa104.1b48f7"
             ]
         ]
     },
@@ -4808,7 +4898,7 @@
         "type": "function",
         "z": "87530aab.adb068",
         "name": "WCS",
-        "func": "var watson = global.get('watson');\nmsg.params.input = {\n      text: msg.payload\n    };\n\nif (msg.region === \"US-SOUTH\"){ \n    msg.params.workspace_id = msg.primary_workspace_id\n    msg.params.username = msg.primary_wcs_user_name\n    msg.params.password = msg.primary_wcs_password\n    msg.params.endpoint = \"https://gateway.watsonplatform.net/conversation/api\"\n   \n}\nelse if (msg.region === \"GERMANY\"){\n    msg.params.workspace_id = \"a003413f-2973-4dba-b1ba-550b3fa09a71\";\n    msg.params.username = \"c3a84de4-c0cf-43b6-98a1-8c2bd16fdc1f\";\n    msg.params.password = \"GaZagvcNP3VG\";\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/conversation/api\"\n}\n\nvar conversation = new watson.ConversationV1({\n  username : msg.params.username,\n  password : msg.params.password,\n  url : msg.params.endpoint,\n  version_date: '2017-05-26'\n});\n\nvar myTM = setTimeout(function() { node.error(\"WCS message API reached 15 second time out\", msg)}, 15000 );\n\nconversation.message(msg.params,function(err, response) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.payload = response;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);",
+        "func": "var watson = global.get('watson');\nmsg.params.input = {\n      text: msg.payload\n    };\n\nif (msg.region === \"US-SOUTH\"){ \n    msg.params.workspace_id = msg.primary_workspace_id\n    msg.params.username = msg.primary_wcs_user_name\n    msg.params.password = msg.primary_wcs_password\n//    msg.params.endpoint = \"https://gateway.watsonplatform.net/conversation/api\"\n    msg.params.endpoint = \"https://gateway.watsonplatform.net/assistant/api\"\n   \n}\nelse if (msg.region === \"GERMANY\"){\n    msg.params.workspace_id = \"a003413f-2973-4dba-b1ba-550b3fa09a71\";\n    msg.params.username = \"c3a84de4-c0cf-43b6-98a1-8c2bd16fdc1f\";\n    msg.params.password = \"GaZagvcNP3VG\";\n//    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/conversation/api\"\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/assistant/api\"\n}\n\n//var conversation = new watson.ConversationV1({\nvar conversation = new watson.AssistantV1({   \n  username : msg.params.username,\n  password : msg.params.password,\n  url : msg.params.endpoint,\n//  version_date: '2017-05-26'\n  version: '2018-02-16'\n});\n\nvar myTM = setTimeout(function() { node.error(\"WCS message API reached 15 second time out\", msg)}, 15000 );\n\nconversation.message(msg.params,function(err, response) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.payload = response;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);",
         "outputs": 1,
         "noerr": 0,
         "x": 932.083309173584,
@@ -4844,7 +4934,7 @@
         "type": "function",
         "z": "87530aab.adb068",
         "name": "WCS Workspaces Ping",
-        "func": "var watson = global.get('watson');\n\nif (msg.region === \"US-SOUTH\"){ \n    msg.params.username = msg.primary_wcs_user_name\n    msg.params.password = msg.primary_wcs_password\n    msg.params.endpoint = \"https://gateway.watsonplatform.net/conversation/api\"\n   \n}\nelse if (msg.region === \"GERMANY\"){\n    msg.params.username = \"c3a84de4-c0cf-43b6-98a1-8c2bd16fdc1f\";\n    msg.params.password = \"GaZagvcNP3VG\";\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/conversation/api\"\n}\n\nvar conversation = new watson.ConversationV1({\n  username : msg.params.username,\n  password : msg.params.password,\n  url : msg.params.endpoint,\n  version_date: '2017-05-26'\n});\n\nvar myTM = setTimeout(function() { node.error(\"WCS ListWorkSpaces API reached 15 second time out\", msg)}, 15000 );\n\nconversation.listWorkspaces(msg.params,function(err, response) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.payload = response;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);\n",
+        "func": "var watson = global.get('watson');\n\nif (msg.region === \"US-SOUTH\"){ \n    msg.params.username = msg.primary_wcs_user_name\n    msg.params.password = msg.primary_wcs_password\n//    msg.params.endpoint = \"https://gateway.watsonplatform.net/conversation/api\"\n    msg.params.endpoint = \"https://gateway.watsonplatform.net/assistant/api\" \n   \n}\nelse if (msg.region === \"GERMANY\"){\n    msg.params.username = \"c3a84de4-c0cf-43b6-98a1-8c2bd16fdc1f\";\n    msg.params.password = \"GaZagvcNP3VG\";\n //   msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/conversation/api\"\n    msg.params.endpoint = \"https://gateway-fra.watsonplatform.net/assistant/api\"   \n}\n\n//var conversation = new watson.ConversationV1({\nvar conversation = new watson.AssistantV1({     \n  username : msg.params.username,\n  password : msg.params.password,\n  url : msg.params.endpoint,\n//  version_date: '2017-05-26'\n  version: '2018-02-16' \n});\n\nvar myTM = setTimeout(function() { node.error(\"WCS ListWorkSpaces API reached 15 second time out\", msg)}, 15000 );\n\nconversation.listWorkspaces(msg.params,function(err, response) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.payload = response;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);\n",
         "outputs": 1,
         "noerr": 0,
         "x": 552.0834503173828,
@@ -5332,6 +5422,7 @@
         "id": "c8aa104.1b48f7",
         "type": "subflow:16730253.13013e",
         "z": "75456024.34a398",
+        "name": "",
         "x": 669.6667404174805,
         "y": 96.8804931640625,
         "wires": [
@@ -5480,18 +5571,6 @@
                 "a6f4e402.de9dd8"
             ]
         ]
-    },
-    {
-        "id": "5aa7c031.7e98c",
-        "type": "debug",
-        "z": "75456024.34a398",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 657.9459838867188,
-        "y": 26.199411392211914,
-        "wires": []
     },
     {
         "id": "a6f4e402.de9dd8",
@@ -5949,7 +6028,7 @@
         "checkall": "true",
         "outputs": 3,
         "x": 65,
-        "y": 893.682538986206,
+        "y": 1195.682538986206,
         "wires": [
             [
                 "c271b181.018ba"
@@ -5971,7 +6050,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 398.571590423584,
-        "y": 893.6825561523438,
+        "y": 1195.6825561523438,
         "wires": [
             []
         ]
@@ -5988,7 +6067,7 @@
         "default-endpoint": true,
         "service-endpoint": "https://gateway.watsonplatform.net/conversation/api",
         "x": 223.73020935058594,
-        "y": 931.0635433197021,
+        "y": 1233.0635433197021,
         "wires": [
             [
                 "fbc45a0d.ecdaa"
@@ -6024,7 +6103,7 @@
         "default-endpoint": true,
         "service-endpoint": "https://gateway.watsonplatform.net/natural-language-understanding/api",
         "x": 223.7302703857422,
-        "y": 856.9364728927612,
+        "y": 1158.9364728927612,
         "wires": [
             [
                 "fbc45a0d.ecdaa"
@@ -6039,7 +6118,7 @@
         "apikey": "",
         "image-feature": "",
         "x": 224.28579330444336,
-        "y": 893.682538986206,
+        "y": 1195.682538986206,
         "wires": [
             [
                 "fbc45a0d.ecdaa"
@@ -6053,7 +6132,7 @@
         "name": "Display only - UCG Logo",
         "info": "",
         "x": 132.85723876953125,
-        "y": 800.666669845581,
+        "y": 1102.666669845581,
         "wires": []
     },
     {
@@ -6259,8 +6338,8 @@
         "console": false,
         "tostatus": false,
         "complete": "true",
-        "x": 363.18178367614746,
-        "y": 544.5454940795898,
+        "x": 377.181884765625,
+        "y": 545.5454998016357,
         "wires": []
     },
     {
@@ -6297,12 +6376,11 @@
         "id": "dd34a77.fc3fad8",
         "type": "subflow:3c30ab94.447d3c",
         "z": "3fad3621.99e442",
-        "x": 524.5151748657227,
-        "y": 254.36363220214844,
+        "x": 540.5152282714844,
+        "y": 235.36363220214844,
         "wires": [
             [
-                "2106aeef.1a05a2",
-                "4af9f5ec.8d8fcc"
+                "2106aeef.1a05a2"
             ]
         ]
     },
@@ -6439,8 +6517,8 @@
         "console": false,
         "tostatus": false,
         "complete": "true",
-        "x": 904.3333778381348,
-        "y": 811.7121365070343,
+        "x": 885.3334045410156,
+        "y": 677.712158203125,
         "wires": []
     },
     {
@@ -6579,6 +6657,128 @@
         "y": 632.5000247955322,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "4db2c7f7.b138",
+        "type": "debug",
+        "z": "17eb59dd.9ff326",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 1099.1581115722656,
+        "y": 86.09191131591797,
+        "wires": []
+    },
+    {
+        "id": "6062fd50.d07eac",
+        "type": "function",
+        "z": "5b6fab52.9eae84",
+        "name": "Luis NLU",
+        "func": "var request = global.get(\"request\");\nvar qs = global.get(\"qs\");\n\nvar queryParams = {\n        \"subscription-key\": \"dfaa9d1162ed4f14a90d20aa21a1a724\",\n        \"timezoneOffset\": \"-420\",\n        \"verbose\":  true,\n        \"q\": msg.payload\n    }\n\nvar myUrl = \"https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/ef4f3869-e20d-452c-a8af-25fd2d29ab0b?\"+ qs.stringify(queryParams)\n\nvar options = {\n  url: myUrl,\n  headers: {\n    'Content-type': 'application/json'\n  },\n  body : {},\n  json : true\n};\n\nvar myTM = setTimeout(function() { node.error(\"APi call to \" + url + \" reached 15 second time out\", msg)}, 15000 );\n\n\nrequest.get(options,function (err, response, body) {\n    if (err) {\n      node.error(err);\n    } else {\n      msg.statusCode = response && response.statusCode; // Print the response status code if a response was received;\n      msg.payload = body;\n      node.send(msg);\n      clearTimeout(myTM)\n     // console.log(JSON.stringify(response, null, 2));\n    }\n  }\n);",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 257.14703369140625,
+        "y": 838.7940673828125,
+        "wires": [
+            [
+                "99fe335.313cf5"
+            ]
+        ]
+    },
+    {
+        "id": "4c07e64a.a5e92",
+        "type": "inject",
+        "z": "5b6fab52.9eae84",
+        "name": "",
+        "topic": "",
+        "payload": "Hi",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 102.15072631835938,
+        "y": 839.1690673828125,
+        "wires": [
+            [
+                "f42c396e.9444e8"
+            ]
+        ]
+    },
+    {
+        "id": "99fe335.313cf5",
+        "type": "debug",
+        "z": "5b6fab52.9eae84",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 428.1433410644531,
+        "y": 836.7536773681641,
+        "wires": []
+    },
+    {
+        "id": "f42c396e.9444e8",
+        "type": "function",
+        "z": "5b6fab52.9eae84",
+        "name": "Dialog Router",
+        "func": "var af = global.get(\"actionflows\")\n\nvar p = af.invoke(\"intent.Hello&Entity.None\", msg)\np.then(function(msg) {\n    node.sned(msg);\n});\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 284.1580810546875,
+        "y": 917.7242431640625,
+        "wires": [
+            [
+                "99fe335.313cf5"
+            ]
+        ]
+    },
+    {
+        "id": "3e449451.6afff4",
+        "type": "actionflows_in",
+        "z": "5b6fab52.9eae84",
+        "name": "intent.Hello&Entity.None",
+        "priority": "50",
+        "links": [],
+        "scope": "global",
+        "x": 534.1506652832031,
+        "y": 984.5625,
+        "wires": [
+            [
+                "bf2ce6d5.e49e28"
+            ]
+        ]
+    },
+    {
+        "id": "8cf35774.6dac48",
+        "type": "actionflows_out",
+        "z": "5b6fab52.9eae84",
+        "name": "action out",
+        "links": [],
+        "x": 910.1433410644531,
+        "y": 991.9044189453125,
+        "wires": []
+    },
+    {
+        "id": "bf2ce6d5.e49e28",
+        "type": "function",
+        "z": "5b6fab52.9eae84",
+        "name": "",
+        "func": "msg.payload = \"we made it\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 740.1581115722656,
+        "y": 987.558837890625,
+        "wires": [
+            [
+                "8cf35774.6dac48"
+            ]
         ]
     }
 ]
