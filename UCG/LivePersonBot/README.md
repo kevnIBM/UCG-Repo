@@ -61,7 +61,7 @@ In Live Person System
       Given name: xxx
       last name : xxx
 
-5. Send email to liveperson to set up message routing
+5. Send email to liveperson to set up message routing (Note this step has been automated via the campaign setup, update soon)
       account id: 58892698
       bot skill id: 292626214
       escalation skill id: 289011314

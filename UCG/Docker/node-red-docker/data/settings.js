@@ -175,11 +175,15 @@ module.exports = {
     //    context.global.os
 
     functionGlobalContext: {
+        myred:require('/usr/src/node-red/node_modules/node-red'),
         redis:require('/usr/src/node-red/node_modules/ioredis'),
         watson:require('/usr/src/node-red/node_modules/watson-developer-cloud'),
         request:require('/usr/src/node-red/node_modules/request'),
         nodersa:require('/usr/src/node-red/node_modules/node-rsa'),
         cryptojs:require('/usr/src/node-red/node_modules/crypto-js'),
+        websocket:require('/usr/src/node-red/node_modules/websocket'),
+        qs:require('/usr/src/node-red/node_modules/qs'),
+        fs:require('fs'),
         process: process
         // octalbonescript:require('octalbonescript'),
         // jfive:require("johnny-five"),
