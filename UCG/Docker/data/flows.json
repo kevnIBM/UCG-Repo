@@ -93,6 +93,13 @@
         "info": ""
     },
     {
+        "id": "8f76fe0d.eabcb8",
+        "type": "tab",
+        "label": "Dialog",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "e6126968.dddaa",
         "type": "subflow",
         "name": "Set NodeRed Session",
@@ -6850,5 +6857,19 @@
         "x": 77.5,
         "y": 930,
         "wires": []
+    },
+    {
+        "id": "ebbfd948.a978e8",
+        "type": "function",
+        "z": "8f76fe0d.eabcb8",
+        "name": "Hello Intent",
+        "func": "dialog_json = {\n   condition : 'intents === \"Hello\"',\n   context : {fname : \"Dennis\"},\n   Answer : [{condition:' ', response: ' '}],\n   nav_control : {jumpTo: ''}\n    \n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 129.50001525878906,
+        "y": 97.00000762939453,
+        "wires": [
+            []
+        ]
     }
 ]
