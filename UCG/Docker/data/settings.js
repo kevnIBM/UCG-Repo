@@ -175,7 +175,7 @@ module.exports = {
     //    context.global.os
 
     functionGlobalContext: {
-        myred:require('/usr/src/node-red/node_modules/node-red')
+        myred:require('/usr/src/node-red/node_modules/node-red'),
         redis:require('/usr/src/node-red/node_modules/ioredis'),
         watson:require('/usr/src/node-red/node_modules/watson-developer-cloud'),
         request:require('/usr/src/node-red/node_modules/request'),
