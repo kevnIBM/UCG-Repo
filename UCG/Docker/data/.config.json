@@ -2,7 +2,7 @@
  "nodes": {
   "node-red": {
    "name": "node-red",
-   "version": "0.18.6",
+   "version": "0.18.7",
    "local": false,
    "nodes": {
     "sentiment": {
@@ -477,7 +477,7 @@
   },
   "node-red-node-suncalc": {
    "name": "node-red-node-suncalc",
-   "version": "0.0.10",
+   "version": "0.0.11",
    "local": false,
    "nodes": {
     "suncalc": {
@@ -494,7 +494,7 @@
   },
   "node-red-node-twitter": {
    "name": "node-red-node-twitter",
-   "version": "0.1.15",
+   "version": "1.0.1",
    "local": false,
    "nodes": {
     "twitter": {
@@ -513,7 +513,7 @@
   },
   "node-red-node-watson": {
    "name": "node-red-node-watson",
-   "version": "0.6.14",
+   "version": "0.7.3",
    "local": false,
    "nodes": {
     "watson-conversation-v1": {
@@ -799,6 +799,36 @@
      "local": false,
      "module": "node-red-node-watson",
      "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/discovery/v1-document-loader.js"
+    },
+    "watson-language-translator-v3": {
+     "name": "watson-language-translator-v3",
+     "types": [
+      "watson-translator"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-node-watson",
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/language_translator/v3.js"
+    },
+    "watson-language-translator-identify-v3": {
+     "name": "watson-language-translator-identify-v3",
+     "types": [
+      "watson-language-translator-identify"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-node-watson",
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/language_translator_identify/v3.js"
+    },
+    "watson-language-translator-util-v3": {
+     "name": "watson-language-translator-util-v3",
+     "types": [
+      "watson-translator-util"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-node-watson",
+     "file": "/usr/src/node-red/node_modules/node-red-node-watson/services/language_translator_util/v3.js"
     }
    }
   },
@@ -1058,7 +1088,7 @@
   },
   "node-red-dashboard": {
    "name": "node-red-dashboard",
-   "version": "2.9.4",
+   "version": "2.9.6",
    "local": false,
    "nodes": {
     "ui_base": {
@@ -1279,6 +1309,23 @@
      "local": false,
      "module": "node-red-contrib-actionflows",
      "file": "/usr/src/node-red/node_modules/node-red-contrib-actionflows/actionflows/actionflows.js"
+    }
+   }
+  },
+  "node-red-contrib-pythonshell": {
+   "name": "node-red-contrib-pythonshell",
+   "version": "1.5.4",
+   "local": false,
+   "nodes": {
+    "pythonshell": {
+     "name": "pythonshell",
+     "types": [
+      "pythonshell in"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-contrib-pythonshell",
+     "file": "/usr/src/node-red/node_modules/node-red-contrib-pythonshell/src/pythonshell.js"
     }
    }
   }

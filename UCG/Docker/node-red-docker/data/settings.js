@@ -183,11 +183,9 @@ module.exports = {
         cryptojs:require('/usr/src/node-red/node_modules/crypto-js'),
         websocket:require('/usr/src/node-red/node_modules/websocket'),
         qs:require('/usr/src/node-red/node_modules/qs'),
+        pythonshell: require('/usr/src/node-red/node_modules/python-shell'),
         fs:require('fs'),
         process: process
-        // octalbonescript:require('octalbonescript'),
-        // jfive:require("johnny-five"),
-        // j5board:require("johnny-five").Board({repl:false})
     },
 
     // The following property can be used to order the categories in the editor

@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:9-alpine
 
 # Home directory for Node-RED application source code.
 RUN mkdir -p /usr/src/node-red
@@ -19,6 +19,16 @@ WORKDIR /usr/src/node-red
 # package.json contains Node-RED NPM module and node dependencies
 COPY package.json /usr/src/node-red/
 RUN npm install
+
+#add python
+RUN mkdir -p /usr/src/node-red/bin
+WORKDIR /usr/src/node-red/bin
+RUN apk --no-cache add \
+    python \
+    make \
+    g++
+
+WORKDIR /usr/src/node-red
 
 # User configuration directory volume
 EXPOSE 1880
