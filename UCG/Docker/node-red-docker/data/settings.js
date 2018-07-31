@@ -213,5 +213,17 @@ module.exports = {
         }
         // Custom logger
 
-    }
+    },
+    editorTheme: {
+      page: {
+        title: "UCG Node-RED",
+        favicon: "/absolute/path/to/theme/icon",
+        css: "/absolute/path/to/custom/css/file"
+      },
+      header: {
+        title: "UCG Node-RED",
+        image: "/absolute/path/to/header/image", // or null to remove image
+        url: "http://nodered.org" // optional url to make the header text/image a link to this url
+      }
+    } 
 }
