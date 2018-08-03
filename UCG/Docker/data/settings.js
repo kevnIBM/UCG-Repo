@@ -96,7 +96,7 @@ module.exports = {
 
     // The maximum size of HTTP request that will be accepted by the runtime api.
     // Default: 5mb
-    //apiMaxLength: '5mb',
+    apiMaxLength: '100mb',
 
     // If you installed the optional node-red-dashboard you can set it's path
     // relative to httpRoot
