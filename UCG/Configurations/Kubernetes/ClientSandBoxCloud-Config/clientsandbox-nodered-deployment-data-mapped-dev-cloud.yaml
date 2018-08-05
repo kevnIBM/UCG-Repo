@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: clientsandbox-nodered
-        image: dennisnotojr/node-red-docker-node8-nr-17-data-mapped:version-7
+        image: dennisnotojr/node-red-docker-node9-nr-18-data-mapped:version-7
         ports: 
          - containerPort: 1880
            protocol: TCP

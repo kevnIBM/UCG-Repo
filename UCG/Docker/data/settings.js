@@ -77,7 +77,7 @@ module.exports = {
     // By default, the Node-RED UI is available at http://localhost:1880/
     // The following property can be used to specifiy a different root path.
     // If set to false, this is disabled.
-    //httpAdminRoot: '/admin',
+    httpAdminRoot: '/admin',
 
     // Some nodes, such as HTTP In, can be used to listen for incoming http requests.
     // By default, these are served relative to '/'. The following property
@@ -217,12 +217,12 @@ module.exports = {
     },
     editorTheme: {
       page: {
-        title: "UCG Node-RED",
+        title: "UCG Prod Node-RED",
         favicon: "/absolute/path/to/theme/icon",
         css: "/absolute/path/to/custom/css/file"
       },
       header: {
-        title: "UCG Node-RED",
+        title: "UCG Prod Node-RED",
         image: "/absolute/path/to/header/image", // or null to remove image
         url: "http://nodered.org" // optional url to make the header text/image a link to this url
       }
