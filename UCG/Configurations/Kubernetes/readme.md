@@ -1,63 +1,78 @@
-Welclome to the UCG Repo - Kubernetes Configurations
+Installing on AWS
+
+Can’t use root user account to create cluster, created EKS-Admin user
+
+Create a user EKS-Admin with right permissions for EC2, EKS, etc.
+
+Follow "getting started" guide - https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html
+
+  Create an Amazon EKS Service Role for backplane communications for cluster and workers
+  
+  Create a VPC for communications for cluster and workers
+  
+  Install/config aws cli, kubectl and hecto-authenticator and create kube-config file
+
+Create cluster
+
+aws eks create-cluster --name UCG --role-arn arn:aws:iam::745237701626:role/EKS-Role --resources-vpc-config subnetIds=subnet-bf7033f5,subnet-7395292f,securityGroupIds=sg-1889f552
+
+Create workers
+CloudFormation -use this template -  https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-06-05/amazon-eks-nodegroup.yaml
+
+Connect workers to cluster
+
+Get aws-auth-cm.yml 
+
+        curl -O https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-06-05/aws-auth-cm.yaml
+
+and Replace the <ARN of instance role (not instance profile)> snippet with the NodeInstanceRole value that you recorded in the previous procedure, and save 
+
+./kubectl apply -f aws-auth-cm.yaml
+
+Add Dashboard
+
+Get the dashboard yaml 
+
+curl -O  https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
+Add  --token-ttl=0 under the args 
+
+./kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
+./kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/heapster.yaml
+./kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/influxdb.yaml
+./kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/rbac/heapster-rbac.yaml
+./kubectl apply -f eks-admin-serviceaccount.yaml
+./kubectl apply -f eks-admin-clusterrolebinding.yaml
+
+Get Token for dashboard
+./kubectl -n kube-system describe secret $(./kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}')
+
+ -- Finds eks-admin-token 
+
+export KUBECONFIG=kube-config-dev
+— for kubectl commands
+
+START DASHBOARD
+./kubectl --kubeconfig=kube-config-dev proxy --port 8003
+http://localhost:8003/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/ </dev/null &>/dev/null &
+
+Create EFS service and Centos EC2(T1) to manage data directories
+—  Make sure you use the VPC created for cluster
+
+MUST do a YUM install of EFS utils on every NODE to get the efs-provisioner to work!!!  
+sudo yum install -y amazon-efs-utils
+
+Need to add the EFS provisioner for persistent EFS volumes
 
 
-Steps to use an NFS File storage volume in Bluemix for Kubernetes Persistant Volume
+First - permissions 
+./kubectl create -f deploy/auth/serviceaccount.yaml
+./kubectl create -f deploy/auth/clusterrole.yaml
+./kubectl create -f deploy/auth/clusterrolebinding.yaml
 
-1. Create an NFS File storage volume
-   Catalog - Storage - File Storage
-   Select Performance, Dallas-10, 100 GB, 1000 IOPS
+Add efs provisioner
+./kubectl create -f efs-provisioner-deployment.yaml
 
-2. Create a Centos VM for managing files on NFS
-   Catalog - Compute - Virtual Server
-   Select Public VM, Centos, balanced 2x4, Public and Private Network Uplink, add-on static IP
-
-3. Authorize NFS for Centos server and the Cluster Works
-   Go into Infrastructure - Storage - File Storage - Select the NFS volume
-   Authorize VM servers
-
-4. Mount NFS on Centos server
-   Install nfs 
-        yum -y install nfs-utils nfs-utils-lib
-   Mount nfs
-       mkdir /nfs
-       mount -t nfs4 -o hard,intr fsf-dal1001h-fz.adn.networklayer.com:/IBM02SV1339641_2/data01 /nfs 
-           - mount_point can be found at step 3
-   Add to etc/fstab
-       fsf-dal1001h-fz.adn.networklayer.com:/IBM02SV1339641_2/data01 /nfs nfs4 hard,intr        
-   Test to see if mounted
-        df -h
-5. create directores and copy files
-     - create directory for data and code
-       cd /nfs
-       mkdir data - for nodered 
-       mkdir code - liveperson
-
-     - use scp or filezilla to copy files
-       for /data
-           - copy settings.js, flows.json, flows-cred.json
-       for /code
-           - copy all liveperson file from the sdk(node-agent-sdk-master) directory to /code - tar first, then copy, and untar
-           - example of making copies of code directories - cp -a code  code-xx
-     - unsecure files 
-       chmod 777 -R data
-       chmod 777 -R code
-
- 6. update the kubernetes volume.yaml with Server and path info
-
- 7. create volume and volume claim
-      ./kubectl create -f volume.yaml
-      ./kubectl apply -f volume-claim.yaml
-
- 8. Now you can use the nodered-deployment-data-mapped-cloud.yaml
-
-
-
-
-
-
-
-
-
-
+Add nodered deployment 
+Add nodered service
 
 
