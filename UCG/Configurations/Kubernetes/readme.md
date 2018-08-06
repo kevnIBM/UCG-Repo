@@ -29,6 +29,10 @@ and Replace the <ARN of instance role (not instance profile)> snippet with the N
 
 ./kubectl apply -f aws-auth-cm.yaml
 
+How you can watch your workes join the cluster
+./kubectl get nodes --watch
+
+
 Add Dashboard
 
 Get the dashboard yaml 
@@ -52,17 +56,19 @@ export KUBECONFIG=kube-config-dev
 — for kubectl commands
 
 START DASHBOARD
-./kubectl --kubeconfig=kube-config-dev proxy --port 8003
-http://localhost:8003/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/ </dev/null &>/dev/null &
+./kubectl --kubeconfig=kube-config-dev proxy --port 8003 </dev/null &>/dev/null &
+
+http://localhost:8003/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/ 
 
 Create EFS service and Centos EC2(T1) to manage data directories
 —  Make sure you use the VPC created for cluster
 
 MUST do a YUM install of EFS utils on every NODE to get the efs-provisioner to work!!!  
-sudo yum install -y amazon-efs-utils
+sudo yum install -y amazon-efs-utils - workers
+sudo apt-get install nfs-common - centos nfs server
 
 Need to add the EFS provisioner for persistent EFS volumes
-
+https://github.com/kubernetes-incubator/external-storage/tree/master/aws/efs
 
 First - permissions 
 ./kubectl create -f deploy/auth/serviceaccount.yaml
@@ -71,6 +77,12 @@ First - permissions
 
 Add efs provisioner
 ./kubectl create -f efs-provisioner-deployment.yaml
+  -- make sure you change these values: 
+       file.system.id: fs-3249457a
+       aws.region: us-east-1
+       nfs:
+            server: fs-3249457a.efs.us-east-1.amazonaws.com
+            path: /
 
 Add nodered deployment 
 Add nodered service
