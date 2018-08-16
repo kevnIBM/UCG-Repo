@@ -34,7 +34,7 @@
 var d = new Date();
 var n = d.getTime();
 
-Smooch.init({appId:'5879ad480e2ed0330027f622', embeded: true}).then(function() {
+Smooch.init({appId:'5879ad480e2ed0330027f622', embeded: true, soundNotificationEnabled: false}).then(function() {
     Smooch.sendMessage("Hello Money Assist")
     Smooch.render(document.getElementById('watson'))
     });

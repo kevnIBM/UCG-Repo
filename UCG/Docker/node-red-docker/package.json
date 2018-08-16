@@ -32,7 +32,7 @@
         "node-red-bluemix-nodes":"1.x",
         "node-red-node-watson":"0.x",
         "node-red-node-openwhisk":"0.x",
-        "node-red-node-cf-cloudant":"0.x",
+        "@cloudant/cloudant":"2.x",
         "node-red-contrib-scx-ibmiotapp":"0.x",
         "node-red-contrib-mssql":"0.x",
         "node-red-contrib-ucg-mssql":"0.1.8",

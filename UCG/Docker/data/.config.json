@@ -979,25 +979,6 @@
     }
    }
   },
-  "node-red-node-cf-cloudant": {
-   "name": "node-red-node-cf-cloudant",
-   "version": "0.2.17",
-   "local": false,
-   "nodes": {
-    "cloudant-cf": {
-     "name": "cloudant-cf",
-     "types": [
-      "cloudant",
-      "cloudant out",
-      "cloudant in"
-     ],
-     "enabled": true,
-     "local": false,
-     "module": "node-red-node-cf-cloudant",
-     "file": "/usr/src/node-red/node_modules/node-red-node-cf-cloudant/77-cloudant-cf.js"
-    }
-   }
-  },
   "node-red-node-openwhisk": {
    "name": "node-red-node-openwhisk",
    "version": "0.3.4",

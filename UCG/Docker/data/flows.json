@@ -6802,5 +6802,66 @@
         "x": 1475.378646850586,
         "y": 140.97425842285156,
         "wires": []
+    },
+    {
+        "id": "64679601.cfb688",
+        "type": "inject",
+        "z": "5b6fab52.9eae84",
+        "name": "Execute",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 99.1358642578125,
+        "y": 656.3043212890625,
+        "wires": [
+            [
+                "14c90ee.c8ab0f1"
+            ]
+        ]
+    },
+    {
+        "id": "14c90ee.c8ab0f1",
+        "type": "pythonshell in",
+        "z": "5b6fab52.9eae84",
+        "name": "Run Python Script",
+        "pyfile": "/data/testpythonscript.py",
+        "virtualenv": "",
+        "continuous": true,
+        "stdInData": true,
+        "x": 288.5287170410156,
+        "y": 659.590087890625,
+        "wires": [
+            [
+                "9dd3ab6d.90c038"
+            ]
+        ]
+    },
+    {
+        "id": "9dd3ab6d.90c038",
+        "type": "debug",
+        "z": "5b6fab52.9eae84",
+        "name": "pythonshell output",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 506.8144989013672,
+        "y": 656.215087890625,
+        "wires": []
+    },
+    {
+        "id": "e11aab6c.04fc68",
+        "type": "comment",
+        "z": "5b6fab52.9eae84",
+        "name": "Example of calling a python script on /data directory",
+        "info": "",
+        "x": 202.02910614013672,
+        "y": 600.9324340820312,
+        "wires": []
     }
 ]
